@@ -11,7 +11,7 @@ int add(int x, int y)
 int main() 
 {
 	int my_v		= 1;
-	int	x			= 4;
+	int	z			= 4;
 	int num_apples	= 123;
 	
 	//this is important
