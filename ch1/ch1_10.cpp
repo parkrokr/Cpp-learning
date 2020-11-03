@@ -1,3 +1,5 @@
+// 선언과 정의의 분리
+
 #include <iostream>
 
 using namespace std;

@@ -1,3 +1,5 @@
+// 입출력 스트림과의 첫 만남 cin, cout
+
 #include <iostream> //cout, cin, endl, . . .
 #include <cstdio>   //printf
 

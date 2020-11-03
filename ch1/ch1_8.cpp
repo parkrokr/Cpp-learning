@@ -1,3 +1,5 @@
+// 연산자와의 첫 만남
+
 #include <iostream>
 
 using namespace std;

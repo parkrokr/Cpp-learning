@@ -1,3 +1,5 @@
+// 지역 범위
+
 #include <iostream>
 
 using namespace std;

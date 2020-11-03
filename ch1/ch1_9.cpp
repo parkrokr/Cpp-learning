@@ -1,3 +1,5 @@
+// 기본적인 서식 맞추기
+
 #include "stdafx.h"
 #include <iostream>
 
