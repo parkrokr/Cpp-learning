@@ -1,4 +1,4 @@
-// 연산자와의 첫 만남
+// 연산자와의 첫 만남 Operators
 
 #include <iostream>
 

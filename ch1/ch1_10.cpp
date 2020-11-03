@@ -1,4 +1,4 @@
-// 선언과 정의의 분리
+// 선언과 정의의 분리 Declaration Definition
 
 #include <iostream>
 

@@ -1,4 +1,4 @@
-// 헤더파일 만들기
+// 헤더파일 만들기 Header
 
 #include <iostream>
 #include "MyHeaders/ch1_12_add_.h" //헤더파일을 다른곳에서 옮겨왔을때

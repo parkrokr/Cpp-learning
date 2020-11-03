@@ -1,4 +1,4 @@
-// 헤더 가드가 필요한 이유
+// 헤더 가드가 필요한 이유 Header Guards
 
 #include <iostream>
 #include "ch1_12_my_work.h"
