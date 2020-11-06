@@ -1,4 +1,4 @@
-// ÇÔ¼ö¿ÍÀÇ Ã¹ ¸¸³²
+// í•¨ìˆ˜ì™€ì˜ ì²« ë§Œë‚¨
 
 #include <iostream>
 
