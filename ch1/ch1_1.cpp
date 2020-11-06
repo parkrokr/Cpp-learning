@@ -1,6 +1,6 @@
 //프로그램의 구조
 
-#include <iostream>//전처리기,preprocessor directive
+#include <iostream> //전처리기,preprocessor directive
 
 int main(void)
 {
