@@ -1,4 +1,4 @@
-// ¸íÄª °ø°£ Namespace
+// ëª…ì¹­ ê³µê°„ Namespace
 
 #include <iostream>
 

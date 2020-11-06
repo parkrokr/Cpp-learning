@@ -1,10 +1,10 @@
-// ¼±¾ğ°ú Á¤ÀÇÀÇ ºĞ¸® Declaration Definition
+// ì„ ì–¸ê³¼ ì •ì˜ì˜ ë¶„ë¦¬ Declaration Definition
 
 #include <iostream>
 
 using namespace std;
 
-int add(int a, int b); // forward declaration Àü¹æ ¼±¾ğ 
+int add(int a, int b); // forward declaration ì „ë°© ì„ ì–¸
 int multiply(int a, int b);
 int subtract(int a, int b);
 //Peek Definition, GO To Definition, Go To Declaration 

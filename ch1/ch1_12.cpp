@@ -1,4 +1,4 @@
-// Çì´õ°¡µå°¡ ÇÊ¿äÇÑ ÀÌÀ¯ Header Guards
+// í—¤ë”ê°€ë“œê°€ í•„ìš”í•œ ì´ìœ  Header Guards
 
 #include <iostream>
 #include "ch1_12_my_work.h"
