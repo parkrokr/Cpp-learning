@@ -1,4 +1,4 @@
-//주석 comments
+// 주석 comments
 
 #include <iostream>
 
@@ -9,7 +9,7 @@ int main()
 	int y = x + 3;
 
 	//ctrl k c
-	//
+	
 	std::cout << 1 + 2 << std::endl;
 
 	return 0;

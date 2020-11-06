@@ -1,4 +1,4 @@
-// ΈνΔͺ °ψ°£ (Namespace)
+// ΈνΔͺ °ψ°£ Namespace
 
 #include <iostream>
 

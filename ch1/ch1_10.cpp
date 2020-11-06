@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int add(int a, int b); // forward declaration 穿号識情 
+int add(int a, int b); // forward declaration 穿号 識情 
 int multiply(int a, int b);
 int subtract(int a, int b);
 //Peek Definition, GO To Definition, Go To Declaration 
