@@ -1,4 +1,6 @@
-﻿#include <iostream>
+﻿// 문자형 char type
+
+#include <iostream>
 #include <limits>
 
 int main()
