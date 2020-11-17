@@ -37,7 +37,7 @@ int main()
 	cin >> c3;
 	cout << c3 << " " << static_cast<int>(c3) << endl;
 
-    cin >> c3;
+        cin >> c3;
 	cout << c3 << " " << static_cast<int>(c3) << endl;
 
 
