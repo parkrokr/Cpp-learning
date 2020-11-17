@@ -61,7 +61,11 @@ int main()
 	cout << int('\t') << endl;
 	cout << "This is first line\a  \tsecond line \"";
 
+	
+	// windows 에서 많이 쓰는 타입, 가급적 사용 안하는 것이 좋음
 	wchar_t c;
+	
+	// 여려가지 문자 unicode 를 쓸수 있음
 	char32_t c4;
 
 	cout << "Hello, ɸ or \u0444!\n";
