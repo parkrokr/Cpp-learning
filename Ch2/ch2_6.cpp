@@ -1,4 +1,4 @@
-// ºÒ¸®¾ğ ÀÚ·áÇü°ú Á¶°Ç¹® if  Boolean
+// ë¶ˆë¦¬ì–¸ ìë£Œí˜•ê³¼ ì¡°ê±´ë¬¸ if  Boolean
 
 #include <iostream>
 
@@ -46,7 +46,7 @@ int main()
 	else
 		cout << "this is false" << endl;
 
-	// µÎÁÙ ÀÌ»óÀÎ °æ¿ì Áß°ıÈ£ ¹İµå½Ã 
+	// ë‘ì¤„ ì´ìƒì¸ ê²½ìš° ì¤‘ê´„í˜¸ ë°˜ë“œì‹œ 
 	if (3 > 1)
 	{
 		cout << "This is true" << endl;
@@ -59,14 +59,17 @@ int main()
 	cout << isEqual(0, 3) << endl;
 
 
-	// if Á¶°Ç¹® 0 ÀÌ¸é false , ±× ¿Ü¿¡´Â ´Ù true
+	// if ì¡°ê±´ë¬¸ 0 ì´ë©´ false , ê·¸ ì™¸ì—ëŠ” ë‹¤ true
 	if (-1)
 	{
 		cout << "True" << endl;
 	}
 	else
 		cout << "False" << endl;
-
+	
+	
+	// ì´ ê²°ê³¼ëŠ” ì‹œìŠ¤í…œë§ˆë‹¤, comfiler ë§ˆë‹¤ ë‹¤ë¥¼ ìˆ˜ 
+	
 	bool b;
 
 	cin >> b;
