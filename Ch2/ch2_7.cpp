@@ -19,7 +19,8 @@ int main()
 	// cpp style casting
 	cout << char(65) << endl;
 	cout << int('A') << endl;
-
+	
+	// static_cast 는 compiler 에게 미리 문제없는지 체크 받는 느낌, < > 사용해야 함 
 	cout << static_cast<char>(65) << endl;
 	cout << static_cast<int>('A') << endl;
 
@@ -37,7 +38,7 @@ int main()
 	cin >> c3;
 	cout << c3 << " " << static_cast<int>(c3) << endl;
 
-    cin >> c3;
+        cin >> c3;
 	cout << c3 << " " << static_cast<int>(c3) << endl;
 
 
@@ -61,7 +62,11 @@ int main()
 	cout << int('\t') << endl;
 	cout << "This is first line\a  \tsecond line \"";
 
+	
+	// windows 에서 많이 쓰는 타입, 가급적 사용 안하는 것이 좋음
 	wchar_t c;
+	
+	// 여려가지 문자 unicode 를 쓸수 있음
 	char32_t c4;
 
 	cout << "Hello, ɸ or \u0444!\n";
