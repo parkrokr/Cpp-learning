@@ -19,7 +19,8 @@ int main()
 	// cpp style casting
 	cout << char(65) << endl;
 	cout << int('A') << endl;
-
+	
+	// static_cast 는 compiler 에게 미리 문제없는지 체크 받는 느낌, < > 사용해야 함 
 	cout << static_cast<char>(65) << endl;
 	cout << static_cast<int>('A') << endl;
 
