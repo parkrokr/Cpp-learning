@@ -68,7 +68,7 @@ int main()
 		cout << "False" << endl;
 	
 	
-	// 이 결과는 시스템마다, comfiler 마다 다를 수 
+	// 이 결과는 시스템마다, comiler 마다 다를 수 
 	
 	bool b;
 
