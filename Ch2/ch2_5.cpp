@@ -1,4 +1,4 @@
-// ºÎµ¿¼Ò¼öÁ¡ ¼ö Floating Point Numbers
+// ë¶€ë™ì†Œìˆ˜ì  ìˆ˜ Floating Point Numbers
 
 #include<iostream>
 #include <iomanip>
@@ -13,8 +13,8 @@ int main()
 	cout << sizeof(float) << numeric_limits<float>::max() << endl;
 	cout << numeric_limits<float>::lowest() << endl;
 
-	// double À» °¡Àå ¸¹ÀÌ »ç¿ëÇÏ´Â Ãß¼¼
-	// double °ú long double ÀÌ ½Ã½ºÅÛ¿¡¼­ ±¸ÇöµÇ¾îÀÖ´Â ¹üÀ§´Â °°´Ù
+	// double ì„ ê°€ì¥ ë§ì´ ì‚¬ìš©í•˜ëŠ” ì¶”ì„¸
+	// double ê³¼ long double ì´ ì‹œìŠ¤í…œì—ì„œ êµ¬í˜„ë˜ì–´ìˆëŠ” ë²”ìœ„ëŠ” ê°™ë‹¤
 	cout << sizeof(double) << numeric_limits<double>::max() << endl;
 	cout << numeric_limits<double>::lowest() << endl;
 
@@ -62,7 +62,7 @@ int main()
 	cout << neginf << endl;
 	cout << nan << endl;
 
-	//std::isnan infÁö ¾Æ´ÑÁö ºÎ¿ì¸±À¸·Î ¾Ë·ÁÁÜ, <cmath> ÇÊ¿ä
+	//std::isnan infì§€ ì•„ë‹Œì§€ ë¶€ìœ¼ë¡œ ì•Œë ¤ì¤Œ, <cmath> í•„ìš”
 
 	cout << posinf << " " << std::isnan(posinf) << std::isinf(posinf) << endl;
 	cout << neginf << " " << std::isnan(neginf) << std::isinf(neginf) << endl;
