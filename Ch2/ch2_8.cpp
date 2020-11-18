@@ -1,4 +1,4 @@
-// ¸®ÅÍ·² »ó¼ö literal constants
+// ë¦¬í„°ëŸ´ ìƒìˆ˜ literal constants
 
 #include <iostream>
 
@@ -7,7 +7,7 @@ int main()
 	using namespace std;
 
 	
-	// ¼ıÀÚ µÚ¿¡ u ´Â unsigned
+	// ìˆ«ì ë’¤ì— u ëŠ” unsigned
 	float pi = 3.14f;
 	int i = (unsigned int)12324;// 12324u;
 
@@ -21,23 +21,23 @@ int main()
 	// Octal   : 0 1 2 3 4 5 6 7 10 11 12
 	// Hexa    : 0 1 2 3 4 5 6 7 8  9  A  B C D E F 10
 
-    // Octal ·Î Ç¥Çö ÇÏ°í ½ÍÀ»¶§ ¾Õ¿¡ 0	
+    // Octal ë¡œ í‘œí˜„ í•˜ê³  ì‹¶ì„ë•Œ ì•ì— 0	
 	int x = 012; 
 
-	// Hexa ·Î Ç¥Çö ÇÏ°í ½ÍÀ»¶§ ¾Õ¿¡ 0x
+	// Hexa ë¡œ í‘œí˜„ í•˜ê³  ì‹¶ì„ë•Œ ì•ì— 0x
 	int x1 = 0xF;
 
-	// Binary ·Î Ç¥Çö ÇÏ°í ½ÍÀ»¶§ ¾Æ¿¡ 0b  c++ 14 ºÎÅÍ binary literal ÀÌ °¡´ÉÇØÁü
-	//  c ++ 14 ºÎÅÍ literal »çÀÌ ' ´Â ÄÄÆÄÀÏ·¯°¡ ¹«½ÃÇÔ
+	// Binary ë¡œ í‘œí˜„ í•˜ê³  ì‹¶ì„ë•Œ ì•ì— 0b ë¶™ì´ê¸°,  c++ 14 ë¶€í„° binary literal ì´ ê°€ëŠ¥í•´ì§
+	//  c ++ 14 ë¶€í„° literal ì‚¬ì´ ' ëŠ” ì»´íŒŒì¼ëŸ¬ê°€ ë¬´ì‹œí•¨
 	int x3 = 0b10'1111'1101'0110;
 	
 	cout << x << " " << x1 << " " << x3 << endl;
 
-	// 10 °°Àº ¼ıÀÚ¸¦ magic number ¶ó°í ÇÔ
+	// 10 ê°™ì€ ìˆ«ìë¥¼ magic number ë¼ê³  í•¨
 	int num_items = 123;
 	int price = num_items * 10; // 10 is . . .
 
-	// Symbolic »ó¼ö¸¦ ¾²´Â°Ô ´õ ÁÁÀ½`
+	// Symbolic ìƒìˆ˜ë¥¼ ì“°ëŠ”ê²Œ ë” ì¢‹ìŒ`
 	const int price_per_item = 10;
 	int num_items1 = 123;
 	int price1 = num_items1 * price_per_item;
