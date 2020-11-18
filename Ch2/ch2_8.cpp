@@ -21,7 +21,7 @@ int main()
 	// Octal   : 0 1 2 3 4 5 6 7 10 11 12
 	// Hexa    : 0 1 2 3 4 5 6 7 8  9  A  B C D E F 10
 
-    // Octal 로 표현 하고 싶을때 앞에 0	
+        // Octal 로 표현 하고 싶을때 앞에 0	
 	int x = 012; 
 
 	// Hexa 로 표현 하고 싶을때 앞에 0x
@@ -33,7 +33,7 @@ int main()
 	
 	cout << x << " " << x1 << " " << x3 << endl;
 
-	// 10 같은 숫자를 magic number 라고 함
+	// 예제의 10 같은 숫자를 magic number 라고 함
 	int num_items = 123;
 	int price = num_items * 10; // 10 is . . .
 
