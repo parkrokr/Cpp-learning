@@ -21,6 +21,7 @@ int main()
 	cout << int('A') << endl;
 	
 	// static_cast 는 compiler 에게 미리 문제없는지 체크 받는 느낌, < > 사용해야 함 
+	// 원래 변수의 값이 변하진 않음
 	cout << static_cast<char>(65) << endl;
 	cout << static_cast<int>('A') << endl;
 
@@ -29,11 +30,11 @@ int main()
 	cout << static_cast<int>(ch) << endl;
 	cout << ch << endl;
 
-	//input abc,ab
+	//input a b c , a b 
 	char c3(65);
 	
 	cin >> c3;
-	cout << c3 << " " << static_cast<int>(c3) << endl;
+	cout << c3 << " " << static_cast<int>(c3) << endl; // static_cast 를 쓰지 않아도 되나 적어주는게 의도를 표현하기 좋음
 
 	cin >> c3;
 	cout << c3 << " " << static_cast<int>(c3) << endl;
@@ -41,7 +42,8 @@ int main()
         cin >> c3;
 	cout << c3 << " " << static_cast<int>(c3) << endl;
 
-
+	
+	// 범위(size) 
 	cout << sizeof(char) << endl;
 	cout << (int)std::numeric_limits<char>::max() << endl;
 	cout << (int)std::numeric_limits<char>::lowest() << endl;
