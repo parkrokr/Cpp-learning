@@ -1,4 +1,4 @@
-// ¹«Ä¡Çü ( Void, º¸ÀÌµå) Void Type
+// ë¬´ì¹˜í˜• ( Void, ë³´ì´ë“œ) Void Type
 
 #include <iostream>
 
@@ -9,15 +9,17 @@ void my_function()
 
 int main()
 {
-	//void my_void; void´Â ¸Ş¸ğ¸®¸¦ »ç¿ëÇÏÁö ¾Ê±â ¶§¹®¿¡ ¼±¾ğÇÏÁö ¸øÇÑ´Ù
+	//void my_void; voidëŠ” ë©”ëª¨ë¦¬ë¥¼ ì°¨ì§€í•˜ì§€ ì•Šê¸° ë•Œë¬¸ì— ì„ ì–¸í•˜ì§€ ëª»í•œë‹¤
 
 	int i = 123;
 	float f = 123.456f;
 
-	void* my_void;
+	void* my_void; // *ì£¼ì†Œ
 
-	my_void = (void*)&i;
-    my_void = (void*)&f;
+	// type ì´ ë‹¬ë¼ë„ ì£¼ì†Œì˜ íƒ€ì…ì€ ê°™ê¸° ë•Œë¬¸ì— í˜•ë³€í™˜ì´ ê°€ëŠ¥í•˜ë‹¤
+	
+	my_void = (void*)&i; // &i ì •ìˆ˜í˜• ë³€ìˆ˜ì˜ ì£¼ì†Œ
+        my_void = (void*)&f; // &f ì‹¤ìˆ˜í˜• ë³€ìˆ˜ì˜ ì£¼ì†Œ
 
 	//std::cout << sizeof(void*) <<std:: endl;
 
