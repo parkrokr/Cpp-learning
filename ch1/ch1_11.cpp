@@ -1,7 +1,7 @@
-// Çì´õÆÄÀÏ ¸¸µé±â Header
+// í—¤ë”íŒŒì¼ ë§Œë“¤ê¸° Header
 
 #include <iostream>
-#include "MyHeaders/ch1_12_add_.h" //Çì´õÆÄÀÏÀ» ´Ù¸¥°÷¿¡¼­ ¿Å°Ü¿ÔÀ»¶§
+#include "MyHeaders/ch1_11_add_.h" //í—¤ë”íŒŒì¼ì„ ë‹¤ë¥¸ê³³ì—ì„œ ì˜®ê²¨ì™”ì„ë•Œ
 
 using namespace std;
 
