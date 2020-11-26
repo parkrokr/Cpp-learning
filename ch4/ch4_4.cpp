@@ -1,4 +1,4 @@
-// Auto Å°¿öµå¿Í ÀÚ·áÇü Ãß·Ğ(Type Inference)
+// Auto í‚¤ì›Œë“œì™€ ìë£Œí˜• ì¶”ë¡ (Type Inference)
 
 #include<iostream>
 
@@ -7,26 +7,26 @@ int add(int x, int y)
 	return x + y;
 }
 
-// ÇÔ¼ö return typeµµ auto¸¦ ¾µ ¼ö ÀÖÀ½
-auto add(double x, int y) -> double //trailing ÀÚÃë¸¦ ³²±æ ¼ö ÀÖÀ½
+// í•¨ìˆ˜ return typeë„ autoë¥¼ ì“¸ ìˆ˜ ìˆìŒ
+auto add(double x, int y) -> double //trailing ìì·¨ë¥¼ ë‚¨ê¸¸ ìˆ˜ ìˆìŒ
 {
 	return x + (double)y;
 }
 
 /*
-int		 add(int x, int y);			  ÀÌ°Åº¸´Ü
+int		 add(int x, int y);			  ì´ê±°ë³´ë‹¨
 double	 add(int x, int y);		
 
 auto add(int x, int y) -> int;
-auto add(int x, int y) -> double;     ÀÌ°Ô º¸±â ÆíÇÔ
+auto add(int x, int y) -> double;     ì´ê²Œ ë³´ê¸° í¸í•¨
 
 */
 
 
-//auto add(auto x, auto y) Ã³·³ auto¸¦ parameter type¿¡´Â ¾µ ¼ö ¾ø´Ù
+//auto add(auto x, auto y) ì²˜ëŸ¼ autoë¥¼ parameter typeì—ëŠ” ì“¸ ìˆ˜ ì—†ë‹¤
 
 
-//templateÀ» »ç¿ëÇÏ¸é °¡´É, ¿©·¯°³ÀÇ return °ªÀ» ¹İÈ¯ÇÒ ¼ö ÀÖÀ½
+//templateì„ ì‚¬ìš©í•˜ë©´ ê°€ëŠ¥, ì—¬ëŸ¬ê°œì˜ return ê°’ì„ ë°˜í™˜í•  ìˆ˜ ìˆìŒ
 
 
 
@@ -34,18 +34,18 @@ int main()
 {
 	using namespace std;
 
-	//int a = 123; //123 Àº Á¤¼öÀÌ±â ¶§¹®¿¡ a´Â Á¤¼öÇüÀÌ µÉ °ÍÀÌ´Ù, ÇÑÁÙ¿¡ Á¤º¸°¡ µÎ°³°¡ ÀÖ´Ù
+	//int a = 123; //123 ì€ ì •ìˆ˜ì´ê¸° ë•Œë¬¸ì— aëŠ” ì •ìˆ˜í˜•ì´ ë  ê²ƒì´ë‹¤, ì¦‰ í•œì¤„ì— ì •ë³´ê°€ ë‘ê°œê°€ ìˆë‹¤
 	
-	auto a = 123; //ÀÚ·áÇüÀ» »óÇ×¿¡ µû¶ó¼­ ½º½º·Î Ãß·ĞÇÏ°Ô ÇÏ´Â°É ÇüÃß·ĞÀÌ¶ó°í ÇÏ°í auto¸¦ »ç¿ëÇÔ
+	auto a = 123; //ìë£Œí˜•ì„ ìƒí™©ì— ë”°ë¼ì„œ ìŠ¤ìŠ¤ë¡œ ì¶”ë¡ í•˜ê²Œ í•˜ëŠ”ê±¸ í˜•ì¶”ë¡  Type Inference ì´ë¼ê³  í•˜ê³  auto í‚¤ì›Œë“œë¥¼ ì‚¬ìš©í•¨
 
-	// ÃÊ±âÈ­¸¦ ÇÏÁö ¾ÊÀ¸¸é auto¸¦ »ç¿ëÇÒ ¼ö ¾øÀ½
+	// ì´ˆê¸°í™”ë¥¼ í•˜ì§€ ì•Šìœ¼ë©´ autoë¥¼ ì‚¬ìš©í•  ìˆ˜ ì—†ìŒ
 
 	auto d = 123.0; //double
 	auto c = 1 + 2.0; //double
 
-	// °è»ê °á°ú°¡ ¾î¶² ÀÚ·áÇüÀÏÁö ÇÁ·Î±×·¡¸Ó°¡ ¾Ë°í ÀÖ¾î¾ßÇÔ
+	// ê³„ì‚° ê²°ê³¼ê°€ ì–´ë–¤ ìë£Œí˜•ì¼ì§€ í”„ë¡œê·¸ë˜ë¨¸ê°€ ì•Œê³  ìˆì–´ì•¼í•¨
 
-	// ÇÔ¼ö return type µµ auto¸¦ ¾µ ¼ö ÀÖÀ½
+	// í•¨ìˆ˜ return type ë„ autoë¥¼ ì“¸ ìˆ˜ ìˆìŒ
 	auto result = add(1, 2);
 	cout << result << endl;
 	
