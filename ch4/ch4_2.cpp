@@ -1,25 +1,25 @@
-// Àü¿ª º¯¼ö(Global Variable), Á¤Àûº¯¼ö(Static Variable), ³»ºÎ ¿¬°á(Internal Linkage), ¿ÜºÎ ¿¬°á(External Linkage)
+// ì „ì—­ ë³€ìˆ˜(Global Variable), ì •ì ë³€ìˆ˜(Static Variable), ë‚´ë¶€ ì—°ê²°(Internal Linkage), ì™¸ë¶€ ì—°ê²°(External Linkage)
 
 
 /*
-	int g_x; // ÃÊ±âÈ­¸¦ ¾ÈÇÏ°í Á¤ÀÇ¸¸ ÇÏ´Â°æ¿ì external linkage ·Î ¾µ ¼ö ÀÖÀ½
-	static ing g_x; // internal likage ´Ù¸¥ cppÆÄÀÏ¿¡¼­ Á¢±ÙÇÒ ¼ö ¾ø´Ù ÃÊ±âÈ­°¡ µÇ¾îÀÖÁö ¾ÊÀº Á¤Àûº¯¼ö´Ù
-	const int g_x(0); //ÃÊ±âÈ­°¡ ¹Ýµå½Ã ÇÊ¿äÇÔ, °ªÀ» ÀÌÈÄ¿¡ ¾È¹Ù²Þ
+	int g_x; // ì´ˆê¸°í™”ë¥¼ ì•ˆí•˜ê³  ì •ì˜ë§Œ í•˜ëŠ”ê²½ìš° external linkage ë¡œ ì“¸ ìˆ˜ ìžˆìŒ
+	static ing g_x; // internal likage ë‹¤ë¥¸ cppíŒŒì¼ì—ì„œ ì ‘ê·¼í•  ìˆ˜ ì—†ë‹¤ ì´ˆê¸°í™”ê°€ ë˜ì–´ìžˆì§€ ì•Šì€ ì •ì ë³€ìˆ˜ë‹¤
+	const int g_x(0); //ì´ˆê¸°í™”ê°€ ë°˜ë“œì‹œ í•„ìš”í•¨, ê°’ì„ ì´í›„ì— ì•ˆë°”ê¿ˆ
 
-	extern int g_z;
-	extern const int g_z;// ´Ù¸¥°÷ ¾îµð¼­ ÇÑ°÷¿¡¼­¸¸ °ªÀ» ÃÊ±âÈ­ ÇØÁà¾ßÇÔ
+	extern int g_z; // forward declartion ì¸ ê²½ìš° extern
+	extern const int g_z;// ë‹¤ë¥¸ê³³ ì–´ë””ì„œ í•œê³³ì—ì„œë§Œ ê°’ì„ ì´ˆê¸°í™” í•´ì¤˜ì•¼í•¨
 
-	int g_y(1); //external linkage°í ÃÊ±âÈ­°¡ µÈ Àü¿ªº¯¼ö
-	static int g_y(1);//´Ù¸¥°÷¿¡¼­ Á¢±ÙÀÌ ºÒ°¡´ÉÇÑ Á¤Àû Àü¿ª º¯¼ö¸¦ ÃÊ±âÈ­
-	const int g_y(1); //°°Àº ÆÄÀÏ ¾È¿¡¼­¸¸ Á¢±Ù °¡´ÉÇÑ °ªÀ» ¹Ù²Ü¼ö ¾ø´Â º¯¼ö
+	int g_y(1); //external linkageê³  ì´ˆê¸°í™”ê°€ ëœ ì „ì—­ë³€ìˆ˜
+	static int g_y(1);//ë‹¤ë¥¸ê³³ì—ì„œ ì ‘ê·¼ì´ ë¶ˆê°€ëŠ¥í•œ ì •ì  ì „ì—­ ë³€ìˆ˜ë¥¼ ì´ˆê¸°í™”
+	const int g_y(1); //ê°™ì€ íŒŒì¼ ì•ˆì—ì„œë§Œ ì ‘ê·¼ ê°€ëŠ¥í•œ ê°’ì„ ë°”ê¿€ìˆ˜ ì—†ëŠ” ë³€ìˆ˜
 
-	extern int g_w(1);// ÃÊ±âÈ­ÇÑ ´Ù¸¥ cppÆÄÀÏ¿¡¼­ Á¢±Ù °¡´ÉÇÑ Àü¿ªº¯¼ö
-	extern const int g_w(1);// ÃÊ±âÈ­ µÇ¾ú°í °ªÀ» ¸ø¹Ù²Ù°í ´Ù¸¥ cppÆÄÀÏ¿¡¼­ Á¢±Ù °¡´É
-	ÃÊ±âÈ­¸¦ ÇÑ¹ø ÇØÁÖ¸é ´Ù¸¥°÷¿¡¼­ ÃÊ±âÈ­¸¦ ÇÏ¸é ¾ÈµÈ´Ù.
+	extern int g_w(1);// ì´ˆê¸°í™”í•œ ë‹¤ë¥¸ cppíŒŒì¼ì—ì„œ ì ‘ê·¼ ê°€ëŠ¥í•œ ì „ì—­ë³€ìˆ˜
+	extern const int g_w(1);// ì´ˆê¸°í™” ë˜ì—ˆê³  ê°’ì„ ëª»ë°”ê¾¸ê³  ë‹¤ë¥¸ cppíŒŒì¼ì—ì„œ ì ‘ê·¼ ê°€ëŠ¥
+	ì´ˆê¸°í™”ë¥¼ í•œë²ˆ í•´ì£¼ë©´ ë‹¤ë¥¸ê³³ì—ì„œ ì´ˆê¸°í™”ë¥¼ í•˜ë©´ ì•ˆëœë‹¤.
 */
 
 
-// Àü¿ªº¯¼ö °¡±ÞÀû »ç¿ë ¾ÈÇØ¾ßÇÔ, ÇÁ·Î±×·¥ÀÌ Ä¿Áö¸é °ü¸®°¡ Èûµé¾îÁü
+// ì „ì—­ë³€ìˆ˜ ê°€ê¸‰ì  ì‚¬ìš© ì•ˆí•´ì•¼í•¨, í”„ë¡œê·¸ëž¨ì´ ì»¤ì§€ë©´ ê´€ë¦¬ê°€ íž˜ë“¤ì–´ì§
 
 #include<iostream>
 #include "MyConstants4_2.h"
@@ -30,23 +30,23 @@ int value = 123;
 
 //int a = 1;
 
-// Àü¿ªº¯¼ö¿¡ staticÀ» ºÙÀÌ¸é ´Ù¸¥ cppÆÄÀÏ¿¡¼­ Á¢±Ù,»ç¿ëÀÌ ºÒ°¡´ÉÇÔ
+// ì „ì—­ë³€ìˆ˜ì— staticì„ ë¶™ì´ë©´ ë‹¤ë¥¸ cppíŒŒì¼ì—ì„œ ì ‘ê·¼,ì‚¬ìš©ì´ ë¶ˆê°€ëŠ¥í•¨
 static int g_a = 1;
 
 
 //forward declaration
-void doSomething();// ¾Õ¿¡ extern ÀÌ¶ó´Â Å°¿öµå´Â »ý·«µÇ¾îÀÖÀ½
-extern int b; //extern ÀÌ±â ¶§¹®¿¡ ÇÁ·Î±×·¥ ÀüÃ¼¿¡¼­ °°Àº ÀÌ¸§À» °¡Áø º¯¼ö°¡ ÇÏ³ª¿©¾ß ÇÔ, ´Ù¸¥°ªÀ¸·Î ÃÊ±âÈ­ ÇÏ¸é Ãæµ¹³²
+void doSomething();// ì•žì— extern ì´ë¼ëŠ” í‚¤ì›Œë“œëŠ” ìƒëžµë˜ì–´ìžˆìŒ
+extern int b; //extern ì´ê¸° ë•Œë¬¸ì— í”„ë¡œê·¸ëž¨ ì „ì²´ì—ì„œ ê°™ì€ ì´ë¦„ì„ ê°€ì§„ ë³€ìˆ˜ê°€ í•˜ë‚˜ì—¬ì•¼ í•¨, ë‹¤ë¥¸ê°’ìœ¼ë¡œ ì´ˆê¸°í™” í•˜ë©´ ì¶©ëŒë‚¨
 
 
 void doSomething_()
 {
-	// static ÀÌ¶õ a°¡ os·ÎºÎÅÍ ¹ÞÀº ¸Þ¸ð¸®°¡ static ÀÌ´Ù, °°Àº ¸Þ¸ð¸®¸¦ Àç»ç¿ëÇÑ´Ù
-	// static º¯¼ö°¡ ¼±¾ðµÉ¶§ °°Àº ¸Þ¸ð¸®¸¦ »ç¿ëÇÏ°í ÃÊ±âÈ­¸¦ ÇÑ¹ø¸¸ÇÔ, ÃÊ±âÈ­°¡ ¹Ýµå½Ã ÇÊ¿äÇÔ
-	// ÇÔ¼ö°¡ ¸î¹ø È£ÃâµÇ¾ú´ÂÁö »ç¿ëÇÏ´Â ½ÄÀ¸·Î debuging ½Ã À¯¿ëÇÔ
+	// static ì´ëž€ aê°€ osë¡œë¶€í„° ë°›ì€ ë©”ëª¨ë¦¬ê°€ static ì´ë‹¤, ê°™ì€ ë©”ëª¨ë¦¬ë¥¼ ìž¬ì‚¬ìš©í•œë‹¤
+	// static ë³€ìˆ˜ê°€ ì„ ì–¸ë ë•Œ ê°™ì€ ë©”ëª¨ë¦¬ë¥¼ ì‚¬ìš©í•˜ê³  ì´ˆê¸°í™”ë¥¼ í•œë²ˆë§Œí•¨, ì´ˆê¸°í™”ê°€ ë°˜ë“œì‹œ í•„ìš”í•¨
+	// í•¨ìˆ˜ê°€ ëª‡ë²ˆ í˜¸ì¶œë˜ì—ˆëŠ”ì§€ ì‚¬ìš©í•˜ëŠ” ì‹ìœ¼ë¡œ debuging ì‹œ ìœ ìš©í•¨
 
-	static int a = 1; // static º¯¼ö¶ó ¸Þ¸ð¸®´Â °íÁ¤µÇ¾î ÀÖÁö¸¸ Áö¿ª º¯¼öÀÌ±â ¶§¹®¿¡ ´Ù¸¥°÷¿¡¼­ º¼ ¼ö´Â ¾øÀ½
-	//int a = 1; °ú ºñ±³
+	static int a = 1; // static ë³€ìˆ˜ë¼ ë©”ëª¨ë¦¬ëŠ” ê³ ì •ë˜ì–´ ìžˆì§€ë§Œ ì§€ì—­ ë³€ìˆ˜ì´ê¸° ë•Œë¬¸ì— ë‹¤ë¥¸ê³³ì—ì„œ ë³¼ ìˆ˜ëŠ” ì—†ìŒ
+	//int a = 1; ê³¼ ë¹„êµ
 	++a;
 	cout << a << endl;
 }
@@ -54,40 +54,40 @@ void doSomething_()
 
 int main(void)
 {
-	// value ´Â Áö±Ý global
+	// value ëŠ” ì§€ê¸ˆ global
 	cout << value << endl;
 	
-	// local variable Áö¿ªº¯¼ö
-	// ¼±¾ðÇÑ ¼ø°£ºÎÅÍ »ç¿ë°¡´É, ¿µ¿ªÀ» ¹þ¾î³­ ¼ø°£ »ç¿ë,Á¢±Ù ¸øÇÔ,scope Á¦ÇÑ,duration Á¦ÇÑ
-	int value = 1;// º¯¼ö ÀÌ¸§ÀÌ °°±â ‹š¹®¿¡ namehiding ÀÌ Àû¿ëµÊ
+	// local variable ì§€ì—­ë³€ìˆ˜
+	// ì„ ì–¸í•œ ìˆœê°„ë¶€í„° ì‚¬ìš©ê°€ëŠ¥, ì˜ì—­ì„ ë²—ì–´ë‚œ ìˆœê°„ ì‚¬ìš©,ì ‘ê·¼ ëª»í•¨,scope ì œí•œ,duration ì œí•œ
+	int value = 1;// ë³€ìˆ˜ ì´ë¦„ì´ ê°™ê¸° Â‹Âšë¬¸ì— namehiding ì´ ì ìš©ë¨
 
 	cout << value << endl;
-	cout << ::value << endl;//:: ¿µ¿ª ¿¬»êÀÚ Global scope operator »ç¿ëÇÏ¿© ´Ù¸¥ ¿µ¿ª¿¡ Á¤ÀÇµÈ º¯¼ö »ç¿ë
+	cout << ::value << endl;//:: ì˜ì—­ ì—°ì‚°ìž Global scope operator ì‚¬ìš©í•˜ì—¬ ë‹¤ë¥¸ ì˜ì—­ì— ì •ì˜ëœ ë³€ìˆ˜ ì‚¬ìš©
 
-	// a °¡ static ÀÏ¶§, global ÀÏ¶§ ºñ±³
-	// Àü¿ªº¯¼ö a´Â ÀÌ cpp°¡ ÇÑ¹ø ½ÇÇàµÇ±â ¶§¹®¿¡ static°¡ À¯»çÇÏ°Ô ÀÛµ¿ÇÔ
-	// Àü¿ªº¯¼ö¸¦ ³²¹ßÇÏ¸é º¯¼ö°ü¸®°¡ Èûµé±â ¶§¹®¿¡ Èûµé¾îÁø´Ù
-	// ÇÔ¼ö°¡ int a¸¦ ¹Þ´Â½ÄÀ¸·Î Àß ¼³°èÇÏ´Â ¹æ¹ý, Àü¿ªº¯¼ö´Â g_¸¦ ºÙÀÌ´Â ½ÄÀ¸·Î ÀÌ¸§À» ´Ù¸£°Ô ÇØ ±¸º° ÇÏ´Â ¹æ¹ýÀÌ ÀÖ´Ù
-	// °¡Àå ÁÁÀº°Ç °´Ã¼ÁöÇâÀ» ÅëÇØ Àü¿ªº¯¼ö »ç¿ëÀ» ÃÖ¼ÒÈ­
+	// a ê°€ static ì¼ë•Œ, global ì¼ë•Œ ë¹„êµ
+	// ì „ì—­ë³€ìˆ˜ aëŠ” ì´ cppê°€ í•œë²ˆ ì‹¤í–‰ë˜ê¸° ë•Œë¬¸ì— staticê°€ ìœ ì‚¬í•˜ê²Œ ìž‘ë™í•¨
+	// ì „ì—­ë³€ìˆ˜ë¥¼ ë‚¨ë°œí•˜ë©´ ë³€ìˆ˜ê´€ë¦¬ê°€ íž˜ë“¤ê¸° ë•Œë¬¸ì— íž˜ë“¤ì–´ì§„ë‹¤
+	// í•¨ìˆ˜ê°€ int aë¥¼ ë°›ëŠ”ì‹ìœ¼ë¡œ ìž˜ ì„¤ê³„í•˜ëŠ” ë°©ë²•, ì „ì—­ë³€ìˆ˜ëŠ” g_ë¥¼ ë¶™ì´ëŠ” ì‹ìœ¼ë¡œ ì´ë¦„ì„ ë‹¤ë¥´ê²Œ í•´ êµ¬ë³„ í•˜ëŠ” ë°©ë²•ì´ ìžˆë‹¤
+	// ê°€ìž¥ ì¢‹ì€ê±´ ê°ì²´ì§€í–¥ì„ í†µí•´ ì „ì—­ë³€ìˆ˜ ì‚¬ìš©ì„ ìµœì†Œí™”
 	doSomething_();
 	doSomething_();
 	doSomething_();
 	doSomething_();
 
 	
-	//local variable Àº ´Ù¸¥ ÆÄÀÏ¿¡ ÀÖ´Â ¹«¾ð°¡¿Í ¿¬°á µÉ ÀÏÀÌ ¾øÀ½
+	//local variable ì€ ë‹¤ë¥¸ íŒŒì¼ì— ìžˆëŠ” ë¬´ì–¸ê°€ì™€ ì—°ê²° ë  ì¼ì´ ì—†ìŒ
 	
-	//Internal linkage ´Â °³º° cpp ÆÄÀÏ¿¡¼­¸¸ Àü¿ªÀ¸·Î ÀÛµ¿ÇÏ´Â Àü¿ªº¯¼ö
-	//External linkage ´Â ´Ù¸¥ cpp ÆÄÀÏ¿¡¼­µµ Àü¿ªº¯¼ö¸¦ »ç¿ëÇÒ ¼ö ÀÖ´Ù
+	//Internal linkage ëŠ” ê°œë³„ cpp íŒŒì¼ì—ì„œë§Œ ì „ì—­ìœ¼ë¡œ ìž‘ë™í•˜ëŠ” ì „ì—­ë³€ìˆ˜
+	//External linkage ëŠ” ë‹¤ë¥¸ cpp íŒŒì¼ì—ì„œë„ ì „ì—­ë³€ìˆ˜ë¥¼ ì‚¬ìš©í•  ìˆ˜ ìžˆë‹¤
 
-	doSomething();// Àü¹æ ¼±¾ðÀÌ ÇÊ¿äÇÔ
-	cout << b << endl;//Ã³À½ ¼±¾ðµÈ test4_2.cpp¿¡¼­ ÃÊ±âÈ­
+	doSomething();// ì „ë°© ì„ ì–¸ì´ í•„ìš”í•¨
+	cout << b << endl;//ì²˜ìŒ ì„ ì–¸ëœ test4_2.cppì—ì„œ ì´ˆê¸°í™”
 
 
 
-	cout << "In ch4_2.cpp file " << Constants::pi << " " << &Constants::pi << endl; //& ¾Õ¿¡ ºÙÀÌ¸é ÁÖ¼Ò
+	cout << "In ch4_2.cpp file " << Constants::pi << " " << &Constants::pi << endl; //& ì•žì— ë¶™ì´ë©´ ì£¼ì†Œ
 	doSomething();
-	// Çì´õÆÄÀÏ¿¡¼­ ¼±¾ð¸¸ ÇØÁÖ°í MyConstants4_2¿¡¼­ ÃÊ±âÈ­¸¦ ÇØÁÖ¸é pi°¡ °°Àº ÁÖ¼Ò¸¦ »ç¿ëÇÔ
+	// í—¤ë”íŒŒì¼ì—ì„œ ì„ ì–¸ë§Œ í•´ì£¼ê³  MyConstants4_2ì—ì„œ ì´ˆê¸°í™”ë¥¼ í•´ì£¼ë©´ piê°€ ê°™ì€ ì£¼ì†Œë¥¼ ì‚¬ìš©í•¨
 
 
 	
