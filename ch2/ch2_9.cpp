@@ -1,4 +1,4 @@
-// ½Éº¼¸¯ »ó¼ö Symbolic Constants
+// ì‹¬ë³¼ë¦­ ìƒìˆ˜ Symbolic Constants
 
 #include <iostream>
 #include "MY_CONSTANTS.h"
@@ -8,7 +8,7 @@ using namespace std;
 
 void printNumber(const int my_number)
 {
-	// my_number = 456; ÀÌ·±½ÄÀ¸·Î parameter¸¦ Á÷Á¢ ¹Ù²Ù´Â°ÍÀº ÁÁÁö ¾ÊÀ½
+	// my_number = 456; ì´ëŸ°ì‹ìœ¼ë¡œ parameterë¥¼ ì§ì ‘ ë°”ê¾¸ëŠ”ê²ƒì€ ì¢‹ì§€ ì•ŠìŒ
 
 	int n = my_number;
 
@@ -20,41 +20,41 @@ int main()
 	printNumber(123);
 
 
-	//»ó¼ö°ª °íÁ¤ , ¹İµå½Ã ÃÊ±âÈ­ ÇØÁà¾ß µÊ 
-	//const ´Â º¸Åë ¾Õ¿¡ ºÙÀÓ , ´çÀåÀº ¼ø¼­ º°·Î »ó°ü ¾øÀ½
+	//ìƒìˆ˜ê°’ ê³ ì • , ë°˜ë“œì‹œ ì´ˆê¸°í™” í•´ì¤˜ì•¼ ë¨ 
+	//const ëŠ” ë³´í†µ ì•ì— ë¶™ì„ , ë‹¹ì¥ì€ ìˆœì„œ ë³„ë¡œ ìƒê´€ ì—†ìŒ
 	const double gravity{ 9.8 };
 	double const gravity1{ 9.8 };
 
-	//gravity = 1.2; const·Î °íÁ¤Çß±â ¶§¹®¿¡ ¹Ù²ÙÁö ¸øÇÔ
+	//gravity = 1.2; constë¡œ ê³ ì •í–ˆê¸° ë•Œë¬¸ì— ë°”ê¾¸ì§€ ëª»í•¨
 
 	
-	// ÄÄÆÄÀÏ ÇÒ¶§ °áÁ¤µÇ´Â compiletime »ó¼ö
+	// ì»´íŒŒì¼ í• ë•Œ ê²°ì •ë˜ëŠ” compiletime ìƒìˆ˜
 	const int my_const(123);
 	
 	
-	//½ÇÇà½ÃÄÑ¾ß °áÁ¤µÇ´Â runtime »ó¼ö
+	//ì‹¤í–‰ì‹œì¼œì•¼ ê²°ì •ë˜ëŠ” runtime ìƒìˆ˜
 	int number;
 	cin >> number;
 
-	// º¯¼ö number´Â ¹Ù²Ü ¼ö ÀÖÁö¸¸ special_number´Â ¸ø¹Ù²Ş
+	// ë³€ìˆ˜ numberëŠ” ë°”ê¿€ ìˆ˜ ìˆì§€ë§Œ special_numberëŠ” ëª»ë°”ê¿ˆ
 	const int special_number(number);
 
-	// constexpr Àº compile »ó¼ö¶ó´Â°É Ã¼Å©ÇÔ
+	// constexpr ì€ compile ìƒìˆ˜ë¼ëŠ”ê±¸ ì²´í¬í•¨
 	constexpr int my_newconst(123);
 
-	//constexpr int special_newnumber(number); runtime »ó¼öÀÌ±â ¶§¹®¿¡ ¾ÈµÊ
+	//constexpr int special_newnumber(number); runtime ìƒìˆ˜ì´ê¸° ë•Œë¬¸ì— ì•ˆë¨
 
 
 
-	// ¸ÅÅ©·Î´Â º¸Åë ´ë¹®ÀÚ,cost´Â Æ¯º°ÇÑ °æ¿ì ¾Õ¿¡ k °°Àº°Å ºÙÀÓ
+	// ë§¤í¬ë¡œëŠ” ë³´í†µ ëŒ€ë¬¸ì,constëŠ” íŠ¹ë³„í•œ ê²½ìš° ì•ì— k ê°™ì€ê±° ë¶™ì„
 	const int k_price_per_item = 30; 
 	int num_item = 123;
 
-	// c style ( ¸ÅÅ©·Î ¼±¾ğ )
-	//debug°¡ Èûµé±â ¶§¹®¿¡, »ó¼ö Àû¿ë ¹üÀ§°¡ ³Ê¹« ³Ğ¾îÁö±â ¶§¹®¿¡ ¾ÈÁÁÀ½
+	// c style ( ë§¤í¬ë¡œ ì„ ì–¸ )
+	//debugê°€ í˜ë“¤ê¸° ë•Œë¬¸ì—, ìƒìˆ˜ ì ìš© ë²”ìœ„ê°€ ë„ˆë¬´ ë„“ì–´ì§€ê¸° ë•Œë¬¸ì— ì•ˆì¢‹ìŒ
 	int price = num_item * PRICE_PER_ITEM;
 
-	// ¹Ù¶÷Á÷ÇÑ style
+	// ë°”ëŒì§í•œ style
 	int price = num_item * k_price_per_item;
 
 	double radius;
