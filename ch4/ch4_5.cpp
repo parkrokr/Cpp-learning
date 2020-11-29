@@ -57,6 +57,9 @@ int main()
 	int i2 = 1234;
 	float f2 = i2;
 	cout << std::setprecision(12) << i2 << "\n" << f2 << endl;
+	// 이때도 possible loss of data 경고가 뜸. 그 이유는 float가 int 보다 표현 범위가 넓고
+	//그렇기 때문에 모든 int 는 float의 범위 안에 있지만 모든 int 값을 float가 정확하게 표현할 수 있는것은 아니다
+	//그래서 float로 최대한 비슷한 값으로 바꾸지만 정확도는 떨어지기 때문에(정수에 근사하는 실수) 경고가 뜨는 것이다.
 
 	// 암시적 형변환을 할때 float나 double 뒷부분의 소숫점 부분은 버림됨
 	float f3 = 3.14f;
