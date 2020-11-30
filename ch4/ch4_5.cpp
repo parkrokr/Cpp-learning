@@ -1,8 +1,8 @@
-// ¾Ï½ÃÀû Çüº¯È¯(Implicit Type C0nversion (coersion)) °ú
-// ¸í½ÃÀû Çüº¯È¯(Explicit Type Conversion (casting) )
+// ì•”ì‹œì  í˜•ë³€í™˜(Implicit Type C0nversion (coersion)) ê³¼
+// ëª…ì‹œì  í˜•ë³€í™˜(Explicit Type Conversion (casting) )
 
 #include <iostream>
-#include <typeinfo> // typeid()¸¦ »ç¿ëÇÏ±â À§ÇØ ÇÊ¿äÇÔ
+#include <typeinfo> // typeid()ë¥¼ ì‚¬ìš©í•˜ê¸° ìœ„í•´ í•„ìš”í•¨
 #include <iomanip>
 
 int main()
@@ -10,90 +10,93 @@ int main()
 	using namespace std;
 
 
-	// typeid( )¾È¿¡ dadta literal ÀÌ³ª º¯¼ö¸íÀ» Áı¾î³Ö°í .name() ÇÔ¼ö¸¦ È£ÃâÇÏ¸é ¾î¶² typeÀÎÁö Ãâ·ÂÇØÁÜ
+	// typeid( )ì•ˆì— dadta literal ì´ë‚˜ ë³€ìˆ˜ëª…ì„ ì§‘ì–´ë„£ê³  .name() í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•˜ë©´ ì–´ë–¤ typeì¸ì§€ ì¶œë ¥í•´ì¤Œ
 	cout << typeid(4.0).name() << endl;
 
 	int a = 123;
 	cout << typeid(a).name() << endl;
 	
 
-	//¾Ï½ÃÀû Çüº¯È¯(Implicit Type C0nversion (coersion))
+	//ì•”ì‹œì  í˜•ë³€í™˜(Implicit Type Conversion (coersion))
 	
-	//¾Ï½ÃÀû Çüº¯È¯ Àº ÇÁ·Î±×·¡¸Ó°¡ Çüº¯È¯À» ÇØ´Ş¶ó ¶ó°í ¿äÃ»ÇÏÁö ¾Ê´Â°æ¿ì
-	// ÄÄÆÄÀÏ·¯°¡ ¾Ë¾Æ¼­ °­Á¦·Î Çüº¯È¯À» ½ÃÄÑ¹ö¸®´Â°Í
-	// int a = 123.0 ÇÏ´Â °æ¿ì ÄÄÆÄÀÏ·¯°¡ double À» int ·Î º¯È¯ÇÔ
-	// int a = (int)123.0; °°Àº °æ¿ì ¸í½ÃÀû Çü º¯È¯
+	//ì•”ì‹œì  í˜•ë³€í™˜ ì€ í”„ë¡œê·¸ë˜ë¨¸ê°€ í˜•ë³€í™˜ì„ í•´ë‹¬ë¼ ë¼ê³  ìš”ì²­í•˜ì§€ ì•ŠëŠ”ê²½ìš°
+	// ì»´íŒŒì¼ëŸ¬ê°€ ì•Œì•„ì„œ ê°•ì œë¡œ í˜•ë³€í™˜ì„ ì‹œì¼œë²„ë¦¬ëŠ”ê²ƒ
+	// int a = 123.0 í•˜ëŠ” ê²½ìš° ì»´íŒŒì¼ëŸ¬ê°€ double ì„ int ë¡œ ë³€í™˜í•¨
+	// int a = (int)123.0; ê°™ì€ ê²½ìš° ëª…ì‹œì  í˜• ë³€í™˜
 
 	
 	
-	//numeric promotion ÀÛÀº °ÍÀ» Å« °ÍÀ¸·Î  
-	float f = 1.0f; //double ÀÌ float º¸´Ù Å­(¸Ş¸ğ¸®)
+	//numeric promotion ì‘ì€ ê²ƒì„ í° ê²ƒìœ¼ë¡œ  
+	float f = 1.0f; //double ì´ float ë³´ë‹¤ í¼(ë©”ëª¨ë¦¬)
 	double d = f;  // numeric promotion
 
-	//Á¤¹Ğµµ°¡ ¶³¾îÁö´Â ¹®Á¦´Â ¾øÀ½
+	//ì •ë°€ë„ê°€ ë–¨ì–´ì§€ëŠ” ë¬¸ì œëŠ” ì—†ìŒ
 	//ex) int -> long , char -> int , int -> float
 
 
 	
 	
-	//numeric conversion Å« °ÍÀ» ÀÛÀº °ÍÀ¸·Î , typeÀÌ ¹Ù²î´Â °Í 
+	//numeric conversion í° ê²ƒì„ ì‘ì€ ê²ƒìœ¼ë¡œ , typeì´ ë°”ë€ŒëŠ” ê²ƒ 
 	double b = 3;
 	short s = 2;
 
 	
-	//¹®Á¦°¡ »ı±æ ¼ö ÀÖÀ½
+	//ë¬¸ì œê°€ ìƒê¸¸ ìˆ˜ ìˆìŒ
 	int i = 30000;
-	char c = i; //char ¹üÀ§°¡ 255 ±îÁö°í singed °æ¿ì-128~ 127 ±îÁö±â ¶§¹®¿¡ i¸¦ ´Ù ´ãÀ» ¼ö ¾øÀ½
+	char c = i; //char ë²”ìœ„ê°€ 255 ê¹Œì§€ê³  singed ê²½ìš°-128~ 127 ê¹Œì§€ê¸° ë•Œë¬¸ì— ië¥¼ ë‹¤ ë‹´ì„ ìˆ˜ ì—†ìŒ
 
-	//º¯¼ö c¸¦ char typeÀ¸·Î Ãâ·ÂÇÏ¸é °á°ú¸¦ º¸±â Èûµé³¢ ¶§¹®¿¡ ¸í½ÃÀû Çüº¯È¯ static_cast ¸¦ »ç¿ëÇÔ
+	//ë³€ìˆ˜ cë¥¼ char typeìœ¼ë¡œ ì¶œë ¥í•˜ë©´ ê²°ê³¼ë¥¼ ë³´ê¸° í˜ë“¤ë¼ ë•Œë¬¸ì— ëª…ì‹œì  í˜•ë³€í™˜ static_cast ë¥¼ ì‚¬ìš©í•¨
 	cout <<static_cast<int>(c) << endl; // 48
 	
-	//double ÀÇ Á¤¹Ğµµ°¡ ³ô±â ¶§¹®¿¡ µ¥ÀÌÅÍÀÇ ¼Õ½ÇÀÌ ÀÏ¾î³¯ ¼ö ÀÖÀ½  possible loss of data
+	//double ì˜ ì •ë°€ë„ê°€ ë†’ê¸° ë•Œë¬¸ì— ë°ì´í„°ì˜ ì†ì‹¤ì´ ì¼ì–´ë‚  ìˆ˜ ìˆìŒ  possible loss of data
 	double d1 = 0.123456789;
 	float f1 = d1;
 	cout << std::setprecision(12) << d1 <<"\n" << f1 << endl;
 
-	//Á¤¼öÇüÀ» ½Ç¼öÇüÀ¸·Î ¹Ù²Ü¶§µµ ÃÖ´ëÇÑ ºñ½ÁÇÏ°Ô ¹Ù²ãÁÜ
+	//ì •ìˆ˜í˜•ì„ ì‹¤ìˆ˜í˜•ìœ¼ë¡œ ë°”ê¿€ë•Œë„ ìµœëŒ€í•œ ë¹„ìŠ·í•˜ê²Œ ë°”ê¿”ì¤Œ
 	int i2 = 1234;
 	float f2 = i2;
 	cout << std::setprecision(12) << i2 << "\n" << f2 << endl;
+	// ì´ë•Œë„ possible loss of data ê²½ê³ ê°€ ëœ¸. ê·¸ ì´ìœ ëŠ” floatê°€ int ë³´ë‹¤ í‘œí˜„ ë²”ìœ„ê°€ ë„“ê³ 
+	//ê·¸ë ‡ê¸° ë•Œë¬¸ì— ëª¨ë“  int ëŠ” floatì˜ ë²”ìœ„ ì•ˆì— ìˆì§€ë§Œ ëª¨ë“  int ê°’ì„ floatê°€ ì •í™•í•˜ê²Œ í‘œí˜„í•  ìˆ˜ ìˆëŠ”ê²ƒì€ ì•„ë‹ˆë‹¤
+	//ê·¸ë˜ì„œ floatë¡œ ìµœëŒ€í•œ ë¹„ìŠ·í•œ ê°’ìœ¼ë¡œ ë°”ê¾¸ì§€ë§Œ ì •í™•ë„ëŠ” ë–¨ì–´ì§€ê¸° ë•Œë¬¸ì—(ì •ìˆ˜ì— ê·¼ì‚¬í•˜ëŠ” ì‹¤ìˆ˜) ê²½ê³ ê°€ ëœ¨ëŠ” ê²ƒì´ë‹¤.
 
-	// ¾Ï½ÃÀû Çüº¯È¯À» ÇÒ¶§ float³ª double µŞºÎºĞÀÇ ¼Ò¼ıÁ¡ ºÎºĞÀº ¹ö¸²µÊ
-	float f3 = 3.14;
+	// ì•”ì‹œì  í˜•ë³€í™˜ì„ í• ë•Œ floatë‚˜ double ë’·ë¶€ë¶„ì˜ ì†Œìˆ«ì  ë¶€ë¶„ì€ ë²„ë¦¼ë¨
+	float f3 = 3.14f;
 	int i3 = f3;
 	cout << std::setprecision(12) << f3 << "\n" << i3 << endl;
 
 
 
-	//ÀÛÀº °ªÀ» ³ÖÀ»¶§´Â ¹®Á¦°¡ »ı±âÁö ¾ÊÀ»¼öµµ ÀÖÀ½
+	//ì‘ì€ ê°’ì„ ë„£ì„ë•ŒëŠ” ë¬¸ì œê°€ ìƒê¸°ì§€ ì•Šì„ìˆ˜ë„ ìˆìŒ
 	int i1 = 2;
 	char c1 = i1;
-	cout << static_cast<int>(c1) << endl; // ÀÌ¶© ¹®Á¦°¡ ¾øÀ½
+	cout << static_cast<int>(c1) << endl; // ì´ë• ë¬¸ì œê°€ ì—†ìŒ
 
 	
 
 
-	// unsigned ´Â Á¶½ÉÇØ¾ßÇÔ
-	// unsigned ³¢¸® °è»êÇÑ°É unsigned¿¡ ³ÖÀ¸·Á°í ÇÔ
+	// unsigned ëŠ” ì¡°ì‹¬í•´ì•¼í•¨
+	// unsigned ë¼ë¦¬ ê³„ì‚°í•œê±¸ unsignedì— ë„£ìœ¼ë ¤ê³  í•¨
 	cout << 5 - 10 << endl;
-	cout << 5u - 10 << endl; // u ´Â unsigned
+	cout << 5u - 10 << endl; // u ëŠ” unsigned
 	cout << 5 - 10u << endl;
 	cout << 5u - 10u << endl;
 
 	
-	//Çüº¯È¯¿¡µµ ¿ì¼±¼øÀ§°¡ ÀÖÀ½
-	//int º¸´Ù ÀÛÀº°Å(4byte ÀÌÇÏ)´Â int·Î ¹Ù²¸Áü
-	//¿ì¼±¼øÀ§°¡ ³ôÀº°Ç ³·Àº°ÍÀ¸·Î ¾È¹Ù²ñ, unsigned int ¸¦ int·Î ¾È¹Ù²Ş
+	//í˜•ë³€í™˜ì—ë„ ìš°ì„ ìˆœìœ„ê°€ ìˆìŒ
+	//int ë³´ë‹¤ ì‘ì€ê±°(4byte ì´í•˜)ëŠ” intë¡œ ë°”ê»´ì§
+	//ìš°ì„ ìˆœìœ„ê°€ ë†’ì€ê±´ ë‚®ì€ê²ƒìœ¼ë¡œ ì•ˆë°”ë€œ, unsigned int ë¥¼ intë¡œ ì•ˆë°”ê¿ˆ
 	//int, unsigned int, long , unsigned long,
 	//long long, unsigned long long, float, double, long double(highest)
 
 
 	
 	
-	// ¸í½ÃÀû Çüº¯È¯(Explicit Type Conversion (casting) )
+	// ëª…ì‹œì  í˜•ë³€í™˜(Explicit Type Conversion (casting) )
 	int x = int(4.0);   //c++ style
 	int x1 = (int)4.0;  //c	  style
-	int x2 = static_cast < int>(4.0); //¾ÆÁ÷±îÁø ±â´É»ó Â÷ÀÌ´Â ¾øÀ½
+	int x2 = static_cast < int>(4.0); //ì•„ì§ê¹Œì§„ ê¸°ëŠ¥ìƒ ì°¨ì´ëŠ” ì—†ìŒ
 
 	return 0;
 }
