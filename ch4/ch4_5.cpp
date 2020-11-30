@@ -17,7 +17,7 @@ int main()
 	cout << typeid(a).name() << endl;
 	
 
-	//암시적 형변환(Implicit Type C0nversion (coersion))
+	//암시적 형변환(Implicit Type Conversion (coersion))
 	
 	//암시적 형변환 은 프로그래머가 형변환을 해달라 라고 요청하지 않는경우
 	// 컴파일러가 알아서 강제로 형변환을 시켜버리는것
