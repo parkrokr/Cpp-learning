@@ -1,4 +1,4 @@
-//¿µ¿ª Á¦ÇÑ ¿­°ÅÇü Scoped Enumerations (¿­°ÅÇü Å¬·¡½º Enum Class)
+//ì˜ì—­ ì œí•œ ì—´ê±°í˜• Scoped Enumerations (ì—´ê±°í˜• í´ë˜ìŠ¤ Enum Class)
 
 #include<iostream>
 
@@ -23,11 +23,13 @@ int main()
 
 	if (color == fruit)
 		cout << "Color is fruit ? " << endl;
-	// color ¿Í fruit µÑ´Ù 0ÀÌ±â ¶§¹®ÀÌ´Ù
+	// color ì™€ fruit ë‘˜ë‹¤ 0ì´ê¸° ë•Œë¬¸ì´ë‹¤
 	*/
+	//enumì€ ë³„ë„ì˜ ì´ë¦„ê³µê°„(namespace)ë¥¼ ê°€ì§€ê³  ìˆì§€ ì•ŠëŠ”ë‹¤.
 
 
-	//enum class c++11 ºÎÅÍ »ç¿ë°¡´É
+
+	//enum class c++11 ë¶€í„° ì‚¬ìš©ê°€ëŠ¥
 	enum class Color
 	{
 		RED,
@@ -43,14 +45,14 @@ int main()
 	Color color = Color::RED; // 0
 	Fruit fruit = Fruit::BANANA; // 0
 
-	// color ¿Í fruit¸¦ ¹Ù·Î ºñ±³´Â ¸øÇÔ, Ä³½ºÆÃÀ¸·Î ºñ±³¸¦ ÇØº¼ ¼ö´Â ÀÖÀ½
-	// ½ÇÀü¿¡¼± ºñ±³ ÇÒ ÀÏÀ» ¸¸µéÁö ¾Ê¾Æ¾ß ÇÔ
+	// color ì™€ fruitë¥¼ ë°”ë¡œ ë¹„êµëŠ” ëª»í•¨, ìºìŠ¤íŒ…ìœ¼ë¡œ ë¹„êµë¥¼ í•´ë³¼ ìˆ˜ëŠ” ìˆìŒ
+	// ì‹¤ì „ì—ì„  ë¹„êµ í•  ì¼ì„ ë§Œë“¤ì§€ ì•Šì•„ì•¼ í•¨
 	if (static_cast<int>(color) == static_cast<int>(fruit)) 
 		cout << "Color is fruit ? " << endl;
 
 	
 	
-	// °°Àº enum class ³¢¸®´Â ºñ±³ÇÒ ¼ö ÀÖÀ½
+	// ê°™ì€ enum class ë¼ë¦¬ëŠ” ë¹„êµí•  ìˆ˜ ìˆìŒ
 	Color color1 = Color::RED;
 	Color color2 = Color::BLUE;
 
