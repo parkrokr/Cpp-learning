@@ -1,10 +1,10 @@
-//¹İº¹¹® for
+//ë°˜ë³µë¬¸ for
 
-//for¹®°ú while ¹®Àº »óÈ£º¯È¯ÀÌ °¡´ÉÇÔ
+//forë¬¸ê³¼ while ë¬¸ì€ ìƒí˜¸ë³€í™˜ì´ ê°€ëŠ¥í•¨
 
 #include<iostream>
 
-// Á¤¼ö power ÇÔ¼ö
+// ì •ìˆ˜ power í•¨ìˆ˜
 int pow(int base, int exponent)
 {
 	int result = 1;
@@ -22,38 +22,38 @@ int main()
 
 	
 
-	//   count ¼±¾ğ  /    count °Ë»ç  / ÇÑ iteration ÀÌ ³¡³ª¸é ½ÇÇà 
+	//   count ì„ ì–¸  /    count ê²€ì‚¬  / í•œ iteration ì´ ëë‚˜ë©´ ì‹¤í–‰ 
 	for (int count = 0; count < 10; ++count)
 	{
 		cout << count << endl;
 	}
 
-	//cout << count << endl; // count °¡ for ¹®À» ºüÁ®³ª¿À¸é »ç¿ë¸øÇÔ, ¾²°í ½ÍÀ¸¸é for ¹Û¿¡ ¼±¾ğ
+	//cout << count << endl; // count ê°€ for ë¬¸ì„ ë¹ ì ¸ë‚˜ì˜¤ë©´ ì‚¬ìš©ëª»í•¨, ì“°ê³  ì‹¶ìœ¼ë©´ for ë°–ì— ì„ ì–¸
 
 	int count = 0;
-	//   ºóÄ­ °¡´É
+	//   ë¹ˆì¹¸ ê°€ëŠ¥
 	for (; count < 10; ++count)
 	{
 		cout << count << endl;
 	}
-	cout << count << endl; // ¿Ö 10ÀÌ ³ª¿À´ÂÁö Áß¿ä
+	cout << count << endl; // ì™œ 10ì´ ë‚˜ì˜¤ëŠ”ì§€ ì¤‘ìš”
 
-	//while(true) Ã³·³ »ç¿ë °¡´É ´ë½Å while ¹®Àº ()¾ÈÀÌ ºóÄ­ÀÌ¸é ¿¡·¯°¡ ³²
-	//for (;;++count) // ºóÄ­À¸·Î µÖµµ »ó°ü¾øÀ½
+	//while(true) ì²˜ëŸ¼ ì‚¬ìš© ê°€ëŠ¥ ëŒ€ì‹  while ë¬¸ì€ ()ì•ˆì´ ë¹ˆì¹¸ì´ë©´ ì—ëŸ¬ê°€ ë‚¨
+	//for (;;++count) // ë¹ˆì¹¸ìœ¼ë¡œ ë‘¬ë„ ìƒê´€ì—†ìŒ
 
-	//count = 1 ·Î ÃÊ±âÈ­ ÇÏ°í < ´ë½Å¿¡ <= ¸¦ ½áµµ °¡´ÉÇÏÁö¸¸ ´ú °£´ÜÇÔ
+	//count = 1 ë¡œ ì´ˆê¸°í™” í•˜ê³  < ëŒ€ì‹ ì— <= ë¥¼ ì¨ë„ ê°€ëŠ¥í•˜ì§€ë§Œ ëœ ê°„ë‹¨í•¨
 
 	
-	//pow ÇÔ¼ö
+	//pow í•¨ìˆ˜
 	cout << pow(2, 4) << endl;
 
-	//°¨¼ÒÇÏ´Â ÄÚµå     /   >= ÁÖÀÇ
+	//ê°ì†Œí•˜ëŠ” ì½”ë“œ     /   >= ì£¼ì˜
 	for (int count = 9; count >= 0; --count)
 	{
 		cout << count << endl;
 	}
 
-	//2¾¿ °¨¼ÒÇÏ´Â ÄÚµå
+	//2ì”© ê°ì†Œí•˜ëŠ” ì½”ë“œ
 	for (int count = 9; count >= 0; count -= 2)
 	{
 		cout << count << endl;
@@ -61,14 +61,14 @@ int main()
 
 	
 	
-	//º¯¼ö¸¦ 2°³ 3°³¾¿ »ç¿ëÇÒ ¼ö ÀÖÀ½	
+	//ë³€ìˆ˜ë¥¼ 2ê°œ 3ê°œì”© ì‚¬ìš©í•  ìˆ˜ ìˆìŒ	
 	for (int i = 0, j = 0; (i + j) < 10; ++i, j+=2)
 	{
 		cout << i << " " << j << endl;
 	}
 	
 
-	//ÀÌÁß·çÇÁ
+	//ì´ì¤‘ë£¨í”„
 	for(int j = 0; j<9;++j)
 		for (int i = 0; i < 9; ++i)
 		{
@@ -76,10 +76,42 @@ int main()
 		}
 	
 
-	//count °¡ unsigned ·Î ¼±¾ğµÇ¸é ¹®Á¦°¡ ¹ß»ı (overflow °¡´É¼º)
+	//count ê°€ unsigned ë¡œ ì„ ì–¸ë˜ë©´ ë¬¸ì œê°€ ë°œìƒ (overflow ê°€ëŠ¥ì„±)
 	/*for (unsigned int i = 9; i >= 0; --i)
 		cout << i << endl;*/
 
 
+	
+	//êµ¬êµ¬í´ë˜ìŠ¤
+	int count_a(1);
+	int result;
+
+	while (count_a < 10)
+	{
+		int count_b(1);
+		while (count_b < 10)
+		{
+			result = count_a * count_b;
+			cout << count_a << " * " << count_b << " = " << result << "   ";
+			count_b++;
+		}
+		cout << endl;
+		count_a++;
+	}
+
+	cout << endl;
+
+	for (int count_a(1); count_a < 10; count_a++)
+	{
+		for (int count_b(1); count_b < 10; count_b++)
+		{
+			result = count_a * count_b;
+			cout << count_a << " * " << count_b << " = " << result << "   ";
+		}
+		cout << endl;
+		
+	}
+	
+	
 	return 0;
 }
