@@ -1,7 +1,8 @@
-// ¹Ýº¹¹® do-while
+// ë°˜ë³µë¬¸ do-while
 
-//while °ú ´Ù¸£°Ô ¹Ýµå½Ã ÇÑ¹øÀº ½ÇÇà
-//Æ¯Á¤ ¾Ë°í¸®Áò¿¡¼­ ¾²ÀÏ ¼ö ÀÖÀ½
+//while ê³¼ ë‹¤ë¥´ê²Œ ë°˜ë“œì‹œ í•œë²ˆì€ ì‹¤í–‰
+// do/while ë¬¸ ë’¤ while ë’¤ì— ; ì°ì–´ì•¼í•¨
+//íŠ¹ì • ì•Œê³ ë¦¬ì¦˜ì—ì„œ ì“°ì¼ ìˆ˜ ìžˆìŒ
 
 #include<iostream>
 
@@ -9,9 +10,9 @@ using namespace std;
 
 int main()
 {
-	// 1,2,3,4 Áß¿¡ ÇÏ³ª¸¦ ¼±ÅÃÇÏ°í ±× ¿Ü´Â ´Ù½Ã ÀÔ·ÂÀ» ¹Þ´Â ÄÚµå
+	// 1,2,3,4 ì¤‘ì— í•˜ë‚˜ë¥¼ ì„ íƒí•˜ê³  ê·¸ ì™¸ëŠ” ë‹¤ì‹œ ìž…ë ¥ì„ ë°›ëŠ” ì½”ë“œ
 	
-	int selection; // must be declared outside do/while loop, do ³»ºÎ¿¡ ¼±¾ðµÇ¸é while ÀÌ Á¢±ÙÇÒ ¼ö ¾øÀ½
+	int selection; // must be declared outside do/while loop, do ë‚´ë¶€ì— ì„ ì–¸ë˜ë©´ while ì´ ì ‘ê·¼í•  ìˆ˜ ì—†ìŒ
 
 	do
 	{
@@ -20,7 +21,7 @@ int main()
 		cout << "3. mult" << endl;
 		cout << "4. div" << endl;
 		cin >> selection;
-	} while (selection <= 0 || selection >= 5); // do/while ¹® µÚ while µÚ¿¡ ; Âï¾î¾ßÇÔ
+	} while (selection <= 0 || selection >= 5); // do/while ë¬¸ ë’¤ while ë’¤ì— ; ì°ì–´ì•¼í•¨
 
 	cout << "You selected " << selection << endl;
 
