@@ -1,4 +1,4 @@
-// ºñÆ® ÇÃ·¡±×, ºñÆ® ¸¶½ºÅ© Mask
+// ë¹„íŠ¸ í”Œë˜ê·¸, ë¹„íŠ¸ ë§ˆìŠ¤í¬ Mask
 
 #include <iostream>
 #include <bitset>
@@ -8,9 +8,9 @@ using namespace std;
 int main()
 {
 	
-	// item °³¼ö¸¸Å­ flag¸¦ ¸¸µå´Â ¹æ¹ı
+	// item ê°œìˆ˜ë§Œí¼ flagë¥¼ ë§Œë“œëŠ” ë°©ë²•
 
-	// °ÔÀÓÀ» ¸¸µé¶§ ¾ÆÀÌÅÛÀÌ 4°³°¡ ÀÖ´Ù
+	// ê²Œì„ì„ ë§Œë“¤ë•Œ ì•„ì´í…œì´ 4ê°œê°€ ìˆë‹¤
 	bool item1_flag = false;
 	bool item2_flag = false;
 	bool item3_flag = false;
@@ -24,13 +24,13 @@ int main()
 	// die! item2 los
 	item2_flag = false;
 
-	// item3¸¦ °¡Áö°í ÀÖÀ¸¸é event°¡ ¹ß»ıÇÑ´Ù
+	// item3ë¥¼ ê°€ì§€ê³  ìˆìœ¼ë©´ eventê°€ ë°œìƒí•œë‹¤
 	if (item3_flag == true)
 	{
 		// event
 	}
 
-	//item3¸¦ °¡Áö°í ÀÖ°í item4¸¦ °¡Áö°í ÀÖÁö ¾ÊÀº °æ¿ì
+	//item3ë¥¼ ê°€ì§€ê³  ìˆê³  item4ë¥¼ ê°€ì§€ê³  ìˆì§€ ì•Šì€ ê²½ìš°
 	if (item3_flag == true && item4_flag == false)
 	{
 		item3_flag = false; // item3 los
@@ -38,12 +38,12 @@ int main()
 	}
 
 
-	//invokeEvent(item1_flag, item2_flag, item3_flag, ...);  //parmeter °³¼ö¸¸Å­ ³Ö¾îÁà¾ßÇÔ
+	//invokeEvent(item1_flag, item2_flag, item3_flag, ...);  //parmeter ê°œìˆ˜ë§Œí¼ ë„£ì–´ì¤˜ì•¼í•¨
 
 	
 	
-	// bool type º¯¼ö 8°³ ´ë½Å¿¡ 1 byte ÇÏ³ª¸¦ ÀÌ¿ëÇØ Ç¥Çö
-	// °¢ ºñÆ®¿¡ ´ëÇØ¼­ flag¸¦ ¹Ì¸® ÇÏ³ª ¼³Á¤ÇØ Áà¾ßÇÔ
+	// bool type ë³€ìˆ˜ 8ê°œ ëŒ€ì‹ ì— 1 byte í•˜ë‚˜ë¥¼ ì´ìš©í•´ í‘œí˜„
+	// ê° ë¹„íŠ¸ì— ëŒ€í•´ì„œ flagë¥¼ ë¯¸ë¦¬ í•˜ë‚˜ ì„¤ì •í•´ ì¤˜ì•¼í•¨
 	
 	const unsigned char opt0 = 1 << 0;// opt0 <- option 0
 	const unsigned char opt1 = 1 << 1;
@@ -99,7 +99,7 @@ int main()
 
 
 	//graphics ex
-	// optionÀÌ ³Ê¹« ¸¹ÀÌÁö´Â°É ¹æÁöÇÏ°í ½ÍÀ»‹š
+	// optionì´ ë„ˆë¬´ ë§ì´ì§€ëŠ”ê±¸ ë°©ì§€í•˜ê³  ì‹¶ì„ë•Œ
 	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
 
