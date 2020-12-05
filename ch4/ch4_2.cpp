@@ -3,7 +3,7 @@
 
 /*
 	int g_x; // 초기화를 안하고 정의만 하는경우 external linkage 로 쓸 수 있음
-	static ing g_x; // internal likage 다른 cpp파일에서 접근할 수 없다 초기화가 되어있지 않은 정적변수다
+	static in g_x; // internal likage 다른 cpp파일에서 접근할 수 없다 초기화가 되어있지 않은 정적변수다
 	const int g_x(0); //초기화가 반드시 필요함, 값을 이후에 안바꿈
 
 	extern int g_z; // forward declartion 인 경우 extern
