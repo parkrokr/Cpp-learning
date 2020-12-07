@@ -1,5 +1,7 @@
 //열거형 Enumerated Types
 
+//각 원소들은 int 형 
+
 #include<iostream>
 #include<typeinfo>
 #include <string>
