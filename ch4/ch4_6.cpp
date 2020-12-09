@@ -1,5 +1,7 @@
 // 문자열 소개 std::string
 
+//cin 과 getlin()를 같이 쓸 경우 cin.ignore() 사용
+
 #include<iostream>
 #include<string> //std::string 을 사용하기 위해 필요함
 #include <limits> // 32767 같은 magic number를 쓰지 않기 위해 필요
