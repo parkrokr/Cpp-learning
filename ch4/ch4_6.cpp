@@ -1,6 +1,6 @@
 // 문자열 소개 std::string
 
-//cin 과 getlin()를 같이 쓸 경우 cin.ignore() 사용
+//cin 과 getlin()를 같이 쓸 경우 cin.ignore() 사용 
 
 #include<iostream>
 #include<string> //std::string 을 사용하기 위해 필요함
@@ -36,7 +36,7 @@ int main()
 	cout << "Your age ? : ";
 	//int age;
 	//cin >> age;
-	//std::cin.ignore(32767, '\n');
+	//std::cin.ignore(32767, '\n');  
 	//std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // 32767같은 magic number를 안쓰기 위해
 
 	string age;
@@ -57,6 +57,7 @@ int main()
 	//int 를 통해 age를 받고 cin으로 받으면 enter를 눌렀을때 버퍼에 있던 내용을 밑에서 다시 받는 문제가 발생
 	//버퍼에 있는 내용을 한번 날려야 함
 	//std::cin.ignore(32767, '\n'); -> \n을 만날때까지 32767개의 글자를 무시해라(2byte value max)
+	// cin.ignore() 도 가능
 
 	//std::numeric_limits<std::streamsize>::max() 
 	//대신에 32767을 그냥 쓰거나 cin 하는 부분을 라이브러리로 만드는 방법이 있음
