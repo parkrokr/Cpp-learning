@@ -1,4 +1,4 @@
-// ¹è¿­°ú ¼±ÅÃ Á¤·Ä Selection Sort
+// ë°°ì—´ê³¼ ì„ íƒ ì •ë ¬ Selection Sort
 
 #include<iostream>
 
@@ -13,7 +13,7 @@ void printArray(const int array[],const int length)
 
 int main()
 {
-	/*			  value    index
+	/*		        value            index
 	3 5 2 1 4		1		 3
 	1 5 2 3 4		2		 2
 	1 2 5 3 4		3		 3
@@ -49,7 +49,7 @@ int main()
 	}
 
 	//
-	for (int startIndex = 0; startIndex < length - 1; ++startIndex) //length - 1 ÇÑ ÀÌÀ¯´Â ¸¶Áö¸·Àº ºñ±³ÇÒ ÇÊ¿ä°¡ ¾ø±â¶§¹®
+	for (int startIndex = 0; startIndex < length - 1; ++startIndex) //length - 1 í•œ ì´ìœ ëŠ” ë§ˆì§€ë§‰ì€ ë¹„êµí•  í•„ìš”ê°€ ì—†ê¸°ë•Œë¬¸
 	{
 		int smallestIndex = startIndex;
 
@@ -57,7 +57,7 @@ int main()
 		{
 			if (array[smallestIndex] > array[currentIndex])
 			{
-				smallestIndex = currentIndex; //index ¸¸ ¹Ù²Ù¸é value ´Â µû·Î ¹Ù²Ü ÇÊ¿ä°¡ ¾øÀ½
+				smallestIndex = currentIndex; //index ë§Œ ë°”ê¾¸ë©´ value ëŠ” ë”°ë¡œ ë°”ê¿€ í•„ìš”ê°€ ì—†ìŒ
 			}
 		}
 
@@ -70,16 +70,16 @@ int main()
 	}
 
 	//swap  
-	int temp = array[0]; //temp ¼±¾ğ
+	int temp = array[0]; //temp ì„ ì–¸
 	array[0] = array[1];
 	array[1] = temp;
-	//std::swap(. . .) ÀÌ ÀÖÀ½
+	//std::swap(. . .) ì´ ìˆìŒ
 
 
-	//Áõ°¡ÇÏ´Â ¼ø¼­°¡ ¾Æ´Ï¶ó °¨¼ÒÇÏ´Â ¼ø¼­·Î ¸¸µé¾îº¸±â
-	//µ¥ÀÌÅÍ ¼ö¸¦ ´Ã·Áº¸±â
+	//ì¦ê°€í•˜ëŠ” ìˆœì„œê°€ ì•„ë‹ˆë¼ ê°ì†Œí•˜ëŠ” ìˆœì„œë¡œ ë§Œë“¤ì–´ë³´ê¸°
+	//ë°ì´í„° ìˆ˜ë¥¼ ëŠ˜ë ¤ë³´ê¸°
 
-	//Bubble sort ±¸ÇöÇØº¸±â
+	//Bubble sort êµ¬í˜„í•´ë³´ê¸°
 
 	return 0;
 }
