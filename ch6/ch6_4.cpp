@@ -80,6 +80,22 @@ int main()
 	//데이터 수를 늘려보기
 
 	//Bubble sort 구현해보기
+	
+	for (int level = 0; level < length - 1; ++level)
+	{
+
+		for (int i = 0; i < length - level - 1; ++i)
+		{
+			if (array[i] >array[i + 1])
+			{
+				temp = array[i+1];
+				array[i + 1] = array[i];
+				array[i] =temp;
+				
+			}
+			printArray(array, length);
+		}
+	}
 
 	return 0;
 }
