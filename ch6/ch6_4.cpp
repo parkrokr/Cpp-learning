@@ -99,6 +99,29 @@ int main()
 	}
 	
 	//데이터 수를 늘려보기
+	const int length_ = 10;
+
+	int array_[length_] = { 3,5,2,1,4,10,8,9,7,6 };
+
+	for (int startIndex = 0; startIndex < length_ - 1; ++startIndex)
+	{
+		int smallestIndex = startIndex;
+
+		for (int currentIndex = startIndex + 1; currentIndex < length_; ++currentIndex)
+		{
+			if (array_[smallestIndex] > array_[currentIndex])
+			{
+				smallestIndex = currentIndex; //index 만 바꾸면 value 는 따로 바꿀 필요가 없음
+			}
+		}
+
+		//swap two values in the array
+		//std::swap(array[smallestIndex],  array[startIndex]);
+		int temp = array_[smallestIndex];
+		array_[smallestIndex] = array_[startIndex];
+		array_[startIndex] = temp;
+		printArray(array_, length_);
+	}
 
 	//Bubble sort 구현해보기
 	
