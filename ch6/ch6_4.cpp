@@ -77,6 +77,27 @@ int main()
 
 
 	//증가하는 순서가 아니라 감소하는 순서로 만들어보기
+	
+	for (int startIndex = 0; startIndex < length - 1; ++startIndex) 
+	{
+		int smallestIndex = startIndex;
+
+		for (int currentIndex = startIndex + 1; currentIndex < length; ++currentIndex)
+		{
+			if (array[smallestIndex] < array[currentIndex])
+			{
+				smallestIndex = currentIndex; //index 만 바꾸면 value 는 따로 바꿀 필요가 없음
+			}
+		}
+
+		//swap two values in the array
+		//std::swap(array[smallestIndex],  array[startIndex]);
+		int temp = array[smallestIndex];
+		array[smallestIndex] = array[startIndex];
+		array[startIndex] = temp;
+		printArray(array, length);
+	}
+	
 	//데이터 수를 늘려보기
 
 	//Bubble sort 구현해보기
