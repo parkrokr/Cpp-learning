@@ -1,4 +1,4 @@
-//C¾ğ¾î ½ºÅ¸ÀÏÀÇ ¹è¿­ ¹®ÀÚ¿­
+//Cì–¸ì–´ ìŠ¤íƒ€ì¼ì˜ ë°°ì—´ ë¬¸ìì—´
 
 #include<iostream>
 #include<cstring>
@@ -7,9 +7,9 @@ using namespace std;
 
 int main()
 {
-	//¹è¿­°ú ¶È°°Àº ¹æ½ÄÀ» Ã³¸®ÇÒ ¼ö ÀÖÀ½ ´ÜÁö µ¥ÀÌÃ³ Ã³¸® type ÀÌ ¹®ÀÚÇüÀÏ »ÓÀÓ
+	//ë°°ì—´ê³¼ ë˜‘ê°™ì€ ë°©ì‹ì„ ì²˜ë¦¬í•  ìˆ˜ ìˆìŒ ë‹¨ì§€ ë°ì´ì²˜ ì²˜ë¦¬ type ì´ ë¬¸ìí˜•ì¼ ë¿ì„
 
-	char myString[] = "string"; // ¸¶Áö¸·¿¡ \0(null character) µé¾îÀÖÀ½
+	char myString[] = "string"; // ë§ˆì§€ë§‰ì— \0(null character) ë“¤ì–´ìˆìŒ
 
 	cout << sizeof(myString) / sizeof(myString[0]) << endl;
 
@@ -19,15 +19,15 @@ int main()
 	}
 
 
-	//cin À¸·Î ÀĞ±â
+	//cin ìœ¼ë¡œ ì½ê¸°
 	char my_String[255];
 
 	//cin >> my_String;
 
-	// ºóÄ­À» ÀÔ·ÂÇÏ°í ½ÍÀ»¶§    (ºóÄ­°ú null character ´Â ´Ù¸§)
+	// ë¹ˆì¹¸ì„ ì…ë ¥í•˜ê³  ì‹¶ì„ë•Œ    (ë¹ˆì¹¸ê³¼ null character ëŠ” ë‹¤ë¦„)
 	cin.getline(my_String, 255);
 
-	//my_String[4] = '\0'; //4¹øÂ° ±ÛÀÚ ÀÌÈÄ Ãâ·Â x , cout Àº null characterÀÌ ³ª¿À±â Àü±îÁö Ãâ·ÂÇÏ±â ¶§¹®
+	//my_String[4] = '\0'; //4ë²ˆì§¸ ê¸€ì ì´í›„ ì¶œë ¥ x , cout ì€ null characterì´ ë‚˜ì˜¤ê¸° ì „ê¹Œì§€ ì¶œë ¥í•˜ê¸° ë•Œë¬¸
 
 	cout << my_String << endl;
 
@@ -41,23 +41,23 @@ int main()
 	}
 
 
-	//ÀüÅëÀûÀÎ C style ¹®ÀÚ¿­
+	//ì „í†µì ì¸ C style ë¬¸ìì—´
 	char source[] = "Copy this!";
 	char dest[50]; 
 
 
-	//¹®ÀÚ¿­ º¹»ç
-	//strcpy(dest, source); // destinationÀÇ size °¡ ºÎÁ·ÇÏ¸é runtime error ¹ß»ıÇÔ
+	//ë¬¸ìì—´ ë³µì‚¬
+	//strcpy(dest, source); // destinationì˜ size ê°€ ë¶€ì¡±í•˜ë©´ runtime error ë°œìƒí•¨
 
-	strcpy_s(dest, 50, source); //destination memory size¶û ¶È°°ÀÌ parameter¸¦ ÀÔ·ÂÇØ¾ßÇÔ, _s ´Â secured ÀÇ¹Ì
+	strcpy_s(dest, 50, source); //destination memory sizeë‘ ë˜‘ê°™ì´ parameterë¥¼ ì…ë ¥í•´ì•¼í•¨, _s ëŠ” secured ì˜ë¯¸
 
 
 	cout << source << endl;
 	cout << dest << endl;
 
 
-	//strcat()  //ÇÑ ¹®ÀÚ¿­ µÚ¿¡´Ù ¾î¶² ¹®ÀÚ¿­À» ºÙ¿©ÁÖ´Â°Í
-	//strcmp{}  //µÎ ¹®ÀÚ¿­ÀÌ µ¿ÀÏÇÑÁö ºñ±³¸¦ ÇÏ´Â°Í
+	//strcat()  //í•œ ë¬¸ìì—´ ë’¤ì—ë‹¤ ì–´ë–¤ ë¬¸ìì—´ì„ ë¶™ì—¬ì£¼ëŠ”ê²ƒ
+	//strcmp()  //ë‘ ë¬¸ìì—´ì´ ë™ì¼í•œì§€ ë¹„êµë¥¼ í•˜ëŠ”ê²ƒ
 
 	strcat(dest, source);
 
@@ -65,10 +65,62 @@ int main()
 	cout << dest << endl;
 
 
-	// * strcmp function Àº °°À¸¸é 0, ´Ù¸£¸é -1 return  
+	// * strcmp function ì€ ê°™ìœ¼ë©´ 0, ë‹¤ë¥´ë©´ -1 return  
 	cout << strcmp(source, dest) << endl;
 
-	//strcat(),strcmp() ±¸ÇöÇØº¸±â
+	//strcat(),strcmp() êµ¬í˜„í•´ë³´ê¸°
+	
+	//strcat()
+	
+	char a[] = "Hello World";
+	char b[] = "Hello World";
+	int count(0);
+	const int c_width = (sizeof(a) / sizeof(a[0]))+ (sizeof(b) / sizeof(b[0]))-1;
+	char c[c_width];
+
+	int i = 0;
+	int j = 0;
+
+	while (a[i] != '\0')
+	{
+		c[i] = a[i];
+		++i;
+	}
+	while (b[j] != '\0')
+	{
+		c[i] = b[j];
+		++i;
+		++j;
+	}
+
+	//print c
+	for (int i = 0; i < c_width; ++i)
+	{
+		cout << c[i];
+	}
+	cout << endl;
+
+
+	//strcmp()
+
+	//char a[] = "Hello World";
+	//char b[] = "Hello World";
+
+	for (int i = 0; i < (sizeof(a) / sizeof(a[0])); ++i)
+	{
+		if (a[i] == b[i])
+		{
+			if (i+1 == sizeof(a) / sizeof(a[0]))
+			{
+				cout << 0 << endl;
+			}
+		}
+		else
+		{
+			cout << -1 << endl;
+			break;
+		}
+	}
 
 	return 0;
 }
