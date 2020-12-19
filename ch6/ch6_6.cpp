@@ -9,7 +9,7 @@ int main()
 {
 	//배열과 똑같은 방식을 처리할 수 있음 단지 데이처 처리 type 이 문자형일 뿐임
 
-	char myString[] = "string"; // 마지막에 \0(null character) 들어있음
+	char myString[] = "string"; // 마지막에 \0(null character) 들어있음 , "string"은 6 이지만 myString 은 7 이다
 
 	cout << sizeof(myString) / sizeof(myString[0]) << endl;
 
