@@ -1,4 +1,4 @@
-//Á¤Àû ´ÙÂ÷¿ø ¹è¿­ Multi-dimensional Array
+//ì •ì  ë‹¤ì°¨ì› ë°°ì—´ Multi-dimensional Array
 
 #include<iostream>
 
@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-	//Çà·ÄÀ» Ãâ·ÂÇÏ´Â ÄÚµå 
+	//í–‰ë ¬ì„ ì¶œë ¥í•˜ëŠ” ì½”ë“œ 
 	const int num_rows = 3;
 	const int num_columns = 5;
 
@@ -23,11 +23,11 @@ int main()
 
 
 
-	//ÄÄÇ»ÅÍ ¸Ş¸ğ¸®´Â 1Â÷¿øÀû, ´ÙÂ÷¿ø ¹è¿­Àº 1Â÷¿øÀû ¸Ş¸ğ¸®¸¦ °¡Áö°í 'Á¢¾î¼­' 2Â÷¿øÀûÀ¸·Î º¸ÀÌ°Ô ÇÏ´Â°Í
+	//ì»´í“¨í„° ë©”ëª¨ë¦¬ëŠ” 1ì°¨ì›ì , ë‹¤ì°¨ì› ë°°ì—´ì€ 1ì°¨ì›ì  ë©”ëª¨ë¦¬ë¥¼ ê°€ì§€ê³  'ì ‘ì–´ì„œ' 2ì°¨ì›ì ìœ¼ë¡œ ë³´ì´ê²Œ í•˜ëŠ”ê²ƒ
 
-	//´ÙÂ÷¿ø ¹è¿­ ¼±¾ğ(2Â÷¿ø)
-	//row-major ¹æ½Ä  <-> column-major
-	int array[num_rows][num_columns] =  // copy initialization, =°¡ ¾ø¾îµµ µÊ(c++11 ÀÌ»ó)
+	//ë‹¤ì°¨ì› ë°°ì—´ ì„ ì–¸(2ì°¨ì›)
+	//row-major ë°©ì‹  <-> column-major
+	int array[num_rows][num_columns] =  // copy initialization, =ê°€ ì—†ì–´ë„ ë¨(c++11 ì´ìƒ)
 	{
 		{1,2,3,4,5},	//row 0
 		{6,7,8,9,10},	//row 1
@@ -35,24 +35,24 @@ int main()
 	};
 
 
-	//ÇÏ³ª¾¿ ÃÊ±âÈ­ ÇÏ´Â ¹æ¹ı
+	//í•˜ë‚˜ì”© ì´ˆê¸°í™” í•˜ëŠ” ë°©ë²•
 	/*array[0][0] = 1;
 	array[0][1] = 2;*/
 
-	// num_rows »ı·« °¡´É , num_columns ´Â »ı·« ºÒ°¡´É
-	/*int array[][num_columns]  //2Â÷¿ø ÀÌ»óÀÇ ¹è¿­À» ÇÔ¼ö parameter·Î ÁÖ°í¹ŞÀ»¶§ Á» ºÒÆíÇÒ ¼ö ÀÖÀ½
+	// num_rows ìƒëµ ê°€ëŠ¥ , num_columns ëŠ” ìƒëµ ë¶ˆê°€ëŠ¥
+	/*int array[][num_columns]  //2ì°¨ì› ì´ìƒì˜ ë°°ì—´ì„ í•¨ìˆ˜ parameterë¡œ ì£¼ê³ ë°›ì„ë•Œ ì¢€ ë¶ˆí¸í•  ìˆ˜ ìˆìŒ
 	{
-		{1,2, },		//row 0  ÃÊ±âÈ­ ¾ÈÇÑ °ªÀº 0 À¸·Î ÃÊ±âÈ­
+		{1,2, },		//row 0  ì´ˆê¸°í™” ì•ˆí•œ ê°’ì€ 0 ìœ¼ë¡œ ì´ˆê¸°í™”
 		{6,7,8,9,10},	//row 1
 		{11,12,13,14,15}//row 2
 	};
 	*/
 
-	//row °³¼ö¿Í columns °³¼ö°¡ µé¾îÀÖ´Â °æ¿ì ¸ğµÎ 0À¸·Î ÃÊ±âÈ­ °¡´É
+	//row ê°œìˆ˜ì™€ columns ê°œìˆ˜ê°€ ë“¤ì–´ìˆëŠ” ê²½ìš° ëª¨ë‘ 0ìœ¼ë¡œ ì´ˆê¸°í™” ê°€ëŠ¥
 	//int array[num_rows][num_columns] = { 0 };
 
 
-	// array Ãâ·Â
+	// array ì¶œë ¥
 	for (int row = 0; row < num_rows; ++row)
 	{
 		for (int col = 0; col < num_columns; ++col)
@@ -61,7 +61,7 @@ int main()
 	}
 	cout << endl;
 
-	// array ÁÖ¼Ò Ãâ·Â
+	// array ì£¼ì†Œ ì¶œë ¥
 	for (int row = 0; row < num_rows; ++row)
 	{
 		for (int col = 0; col < num_columns; ++col)
@@ -71,12 +71,80 @@ int main()
 	cout << endl;
 
 
-	//3Â÷¿ø array
+	//3ì°¨ì› array
 	int array_[5][4][3];
 
-	//ÅÙ¼­¸¦ Ç¥ÇöÇÏ±â À§ÇØ ´ÙÂ÷¿ø array »ç¿ë
+	//í…ì„œë¥¼ í‘œí˜„í•˜ê¸° ìœ„í•´ ë‹¤ì°¨ì› array ì‚¬ìš©
 
-	//Çà·Ä °öÇÏ±â¸¦ ´ÙÂ÷¿ø array ¸¦ »ç¿ëÇÏ¿© ±¸ÇöÇÏ±â
+	//í–‰ë ¬ ê³±í•˜ê¸°ë¥¼ ë‹¤ì°¨ì› array ë¥¼ ì‚¬ìš©í•˜ì—¬ êµ¬í˜„í•˜ê¸°
+	const int m = 3;
+	const int n = 3;
+	const int p = 3;
+
+	// matrix a
+	int matrix_a[m][n]
+	{
+		{3,2,5},
+		{7,2,4},
+		{1,3,2}
+	};
+
+	// matrix b
+	int matrix_b[n][p]
+	{
+		{2,4,0},
+		{6,1,2},
+		{2,7,3}
+	};
+
+	// matrix c (ab)
+	int matrix_c[m][p] = { 0 };
+
+	for (int i = 0; i < m; ++i)
+	{
+		for (int j = 0; j < p; ++j)
+		{
+			//sum of c[i][j]
+			int sum_of_c(0);
+			for (int k = 0; k < n; ++k)
+			{
+				sum_of_c +=( matrix_a[i][k] * matrix_b[k][j]);
+			}
+
+			matrix_c[i][j] = sum_of_c;
+
+		}
+	}
+
+	//print matrix_a
+	cout << "matrix a " << endl;
+	for (int row = 0; row < m; ++row)
+	{
+		for (int col = 0; col <n; ++col)
+			cout << matrix_a[row][col] << '\t';
+		cout << endl;
+	}
+	cout << endl;
+
+	//print matrix_b
+	cout << "matrix b" << endl;
+	for (int row = 0; row < n; ++row)
+	{
+		for (int col = 0; col < p; ++col)
+			cout << matrix_b[row][col] << '\t';
+		cout << endl;
+	}
+	cout << endl;
+
+	//print matrix_c
+	cout << "matrix c" << endl;
+	for (int row = 0; row < m; ++row)
+	{
+		for (int col = 0; col < p; ++col)
+			cout << matrix_c[row][col] << '\t';
+		cout << endl;
+	}
+	cout << endl;
 
 	return 0;
 }
