@@ -1,11 +1,11 @@
-//Æ÷ÀÎÅÍÀÇ ±âº»ÀûÀÎ »ç¿ë¹ý
+//í¬ì¸í„°ì˜ ê¸°ë³¸ì ì¸ ì‚¬ìš©ë²•
 
 #include <iostream>
 #include<typeinfo>
 
 using namespace std;
 
-//ÇÔ¼ö°¡ return type, parameter ·Î ¹ÞÀ» ¼öµµ ÀÖÀ½
+//í•¨ìˆ˜ê°€ return type, parameter ë¡œ ë°›ì„ ìˆ˜ë„ ìžˆìŒ
 int* doSomething(int* ptr_a)
 {
 	return nullptr;
@@ -19,76 +19,76 @@ struct Something
 
 int main()
 {
-	// Å« ¸Þ¸ð¸®¿¡ ÀúÀåµÇ¾î ÀÖ´Â µ¥ÀÌÅÍ Áß¿¡¼­ ÀÏºÎºÐÀ» cpu°¡ »ç¿ëÇÏ±â À§ÇØ ¸Þ¸ð¸®·ÎºÎÅÍ °¡Á®¿Ã ¶§´Â
-	//¸Þ¸ð¸® ÀüÃ¼¸¦ ¸ðµÎ µÚÁö¸é¼­ Ã£´Â °ÍÀÌ ¾Æ´Ï¶ó ÇÊ¿äÇÑ µ¥ÀÌÅÍ°¡ ÀúÀåµÇ¾î ÀÖ´Â 'ÁÖ¼Ò'¸¦ »ç¿ëÇÏ¿©
-	//Á÷Á¢ Á¢±ÙÇÏ¿© °¡Á®¿È
+	// í° ë©”ëª¨ë¦¬ì— ì €ìž¥ë˜ì–´ ìžˆëŠ” ë°ì´í„° ì¤‘ì—ì„œ ì¼ë¶€ë¶„ì„ cpuê°€ ì‚¬ìš©í•˜ê¸° ìœ„í•´ ë©”ëª¨ë¦¬ë¡œë¶€í„° ê°€ì ¸ì˜¬ ë•ŒëŠ”
+	//ë©”ëª¨ë¦¬ ì „ì²´ë¥¼ ëª¨ë‘ ë’¤ì§€ë©´ì„œ ì°¾ëŠ” ê²ƒì´ ì•„ë‹ˆë¼ í•„ìš”í•œ ë°ì´í„°ê°€ ì €ìž¥ë˜ì–´ ìžˆëŠ” 'ì£¼ì†Œ'ë¥¼ ì‚¬ìš©í•˜ì—¬
+	//ì§ì ‘ ì ‘ê·¼í•˜ì—¬ ê°€ì ¸ì˜´
 	
 	int x = 5;
-	//Áö¿ª º¯¼ö´Â '½ºÅÃ'¸Þ¸ð¸®¸¦ »ç¿ë, µ¿Àû ÇÒ´ç ¸Þ¸ð¸®´Â 'Èü'¸Þ¸ð¸® »ç¿ë
+	//ì§€ì—­ ë³€ìˆ˜ëŠ” 'ìŠ¤íƒ'ë©”ëª¨ë¦¬ë¥¼ ì‚¬ìš©, ë™ì  í• ë‹¹ ë©”ëª¨ë¦¬ëŠ” 'íž™'ë©”ëª¨ë¦¬ ì‚¬ìš©
 
 	cout << x << endl;
 	
-	// º¯¼ö x°¡ »ç¿ëÇÏ´Â ¸Þ¸ð¸® ÁÖ¼Ò¸¦ ¾Ë°í ½ÍÀ» ¶§
+	// ë³€ìˆ˜ xê°€ ì‚¬ìš©í•˜ëŠ” ë©”ëª¨ë¦¬ ì£¼ì†Œë¥¼ ì•Œê³  ì‹¶ì„ ë•Œ
 	cout << &x << endl;// & : address-of operator
-	cout << (int)&x << endl; // ¸Þ¸ð¸® ÁÖ¼Ò´Â 16Áø¼ö·Î ³ª¿È
+	cout << (int)&x << endl; // ë©”ëª¨ë¦¬ ì£¼ì†ŒëŠ” 16ì§„ìˆ˜ë¡œ ë‚˜ì˜´
 
 
 	//de-reference operator (*)
 
-	//Æ÷ÀÎÅÍ´Â ·¹ÆÛ·±½ºÀÇ ÀÏÁ¾,ÀÏºÎ
-	//c++¿¡´Â Æ÷ÀÎÅÍ¿Í ·¹ÆÛ·±½º°¡ ¶Ç µû·Î ÀÖÀ½
+	//í¬ì¸í„°ëŠ” ë ˆí¼ëŸ°ìŠ¤ì˜ ì¼ì¢…,ì¼ë¶€
+	//c++ì—ëŠ” í¬ì¸í„°ì™€ ë ˆí¼ëŸ°ìŠ¤ê°€ ë˜ ë”°ë¡œ ìžˆìŒ
 
-	//de-reference ´Â Æ÷ÀÎÅÍ°¡ "ÀúÂÊ ÁÖ¼Ò¿¡ °¡¸é ÀÌ µ¥ÀÌÅÍ°¡ ÀÖ¾î¿ä"¶ó°í °£Á¢ÀûÀ¸·Î °¡¸®Å°±â¸¸ ÇÏ´Â °Í¿¡ 
-	//´ëÇØ¼­ "±×·³ °Å±â¿¡ ÁøÂ¥ ¹¹°¡ ÀÖ´ÂÁö ³»°¡ µé¿©´Ùº¼²²"¶ó¸ç Á÷Á¢ÀûÀ¸·Î Á¢±ÙÇÏ°Ú´Ù´Â ÀÇ¹Ì
+	//de-reference ëŠ” í¬ì¸í„°ê°€ "ì €ìª½ ì£¼ì†Œì— ê°€ë©´ ì´ ë°ì´í„°ê°€ ìžˆì–´ìš”"ë¼ê³  ê°„ì ‘ì ìœ¼ë¡œ ê°€ë¦¬í‚¤ê¸°ë§Œ í•˜ëŠ” ê²ƒì— 
+	//ëŒ€í•´ì„œ "ê·¸ëŸ¼ ê±°ê¸°ì— ì§„ì§œ ë­ê°€ ìžˆëŠ”ì§€ ë‚´ê°€ ë“¤ì—¬ë‹¤ë³¼ê»˜"ë¼ë©° ì§ì ‘ì ìœ¼ë¡œ ì ‘ê·¼í•˜ê² ë‹¤ëŠ” ì˜ë¯¸
 
-	cout << *(&x) << endl; // xÀÇ ¸Þ¸ð¸® ÁÖ¼Ò¿¡ ÀúÀåµÇ¾î ÀÖ´Â ½ÇÁ¦ °ªÀÎ 5 °¡ Ãâ·ÂµÊ
-	//¿¬»êÀÚ ¿ì¼±¼±À§ ¶§¹®¿¡ *&xµµ »ó°ü¾øÀ½
+	cout << *(&x) << endl; // xì˜ ë©”ëª¨ë¦¬ ì£¼ì†Œì— ì €ìž¥ë˜ì–´ ìžˆëŠ” ì‹¤ì œ ê°’ì¸ 5 ê°€ ì¶œë ¥ë¨
+	//ì—°ì‚°ìž ìš°ì„ ì„ ìœ„ ë•Œë¬¸ì— *&xë„ ìƒê´€ì—†ìŒ
 
 
 
-	//Æ÷ÀÎÅÍ´Â ÁÖ¼Ò¸¦ ÀúÀåÇÏ´Â º¯¼ö
+	//í¬ì¸í„°ëŠ” ì£¼ì†Œë¥¼ ì €ìž¥í•˜ëŠ” ë³€ìˆ˜
 
-	//Æ÷ÀÎÅÍ º¯¼ö ¼±¾ð
+	//í¬ì¸í„° ë³€ìˆ˜ ì„ ì–¸
 	
 	int* ptr_x = &x, * ptr_y = &x;
 
-	// int * ptr_x ¿¡¼­ *°¡ ¿ÞÂÊ¿¡ ºÙÀ¸¸é Çò°¥¸± ¼ö ÀÖÀ½
-	// int *ptr_x = &x; ptr_y = &x; ¿¡¼­ ptr_y´Â Æ÷ÀÎÅÍ º¯¼ö°¡ ¾Æ´Ô
-	// int *ptr_x = &x; *ptr_y = &x; ½ÄÀ¸·Î »ç¶÷ÀÇ ½Ç¼ö¸¦ ÁÙÀÌ±â À§ÇØ *¾Õ¿¡ ºóÄ­À» µÎ´Â ½ÄÀ¸·Î ¸¹ÀÌ »ç¿ëÇÔ
+	// int * ptr_x ì—ì„œ *ê°€ ì™¼ìª½ì— ë¶™ìœ¼ë©´ í—·ê°ˆë¦´ ìˆ˜ ìžˆìŒ
+	// int *ptr_x = &x; ptr_y = &x; ì—ì„œ ptr_yëŠ” í¬ì¸í„° ë³€ìˆ˜ê°€ ì•„ë‹˜
+	// int *ptr_x = &x; *ptr_y = &x; ì‹ìœ¼ë¡œ ì‚¬ëžŒì˜ ì‹¤ìˆ˜ë¥¼ ì¤„ì´ê¸° ìœ„í•´ *ì•žì— ë¹ˆì¹¸ì„ ë‘ëŠ” ì‹ìœ¼ë¡œ ë§Žì´ ì‚¬ìš©í•¨
 
 
 	//typedef int* pint;
 	//pint ptr_x;
 
-	//pint ptr_x = &x, ptr_y = &x; ´Â ¹®Á¦°¡ ¾øÀ½
-	//ÀÌÁßÆ÷ÀÎÅÍ³ª »ïÁß Æ÷ÀÎÅÍ¸¦ ¾îÂ¼´Ù ÇÑ¹ø ½á¾ßµÉ °æ¿ì ÀÌ·±½ÄÀ¸·Î µ¹·Á¼­ ¾µ¶§µµ ÀÖÀ½
+	//pint ptr_x = &x, ptr_y = &x; ëŠ” ë¬¸ì œê°€ ì—†ìŒ
+	//ì´ì¤‘í¬ì¸í„°ë‚˜ ì‚¼ì¤‘ í¬ì¸í„°ë¥¼ ì–´ì©Œë‹¤ í•œë²ˆ ì¨ì•¼ë  ê²½ìš° ì´ëŸ°ì‹ìœ¼ë¡œ ëŒë ¤ì„œ ì“¸ë•Œë„ ìžˆìŒ
 
 
-	//ÁÖ¼Ò´Â data type°ú »ó°üÀÌ ¾øÀÌ Áß¸³ÀûÀÓ
-	//Æ÷ÀÎÅÍ°¡ typeÀ» ¾Ë¾Æ¾ß ÇÏ´Â ÀÌÀ¯´Â de_referenceing ÇÒ¶§ 
-	//¾î¶² Å¸ÀÔÀÇ µ¥ÀÌÅÍ¸¦ °¡Á®¿Í¾ß ÇÒÁö ¾Ë¾Æ¾ß ÇÏ±â ‹š¹®¿¡
+	//ì£¼ì†ŒëŠ” data typeê³¼ ìƒê´€ì´ ì—†ì´ ì¤‘ë¦½ì ìž„
+	//í¬ì¸í„°ê°€ typeì„ ì•Œì•„ì•¼ í•˜ëŠ” ì´ìœ ëŠ” de_referenceing í• ë•Œ 
+	//ì–´ë–¤ íƒ€ìž…ì˜ ë°ì´í„°ë¥¼ ê°€ì ¸ì™€ì•¼ í• ì§€ ì•Œì•„ì•¼ í•˜ê¸° Â‹Âšë¬¸ì—
 
-	//*ptr_x ´Â int type ÀÌ´Ù, ptr_x°¡ int ÀÇ Æ÷ÀÎÅÍ typeÀ¸·Î ¼±¾ðÀÌ µÇ¾ú±â ¶§¹®¿¡
+	//*ptr_x ëŠ” int type ì´ë‹¤, ptr_xê°€ int ì˜ í¬ì¸í„° typeìœ¼ë¡œ ì„ ì–¸ì´ ë˜ì—ˆê¸° ë•Œë¬¸ì—
 	
 
 	cout << typeid(ptr_x).name() << endl;
-	//visula studio ¿¡¼± int *, gcc(codeblock)¿¡¼± Pi (pointer integer) ·Î ¶ä 
+	//visula studio ì—ì„  int *, gcc(codeblock)ì—ì„  Pi (pointer integer) ë¡œ ëœ¸ 
 
 
-	//Æ÷ÀÎÅÍ¸¦ ¾²´Â ÀÌÀ¯´Â ¹è¿­ ¶§¹®ÀÌ Å­, ¹è¿­À» ÇÔ¼ö parameter·Î Á÷Á¢ ¹ÞÀ» °æ¿ì
-	//¹è¿­¿¡ ÀúÀåµÈ µ¥ÀÌÅÍ¸¦ ¸ðµÎ º¹»çÇÏ´Âµ¥ ¸¹Àº ½Ã°£ÀÌ °É¸®±â ¶§¹®¿¡ 
-	//Æ÷ÀÎÅÍ·Î ½ÃÀÛÇÏ´Â ºÎºÐÀÇ ÁÖ¼Ò¿Í »çÀÌÁî¸¸ ¾Ë·ÁÁÖ¸é ´Ù·ê ¼ö ÀÖÀ½
+	//í¬ì¸í„°ë¥¼ ì“°ëŠ” ì´ìœ ëŠ” ë°°ì—´ ë•Œë¬¸ì´ í¼, ë°°ì—´ì„ í•¨ìˆ˜ parameterë¡œ ì§ì ‘ ë°›ì„ ê²½ìš°
+	//ë°°ì—´ì— ì €ìž¥ëœ ë°ì´í„°ë¥¼ ëª¨ë‘ ë³µì‚¬í•˜ëŠ”ë° ë§Žì€ ì‹œê°„ì´ ê±¸ë¦¬ê¸° ë•Œë¬¸ì— 
+	//í¬ì¸í„°ë¡œ ì‹œìž‘í•˜ëŠ” ë¶€ë¶„ì˜ ì£¼ì†Œì™€ ì‚¬ì´ì¦ˆë§Œ ì•Œë ¤ì£¼ë©´ ë‹¤ë£° ìˆ˜ ìžˆìŒ
 
 	
-	//´Ù¾çÇÑ data type ¿¡ ´ëÇØ¼­ ¾µ ¼ö ÀÖÀ½
+	//ë‹¤ì–‘í•œ data type ì— ëŒ€í•´ì„œ ì“¸ ìˆ˜ ìžˆìŒ
 	double d = 1.0;
 	
 	double* ptr_d = &d;
-	//double *ptr_d = 0x00D8F744; ´Â ºÒ°¡´ÉÇÔ
-	//¾Æ¿¹ ºÒ°¡´É ÇÏÁø ¾ÊÀ½, ÇØÅ·ÀÇ ¿ø¸®Áß ÇÏ³ª
+	//double *ptr_d = 0x00D8F744; ëŠ” ë¶ˆê°€ëŠ¥í•¨
+	//ì•„ì˜ˆ ë¶ˆê°€ëŠ¥ í•˜ì§„ ì•ŠìŒ, í•´í‚¹ì˜ ì›ë¦¬ì¤‘ í•˜ë‚˜
 
 	
-	//structure ³ª class °°Àº »ç¿ëÀÚ Á¤ÀÇ ÀÚ·áÇü¿¡ ´ëÇØ¼­µµ ¾µ ¼ö ÀÖÀ½
+	//structure ë‚˜ class ê°™ì€ ì‚¬ìš©ìž ì •ì˜ ìžë£Œí˜•ì— ëŒ€í•´ì„œë„ ì“¸ ìˆ˜ ìžˆìŒ
 	Something ss;
 	Something* ptr_s;
 
@@ -97,21 +97,23 @@ int main()
 
 
 
-	//Æ÷ÀÎÅÍ º¯¼ö´Â ÁÖ¼Ú°ª¸¸ ÀúÀåÇÏ±â ¶§¹®¿¡ data type °ú »ó°ü¾øÀÌ °°Àº Å©±â¸¦ °¡Áü
+	//í¬ì¸í„° ë³€ìˆ˜ëŠ” ì£¼ì†Ÿê°’ë§Œ ì €ìž¥í•˜ê¸° ë•Œë¬¸ì— data type ê³¼ ìƒê´€ì—†ì´ ê°™ì€ í¬ê¸°ë¥¼ ê°€ì§
 	cout << sizeof(x) << endl; //4
 	cout << sizeof(d) << endl; //8
-	cout << sizeof(&x) << " " << sizeof(ptr_x) << endl; // 4 4  , x64¿¡¼± 8 8
-	cout << sizeof(&d) << " " << sizeof(ptr_d) << endl; // 4 4  , x64¿¡¼± 8 8
+	cout << sizeof(&x) << " " << sizeof(ptr_x) << endl; // 4 4  , x64ì—ì„  8 8
+	cout << sizeof(&d) << " " << sizeof(ptr_d) << endl; // 4 4  , x64ì—ì„  8 8
 
-	// x64¿¡¼± ÁÖ¼Ú°ªÀ» Âï¾îº¸¸é ´õ ±æ°Ô ÂïÈû
+	// x64ì—ì„  ì£¼ì†Ÿê°’ì„ ì°ì–´ë³´ë©´ ë” ê¸¸ê²Œ ì°íž˜
 
 
-	//¹®Á¦°¡ µÉ ¼ö ÀÖ´Â ºÎºÐ
-	//ÃÊ±âÈ­ ¾øÀÌ de-referencing ÇÒ °æ¿ì
+	//ë¬¸ì œê°€ ë  ìˆ˜ ìžˆëŠ” ë¶€ë¶„
+	//ì´ˆê¸°í™” ì—†ì´ de-referencing í•  ê²½ìš°
 	int* ptr_z;
 
-	//cout << *ptr_z << endl; //°¡Àå ¸¹Àº ¿¡·¯ ¿øÀÎ
+	//cout << *ptr_z << endl; //ê°€ìž¥ ë§Žì€ ì—ëŸ¬ ì›ì¸
 
+	//ì“°ë ˆê¸°ê°’ì´ ë“¤ì–´ìžˆëŠ” ë©”ëª¨ë¦¬ ì£¼ì†Œì— de-referncingì„ ì‹œë„í•  ê²½ìš° ì—ëŸ¬
+	//ë°©ì§€í•˜ê¸° ìœ„í•´ null pointer 
 
 
 	return 0;
