@@ -1,9 +1,9 @@
-//³Î Æ÷ÀÎÅÍ null pointer
+//ë„ í¬ì¸í„° null pointer
 
 #include <iostream>
 #include <cstddef> //std::nullptr_t nptr;
 
-//ÇÔ¼ö parameterµµ °¡´É
+//í•¨ìˆ˜ parameterë„ ê°€ëŠ¥
 void doSomething(double* ptr)
 {
 	std::cout << "address of pointer variable in doSomthing() " << &ptr << std::endl;
@@ -22,13 +22,13 @@ void doSomething(double* ptr)
 
 int main()
 {
-	//null pointer ¼±¾ğ
+	//null pointer ì„ ì–¸
 	//double* ptr = 0; // = null;			 //c-style
 	double* ptr = nullptr;				    //modern c++
-	//double *ptr{ nullptr };  //uniform initialization µµ °¡´É, { 0 } µµ °¡´ÉÇÏÁö¸¸ nullptr ÀÌ ÁÁÀ½
+	//double *ptr{ nullptr };  //uniform initialization ë„ ê°€ëŠ¥, { 0 } ë„ ê°€ëŠ¥í•˜ì§€ë§Œ nullptr ì‚¬ìš©ì´ ë” ì¢‹ìŒ, 
 
 	
-	//»ç¿ë  ¿Ã¹Ù¸¥ ÁÖ¼Ò°¡ µé¾î¿ÔÀ»¶§¸¸ µ¿ÀÛÇÏ°Ô
+	//ì‚¬ìš©  ì˜¬ë°”ë¥¸ ì£¼ì†Œê°€ ë“¤ì–´ì™”ì„ë•Œë§Œ ë™ì‘í•˜ê²Œ
 	if (ptr != nullptr)
 	{
 		// do something useful
@@ -49,15 +49,15 @@ int main()
 
 	doSomething(ptr);
 
-	//Æ÷ÀÎÅÍ º¯¼öÀÇ ÁÖ¼Ò
+	//í¬ì¸í„° ë³€ìˆ˜ì˜ ì£¼ì†Œ
 	std::cout << "address of pointer variable in main() " << &ptr << std::endl;
 
-	//main °ú doSomething ÀÇ Æ÷ÀÎÅÍ º¯¼öÀÇ ÁÖ¼Ò°¡ ´Ù¸§(´Ù¸¥ ¸Ş¸ğ¸®¸¦ »ç¿ë)
-	//ÁÖ¼Ò°ª¸¸ º¹»çÇØ¿ÀÁö ±× ÁÖ¼Ò¸¦ ÀúÀåÇÏ´Â ¸Ş¸ğ¸®´Â ´Ù¸§
+	//main ê³¼ doSomething ì˜ í¬ì¸í„° ë³€ìˆ˜ì˜ ì£¼ì†Œê°€ ë‹¤ë¦„(ë‹¤ë¥¸ ë©”ëª¨ë¦¬ë¥¼ ì‚¬ìš©)
+	//ì£¼ì†Œê°’ë§Œ ë³µì‚¬í•´ì˜¤ì§€ ê·¸ ì£¼ì†Œë¥¼ ì €ì¥í•˜ëŠ” ë©”ëª¨ë¦¬ëŠ” ë‹¤ë¦„
 
 
 	//<cstddef>
-	std::nullptr_t nptr; // null pointer ¹Û¿¡ ¸ø³Ñ
+	std::nullptr_t nptr; // null pointer ë°–ì— ëª»ë„˜
 
 
 	return 0;
