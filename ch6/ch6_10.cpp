@@ -1,4 +1,4 @@
-//C ½ºÅ¸ÀÏÀÇ ¹®ÀÚ¿­ ±âÈ£Àû (Symbolic) »ó¼ö
+//C ìŠ¤íƒ€ì¼ì˜ ë¬¸ìì—´ ê¸°í˜¸ì  (Symbolic) ìƒìˆ˜
 
 #include <iostream>
 
@@ -13,24 +13,24 @@ const char* getName()
 int main()
 {
 	//char name [] = "jackjack";
-	//char *name = "jackjack"	//ºôµå ºÒ°¡´É 
-	//"jackjack"Àº ¸®ÅÍ·²ÀÌ°í *name Àº Æ÷ÀÎÅÍ º¯¼öÀÌ±â ¶§¹®¿¡ ½ÇÁ¦ µ¥ÀÌÅÍ¸¦ ÀúÀåÇÒ ¸Ş¸ğ¸®°¡ ÇÊ¿ä
+	//char *name = "jackjack"	//ë¹Œë“œ ë¶ˆê°€ëŠ¥ 
+	//"jackjack"ì€ ë¦¬í„°ëŸ´ì´ê³  *name ì€ í¬ì¸í„° ë³€ìˆ˜ì´ê¸° ë•Œë¬¸ì— ì‹¤ì œ ë°ì´í„°ë¥¼ ì €ì¥í•  ë©”ëª¨ë¦¬ê°€ í•„ìš”
 
-	//const ·Î ¼±¾ğÇÏ¸é °¡´É
+	//const ë¡œ ì„ ì–¸í•˜ë©´ ê°€ëŠ¥
 	const char* name = "jackjack";
 	
 
 	cout << name << endl;
 
-	//¿¹¿ÜÀûÀÎ°Å
+	//ì˜ˆì™¸ì ì¸ê±°
 	const char* name2 = "jackjack";
 
 	cout << (uintptr_t)name << endl;
 	cout << (uintptr_t)name2 << endl;
-	//ÁÖ¼Ò°¡ °°À½
+	//ì£¼ì†Œê°€ ê°™ìŒ(ë¬¸ìì—´ì´ ê°’ì´ ê°™ì•„ì„œ)
 	
 
-	//return type À¸·Îµµ »ç¿ëÇÒ ¼ö ÀÖÀ½
+	//return type ìœ¼ë¡œë„ ì‚¬ìš©í•  ìˆ˜ ìˆìŒ
 	name = getName();
 	name2 = getName();
 
@@ -38,24 +38,24 @@ int main()
 	cout << (uintptr_t)name2 << endl;
 
 
-	//¿¹¿ÜÀûÀÎ°Í
-	//cout ¿¡¼­ ¹®ÀÚ¿­À» Æ¯º°È÷ Ã³¸®ÇÑ´Ù
+	//ì˜ˆì™¸ì ì¸ê²ƒ
+	//cout ì—ì„œ ë¬¸ìì—´ì„ íŠ¹ë³„íˆ ì²˜ë¦¬í•œë‹¤
 
 	int int_arr[5] = { 1,2,3,4,5 };
 	char char_arr[] = "Hello World!";
 	const char* c_name = "Jack Jack";
 
-	cout << int_arr << endl;		//ÁÖ¼Ò
-	cout << char_arr << endl;		//¹®ÀÚ¿­
-	cout << c_name << endl;			//¹®ÀÚ¿­
+	cout << int_arr << endl;		//ì£¼ì†Œ
+	cout << char_arr << endl;		//ë¬¸ìì—´
+	cout << c_name << endl;			//ë¬¸ìì—´
 
-	//cout ¿¡ ¹®ÀÚ¿­ ÁÖ¼Ò°¡ µé¾î¿À¸é ÁÖ¼Ò°¡ ¾Æ´Ñ ¾î·¹ÀÌ¸¦ Ãâ·ÂÇÔ
+	//cout ì— ë¬¸ìì—´ ì£¼ì†Œê°€ ë“¤ì–´ì˜¤ë©´ ì£¼ì†Œê°€ ì•„ë‹Œ ì–´ë ˆì´ë¥¼ ì¶œë ¥í•¨
 
 
 	char c = 'Q';
 	cout << &c << endl;
-	//cout¿¡ ÁÖ¼Ò°¡ µé¾î¿ÀÀÚ ¹®ÀÚ¿­ÀÌ¶ó ÆÇ´ÜÇÏ°í Ãâ·Â -> QÌÌÌÌÌÌÌÌX›Ÿ 
-	cout << *&c << endl; //de-referencing ÇÏ¸é Q Á¤»óÀûÀ¸·Î Ãâ·ÂµÊ
+	//coutì— ì£¼ì†Œê°€ ë“¤ì–´ì˜¤ì ë¬¸ìì—´ì´ë¼ íŒë‹¨í•˜ê³  ì¶œë ¥ -> Qå„†å„†å„†å„†XÂ›ÂŸ 
+	cout << *&c << endl; //de-referencing í•˜ë©´ Q ì •ìƒì ìœ¼ë¡œ ì¶œë ¥ë¨
 
 	return 0;
 }
