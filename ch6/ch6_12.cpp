@@ -1,4 +1,4 @@
-//µ¿Àû ÇÒ´ç ¹è¿­ Dynamiclally Allocating Arrays
+//ë™ì  í• ë‹¹ ë°°ì—´ Dynamiclally Allocating Arrays
 
 #include<iostream>
 
@@ -10,20 +10,20 @@ int main()
 
 	cin >> length;
 
-	//int array[length];  Á¤Àû ÇÒ´ç ¹è¿­, compile time ¿¡ »çÀÌÁî°¡ °áÁ¤µÇ¾î ÀÖ¾î¾ßÇÔ
+	//int array[length];  ì •ì  í• ë‹¹ ë°°ì—´, compile time ì— ì‚¬ì´ì¦ˆê°€ ê²°ì •ë˜ì–´ ìžˆì–´ì•¼í•¨
 
 
-	//µ¿Àû ÇÒ´ç ¹è¿­
-	int* array = new int[length];  //new °¡ ÀÖÀ¸¸é ½ÖÀ» delete °¡ ÀÖ¾î¾ß ÇÔ
+	//ë™ì  í• ë‹¹ ë°°ì—´
+	int* array = new int[length];  //new ê°€ ìžˆìœ¼ë©´ ìŒìœ¼ë¡œ delete ê°€ ìžˆì–´ì•¼ í•¨
 
-	//int* array = new int[length]();   //ÀüºÎ 0À¸·Î ÃÊ±âÈ­
+	//int* array = new int[length]();   //ì „ë¶€ 0ìœ¼ë¡œ ì´ˆê¸°í™”
 	//int* array = new int[length] {}; 
 	
 	
-	//int* array = new int[length] {1, 2, 3, 4, 5, 6};  //6±îÁö °ªÀ» ³ÖÀº ÈÄ length¿¡ 5¸¸ ³ÖÀ¸¸é ¿¡·¯ ¹ß»ý
+	//int* array = new int[length] {1, 2, 3, 4, 5, 6};  //6ê¹Œì§€ ê°’ì„ ë„£ì€ í›„ lengthì— 5ë§Œ ë„£ìœ¼ë©´ ì—ëŸ¬ ë°œìƒ
 
-	//int* array = new int[] {1, 2, 3, 4, 5, 6}; //ºôµå°¡ ¾ÈµÊ ->ÄÄÆÄÀÏ Å¸ÀÓ¿¡ °áÁ¤À» ¾ÈÇÏ·Á°í ÇÏ±â ¶§¹®
-	//int* array = new int[3] {1, 2, 3, 4, 5, 6};  //¿¡·¯, µÚ¿¡ 4,5,6À» ³ÖÀ» ¸Þ¸ð¸®¸¦ ¹èÁ¤¹ÞÁö ¸øÇß±â ¶§¹®
+	//int* array = new int[] {1, 2, 3, 4, 5, 6}; //ë¹Œë“œê°€ ì•ˆë¨ ->ì»´íŒŒì¼ íƒ€ìž„ì— ê²°ì •ì„ ì•ˆí•˜ë ¤ê³  í•˜ê¸° ë•Œë¬¸
+	//int* array = new int[3] {1, 2, 3, 4, 5, 6};  //ì—ëŸ¬, ë’¤ì— 4,5,6ì„ ë„£ì„ ë©”ëª¨ë¦¬ë¥¼ ë°°ì •ë°›ì§€ ëª»í–ˆê¸° ë•Œë¬¸
 
 	array[0] = 1;
 	array[1] = 2;
@@ -39,11 +39,11 @@ int main()
 
 
 	//resizing 
-	//¹Ù·Î´Â ¾ÈµÊ, ´õÅ« ¸Þ¸ð¸®¸¦ ¹Þ¾Æ¿À°í ±âÁ¸²¬ º¹»çÇÔ
-	//º¤ÅÍ¿¡¼­ ´Ù·ë
+	//ë°”ë¡œëŠ” ì•ˆë¨, ë”í° ë©”ëª¨ë¦¬ë¥¼ ë°›ì•„ì˜¤ê³  ê¸°ì¡´ê»„ ë³µì‚¬í•¨
+	//ë²¡í„°ì—ì„œ ë‹¤ë£¸
 
 
-	//Á¤Àû ¹è¿­¿¡¼­ Æ÷ÀÎÅÍ ¿¬»êÀ» ÅëÇØ Á¢±ÙÇßµíÀÌ µ¿Àû¹è¿­¿¡¼­µµ Á¢±ÙÇÒ ¼ö ÀÖÀ½
+	//ì •ì  ë°°ì—´ì—ì„œ í¬ì¸í„° ì—°ì‚°ì„ í†µí•´ ì ‘ê·¼í–ˆë“¯ì´ ë™ì ë°°ì—´ì—ì„œë„ ì ‘ê·¼í•  ìˆ˜ ìžˆìŒ
 
 	int* ptr = array;
 
@@ -54,7 +54,7 @@ int main()
 		cout << *(ptr + i) << '\t' << (uintptr_t)(ptr + i) << endl;
 	}
 
-	delete[]array; //new ¿Í Ç×»ó ÇÑ½Ö!
+	delete[]array; //new ì™€ í•­ìƒ í•œìŒ!
 
 	return 0;
 }
