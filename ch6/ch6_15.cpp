@@ -1,9 +1,10 @@
-//ÂüÁ¶(Reference) ¿Í const
+//ì°¸ì¡°(Reference) ì™€ const
 
 #include <iostream>
 
 using namespace std;
 
+//í¬ì¸í„°ë¡œ ë„£ìœ¼ë©´ ë³€ìˆ˜ ë³µì‚¬ê°€ ì¼ì–´ë‚˜ì§€ë§Œ const refë¡œ ë„£ìœ¼ë©´ ë³µì‚¬ê°€ ì¼ì–´ë‚˜ì§€ ì•ŠìŒ
 void doSomething(const int& x)
 {
 	cout << x << endl;
@@ -14,54 +15,54 @@ int main()
 	int x = 5;
 	int& ref_x = x;
 
-	//°¡´É
+	//ê°€ëŠ¥
 	//int x = 5;
 	//const int& ref_x = x;
 
-	//ºÒ°¡´É
+	//ë¶ˆê°€ëŠ¥
 	//const int x = 5;
 	//int& ref_x = x;
 
-	//°¡´É
+	//ê°€ëŠ¥
 	//const int x = 5;
 	//const int& ref_x = x;
 
 	//const int& ref_2 = ref_x;
 
 
-	//°¡´É
+	//ê°€ëŠ¥
 	//int x = 5;
 	//const int& ref_x = x;
 
 	//const int& ref_2 = ref_x;
 
 
-	//°¡´É
+	//ê°€ëŠ¥
 	//int x = 5;
 	//int& ref_x = x;
 
 	//const int& ref_2 = ref_x;
 
 
-	//ref´Â ¼±¾ğÇÒ¶§ 'ÁÖ¼Ò'°¡ ÀÖ¾î¾ßÇÔ
-	//int &ref_x = 5; ºÒ°¡´É
+	//refëŠ” ì„ ì–¸í• ë•Œ 'ì£¼ì†Œ'ê°€ ìˆì–´ì•¼í•¨
+	//int &ref_x = 5; ë¶ˆê°€ëŠ¥
 
-	//ÇÏÁö¸¸ const ref ¿¡¼­´Â °¡´É
+	//í•˜ì§€ë§Œ const ref ì—ì„œëŠ” ê°€ëŠ¥
 	//const int &ref_x = 3 + 4;
 
-	//°ª°ú ÁÖ¼Òµµ ÂïÀ» ¼ö ÀÖÀ½
+	//ê°’ê³¼ ì£¼ì†Œë„ ì°ì„ ìˆ˜ ìˆìŒ
 	//cout <<ref_x <<endl;
 	//cout<<&ref_x<<endl;
 
 
 
-	//const int ref_x = 5; ¿Í const int &ref_x = 5; ÀÇ Â÷ÀÌ
-	//ÇÔ¼ö parameter ¿¡ ·¹ÆÛ·±½º·Î ³ÖÀ»¶§ ¾Æ·¡ ¿¹Á¦°¡ ´Ù °¡´ÉÇÔ
+	//const int ref_x = 5; ì™€ const int &ref_x = 5; ì˜ ì°¨ì´
+	//í•¨ìˆ˜ parameter ì— ë ˆí¼ëŸ°ìŠ¤ë¡œ ë„£ì„ë•Œ ì•„ë˜ ì˜ˆì œê°€ ë‹¤ ê°€ëŠ¥í•¨
 
 	int a = 1;
 
-	doSomething(a);
-	doSomething(1);
+	doSomething(a); //const ê°€ ìˆìœ¼ë‚˜ ì—†ìœ¼ë‚˜ ìƒê´€ ì—†ìŒ
+	doSomething(1); // const int ref ë¡œ í•¨ìˆ˜ì—ì„œ ì„ ì–¸í–ˆê¸° ë•Œë¬¸ì— literal ì„ ë°”ë¡œ ë„£ì„ ìˆ˜ ìˆìŒ
 	doSomething(a + 3);
 	doSomething(3 * 4);
 
