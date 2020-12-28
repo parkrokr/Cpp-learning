@@ -28,7 +28,7 @@ void doSomething_ref(int& n) //(const int& n)  //입력을 넣는 값을 함수�
 }
 
 //배열을 ref로 받는 함수
-void printElements(/*const*/ int(&arr)[5]) //함수에 ref로 넘길때는 elements 개수가 필요함
+void printElements(/*const*/ int(&arr)[5]) //함수에 ref로 넘길때는 elements 개수가 필요함  //필요한 경우 const 붙이면 됨(밖에 값을 바꾸고 싶지 않은 경우)
 {
 	for (int i = 0; i << 5; ++i)
 	{
