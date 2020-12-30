@@ -1,4 +1,4 @@
-//Æ÷ÀÎÅÍ ¿¬»ê°ú ¹è¿­ ÀÎµ¦½Ì Indexing
+//í¬ì¸í„° ì—°ì‚°ê³¼ ë°°ì—´ ì¸ë±ì‹± Indexing
 
 #include<iostream>
 
@@ -9,34 +9,35 @@ int main()
 	int value = 7;
 	int* ptr = &value;
 
-	//10Áø¼ö·Î º¸±âÀ§ÇØ int ·Î Ä³½ºÆÃ ÇÏ´Â ´ë½Å unsinged int pointer type »ç¿ë
-	//int ÇüÀÌ¶ó ÇÑÄ­¿¡ 4
+	//10ì§„ìˆ˜ë¡œ ë³´ê¸°ìœ„í•´ int ë¡œ ìºìŠ¤íŒ… í•˜ëŠ” ëŒ€ì‹  unsinged int pointer type ì‚¬ìš©
+	//int í˜•ì´ë¼ í•œì¹¸ì— 4
 	cout << uintptr_t(ptr-1) << endl; 
 	cout << uintptr_t(ptr) << endl;
 	cout << uintptr_t(ptr+1) << endl;
 	
-	//doublÇü
+	//doublí˜•
 	double d_value = 7.0;
 	double* d_ptr = &d_value;
 
-	//double Àº 8 byte ¶ó 8
+	//double ì€ 8 byte ë¼ 8
 	cout << uintptr_t(d_ptr - 1) << endl;
 	cout << uintptr_t(d_ptr) << endl;
 	cout << uintptr_t(d_ptr + 1) << endl;
 	
 
 
-	//Æ÷ÀÎÅÍ º¯¼ö¸¦ ¼±¾ğÇÒ¶§ data type µµ °°ÀÌ ¼±¾ğÇÏ´Â ÀÌÀ¯ :
-	//de-referencing ÇÒ¶§ ¾î¶² typeÀ¸·Î °ªÀ» °¡Á®¿Í¾ßÇÒÁö ¾Ë±â À§ÇØ
-	//Æ÷ÀÎÅÍ ¿¬»êÀ» ÇÒ¶§ (short Çü¿¡¼± +1ÀÌ 2¹ÙÀÌÆ®, int Çü¿¡¼± 4¹ÙÀÌÆ®ÀÌ°í double Çü¿¡¼± 8¹ÙÀÌÆ®)
+	//í¬ì¸í„° ë³€ìˆ˜ë¥¼ ì„ ì–¸í• ë•Œ data type ë„ ê°™ì´ ì„ ì–¸í•˜ëŠ” ì´ìœ  :
+	//de-referencing í• ë•Œ ì–´ë–¤ typeìœ¼ë¡œ ê°’ì„ ê°€ì ¸ì™€ì•¼í• ì§€ ì•Œê¸° ìœ„í•´
+	//í¬ì¸í„° ì—°ì‚°ì„ í• ë•Œ (short í˜•ì—ì„  +1ì´ 2ë°”ì´íŠ¸, int í˜•ì—ì„  4ë°”ì´íŠ¸ì´ê³  double í˜•ì—ì„  8ë°”ì´íŠ¸)
 
 
-	//int Çü array ¿¡¼­µµ 4¾¿ Áõ°¡ÇÔ (ÁÖ¼Ò°¡ ÀÌ¿ôÇØ ÀÖÀ½)
+	//int í˜• array ì—ì„œë„ 4ì”© ì¦ê°€í•¨ (ì£¼ì†Œê°€ ì´ì›ƒí•´ ìˆìŒ)
 	int array[] = { 9,7,5,3,1 };
 
-	ptr = array;  //*ptr = array ÇÏ¸é ¿¡·¯ ¹ß»ı, *ptr Àº de-referencing ÇÑ °Å±â ¶§¹®
+	ptr = array;  //*ptr = array í•˜ë©´ ì—ëŸ¬ ë°œìƒ, *ptr ì€ de-referencing í•œ ê±°ê¸° ë•Œë¬¸
+	//ë°°ì—´ì˜ ì£¼ì†Œê°€ ë“¤ì–´ìˆëŠ” í¬ì¸í„°ëŠ” ì¸ë±ìŠ¤ë¡œ ì ‘ê·¼í•  ìˆ˜ ìˆìŒ
 
-	//iterate ÇÏ±â
+	//iterate í•˜ê¸°
 	for (int i = 0; i < 5; ++i)
 	{
 		//cout << array[i] << " " << (uintptr_t) & array[i] << endl;
@@ -44,7 +45,7 @@ int main()
 	}
 
 
-	//¹®ÀÚ¿­
+	//ë¬¸ìì—´
 	char name[] = "jackjack";
 
 	const int n_name = sizeof(name) / sizeof(char);
@@ -58,7 +59,7 @@ int main()
 	}
 	cout << endl;
 
-	//¹®ÀÚ¿­ Ãâ·ÂÀ» while °ú break ¸¦ »ç¿ëÇÏ¿© null character »©°í Ãâ·ÂÇÏ±â, ++ptr
+	//ë¬¸ìì—´ ì¶œë ¥ì„ while ê³¼ break ë¥¼ ì‚¬ìš©í•˜ì—¬ null character ë¹¼ê³  ì¶œë ¥í•˜ê¸°, ++ptr
 
 	while (*c_ptr != '\0')
 	{
