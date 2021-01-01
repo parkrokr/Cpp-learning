@@ -1,4 +1,4 @@
-//For-each ¹İº¹¹®
+//For-each ë°˜ë³µë¬¸
 
 #include<iostream>
 #include<limits>  // to use std::numeric_limits
@@ -11,49 +11,52 @@ int main()
 {
 	 int fibonacci[] = { 0,1,1,2,3,5,8,13,21,34,55,89 };
 
-	//array ³»¿ë¹°À» ¸î°µÁö ¼¼º¸°í ½ÍÁö ¾ÊÁö¸¸ µ¹·ÁºÁ¾ß ÇÒ¶§
+	//array ë‚´ìš©ë¬¼ì„ ëª‡ê° ì§€ ì„¸ë³´ê³  ì‹¶ì§€ ì•Šì§€ë§Œ ëŒë ¤ë´ì•¼ í• ë•Œ
 
-	//°ªÀ» ¹Ù²Ù°í ½ÍÀ»¶§
+	//number ì—ëŠ” fibonacci[]ì˜ ê° ì›ì†Œë“¤ì´ í•œë²ˆì”© ë“¤ì–´ì˜´
 	
-	//¹Ø¿¡ ÄÚµå´Â °ªÀÌ ¾È¹Ù²ñ  ÇÔ¼ö parameter ·Î ³Ö´À°Å¶û ºñ½ÁÇÔ
+	//ê°’ì„ ë°”ê¾¸ê³  ì‹¶ì„ë•Œ
+	
+	//ë°‘ì— ì½”ë“œëŠ” ê°’ì´ ì•ˆë°”ë€œ  í•¨ìˆ˜ parameter ë¡œ ë„£ëŠê±°ë‘ ë¹„ìŠ·í•¨
 	for (int number : fibonacci)
 		number = 10;
 
+	
 	//change array values  
-	for (int& number : fibonacci) //ref »ç¿ë
+	for (int& number : fibonacci) //ref ì‚¬ìš©
 		number = 10;
 
-	//ÈçÇÏ°Ô »ç¿ëÇÏ´Â ¹æ¹ı
-	//for(auto& number : fibonacci) //auto »ç¿ë
+	//í”í•˜ê²Œ ì‚¬ìš©í•˜ëŠ” ë°©ë²•
+	//for(auto& number : fibonacci) //auto ì‚¬ìš©
 	//	number = 10;
 
 
 
-	//Ãâ·Â
+	//ì¶œë ¥
 	//for (int number : fibonacci)
-	for (const auto &number : fibonacci)  //Ãâ·ÂÇÏ´Â ÄÚµå¿¡¼± °ªÀ» Àß ¾È¹Ù²Ù´Ï±î const 
+	for (const auto &number : fibonacci)  //ì¶œë ¥í•˜ëŠ” ì½”ë“œì—ì„  ê°’ì„ ì˜ ì•ˆë°”ê¾¸ë‹ˆê¹Œ const 
 		cout << number << " ";
 	cout << endl;
 
 
 
-	//ÃÖ´ñ°ª Ã£±â
+	//ìµœëŒ“ê°’ ì°¾ê¸°
 	int other_fibonacci[] = { 0,1,1,2,3,5,8,13,21,34,55,89 };
 
 	int max_number = std::numeric_limits<int>::lowest();
-	//max_number ÃÊ±â°ªÀÌ 89ÀÌÇÏ¸é ÃÖ´ë°ª 89¸¦ ¿Ã¹Ù¸£°Ô Ã£À» ¼ö ÀÖÁö¸¸, ÀÏ¹İÀûÀÎ °æ¿ì¿¡¼­ numeric_limits »ç¿ë
+	//max_number ì´ˆê¸°ê°’ì´ 89ì´í•˜ë©´ ìµœëŒ€ê°’ 89ë¥¼ ì˜¬ë°”ë¥´ê²Œ ì°¾ì„ ìˆ˜ ìˆì§€ë§Œ, ì¼ë°˜ì ì¸ ê²½ìš°ì—ì„œ numeric_limits ì‚¬ìš©
 
 	for (const auto& n : other_fibonacci)
-		max_number = std::max(max_number, n); //µÑÁß¿¡ Å«°É ´ëÀÔÇØ¶ó
+		max_number = std::max(max_number, n); //ë‘˜ì¤‘ì— í°ê±¸ ëŒ€ì…í•´ë¼
 	
 	cout << max_number << endl;
 
 
 
 
-	//array¸¦ µ¿ÀûÇÒ´çÇÏ¸é for-each¸¦ »ç¿ëÇÒ ¼ö ¾øÀ½
-	//´ë½Å¿¡ vector ¸¦ »ç¿ë
-	//std::vector Àº µ¿ÀûÇÒ´çÀ» ½±°Ô »ç¿ëÇÏ±â À§ÇÑ°Í
+	//arrayë¥¼ ë™ì í• ë‹¹í•˜ë©´ for-eachë¥¼ ì‚¬ìš©í•  ìˆ˜ ì—†ìŒ
+	//ëŒ€ì‹ ì— vector ë¥¼ ì‚¬ìš©
+	//std::vector ì€ ë™ì í• ë‹¹ì„ ì‰½ê²Œ ì‚¬ìš©í•˜ê¸° ìœ„í•œê²ƒ
 
 	vector<int> fibonacci_vector = { 0,1,1,2,3,5,8,13,21,34,55,89 };
 
