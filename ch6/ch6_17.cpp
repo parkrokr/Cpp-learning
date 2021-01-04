@@ -17,7 +17,7 @@ int main()
 	
 	//값을 바꾸고 싶을때
 	
-	//밑에 코드는 값이 안바뀜  함수 parameter 로 넣느거랑 비슷함
+	//밑에 코드는 값이 안바뀜  함수 parameter 로 넣는거랑 비슷함
 	for (int number : fibonacci)
 		number = 10;
 
