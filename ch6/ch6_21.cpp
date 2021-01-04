@@ -13,6 +13,17 @@
 //vector<int> v(5, 3);                 // 5개의 원소를 3으로 초기화
 //vector<int> v2(v);                   // 벡터 v를 복사하여 벡터v2 생성
 
+//v.size();   //vector의 원소 갯수
+//v.capacity; //vector의 물리적 크기
+
+//v.push_back(10);  // 마지막 위치에 숫자 10 추가
+//v.insert(2,10);   // index 2의 위치에 숫자 10 추가
+//v.insert(2,3,4)   //2번쨰 위치에 3개의 4값을 추가
+
+//v.pop_back();                        // 마지막에 넣은 값 제거
+//v.erase(vec.begin()+10);             // index 10의 값을 제거
+//v.erase(vec.begin(), vec.begin()+5);  // index 0~5의 값을 제거
+//v.clear();                           //모든 값 제거
 
 
 #include<iostream>
