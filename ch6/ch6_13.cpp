@@ -6,6 +6,9 @@
 //const int *const ptr3 = &value;
 
 //함수에 parameter 로 배열을 넣을때 주소나 값을 바꾸지 않고 안전하게 코딩하고 싶은경우 사용함
+//함수 parameter로 const char* value 를 쓸 경우  호출하는 곳에서 전달받은 문자열을 변경하지 않고 사용만 하겠다는 의미
+
+
 
 
 #include <iostream>
@@ -14,7 +17,7 @@ using namespace std;
 
 int main()
 {
-	//const int * ptr     역참조된 값을 못바꿈
+	//const int * ptr     역참조된 값을 못바꿈(ptr 주소 메모리의 내용 변경 불가)
 
 	const int value = 5;
 	const int* ptr = &value;
