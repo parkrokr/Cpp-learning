@@ -1,5 +1,7 @@
 //C 스타일의 문자열 기호적 (Symbolic) 상수
 
+//함수 parameter로 const char* value 를 쓸 경우  호출하는 곳에서 전달받은 문자열을 변경하지 않고 사용만 하겠다는 의미
+
 #include <iostream>
 
 using namespace std;
