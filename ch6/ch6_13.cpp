@@ -9,6 +9,13 @@
 //함수 parameter로 const char* value 를 쓸 경우  호출하는 곳에서 전달받은 문자열을 변경하지 않고 사용만 하겠다는 의미
 
 
+//const char (* ptr)
+//char const (* ptr) //같은 표현
+//(*ptr)을 const 즉 역참조된(메모리에 있는 값)을 못바꿈
+
+//char *(const ptr)
+//ptr을 못바꿈(주소를 못바꿈)
+
 
 
 #include <iostream>
