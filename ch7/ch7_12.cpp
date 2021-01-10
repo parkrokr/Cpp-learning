@@ -1,27 +1,27 @@
-//Àç±ÍÀû ÇÔ¼ö È£Ãâ Recursive Function Call
+//ìž¬ê·€ì  í•¨ìˆ˜ í˜¸ì¶œ Recursive Function Call
 
 #include <iostream>
 
 using namespace std;
 
-//ÀÔ·ÂÇÑ ¼ýÀÚ·ÎºÎÅÍ 1¾¿ ÁÙ¾îµé¸é¼­ Ãâ·ÂÇÏ´Â ÇÔ¼ö
+//ìž…ë ¥í•œ ìˆ«ìžë¡œë¶€í„° 1ì”© ì¤„ì–´ë“¤ë©´ì„œ ì¶œë ¥í•˜ëŠ” í•¨ìˆ˜
 void countDown(int count)
 {
 	cout << count << endl;
 
-	if(count > 0)  //Á¾·á Á¶°Ç : 0 ±îÁö Ãâ·ÂÇÏ°í ÇÔ¼ö¿¡¼­ ÇÏ³ª¾¿ ³ª¿À°í Á¾·á
-		countDown(count - 1);  // ÀÚ±â°¡ ÀÚ±â¸¦ È£Ãâ
+	if(count > 0)  //ì¢…ë£Œ ì¡°ê±´ : 0 ê¹Œì§€ ì¶œë ¥í•˜ê³  í•¨ìˆ˜ì—ì„œ í•˜ë‚˜ì”© ë‚˜ì˜¤ê³  ì¢…ë£Œ
+		countDown(count - 1);  // ìžê¸°ê°€ ìžê¸°ë¥¼ í˜¸ì¶œ
 
-	//Àç±Í¸¦ ÇÒ¶§´Â ¹Ýµå½Ã Á¾·á Á¶°ÇÀÌ ÀÖ¾î¾ßÇÔ
-	//Àç±Í°¡ ³Ê¹« ¸¹À¸¸é stack overflow ³¯ ¼ö ÀÖÀ½
-	//stack overflow °¡ ³Ê¹« ¿ì·ÁµÇ¸é ch7_11 ¿¡ ³ª¿Â vector¸¦ stack Ã³·³ »ç¿ëÇÏ´Â ¹æ¹ýÀÌ ÀÖÀ½
+	//ìž¬ê·€ë¥¼ í• ë•ŒëŠ” ë°˜ë“œì‹œ ì¢…ë£Œ ì¡°ê±´ì´ ìžˆì–´ì•¼í•¨
+	//ìž¬ê·€ê°€ ë„ˆë¬´ ë§Žìœ¼ë©´ stack overflow ë‚  ìˆ˜ ìžˆìŒ
+	//stack overflow ê°€ ë„ˆë¬´ ìš°ë ¤ë˜ë©´ ch7_11 ì— ë‚˜ì˜¨ vectorë¥¼ stack ì²˜ëŸ¼ ì‚¬ìš©í•˜ëŠ” ë°©ë²•ì´ ìžˆìŒ
 }
 
-// ÄÚµå´Â ¸Þ¸ð¸®¿¡ ÀúÀåµÇ¾î ÀÖ°í ÇÔ¼ö È£ÃâÇÒ¶§´Â ÁÖ¼Ò·Î¸¸ È£ÃâÇÏ±â ¶§¹®¿¡
-// ÀÚ±â ÀÚ½Åµµ È£Ãâ ÇÒ ¼ö ÀÖ´Â°Ô °¡´É
+// ì½”ë“œëŠ” ë©”ëª¨ë¦¬ì— ì €ìž¥ë˜ì–´ ìžˆê³  í•¨ìˆ˜ í˜¸ì¶œí• ë•ŒëŠ” ì£¼ì†Œë¡œë§Œ í˜¸ì¶œí•˜ê¸° ë•Œë¬¸ì—
+// ìžê¸° ìžì‹ ë„ í˜¸ì¶œ í•  ìˆ˜ ìžˆëŠ”ê²Œ ê°€ëŠ¥
 
 
-//¼ýÀÚ¸¦ ´õÇØ³ª°¡´Â ÇÔ¼ö
+//ìˆ«ìžë¥¼ ë”í•´ë‚˜ê°€ëŠ” í•¨ìˆ˜
 int sumTo(int sumto)
 {
 	if (sumto <= 0)
@@ -31,7 +31,7 @@ int sumTo(int sumto)
 	else
 		return sumTo(sumto - 1) + sumto; // sumto + (sumto -1) + (sumto -2) + . . .
 
-	//ÀÌ·¸°Ô Àç±ÍÇØ¼­ ¿À´Â°É ÀÓ½Ã·Î º¯¼ö¿¡ ÀúÀåÇÏ¸é µð¹ö±× ÇÒ¶§ º¸±â ÆíÇÔ
+	//ì´ë ‡ê²Œ ìž¬ê·€í•´ì„œ ì˜¤ëŠ”ê±¸ ìž„ì‹œë¡œ ë³€ìˆ˜ì— ì €ìž¥í•˜ë©´ ë””ë²„ê·¸ í• ë•Œ ë³´ê¸° íŽ¸í•¨
 	/*else
 	{
 		const int sum_munus_one = sumTo(sumto - 1);
@@ -40,41 +40,43 @@ int sumTo(int sumto)
 }
 
 
-//ÇÇº¸³ªÄ¡ ¼ö¿­
+//í”¼ë³´ë‚˜ì¹˜ ìˆ˜ì—´
 // 0 1 1 2 3 5 8 13 21
-int fibonacci(int n) // n¹øÂ° ÇÇº¸³ªÄ¡¼ö ¹ÝÈ¯
+int fibonacci(int n) // në²ˆì§¸ í”¼ë³´ë‚˜ì¹˜ìˆ˜ ë°˜í™˜
 {
-	if (n == 1)
+	if (n == 0)
 		return 0;
+	else if (n == 1)
+		return 1;
 	else if (n == 2)
 		return 1;
 	else
 		return fibonacci(n - 1) + fibonacci(n - 2);
-	
+
 }
 
 
 int main()
 {
-	//ÀÔ·ÂÇÑ ¼ýÀÚ·ÎºÎÅÍ 1¾¿ ÁÙ¾îµé¸é¼­ Ãâ·ÂÇÏ´Â ÇÔ¼ö
+	//ìž…ë ¥í•œ ìˆ«ìžë¡œë¶€í„° 1ì”© ì¤„ì–´ë“¤ë©´ì„œ ì¶œë ¥í•˜ëŠ” í•¨ìˆ˜
 	countDown(5);
 
-	//¼ýÀÚ¸¦ ´õÇØ³ª°¡´Â ÇÔ¼ö
+	//ìˆ«ìžë¥¼ ë”í•´ë‚˜ê°€ëŠ” í•¨ìˆ˜
 	cout << sumTo(10) << endl;
 
-	//ÇÇº¸³ªÄ¡ ¼ö¿­
-	cout << fibonacci(10) << endl; // 10¹øÂ° ÇÇº¸³ªÄ¡ ¼ö
+	//í”¼ë³´ë‚˜ì¹˜ ìˆ˜ì—´
+	cout << fibonacci(10) << endl; // 10ë²ˆì§¸ í”¼ë³´ë‚˜ì¹˜ ìˆ˜
 
 
 
-	//Recursive Àç±Í
-		// º¸Åë ±¸ÇöÇÏ±â ´õ ½¬¿ò
-		// Iteration°ú ´Þ¸® stackÀ» »ç¿ëÇØ¾ß ÇÏ±â ¶§¹®¿¡ È£ÃâÇÒ¼ö ÀÖ´Â depth °¡ ±â°è¸¶´Ù ´Ù¸£°í ÇÑ°è°¡ ÀÖÀ½
-		// ÆÛÆ÷¸Õ½º°¡ Áß¿äÇÑ ÄÚµå¿¡¼± »ç¿ë ¾ÈÇÏ´Â°Ô ÁÁÀ» ¼ö ÀÖÀ½
+	//Recursive ìž¬ê·€
+		// ë³´í†µ êµ¬í˜„í•˜ê¸° ë” ì‰¬ì›€
+		// Iterationê³¼ ë‹¬ë¦¬ stackì„ ì‚¬ìš©í•´ì•¼ í•˜ê¸° ë•Œë¬¸ì— í˜¸ì¶œí• ìˆ˜ ìžˆëŠ” depth ê°€ ê¸°ê³„ë§ˆë‹¤ ë‹¤ë¥´ê³  í•œê³„ê°€ ìžˆìŒ
+		// í¼í¬ë¨¼ìŠ¤ê°€ ì¤‘ìš”í•œ ì½”ë“œì—ì„  ì‚¬ìš© ì•ˆí•˜ëŠ”ê²Œ ì¢‹ì„ ìˆ˜ ìžˆìŒ
 
 
-	//Iterative ¹Ýº¹
-		// °¡´ÉÇÏ¸é Recursion À» Iteration À¸·Î ¹Ù²ã¼­ ±¸Çö
+	//Iterative ë°˜ë³µ
+		// ê°€ëŠ¥í•˜ë©´ Recursion ì„ Iteration ìœ¼ë¡œ ë°”ê¿”ì„œ êµ¬í˜„
 
 
 	return 0;
