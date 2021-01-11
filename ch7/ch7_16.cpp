@@ -1,20 +1,23 @@
-//»ı·«ºÎÈ£ Ellipsis 
+//ìƒëµë¶€í˜¸ Ellipsis 
+
+//ë§¤ê°œë³€ìˆ˜ ê°œìˆ˜ê°€ ì •í•´ì ¸ ìˆì§€ ì•Šê³  ì‹¶ì„ë•Œ ì‚¬ìš©
+//https://www.learncpp.com/cpp-tutorial/ellipsis-and-why-to-avoid-them/
 
 #include<iostream>
 #include<cstdarg> // for ellipsis
 
 using namespace std;
 
-double findAverage(int count, ...) // count ´Â parameter ·Î µé¾î¿Ã arguments ÀÇ °³¼ö, ±× ´ÙÀ½¿¡ ...
+double findAverage(int count, ...) // count ëŠ” parameter ë¡œ ë“¤ì–´ì˜¬ arguments ì˜ ê°œìˆ˜, ê·¸ ë‹¤ìŒì— ...
 {
 	double sum = 0;
 
-	va_list list; // ¹®ÀÚ¿­·Î ¹ŞÀ½
+	va_list list; // ë¬¸ìì—´ë¡œ ë°›ìŒ
 
 	va_start(list, count);
 
 	for (int arg = 0; arg < count; ++arg)
-		sum += va_arg(list, int); // int ·Î º¯È¯
+		sum += va_arg(list, int); // int ë¡œ ë³€í™˜
 
 	va_end(list);
 
@@ -23,14 +26,14 @@ double findAverage(int count, ...) // count ´Â parameter ·Î µé¾î¿Ã arguments ÀÇ 
 
 int main()
 {
-	cout << findAverage(1, 1, 2, 3, "Hello", 'c') << endl; // ¸Ç¾ÕÀÌ 1 ÀÌ±â ¶§¹®¿¡ µÎ¹øÂ° 1¸¸ Àû¿ëµÇ°í ³ª¸ÓÁö´Â ¹«½Ã
+	cout << findAverage(1, 1, 2, 3, "Hello", 'c') << endl; // ë§¨ì•ì´ 1 ì´ê¸° ë•Œë¬¸ì— ë‘ë²ˆì§¸ 1ë§Œ ì ìš©ë˜ê³  ë‚˜ë¨¸ì§€ëŠ” ë¬´ì‹œ
 	cout << findAverage(3, 1, 2, 3) << endl;
 	cout << findAverage(5, 1, 2, 3, 4, 5) << endl;
-	cout << findAverage(10, 1, 2, 3, 4, 5) << endl; //¿À·ù¹ß»ı
+	cout << findAverage(10, 1, 2, 3, 4, 5) << endl; //ì˜¤ë¥˜ë°œìƒ
 
-	//°³¼ö¸¦ ¿øÇÏ´Â´ë·Î ³Ö¾îÁÙ¼ö ÀÖ´Ù´Â ÀåÁ¡ÀÌ ÀÖÁö¸¸ ¾î¶² type À¸·Î µé¾î°¥Áö´Â ¹Ì¸® Á¤ÇØÁ® ÀÖ¾î¾ß ÇÔ
-	//»ç¿ëÇÏ±â À§ÇèÇÏ°í µğ¹ö±ëµµ Èûµë 
-	//°¡±ŞÀû »ç¿ëÇÏÁö ¾Ê°í ¸¶Áö¸øÇØ »ç¿ëÇÒ¶§¸¸ »ç¿ë
+	//ê°œìˆ˜ë¥¼ ì›í•˜ëŠ”ëŒ€ë¡œ ë„£ì–´ì¤„ìˆ˜ ìˆë‹¤ëŠ” ì¥ì ì´ ìˆì§€ë§Œ ì–´ë–¤ type ìœ¼ë¡œ ë“¤ì–´ê°ˆì§€ëŠ” ë¯¸ë¦¬ ì •í•´ì ¸ ìˆì–´ì•¼ í•¨
+	//ì‚¬ìš©í•˜ê¸° ìœ„í—˜í•˜ê³  ë””ë²„ê¹…ë„ í˜ë“¬ 
+	//ê°€ê¸‰ì  ì‚¬ìš©í•˜ì§€ ì•Šê³  ë§ˆì§€ëª»í•´ ì‚¬ìš©í• ë•Œë§Œ ì‚¬ìš©
 
 	return 0;
 }
