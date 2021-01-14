@@ -1,7 +1,7 @@
-//this Æ÷ÀÎÅÍ¿Í ¿¬¼â È£Ãâ Chaining Member Functions
+//this í¬ì¸í„°ì™€ ì—°ì‡„ í˜¸ì¶œ Chaining Member Functions
 
-//°¢ instance µéÀÌ ÀÚ±âµéÀÇ Æ÷ÀÎÅÍ¸¦ °¡Áö°í ÀÖ°í ±× Æ÷ÀÎÅÍ¸¦ º¸±â À§ÇØ this ¶ó´Â Å°¿öµå¸¦ »ç¿ë
-//this µéÀº »ý·«µÇ¾î ÀÖÀ½
+//ê° instance ë“¤ì´ ìžê¸°ë“¤ì˜ í¬ì¸í„°ë¥¼ ê°€ì§€ê³  ìžˆê³  ê·¸ í¬ì¸í„°ë¥¼ ë³´ê¸° ìœ„í•´ this ë¼ëŠ” í‚¤ì›Œë“œë¥¼ ì‚¬ìš©
+//this ë“¤ì€ ìƒëžµë˜ì–´ ìžˆìŒ
 
 #include<iostream>
 
@@ -16,15 +16,15 @@ public:
 	Simple(int id)
 	{
 		setID(id);	
-		//this->setID(id); ¿Í °°ÀÌ this-> ¼û¾îÀÖÀ½, ÇöÀç ÁÖ¼Ò¸¦ °¡Áö°í ÀÖ´Â instance ¿¡¼­ setID() ¸¦ »ç¿ëÇÑ´Ù
-		//(&this).setID(id) ¿Í °°Àº Ç¥Çö, ÀÌ·¸°Ô Àß ¾²Áø ¾ÊÀ½
+		//this->setID(id); ì™€ ê°™ì´ this-> ìˆ¨ì–´ìžˆìŒ, í˜„ìž¬ ì£¼ì†Œë¥¼ ê°€ì§€ê³  ìžˆëŠ” instance ì—ì„œ setID() ë¥¼ ì‚¬ìš©í•œë‹¤
+		//(&this).setID(id) ì™€ ê°™ì€ í‘œí˜„, ì´ë ‡ê²Œ ìž˜ ì“°ì§„ ì•ŠìŒ
 
-		//this ¸¦ ÀÌ¿ëÇÏ¿© member variable Á¢±Ù
-		this->m_id; //ÇöÀç ÁÖ¼Ò¸¦ °¡Áö°í ÀÖ´Â thisÀÇ ÁÖ¼Ò ¾È¿¡ µé¾îÀÖ´Â m_id ¿¡ Á¢±Ù
+		//this ë¥¼ ì´ìš©í•˜ì—¬ member variable ì ‘ê·¼
+		this->m_id; //í˜„ìž¬ ì£¼ì†Œë¥¼ ê°€ì§€ê³  ìžˆëŠ” thisì˜ ì£¼ì†Œ ì•ˆì— ë“¤ì–´ìžˆëŠ” m_id ì— ì ‘ê·¼
 
 		
-		//»ý¼ºµÉ¶§ ÀÚ±â ÀÚ½ÅÀÇ ÁÖ¼Ò Âï¾îº¸°Ô ÇÏ±â
-		cout << this << endl; //this Å°¿öµå¸¦ »ç¿ëÇÏ¸é ÀÚ±â ÀÚ½ÅÀÇ ÁÖ¼Ò¸¦ class ¾È¿¡¼­ º¼ ¼ö ÀÖÀ½
+		//ìƒì„±ë ë•Œ ìžê¸° ìžì‹ ì˜ ì£¼ì†Œ ì°ì–´ë³´ê²Œ í•˜ê¸°
+		cout << this << endl; //this í‚¤ì›Œë“œë¥¼ ì‚¬ìš©í•˜ë©´ ìžê¸° ìžì‹ ì˜ ì£¼ì†Œë¥¼ class ì•ˆì—ì„œ ë³¼ ìˆ˜ ìžˆìŒ
 	}
 
 	void setID(int id) { m_id = id; }
@@ -33,7 +33,7 @@ public:
 };
 
 //Chaining Member Functions
-//°è»êÇÏ´Â ÇÔ¼ö
+//ê³„ì‚°í•˜ëŠ” í•¨ìˆ˜
 class Calc
 {
 private:
@@ -44,12 +44,12 @@ public:
 		:m_value(init_value)
 	{}
 
-	//void add(int value) { m_value += value; }  // ´õÇÏ±â ÇÔ¼ö
-	//void sub(int value) { m_value -= value; }  // »©±â ÇÔ¼ö
-	//void mult(int value) { m_value *= value; }  // °öÇÏ±â ÇÔ¼ö
+	//void add(int value) { m_value += value; }  // ë”í•˜ê¸° í•¨ìˆ˜
+	//void sub(int value) { m_value -= value; }  // ë¹¼ê¸° í•¨ìˆ˜
+	//void mult(int value) { m_value *= value; }  // ê³±í•˜ê¸° í•¨ìˆ˜
 	
 	//Chaining Member Functions
-	//ÀÚ±â ÀÚ½ÅÀ» reference ·Î return
+	//ìžê¸° ìžì‹ ì„ reference ë¡œ return
 	Calc& add(int value) { m_value += value; return *this; }
 	Calc& sub(int value) { m_value -= value; return *this; }
 	Calc& mult(int value) { m_value *= value; return *this; }
@@ -67,17 +67,17 @@ int main()
 	s1.setID(2);
 	s2.setID(4);
 
-	//setID() °°Àº ÇÔ¼öµéÀº °¢°¢ µû·Î ¸¸µé¾îµÐ°Ô ¾Æ´Ï¶ó ÇÏ³ª¸¦ ¸¸µé¾îµÎ°í Áßº¹ÇØ¼­ »ç¿ëÇÔ
-	// Simple::setID()°¡ ¾îµò°¡¿¡ ÀúÀåµÇ¾î ÀÖ°í È£ÃâÀÌ µÉ¶§ Simple::setID(&s1, 1) ¿Í °°ÀÌ 
-	//s1ÀÇ Æ÷ÀÎÅÍ¿Í ÇÊ¿äÇÑ ÀÎÀÚ¸¦ ³Ö¾îÁÜ,  ¹®¹ý»ó Simple::setID(&s1, 1)ÀÌ·¸°Ô ¾µ ¼ø ¾øÀ½
+	//setID() ê°™ì€ í•¨ìˆ˜ë“¤ì€ ê°ê° ë”°ë¡œ ë§Œë“¤ì–´ë‘”ê²Œ ì•„ë‹ˆë¼ í•˜ë‚˜ë¥¼ ë§Œë“¤ì–´ë‘ê³  ì¤‘ë³µí•´ì„œ ì‚¬ìš©í•¨
+	// Simple::setID()ê°€ ì–´ë”˜ê°€ì— ì €ìž¥ë˜ì–´ ìžˆê³  í˜¸ì¶œì´ ë ë•Œ Simple::setID(&s1, 1) ì™€ ê°™ì´ 
+	//s1ì˜ í¬ì¸í„°ì™€ í•„ìš”í•œ ì¸ìžë¥¼ ë„£ì–´ì¤Œ,  ë¬¸ë²•ìƒ Simple::setID(&s1, 1)ì´ë ‡ê²Œ ì“¸ ìˆœ ì—†ìŒ
 
-	//¸¶Âù°¡Áö·Î s2 µµ Simple::setID(&s2, 4)¿Í s2.setID(4) ´Â µ¿ÀÏÇÏÁö¸¸ ¹®¹ý»ó ¿À¸¥ÂÊ¸¸ »ç¿ë°¡´É
+	//ë§ˆì°¬ê°€ì§€ë¡œ s2 ë„ Simple::setID(&s2, 4)ì™€ s2.setID(4) ëŠ” ë™ì¼í•˜ì§€ë§Œ ë¬¸ë²•ìƒ ì˜¤ë¥¸ìª½ë§Œ ì‚¬ìš©ê°€ëŠ¥
 
-	//s1 °ú s2 ¸¦ ±¸º°ÇÏ´Â ¹æ¹ý : ÁÖ¼ÒÂï±â
+	//s1 ê³¼ s2 ë¥¼ êµ¬ë³„í•˜ëŠ” ë°©ë²• : ì£¼ì†Œì°ê¸°
 	cout << &s1 << " " << &s2 << endl;
 
 
-	//°¢ instance µéÀÌ ÀÚ±âµéÀÇ Æ÷ÀÎÅÍ¸¦ °¡Áö°í ÀÖ°í ±× Æ÷ÀÎÅÍ¸¦ º¸±â À§ÇØ this ¶ó´Â Å°¿öµå¸¦ »ç¿ë
+	//ê° instance ë“¤ì´ ìžê¸°ë“¤ì˜ í¬ì¸í„°ë¥¼ ê°€ì§€ê³  ìžˆê³  ê·¸ í¬ì¸í„°ë¥¼ ë³´ê¸° ìœ„í•´ this ë¼ëŠ” í‚¤ì›Œë“œë¥¼ ì‚¬ìš©
 	
 
 
@@ -89,12 +89,14 @@ int main()
 	cal.mult(2);
 
 	cal.print();
-	//ÀÌ·¸°Ô Ä¡±â°¡ ¹ø°Å·Î¿ò
+	//ì´ë ‡ê²Œ ì¹˜ê¸°ê°€ ë²ˆê±°ë¡œì›€
 
 	Calc cal1(10);
-	cal1.add(10).sub(1).mult(2).print();  //µ¿ÀÏÇÑ °á°ú³ª¿È
+	cal1.add(10).sub(1).mult(2).print();  //ë™ì¼í•œ ê²°ê³¼ë‚˜ì˜´
+	
+	Calc(10).add(10).sub(1).mult(2).print(); //ì´ê²ƒë„ ê°€ëŠ¥
 
-	//¾Æ·¡¿Í µ¿ÀÏ
+	//ì•„ëž˜ì™€ ë™ì¼
 	Calc cal2(10);
 	Calc& temp1 = cal2.add(10);
 	Calc& temp2 = temp1.sub(1);
@@ -102,7 +104,7 @@ int main()
 	temp3.print();
 
 
-	//½Ç¿ë¼º¿¡ ´ëÇØ¼± ³í¶õÀÌ ÀÖÀ½( c++ ÀÔÀå¿¡¼­)
+	//ì‹¤ìš©ì„±ì— ëŒ€í•´ì„  ë…¼ëž€ì´ ìžˆìŒ( c++ ìž…ìž¥ì—ì„œ)
 	
 
 	return 0;
