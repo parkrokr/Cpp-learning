@@ -1,4 +1,4 @@
-// sizeof , ½°Ç¥ ¿¬»êÀÚ(Comma Operator) , Á¶°Ç(ºÎ) ¿¬»êÀÚ (Conditional Operator)
+// sizeof , ì‰¼í‘œ ì—°ì‚°ì(Comma Operator) , ì¡°ê±´(ë¶€) ì—°ì‚°ì (Conditional Operator)
 
 #include <iostream>
 
@@ -17,19 +17,19 @@ int main()
 	// sizof opertor
 	float f;
 
-	// sizeof ¿¬»êÀÚ´Â º¯¼ö¸¦ ³Ö¾îµµ µÇ°í data type À» ³Ö¾îµµ µÊ
+	// sizeof ì—°ì‚°ìëŠ” ë³€ìˆ˜ë¥¼ ë„£ì–´ë„ ë˜ê³  data type ì„ ë„£ì–´ë„ ë¨
 	sizeof(float); // 4 bytes
 	sizeof(f);
 
-	//sizeof ´Â ÇÔ¼ö°¡ ¾Æ´Ñ ¿¬»êÀÚ
+	//sizeof ëŠ” í•¨ìˆ˜ê°€ ì•„ë‹Œ ì—°ì‚°ì
 	cout << sizeof(float) << endl;;
 	cout << sizeof f << endl;
 
 
 
 	//comma operator
-	// for ¹®¿¡¼­ ¸¹ÀÌ »ç¿ëÇÔ
-	
+	// for ë¬¸ì—ì„œ ë§ì´ ì‚¬ìš©í•¨
+	//ì‰¼í‘œ ì—°ì‚°ìëŠ” ê°ê°ì˜ í”¼ì—°ì‚°ìë¥¼ ì™¼ìª½ì—ì„œ ì˜¤ë¥¸ìª½ ìˆœì„œë¡œ í‰ê°€í•˜ê³ , ë§ˆì§€ë§‰ í”¼ì—°ì‚°ìì˜ ê°’ì„ ë°˜í™˜
 
 	int x = 3;
 	int y = 10;
@@ -42,11 +42,11 @@ int main()
 	cout << x << " " << y << " " << z << endl;
 
 	
-	int a = 1, b = 10; // comma operator °¡ ¾Æ´Ñ argumentsµéÀ» ±¸ºĞÇØÁÖ´Â ±âÈ£
+	int a = 1, b = 10; // comma operator ê°€ ì•„ë‹Œ argumentsë“¤ì„ êµ¬ë¶„í•´ì£¼ëŠ” ê¸°í˜¸
 	int c;
 
-	// comma operator ¿¬»ê ¿ì¼±¼øÀ§°¡ = º¸´Ù³·À½
-	//c = a, b; ´Â (c = a) , b; ¶û °°À½
+	// comma operator ì—°ì‚° ìš°ì„ ìˆœìœ„ê°€ = ë³´ë‹¤ë‚®ìŒ
+	//c = a, b; ëŠ” (c = a) , b; ë‘ ê°™ìŒ
 
 	c = (++a, a + b); //12
 
@@ -55,16 +55,16 @@ int main()
 
 	
 	//conditional operator (arithmetric if)
-	// º¹ÀâÇÑ °æ¿ì¿£ if¹® ÇÔ¼ö·Î ÂÉ°³´Â °æ¿ì°¡ ÀĞ±âµµ ÆíÇÏ°í debugµµ ÆíÇÔ
+	// ë³µì¡í•œ ê²½ìš°ì—” ifë¬¸ í•¨ìˆ˜ë¡œ ìª¼ê°œëŠ” ê²½ìš°ê°€ ì½ê¸°ë„ í¸í•˜ê³  debugë„ í¸í•¨
 	
 	bool onSale = true;
 
 	const int price=(onSale == true)?10 : 100;
 	
-	// if¹®À» ¾²°í ½Í´Ù¸é ÇÔ¼ö·Î ºĞ¸® ½ÃÄÑ¾ß ÇÔ
+	// ifë¬¸ì„ ì“°ê³  ì‹¶ë‹¤ë©´ í•¨ìˆ˜ë¡œ ë¶„ë¦¬ ì‹œì¼œì•¼ í•¨
 	//const int price = getPrice(onSale);
 
-	// if ¹®À¸·Î ÇÒ¶§´Â price ¸¦ const ·Î ¸·À» ¼ö ¾øÀ½
+	// if ë¬¸ìœ¼ë¡œ í• ë•ŒëŠ” price ë¥¼ const ë¡œ ë§‰ì„ ìˆ˜ ì—†ìŒ
 	/*if (onSale)
 		price = 10;
 	else
