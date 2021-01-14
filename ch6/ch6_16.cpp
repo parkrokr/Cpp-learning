@@ -1,4 +1,4 @@
-//포인터와 참조의 멤버 선책 연산자 Member Selection Operators
+//포인터와 참조의 멤버 선택 연산자 Member Selection Operators
 
 //포인터에선		-> 사용
 //reference 에선	   . 사용
