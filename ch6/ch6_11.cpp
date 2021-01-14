@@ -1,4 +1,4 @@
-//¸Þ¸ð¸® µ¿Àû ÇÒ´ç(Dynamic Memory Allocation)  new ¿Í delete
+//ë©”ëª¨ë¦¬ ë™ì  í• ë‹¹(Dynamic Memory Allocation)  new ì™€ delete
 
 #include <iostream>
 
@@ -7,38 +7,38 @@ using namespace std;
 int main()
 {
 	//int array[1000000];
-	//stack overflow ¹ß»ýÇÔ
-	//ÇÁ·Î±×·¥¿¡¼­ Á¤ÀûÀ¸·Î ÇÒ´çÇÏ´Â ¸Þ¸ð¸®´Â stack ¿¡ µé¾î°¨ , stack Àº »çÀÌÁî°¡ ÀÛÀ½
-	//µ¿ÀûÀ¸·Î ÇÒ´çµÇ´Â ¸Þ¸ð¸®´Â hip¿¡ µé¾î°¨ , »çÀÌÁî°¡ Å­
-	//->µ¿Àû ÇÒ´çÀ» »ç¿ëÇØ¾ß hipÀ» ÅëÇØ ¸Þ¸ð¸®¸¦ Å©°Ô ¹ÞÀ» ¼ö ÀÖÀ½
-	//¸Þ¸ð¸®°¡ ´©¼öµÇ´Â ¹®Á¦µî ¹®Á¦°¡ ¹ß»ý ÇÒ ¼öµµ ÀÖÀ½
+	//stack overflow ë°œìƒí•¨
+	//í”„ë¡œê·¸ëž¨ì—ì„œ ì •ì ìœ¼ë¡œ í• ë‹¹í•˜ëŠ” ë©”ëª¨ë¦¬ëŠ” stack ì— ë“¤ì–´ê° , stack ì€ ì‚¬ì´ì¦ˆê°€ ìž‘ìŒ
+	//ë™ì ìœ¼ë¡œ í• ë‹¹ë˜ëŠ” ë©”ëª¨ë¦¬ëŠ” hipì— ë“¤ì–´ê° , ì‚¬ì´ì¦ˆê°€ í¼
+	//->ë™ì  í• ë‹¹ì„ ì‚¬ìš©í•´ì•¼ hipì„ í†µí•´ ë©”ëª¨ë¦¬ë¥¼ í¬ê²Œ ë°›ì„ ìˆ˜ ìžˆìŒ
+	//ë©”ëª¨ë¦¬ê°€ ëˆ„ìˆ˜ë˜ëŠ” ë¬¸ì œë“± ë¬¸ì œê°€ ë°œìƒ í•  ìˆ˜ë„ ìžˆìŒ
 
 
-	//±âÁ¸¿¡ »ç¿ëÇÏ´ø ¹æ¹ý
+	//ê¸°ì¡´ì— ì‚¬ìš©í•˜ë˜ ë°©ë²•
 	//int var = 7;
 
 
-	//´Ù¸¥ ¹æ¹ý
-	//new int ´Â os¿¡°Ô int »çÀÌÁî¿¡ ¸ÂÃç ¸Þ¸ð¸®¸¦ ¹Þ¾Æ¿Â ´ÙÀ½¿¡ ±× ¸Þ¸ð¸® ÁÖ¼Ò¸¦ ¾Ë·ÁÁÜ
-	//Æ÷ÀÎÅÍ·Î ¹Þ¾Æ¾ß ÇÔ
+	//ë‹¤ë¥¸ ë°©ë²•
+	//new int ëŠ” osì—ê²Œ int ì‚¬ì´ì¦ˆì— ë§žì¶° ë©”ëª¨ë¦¬ë¥¼ ë°›ì•„ì˜¨ ë‹¤ìŒì— ê·¸ ë©”ëª¨ë¦¬ ì£¼ì†Œë¥¼ ì•Œë ¤ì¤Œ
+	//í¬ì¸í„°ë¡œ ë°›ì•„ì•¼ í•¨
 	int* ptr = new int;
 	int* ptr2 = ptr;
 
-	//¸Þ¸ð¸®¸¦ ÇÒ´ç ¹Þ¾Æ¾ß ÇÏ´Âµ¥ ¸ø ¹ÞÀ» ¼öµµ ÀÖÀ½(´Ù¸¥ ÇÁ·Î±×·¥ÀÌ ¸Þ¸ð¸®¸¦ µû ¾²°í ÀÖ¾î¼­ µîµî)
-	//new °¡ ¿¡·¯¸¦ ÀÏÀ¸ÄÑµµ ¹öÅÍ¾ß ÇÔ
-	//std::nothrow ¸¦ ¾²¸é ¿¡·¯¸¦ ÀÏÀ¸Å°Áö ¾Ê°í ¹öÆ¼°Ô ÇØÁÜ
+	//ë©”ëª¨ë¦¬ë¥¼ í• ë‹¹ ë°›ì•„ì•¼ í•˜ëŠ”ë° ëª» ë°›ì„ ìˆ˜ë„ ìžˆìŒ(ë‹¤ë¥¸ í”„ë¡œê·¸ëž¨ì´ ë©”ëª¨ë¦¬ë¥¼ ë‹¤ ì“°ê³  ìžˆì–´ì„œ ë“±ë“±)
+	//new ê°€ ì—ëŸ¬ë¥¼ ì¼ìœ¼ì¼œë„ ë²„í„°ì•¼ í•¨
+	//std::nothrow ë¥¼ ì“°ë©´ ì—ëŸ¬ë¥¼ ì¼ìœ¼í‚¤ì§€ ì•Šê³  ë²„í‹°ê²Œ í•´ì¤Œ
 	//int* ptr = new(std::nothrow)int{ 7 };
 
 
 	*ptr = 7;
 
-	//Æ÷ÀÎÅÍ·Î ¸Þ¸ð¸® ÁÖ¼Ò¸¦ ¹Þ¾Æ¿À¸é¼­ µ¿½Ã¿¡ ÃÊ±âÈ­¸¦ ÇÒ ¼öµµ ÀÖÀ½
+	//í¬ì¸í„°ë¡œ ë©”ëª¨ë¦¬ ì£¼ì†Œë¥¼ ë°›ì•„ì˜¤ë©´ì„œ ë™ì‹œì— ì´ˆê¸°í™”ë¥¼ í•  ìˆ˜ë„ ìžˆìŒ
 	//int* ptr = new int{ 7 };
 	//int* ptr = new int(7);
 
-	if (ptr) //if¹®À» ¾²¸é ´õ ¾ÈÀüÇÏ°Ô ÇÒ ¼ö ÀÖÀ½
+	if (ptr) //ifë¬¸ì„ ì“°ë©´ ë” ì•ˆì „í•˜ê²Œ í•  ìˆ˜ ìžˆìŒ
 	{
-		cout << ptr << endl;  //ÁÖ¼Ò
+		cout << ptr << endl;  //ì£¼ì†Œ
 		cout << *ptr << endl;  //7
 	}
 	else
@@ -46,30 +46,30 @@ int main()
 		cout << "Could not allocate memory" << endl;
 	}
 
-	//os¿¡°Ô ¸Þ¸ð¸® ¹Ý³³ÇÏ±â  
-	//ºòµ¥ÀÌÅÍ°°ÀÌ ¸¹Àº ¸Þ¸ð¸®¸¦ »ç¿ëÇØ¾ß ÇÏ´Â °æ¿ì ¹Ý³³ÇÏÁö ¾ÊÀ¸¸é ÄÄÇ»ÅÍ°¡ °¨´çÇÏÁö ¸øÇÔ
-	//delete ptr; ÀÌ ¾øÀ¸¸é ÇÁ·Î±×·¥ÀÌ ³¡³µÀ»¶§ os°¡ ¸Þ¸ð¸®¸¦ È¸¼öÇØ°¨
+	//osì—ê²Œ ë©”ëª¨ë¦¬ ë°˜ë‚©í•˜ê¸°  
+	//ë¹…ë°ì´í„°ê°™ì´ ë§Žì€ ë©”ëª¨ë¦¬ë¥¼ ì‚¬ìš©í•´ì•¼ í•˜ëŠ” ê²½ìš° ë°˜ë‚©í•˜ì§€ ì•Šìœ¼ë©´ ì»´í“¨í„°ê°€ ê°ë‹¹í•˜ì§€ ëª»í•¨
+	//delete ptr; ì´ ì—†ìœ¼ë©´ í”„ë¡œê·¸ëž¨ì´ ëë‚¬ì„ë•Œ osê°€ ë©”ëª¨ë¦¬ë¥¼ íšŒìˆ˜í•´ê°
 	delete ptr;
 	ptr = nullptr;
 
 
-	// ptr2 = nullptr; ¾øÀÌ *ptr2 ÇÏ¸é ¹®Á¦°¡ ¹ß»ýÇÔ ->²Ä²ÄÇØÁö°Å³ª ½º¸¶Æ®Æ÷ÀÎÅÍ¸¦ »ç¿ëÇÏ°Å³ª
+	// ptr2 = nullptr; ì—†ì´ *ptr2 í•˜ë©´ ë¬¸ì œê°€ ë°œìƒí•¨ ->ê¼¼ê¼¼í•´ì§€ê±°ë‚˜ ìŠ¤ë§ˆíŠ¸í¬ì¸í„°ë¥¼ ì‚¬ìš©í•˜ê±°ë‚˜
 
 
-	//¹®Á¦°¡ µÉ ¼ö ÀÖ´Â °æ¿ì
+	//ë¬¸ì œê°€ ë  ìˆ˜ ìžˆëŠ” ê²½ìš°
 	/*cout << "After delete" << endl;
 	cout << ptr << endl; 
 	cout << *ptr << endl;*/
 
-	//delete ptr ÀÌÈÄ¿¡µµ ptr¿¡ ÀúÀåµÈ ÁÖ¼Ò°ªÀº À¯Áö µÉ ¼öµµ ÀÖÀ½
-	//(°­ÀÇ ¿¹Á¦¿¡¼± À¯ÁöµÇÁö¸¸ Áö±Ý ÀÌ È¯°æ¿¡¼± À¯Áö ¾ÈµÊ)
+	//delete ptr ì´í›„ì—ë„ ptrì— ì €ìž¥ëœ ì£¼ì†Œê°’ì€ ìœ ì§€ ë  ìˆ˜ë„ ìžˆìŒ
+	//(ê°•ì˜ ì˜ˆì œì—ì„  ìœ ì§€ë˜ì§€ë§Œ ì§€ê¸ˆ ì´ í™˜ê²½ì—ì„  ìœ ì§€ ì•ˆë¨)
 
-	//¹æÁöÇÏ±â À§ÇØ delete ptr ´ÙÀ½¿¡ ptr = nullptr; ¶Ç´Â ptr = 0; ¶Ç´Â ptr = NULL; Ã³·³ ÁÖ¼Ò¸¦ ºñ¿öÁÜ
+	//ë°©ì§€í•˜ê¸° ìœ„í•´ delete ptr ë‹¤ìŒì— ptr = nullptr; ë˜ëŠ” ptr = 0; ë˜ëŠ” ptr = NULL; ì²˜ëŸ¼ ì£¼ì†Œë¥¼ ë¹„ì›Œì¤Œ
 
 
-	//ptr ÀÌ Áö¿öÁöÁö ¾Ê°í ÀÇ¹Ì°¡ ÀÖÀ»¶§¿¡¸¸ de-referencing À» ÇÏ°Ô ÇÏ´Â ÄÚµå
+	//ptr ì´ ì§€ì›Œì§€ì§€ ì•Šê³  ì˜ë¯¸ê°€ ìžˆì„ë•Œì—ë§Œ de-referencing ì„ í•˜ê²Œ í•˜ëŠ” ì½”ë“œ
 	cout << "After delete" << endl;
-	if (ptr != nullptr)  //if(ptr) ·Î ÁÙÀÏ¼öµµ ÀÖÀ½
+	if (ptr != nullptr)  //if(ptr) ë¡œ ì¤„ì¼ìˆ˜ë„ ìžˆìŒ
 	{
 		cout << ptr << endl;
 		cout << *ptr << endl;
@@ -85,14 +85,14 @@ int main()
 		int* l_ptr = new int;
 		cout << l_ptr << endl;
 
-		delete l_ptr; // delete ¸¦ ÇÏÁö ¾ÊÀ¸¸é °è¼Ó ¸Þ¸ð¸®¸¦ ºô·Á¿È 
+		delete l_ptr; // delete ë¥¼ í•˜ì§€ ì•Šìœ¼ë©´ ê³„ì† ë©”ëª¨ë¦¬ë¥¼ ë¹Œë ¤ì˜´ 
 	}
 
 
 
-	//new ¿Í delete °¡ ´À¸²(os¿¡°Ô °¬´Ù ¿Í¾ß ÇÏ±â ¶§¹®¿¡)
-	//new ¿Í delete¸¦ ¸¹ÀÌ ¾È½á¾ß ºü¸§, ´ë½Å c++¿¡¼± new ¿Í delete¸¦ ÅëÇØ
-	//¸Þ¸ð¸®¸¦ Á÷Á¢ °ü¸®ÇÒ ¼ö ÀÖ±â ¶§¹®¿¡ ÃÖÀûÈ­¿¡ ÁÁÀ½
+	//new ì™€ delete ê°€ ëŠë¦¼(osì—ê²Œ ê°”ë‹¤ ì™€ì•¼ í•˜ê¸° ë•Œë¬¸ì—)
+	//new ì™€ deleteë¥¼ ë§Žì´ ì•ˆì¨ì•¼ ë¹ ë¦„, ëŒ€ì‹  c++ì—ì„  new ì™€ deleteë¥¼ í†µí•´
+	//ë©”ëª¨ë¦¬ë¥¼ ì§ì ‘ ê´€ë¦¬í•  ìˆ˜ ìžˆê¸° ë•Œë¬¸ì— ìµœì í™”ì— ì¢‹ìŒ
 
 	return 0;
 }
