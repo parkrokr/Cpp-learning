@@ -1,7 +1,7 @@
-//Æ÷ÀÎÅÍ¿Í ÂüÁ¶ÀÇ ¸â¹ö ¼±Ã¥ ¿¬»êÀÚ Member Selection Operators
+//í¬ì¸í„°ì™€ ì°¸ì¡°ì˜ ë©¤ë²„ ì„ ì±… ì—°ì‚°ì Member Selection Operators
 
-//Æ÷ÀÎ¿¡ÅÍ¿¡¼±    -> »ç¿ë
-//reference ¿¡¼±  . »ç¿ë
+//í¬ì¸í„°ì—ì„ 		-> ì‚¬ìš©
+//reference ì—ì„ 	   . ì‚¬ìš©
 
 #include <iostream>
 
@@ -20,24 +20,24 @@ int main()
 	person.age = 5;
 	person.weight = 30;
 
-	//ÂüÁ¶ »ç¿ë
+	//ì°¸ì¡° ì‚¬ìš©
 	Person& ref = person;
 	ref.age = 15;
 
-	//Æ÷ÀÎÅÍ »ç¿ë    -> »ç¿ë
+	//í¬ì¸í„° ì‚¬ìš©    -> ì‚¬ìš©
 	Person* ptr = &person;
 	ptr->age = 30;
-	//de-referencing operators ¸¦ °°ÀÌ ¾µ ¼ö ÀÖÀ½
-	(*ptr).age = 20;  //. ÀÌ * º¸´Ù ¿ì¼±¼øÀ§°¡ ³ô±â ¶§¹®¿¡ ( ) ¹İµå½Ã ÇÊ¿ä! ±×·¡¼­ Àß ¾²Áø ¾ÊÀ½
+	//de-referencing operators ë¥¼ ê°™ì´ ì“¸ ìˆ˜ ìˆìŒ
+	(*ptr).age = 20;  //. ì´ * ë³´ë‹¤ ìš°ì„ ìˆœìœ„ê°€ ë†’ê¸° ë•Œë¬¸ì— ( ) ë°˜ë“œì‹œ í•„ìš”! ê·¸ë˜ì„œ ì˜ ì“°ì§„ ì•ŠìŒ
 
 	Person& ref2 = *ptr;
 	ref2.age = 45;
 
 
-	//µÎ ÁÖ¼Ò°¡ °°À½
+	//ë‘ ì£¼ì†Œê°€ ê°™ìŒ
 	cout << &person << endl;
 	cout << &ref2 << endl;
-	//¿ø·¡ person  - > Æ÷ÀÎÅÍ   - > ref  ÇØµµ ¿ø·¡ º¯¼ö¶û °°Àº ÁÖ¼Ò°¡ ³ª¿È
+	//ì›ë˜ person  - > í¬ì¸í„°   - > ref  í•´ë„ ì›ë˜ ë³€ìˆ˜ë‘ ê°™ì€ ì£¼ì†Œê°€ ë‚˜ì˜´
 
 	return 0;
 }
