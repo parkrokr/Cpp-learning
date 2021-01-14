@@ -1,12 +1,12 @@
-// Áö¿ª º¯¼öÀÇ ¹üÀ§(Scope)¿Í Áö¼Ó±â°£(Duration)
-//ºí·Ï(º¹ÇÕ¹®), ¸íÄª °ø°£, ÀÌ¸§ Ãæµ¹, ÀÌ¸§ ¼û±â±â
+// ì§€ì—­ ë³€ìˆ˜ì˜ ë²”ìœ„(Scope)ì™€ ì§€ì†ê¸°ê°„(Duration)
+//ë¸”ë¡(ë³µí•©ë¬¸), ëª…ì¹­ ê³µê°„, ì´ë¦„ ì¶©ëŒ, ì´ë¦„ ìˆ¨ê¸°ê¸°
 
 #include<iostream>
 
-//ÇÔ¼ö´Â ¼±¾ð°ú Á¤ÀÇ°¡ ºÐ¸®µÉ ¼ö ÀÖ±â ¶§¹®¿¡ ¼±¾ðÀº ¿©·¯°÷¿¡ µîÀåÇØµµ µÇÁö¸¸ Á¤ÀÇ´Â ÇÑ¹ø¸¸ ÀÖ¾î¾ßÇÔ
-// paremeter °¡ ´Ù¸¥ °æ¿ì ´Ù¸¥ ÇÔ¼ö·Î Ãë±ÞÇÏ±â ¶§¹®¿¡ Ãæµ¹ÀÌ ÀÏ¾î³ªÁö ¾ÊÀ½
-// Ãæµ¹À» ÇÇÇÏ±â À§ÇØ namespace¸¦ »ç¿ëÇÔ
-// namespace ¾È¿¡ namespace ¸¦ ¶Ç »ç¿ëÇÒ ¼ö ÀÖÀ½
+//í•¨ìˆ˜ëŠ” ì„ ì–¸ê³¼ ì •ì˜ê°€ ë¶„ë¦¬ë  ìˆ˜ ìžˆê¸° ë•Œë¬¸ì— ì„ ì–¸ì€ ì—¬ëŸ¬ê³³ì— ë“±ìž¥í•´ë„ ë˜ì§€ë§Œ ì •ì˜ëŠ” í•œë²ˆë§Œ ìžˆì–´ì•¼í•¨
+// paremeter ê°€ ë‹¤ë¥¸ ê²½ìš° ë‹¤ë¥¸ í•¨ìˆ˜ë¡œ ì·¨ê¸‰í•˜ê¸° ë•Œë¬¸ì— ì¶©ëŒì´ ì¼ì–´ë‚˜ì§€ ì•ŠìŒ
+// ì¶©ëŒì„ í”¼í•˜ê¸° ìœ„í•´ namespaceë¥¼ ì‚¬ìš©í•¨
+// namespace ì•ˆì— namespace ë¥¼ ë˜ ì‚¬ìš©í•  ìˆ˜ ìžˆìŒ
 
 namespace work1
 {
@@ -27,7 +27,7 @@ namespace work2
 }
 
 
-// { } ¿©·¯°³ ½Î´Â ¹æ½Ä ´ë½Å¿¡ c++ 17ºÎÅÍ »ç¿ë °¡´ÉÇÑ ¹®¹ý, Properties\C/C++\Language ¿¡¼­ c++17·Î ¿Ã·ÁÁà¾ßÇÔ
+// { } ì—¬ëŸ¬ê°œ ì‹¸ëŠ” ë°©ì‹ ëŒ€ì‹ ì— c++ 17ë¶€í„° ì‚¬ìš© ê°€ëŠ¥í•œ ë¬¸ë²•, Properties\C/C++\Language ì—ì„œ c++17ë¡œ ì˜¬ë ¤ì¤˜ì•¼í•¨
 namespace work11::work111::work1111
 {
 	int a = 1;
@@ -46,13 +46,13 @@ int main()
 	cout << apple << endl;
 
 
-	//Çö´ëÀûÀÎ ÇÁ·Î±×·¡¹Ö¿¡¼­´Â º¯¼ö¼±¾ð½Ã °¡±ÞÀû durationÀ» ÁÙÀÌ·Á°í ÇÔ
+	//í˜„ëŒ€ì ì¸ í”„ë¡œê·¸ëž˜ë°ì—ì„œëŠ” ë³€ìˆ˜ì„ ì–¸ì‹œ ê°€ê¸‰ì  durationì„ ì¤„ì´ë ¤ê³  í•¨
 
-	// { } ¸¦ ÅëÇØ¼­ ºí·ÏÀ» ÁöÁ¤
+	// { } ë¥¼ í†µí•´ì„œ ë¸”ë¡ì„ ì§€ì •
 	{	
-		// ´õ Å« ¿µ¿ª¿¡¼­ ¼±¾ðµÈ º¯¼ö´Â ¾È¿¡ ÀÖ´Â ¿µ¿ª¿¡¼­ º¼¼öµµ ÀÖ°í »ç¿ëÇÒ ¼öµµ ÀÖÀ½
+		// ë” í° ì˜ì—­ì—ì„œ ì„ ì–¸ëœ ë³€ìˆ˜ëŠ” ì•ˆì— ìžˆëŠ” ì˜ì—­ì—ì„œ ë³¼ìˆ˜ë„ ìžˆê³  ì‚¬ìš©í•  ìˆ˜ë„ ìžˆìŒ
 
-		int apple = 1;// ºí·ÏÀÌ ³¡³ª´Â ¼ø°£ »ç¶óÁü, ÀÌ¸§Àº °°Áö¸¸ À§¿¡ º¯¼ö¿Í ´Ù¸§, ±×·¡¼­ °¡±ÞÀû ÀÌ¸§ ´Ù¸£°Ô Áþ±â
+		int apple = 1;// ë¸”ë¡ì´ ëë‚˜ëŠ” ìˆœê°„ ì‚¬ë¼ì§, ì´ë¦„ì€ ê°™ì§€ë§Œ ìœ„ì— ë³€ìˆ˜ì™€ ë‹¤ë¦„, ê·¸ëž˜ì„œ ê°€ê¸‰ì  ì´ë¦„ ë‹¤ë¥´ê²Œ ì§“ê¸°
 		cout << apple << endl;
 	}
 
@@ -60,7 +60,8 @@ int main()
 
 	
 	
-	// :: ¿µ¿ª, ¹üÀ§ °áÁ¤ ¿¬»êÀÚ  scope resolution operator
+	// :: ì˜ì—­, ë²”ìœ„ ê²°ì • ì—°ì‚°ìž  scope resolution operator
+	//class ì™€ namespace ì—ì„œ ì“°ìž„
 
 	work1::a;
 	work1::doSomething();
@@ -68,10 +69,10 @@ int main()
 	work2::a;
 	work2::doSomething();
 
-	// c++ 17ºÎÅÍ »ç¿ë °¡´ÉÇÑ ¹®¹ý, Properties\C/C++\Language ¿¡¼­ c++17·Î ¿Ã·ÁÁà¾ßÇÔ
+	// c++ 17ë¶€í„° ì‚¬ìš© ê°€ëŠ¥í•œ ë¬¸ë²•, Properties\C/C++\Language ì—ì„œ c++17ë¡œ ì˜¬ë ¤ì¤˜ì•¼í•¨
 	work11::work111::work1111::doSomething();
 
 	return 0;
 }
 
-//apple = 1; ¸Þ¸ð¸®°¡ ¹Ý³³µÇ¾î¼­ ¾µ ¼ö°¡ ¾øÀ½
+//apple = 1; ë©”ëª¨ë¦¬ê°€ ë°˜ë‚©ë˜ì–´ì„œ ì“¸ ìˆ˜ê°€ ì—†ìŒ
