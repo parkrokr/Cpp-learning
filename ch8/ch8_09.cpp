@@ -1,8 +1,8 @@
-//Å¬·¡½º(class)¿Í const
+//í´ë˜ìŠ¤(class)ì™€ const
 
-//class ÀÇ instance ¸¦ const ·Î ¸¸µé¾úÀ»¶§´Â const member function ¸¸ »ç¿ëÀÌ °¡´É
-//instance ¸¦ ÇÔ¼öÀÇ ÀÎÀÚ·Î ¹Ş´Â ÇÔ¼ö¸¦ ¸¸µé¶§ parameter ¸¦ const reference ·Î ÇØ¾ß 
-//º¹»ç»ı¼ºÀÚ°¡ È£ÃâµÇÁö ¾Ê°í, º¹»ç°¡ ÀÏ¾î³ªÁö ¾ÊÀ½
+//class ì˜ instance ë¥¼ const ë¡œ ë§Œë“¤ì—ˆì„ë•ŒëŠ” const member function ë§Œ ì‚¬ìš©ì´ ê°€ëŠ¥
+//instance ë¥¼ í•¨ìˆ˜ì˜ ì¸ìë¡œ ë°›ëŠ” í•¨ìˆ˜ë¥¼ ë§Œë“¤ë•Œ parameter ë¥¼ const reference ë¡œ í•´ì•¼ 
+//ë³µì‚¬ìƒì„±ìê°€ í˜¸ì¶œë˜ì§€ ì•Šê³ , ë³µì‚¬ê°€ ì¼ì–´ë‚˜ì§€ ì•ŠìŒ
 
 #include <iostream>
 #include <string>
@@ -14,10 +14,10 @@ class Something
 public:
 	int m_value = 0;
 	
-	void setValue(int value) { m_value = value; } //const ÇÔ¼ö·Î ¸ø¹Ù²Ş, m_value ¸¦ ¹Ù²Ù·Á°í ½ÃµµÇÏ°í ÀÖ¾î¼­
+	void setValue(int value) { m_value = value; } //const í•¨ìˆ˜ë¡œ ëª»ë°”ê¿ˆ, m_value ë¥¼ ë°”ê¾¸ë ¤ê³  ì‹œë„í•˜ê³  ìˆì–´ì„œ
 	
 	//int	 getValue() { return m_value; }
-	//¸â¹öÇÔ¼ö¸¦ const ·Î ¸¸µé±â : ÇÔ¼ö ¾È¿¡¼­ m_value ÀÇ °ªÀ» ¹Ù²ÙÁö ¾Ê´Â´Ù
+	//ë©¤ë²„í•¨ìˆ˜ë¥¼ const ë¡œ ë§Œë“¤ê¸° : í•¨ìˆ˜ ì•ˆì—ì„œ m_value ì˜ ê°’ì„ ë°”ê¾¸ì§€ ì•ŠëŠ”ë‹¤
 	int	 getValue() const
 	{
 		return m_value; 
@@ -28,7 +28,7 @@ public:
 		cout << "constructor" << endl;
 	}
 
-	//copy constructor °¡ ¼û¾îÀÖÀ½
+	//copy constructor ê°€ ìˆ¨ì–´ìˆìŒ
 	Something(const Something& st_in)
 	{
 		m_value = st_in.m_value;
@@ -37,7 +37,7 @@ public:
 	}
 };
 
-//º¹»ç »ı¼ºÀÚ È£ÃâÇÔ
+//ë³µì‚¬ ìƒì„±ì í˜¸ì¶œí•¨
 void print(Something st)
 {
 	cout << &st << endl;
@@ -45,8 +45,8 @@ void print(Something st)
 	cout << st.getValue() << endl;
 }
 
-//º¹»ç ¾ÈÇÏ°í º¸³»°í ½ÍÀ»¶§
-void print_ref(const Something& st) //parameter ¸¦ const reference ·Î ¹Ù²ãÁÜ
+//ë³µì‚¬ ì•ˆí•˜ê³  ë³´ë‚´ê³  ì‹¶ì„ë•Œ
+void print_ref(const Something& st) //parameter ë¥¼ const reference ë¡œ ë°”ê¿”ì¤Œ
 {
 	cout << &st << endl;
 
@@ -59,8 +59,8 @@ class Something_new
 public:
 	string m_value = "default";
 
-	//const À¯¹«·Î ¿À¹ö·ÎµùÀ» ÇÒ ¼ö ÀÖÀ½
-	const string& getValue() const  //¸â¹öÇÔ¼ö¸¦ const·Î ¸¸µå´Â °æ¿ì return µµ const ·Î ¸¸µå´Â°Ô ÀÏ¹İÀû
+	//const ìœ ë¬´ë¡œ ì˜¤ë²„ë¡œë”©ì„ í•  ìˆ˜ ìˆìŒ
+	const string& getValue() const  //ë©¤ë²„í•¨ìˆ˜ë¥¼ constë¡œ ë§Œë“œëŠ” ê²½ìš° return ë„ const ë¡œ ë§Œë“œëŠ”ê²Œ ì¼ë°˜ì 
 	{
 		cout << "const version" << endl;
 		return m_value;
@@ -75,57 +75,57 @@ public:
 
 int main()
 {
-	//const ´Â ±âº»ÀûÀ¸·Î »ó¼ö·Î ¸¸µé°í ½ÍÀ»¶§ »ç¿ëÇÔ
+	//const ëŠ” ê¸°ë³¸ì ìœ¼ë¡œ ìƒìˆ˜ë¡œ ë§Œë“¤ê³  ì‹¶ì„ë•Œ ì‚¬ìš©í•¨
 
-	//const Something something;  //member variable À» const ·Î ¸¸µå´Â °Í°ú °°Àº È¿°ú
-	//something.setValue(3);	//m_value ÀÇ °ªÀ» ¸ø¹Ù²Ş
-
-
-	//getValue() ¿¡¼­ m_value ÀÇ °ªÀ» ¹Ù²Ù·Á°í ÇÏÁö ¾ÊÁö¸¸ const ¶§¹®¿¡ ¹®Á¦°¡ »ı±è
-	//ÄÄÆÄÀÏ·¯´Â m_value °ªÀÌ ¹Ù²î°í ¾È¹Ù²î°í·Î ÆÇ´ÜÇÏÁö ¾Ê°í ¸â¹öÇÔ¼ö°¡ const ³Ä ¾Æ´Ï³Ä·Î ÆÇ´ÜÇÔ
-	//cout << something.getValue() << endl;
+	const Something something;  //member variable ì„ const ë¡œ ë§Œë“œëŠ” ê²ƒê³¼ ê°™ì€ íš¨ê³¼
+	//something.setValue(3);	//m_value ì˜ ê°’ì„ ëª»ë°”ê¿ˆ, ë°”ê¾¸ë ¤ê³  í•˜ê¸° ë•Œë¬¸ì— ë¶ˆê°€ëŠ¥
 
 
-	//class ÀÇ instance ¸¦ const ·Î ¸¸µé¾úÀ»¶§´Â const member function ¸¸ »ç¿ëÀÌ °¡´É
-	//ÇÔ¼ö°¡ º¹ÀâÇØÁú°æ¿ì const °¡ °¡´ÉÇÑ °æ¿ì ´Ù ³Ö´Â°Ô ÁÁÀ½(µğ¹ö±ë¿¡ À¯¸®ÇÔ)
+	//getValue() ì—ì„œ m_value ì˜ ê°’ì„ ë°”ê¾¸ë ¤ê³  í•˜ì§€ ì•Šì§€ë§Œ const ë•Œë¬¸ì— ë¬¸ì œê°€ ìƒê¹€
+	//ì»´íŒŒì¼ëŸ¬ëŠ” m_value ê°’ì´ ë°”ë€Œê³  ì•ˆë°”ë€Œê³ ë¡œ íŒë‹¨í•˜ì§€ ì•Šê³  ë©¤ë²„í•¨ìˆ˜ê°€ const ëƒ ì•„ë‹ˆëƒë¡œ íŒë‹¨í•¨
+	cout << something.getValue() << endl;
+
+
+	//class ì˜ instance ë¥¼ const ë¡œ ë§Œë“¤ì—ˆì„ë•ŒëŠ” const member function ë§Œ ì‚¬ìš©ì´ ê°€ëŠ¥
+	//í•¨ìˆ˜ê°€ ë³µì¡í•´ì§ˆê²½ìš° const ê°€ ê°€ëŠ¥í•œ ê²½ìš° ë‹¤ ë„£ëŠ”ê²Œ ì¢‹ìŒ(ë””ë²„ê¹…ì— ìœ ë¦¬í•¨)
 
 
 
 	//copy constructor
 	Something something_new;
 
-	cout << &something_new << endl; //print() ¾È¿¡¼­ È£ÃâµÇ´Â st ¿Í ÁÖ¼Ò ºñ±³ : ¼­·Î ´Ù¸§
+	cout << &something_new << endl; //print() ì•ˆì—ì„œ í˜¸ì¶œë˜ëŠ” st ì™€ ì£¼ì†Œ ë¹„êµ : ì„œë¡œ ë‹¤ë¦„
 
 	print(something_new); 
 
-	//»ı¼ºÀÚ°¡ È£ÃâµÊ
-	//&something_new Ãâ·Â
-	//print() ·Î µé¾î°¨
-	//º¹»ç »ı¼ºÀÚ È£Ãâ
-	//copy ÇÏ·Á°í µé¾î¿Â something_new¸¦ º¹»çÇÔ
-	//"copy constructor" Ãâ·Â
-	//print() ·Î µé¾î°¡°í m_value ¿¡ µé¾î°£ º¹»çµÈ something_new ÀÇ ÁÖ¼Ò ¿Í m_value Ãâ·Â 
+	//ìƒì„±ìê°€ í˜¸ì¶œë¨
+	//&something_new ì¶œë ¥
+	//print() ë¡œ ë“¤ì–´ê°
+	//ë³µì‚¬ ìƒì„±ì í˜¸ì¶œ
+	//copy í•˜ë ¤ê³  ë“¤ì–´ì˜¨ something_newë¥¼ ë³µì‚¬í•¨
+	//"copy constructor" ì¶œë ¥
+	//print() ë¡œ ë“¤ì–´ê°€ê³  m_value ì— ë“¤ì–´ê°„ ë³µì‚¬ëœ something_new ì˜ ì£¼ì†Œ ì™€ m_value ì¶œë ¥ 
 
 
-	// º¹»ç°¡ µÈ Áõ°Å <- ÁÖ¼Ò°¡ ´Ù¸§
+	// ë³µì‚¬ê°€ ëœ ì¦ê±° <- ì£¼ì†Œê°€ ë‹¤ë¦„
 
 
-	//º¹»ç¸¦ ÇÏ°í ½ÍÁö ¾ÊÀ»¶§
+	//ë³µì‚¬ë¥¼ í•˜ê³  ì‹¶ì§€ ì•Šì„ë•Œ
 	print_ref(something_new);
-	//const reference ¸¦ parameter ·Î Çß±â ¶§¹®¿¡ st °¡ ¹Ş¾Æ¿Â something_new °¡ 
-	//¿©±â¼­ º¸³½ somthing_new ¿Í °°À½  
-	//±×·¸±â ¶§¹®¿¡ º¹»ç »ı¼ºÀÚµµ È£ÃâµÇÁö ¾Ê°í something_new ÀÇ ÁÖ¼Òµµ °°À½
-	//¸Å¿ì È¿À²Àû
+	//const reference ë¥¼ parameter ë¡œ í–ˆê¸° ë•Œë¬¸ì— st ê°€ ë°›ì•„ì˜¨ something_new ê°€ 
+	//ì—¬ê¸°ì„œ ë³´ë‚¸ somthing_new ì™€ ê°™ìŒ  
+	//ê·¸ë ‡ê¸° ë•Œë¬¸ì— ë³µì‚¬ ìƒì„±ìë„ í˜¸ì¶œë˜ì§€ ì•Šê³  something_new ì˜ ì£¼ì†Œë„ ê°™ìŒ
+	//ë§¤ìš° íš¨ìœ¨ì 
 
 
 
-	//const À¯¹«·Î ¿À¹ö·ÎµùÀ» ÇÒ ¼ö ÀÖÀ½
-	//return type ¸¸À¸·Î ¿À¹ö·ÎµùÀº ºÒ°¡´É ÇÏÁö¸¸ const À¯¹«·Î´Â °¡´ÉÇÔ
+	//const ìœ ë¬´ë¡œ ì˜¤ë²„ë¡œë”©ì„ í•  ìˆ˜ ìˆìŒ
+	//return type ë§Œ ë‹¤ë¥¸ê±°ë¡  ì˜¤ë²„ë¡œë”©ì€ ë¶ˆê°€ëŠ¥ í•˜ì§€ë§Œ const ìœ ë¬´ë¡œëŠ” ê°€ëŠ¥í•¨
 	Something_new smthing;
 	smthing.getValue() = 10; //non-const version
 
 	const Something_new smthing2;
-	smthing2.getValue(); //const version  : = 1004 Ã³·³ assingment ºÒ°¡´É
+	smthing2.getValue(); //const version  : = 1004 ì²˜ëŸ¼ assingment ë¶ˆê°€ëŠ¥
 
 	return 0;
 }
