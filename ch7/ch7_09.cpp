@@ -1,6 +1,10 @@
-//ÇÔ¼ö Æ÷ÀÎÅÍ Function Pointers
+//í•¨ìˆ˜ í¬ì¸í„° Function Pointers
 
-//ÇÔ¼ö¿¡ ´ëÇÑ Æ÷ÀÎÅÍ
+//í•¨ìˆ˜ì— ëŒ€í•œ í¬ì¸í„°
+
+//  í•¨ìˆ˜ ì´ë¦„ ë’¤ì— () ë¥¼ ë¶™ì´ë©´ function call
+// í•¨ìˆ˜ëŠ” í•¨ìˆ˜ì˜ í¬ì¸í„°ë¡œ ìë™ í˜•ë³€í™˜ì„ í•´ì¤ë‹ˆë‹¤.
+// &ë¥¼ ì•ˆì¨ë„ í˜•ë³€í™˜ì„ í•´ì„œ í¬ì¸í„°ë¡œ ë°”ê¾¼ í›„ì— ëŒ€ì…í•´ì¤Œ
 
 #include <iostream>
 #include <array>
@@ -19,33 +23,33 @@ int goo()
 }
 
 
-//È¦¼ö, Â¦¼ö¸¦ ¼±ÅÃÇØ¼­ Ãâ·Â
+//í™€ìˆ˜, ì§ìˆ˜ë¥¼ ì„ íƒí•´ì„œ ì¶œë ¥
 //void printNumbers(const array<int, 10>& my_array,bool print_even)
 //{
 //	for (auto element : my_array)
 //	{
-//		if (print_even && element % 2 == 0)cout << element;	//Â¦¼öÀÏ¶§¸¸ Ãâ·Â
-//		if (!print_even && element % 2 == 1)cout << element;//È¦¼öÀÏ¶§¸¸ Ãâ·Â
+//		if (print_even && element % 2 == 0)cout << element;	//ì§ìˆ˜ì¼ë•Œë§Œ ì¶œë ¥
+//		if (!print_even && element % 2 == 1)cout << element;//í™€ìˆ˜ì¼ë•Œë§Œ ì¶œë ¥
 //	}
 //	cout << endl;
 //}
 
-//ÇÔ¼ö Æ÷ÀÎÅÍ »ç¿ë
-//Â¦¼ö¸é true ¸®ÅÏ
+//í•¨ìˆ˜ í¬ì¸í„° ì‚¬ìš©
+//ì§ìˆ˜ë©´ true ë¦¬í„´
 bool isEven(const int& number)
 {
 	if (number % 2 == 0) return true;
-	else return false;	//¾øÀ¸¸é ¸ğµç °æ·Î°¡ ¸®ÅÏ°ªÀÌ ¾ø´Ù´Â ¿¡·¯°¡ ¶ä
+	else return false;	//ì—†ìœ¼ë©´ ëª¨ë“  ê²½ë¡œê°€ ë¦¬í„´ê°’ì´ ì—†ë‹¤ëŠ” ì—ëŸ¬ê°€ ëœ¸
 }
-//È¦¼ö¸é true ¸®ÅÏ
+//í™€ìˆ˜ë©´ true ë¦¬í„´
 bool isOdd(const int& number)
 {
 	if (number % 2 == 1) return true;
 	else return false;
 }
 
-// check_fcnÀÚ¸®¿¡ isEven()³ª isOdd() µé¾î°¨
-// bool (*check_fcn)(const int&) = isEven À¸·Î default prameter ¼³Á¤ÇÒ ¼öµµ ÀÖÀ½
+// check_fcnìë¦¬ì— isEven()ë‚˜ isOdd() ë“¤ì–´ê°
+// bool (*check_fcn)(const int&) = isEven ìœ¼ë¡œ default prameter ì„¤ì •í•  ìˆ˜ë„ ìˆìŒ
 void printNumbers(const array<int, 10>& my_array, bool (*check_fcn)(const int&))
 {
 	for (auto element : my_array)
@@ -60,67 +64,67 @@ void printNumbers(const array<int, 10>& my_array, bool (*check_fcn)(const int&))
 
 int main()
 {
-	cout << func << endl;  //func() °¡ ¾Æ´Ô
-	//½ÇÇàÇÏ¸é ÁÖ¼Ò°¡ ³ª¿È
-	//ÇÔ¼öµµ Æ÷ÀÎÅÍÀÓ(ÁÖ¼Ò¸¦ °¡Áö°í ÀÖÀ½)
+	cout << func << endl;  //func() ê°€ ì•„ë‹˜
+	//ì‹¤í–‰í•˜ë©´ ì£¼ì†Œê°€ ë‚˜ì˜´
+	//í•¨ìˆ˜ë„ í¬ì¸í„°ì„(ì£¼ì†Œë¥¼ ê°€ì§€ê³  ìˆìŒ)
 
-	//func();¸¦ ÇÏ¸é ÇÔ¼ö°¡ ¾î´À ¸Ş¸ğ¸®ÁÖ¼Ò¿¡ ÀÖ´ÂÁö ¾Ë¾Æ³»°í ±× ÁÖ¼Ò¿¡ ÀÖ´Â ÇÁ·Î±×·¥À» °¡Áö°í ¿Í¼­ ½ÇÇà
+	//func();ë¥¼ í•˜ë©´ í•¨ìˆ˜ê°€ ì–´ëŠ ë©”ëª¨ë¦¬ì£¼ì†Œì— ìˆëŠ”ì§€ ì•Œì•„ë‚´ê³  ê·¸ ì£¼ì†Œì— ìˆëŠ” í”„ë¡œê·¸ë¨ì„ ê°€ì§€ê³  ì™€ì„œ ì‹¤í–‰
 
 
-	//ÇÔ¼ö Æ÷ÀÎÅÍ ¼±¾ğ
-	//fcnptr ÇÔ¼ö Æ÷ÀÎÅÍ º¯¼ö ¼±¾ğÈÄ func·Î ÃÊ±âÈ­
-	int (*fcnptr)() = func; //¹ŞÀ¸·Á´Â ÇÔ¼öÀÇ return type°ú ÀÏÄ¡ÇØ¾ßÇÔ
+	//í•¨ìˆ˜ í¬ì¸í„° ì„ ì–¸
+	//fcnptr í•¨ìˆ˜ í¬ì¸í„° ë³€ìˆ˜ ì„ ì–¸í›„ funcë¡œ ì´ˆê¸°í™”
+	int (*fcnptr)() = func; //ë°›ìœ¼ë ¤ëŠ” í•¨ìˆ˜ì˜ return typeê³¼ ì¼ì¹˜í•´ì•¼í•¨
 
-	cout << fcnptr() << endl;  //()¸¦ ºÙÀÌ¸é ÇÔ¼ö¸¦ ½ÇÇàÇÔ
+	cout << fcnptr() << endl;  //()ë¥¼ ë¶™ì´ë©´ í•¨ìˆ˜ë¥¼ ì‹¤í–‰í•¨
 
-	fcnptr = goo; //Áß°£¿¡ ¹Ù²ãÄ¡±â ÇÒ ¼ö ÀÖÀ½
+	fcnptr = goo; //ì¤‘ê°„ì— ë°”ê¿”ì¹˜ê¸° í•  ìˆ˜ ìˆìŒ
 
 	cout << fcnptr() << endl;
 
 
 
-	//¸Å°³º¯¼ö¿Í ÇÔ¼ö Æ÷ÀÎÅÍ¸¦ ¸ÂÃçÁà¾ß »ç¿ë ÇÒ ¼öÀÖÀ½
+	//ë§¤ê°œë³€ìˆ˜ì™€ í•¨ìˆ˜ í¬ì¸í„°ë¥¼ ë§ì¶°ì¤˜ì•¼ ì‚¬ìš© í•  ìˆ˜ìˆìŒ
 	
-	//int func(int x) {} ·Î ¼±¾ğÀ» ÇßÀ¸¸é
+	//int func(int x) {} ë¡œ ì„ ì–¸ì„ í–ˆìœ¼ë©´
 	//int(*fcnptr)(int) = func;
-	//goo()·Î ¹Ù²Ù·Á¸é 
-	//int goo(int x) {}·Î ¸Å°³º¯¼ö¿Í reuturn typeÀ» ¸ÂÃçÁà¾ßÇÔ
+	//goo()ë¡œ ë°”ê¾¸ë ¤ë©´ 
+	//int goo(int x) {}ë¡œ ë§¤ê°œë³€ìˆ˜ì™€ reuturn typeì„ ë§ì¶°ì¤˜ì•¼í•¨
 
 
 
 
-	//ÇÔ¼ö Æ÷ÀÎÅÍ¸¦ ÇÔ¼ö ¸Å°³º¯¼ö·Î ³ÖÀ» ¼ö ÀÖÀ½
+	//í•¨ìˆ˜ í¬ì¸í„°ë¥¼ í•¨ìˆ˜ ë§¤ê°œë³€ìˆ˜ë¡œ ë„£ì„ ìˆ˜ ìˆìŒ
 	std::array<int, 10>my_array = { 0,1,2,3,4,5,6,7,8,9 };
 
-	//È¦¼ö, Â¦¼ö¸¦ ¼±ÅÃÇØ¼­ Ãâ·Â
-	//printNumbers(my_array,true);  //trueÀÏ¶§ Â¦¼ö
-	//printNumbers(my_array, false); //false ÀÏ¶§ È¦¼ö
+	//í™€ìˆ˜, ì§ìˆ˜ë¥¼ ì„ íƒí•´ì„œ ì¶œë ¥
+	//printNumbers(my_array,true);  //trueì¼ë•Œ ì§ìˆ˜
+	//printNumbers(my_array, false); //false ì¼ë•Œ í™€ìˆ˜
 
 
-	//ÇÔ¼ö Æ÷ÀÎÅÍ »ç¿ë
-	//ÇÔ¼ö´Â ÀÌ¸§ÀÚÃ¼°¡ Æ÷ÀÎÅÍ¶ó¼­ ¾Õ¿¡ &¸¦ ¾ÈºÙ¿©µµ µÊ
-	printNumbers(my_array,isEven);  // isEven ÀÏ¶§ Â¦¼ö
-	printNumbers(my_array, isOdd);  // isOdd  ÀÏ¶§ È¦¼ö
+	//í•¨ìˆ˜ í¬ì¸í„° ì‚¬ìš©
+	//í•¨ìˆ˜ëŠ” ì´ë¦„ìì²´ê°€ í¬ì¸í„°ë¼ì„œ ì•ì— &ë¥¼ ì•ˆë¶™ì—¬ë„ ë¨
+	printNumbers(my_array,isEven);  // isEven ì¼ë•Œ ì§ìˆ˜
+	printNumbers(my_array, isOdd);  // isOdd  ì¼ë•Œ í™€ìˆ˜
 
-	//printNumbers(my_array); // isEven À¸·Î default prameter ¼³Á¤ÇßÀ»¶§ Â¦¼ö Ãâ·Â
+	//printNumbers(my_array); // isEven ìœ¼ë¡œ default prameter ì„¤ì •í–ˆì„ë•Œ ì§ìˆ˜ ì¶œë ¥
 
 
-	//Type aliases(°¡¸í ºÙÀÌ±â) µµ ÇÒ ¼öÀÖÀ½
-	//¸Å¹ø bool (*check_fcn)(const int&)ÇÏ±â°¡ ¹ø°Å·Î¿î °æ¿ì
+	//Type aliases(ê°€ëª… ë¶™ì´ê¸°) ë„ í•  ìˆ˜ìˆìŒ
+	//ë§¤ë²ˆ bool (*check_fcn)(const int&)í•˜ê¸°ê°€ ë²ˆê±°ë¡œìš´ ê²½ìš°
 
-	//typedef ¸¦ »ç¿ëÇÏ´Â °æ¿ì
-	//typedef bool (*check_fcn_t)(const int&); À» ÇÏ¸é
-	//check_fcn_t·Î ÁÙ¿©¼­ »ç¿ëÇÒ ¼ö ÀÖÀ½
+	//typedef ë¥¼ ì‚¬ìš©í•˜ëŠ” ê²½ìš°
+	//typedef bool (*check_fcn_t)(const int&); ì„ í•˜ë©´
+	//check_fcn_të¡œ ì¤„ì—¬ì„œ ì‚¬ìš©í•  ìˆ˜ ìˆìŒ
 
-	//using À» »ç¿ëÇÏ´Â °æ¿ì
+	//using ì„ ì‚¬ìš©í•˜ëŠ” ê²½ìš°
 	//using check_fcn_t = bool(*)(const int&)
 
 
 
 	//std::function
-	std::function<bool(const int&)> fcnptr = isEven;  //À» »ç¿ëÇÏ¸é
+	std::function<bool(const int&)> fcnptr = isEven;  //ì„ ì‚¬ìš©í•˜ë©´
 
-	//¹Ş´ÂÂÊ¿¡¼­ »ç¿ëÇÒ ¼ö ÀÖÀ½
+	//ë°›ëŠ”ìª½ì—ì„œ ì‚¬ìš©í•  ìˆ˜ ìˆìŒ
 	/*void printNumbers(const array<int, 10>&my_array,std::function<bool(const int&)> fcnptr)
 	{
 		for (auto element : my_array)
