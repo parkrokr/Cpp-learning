@@ -11,6 +11,8 @@ using namespace std;
 
 int main()
 {
+	//add() 와 doSomething() 를 헤더로 분리
+	
 	doSomething;
 
 	return 0;
