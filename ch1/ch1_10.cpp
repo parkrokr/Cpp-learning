@@ -18,7 +18,7 @@ int main()
 }
 
 
-//difinition
+//definition
 int add(int a, int b) // prototype
 {
 	return a * b;
