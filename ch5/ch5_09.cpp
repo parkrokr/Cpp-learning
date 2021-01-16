@@ -1,7 +1,7 @@
-// ³­¼ö ¸¸µé±â Random Number Generation
+// ë‚œìˆ˜ ë§Œë“¤ê¸° Random Number Generation
 
-// ÄÄÇ»ÅÍ´Â ½ÇÁ¦·Î ³­¼ö¸¦ ¸¸µéÁö ¸øÇÔ
-// ³­¼öÃ³·³ º¸ÀÌ´Â ¼ıÀÚµéÀº ¸¸µé ¼ö ÀÖÀ½
+// ì»´í“¨í„°ëŠ” ì‹¤ì œë¡œ ë‚œìˆ˜ë¥¼ ë§Œë“¤ì§€ ëª»í•¨
+// ë‚œìˆ˜ì²˜ëŸ¼ ë³´ì´ëŠ” ìˆ«ìë“¤ì€ ë§Œë“¤ ìˆ˜ ìˆìŒ
 
 #include <iostream>
 #include <cstdlib>   //std::radn(), std::srand()
@@ -10,22 +10,22 @@
 
 using namespace std;
 
-unsigned int PRNG() // Pseudo Random Number Generator // À¯»ç ³­¼ö »ı¼º±â
+unsigned int PRNG() // Pseudo Random Number Generator // ìœ ì‚¬ ë‚œìˆ˜ ìƒì„±ê¸°
 {
-	static unsigned int seed = 5523; //seed number // ´Ù½Ã ÇÔ¼ö°¡ È£ÃâµÇ¾îµµ ¹Ù²ï °ªÀ» Ãâ·ÂÇØ¾ß ÇÏ±â ‹š¹®¿¡ static ¼±¾ğ
+	static unsigned int seed = 5523; //seed number // ë‹¤ì‹œ í•¨ìˆ˜ê°€ í˜¸ì¶œë˜ì–´ë„ ë°”ë€ ê°’ì„ ì¶œë ¥í•´ì•¼ í•˜ê¸° ë•Œë¬¸ì— static ì„ ì–¸
 
-	seed = 825379 * seed + 2396493; //oberflow ÀÌ¿ë
+	seed = 825379 * seed + 2396493; //oberflow ì´ìš©
 
-	return seed % 32768; // ÃÖ´ëÅ©±â ¼ıÀÚ·Î ¸ÂÃç¼­ Ãâ·Â
+	return seed % 32768; // ìµœëŒ€í¬ê¸° ìˆ«ìë¡œ ë§ì¶°ì„œ ì¶œë ¥
 }
 
-int getRandomNumber(int min, int max) // ¹üÀ§¿¡ ´ëÇØ¼­ ³­¼ö »ı¼º
+int getRandomNumber(int min, int max) // ë²”ìœ„ì— ëŒ€í•´ì„œ ë‚œìˆ˜ ìƒì„±
 {
-	// ¹Ø¿¡ ÁÙÀ» ¹ÛÀ¸·Î »©¼­ Àü¿ª »ó¼ö·Î ¸¸µé¾î¼­ »ç¿ëÇÏ´Â °Íµµ ÁÁÀº ¹æ¹ı
-	static const double fraction = 1.0 / (RAND_MAX + 1.0); // /¿¬»êÀº ´À¸®±â ¶§¹®¿¡ static À¸·Î ÀúÀå
+	// ë°‘ì— ì¤„ì„ ë°–ìœ¼ë¡œ ë¹¼ì„œ ì „ì—­ ìƒìˆ˜ë¡œ ë§Œë“¤ì–´ì„œ ì‚¬ìš©í•˜ëŠ” ê²ƒë„ ì¢‹ì€ ë°©ë²•
+	static const double fraction = 1.0 / (RAND_MAX + 1.0); // /ì—°ì‚°ì€ ëŠë¦¬ê¸° ë•Œë¬¸ì— static ìœ¼ë¡œ ì €ì¥
 
 	return min + static_cast<int>( (max - min + 1) * (std::rand() * fraction));
-	//								//¹üÀ§
+	//								//ë²”ìœ„
 }
 
 
@@ -33,15 +33,15 @@ int main()
 {
 	for (int count = 1; count <= 50; ++count)
 	{
-		cout << PRNG() << "\t";   // \t  ÅÇ ¸ÂÃß±â
+		cout << PRNG() << "\t";   // \t  íƒ­ ë§ì¶”ê¸°
 
-		if (count % 5 == 0)cout << endl; //ÇÑÁÙ¿¡ 5°³¾¿ Ãâ·Â
+		if (count % 5 == 0)cout << endl; //í•œì¤„ì— 5ê°œì”© ì¶œë ¥
 	}
 
 	// std::srand(), std::rand()
 	
-	//std::srand(5323); // seed °íÁ¤ ¼³Á¤ ,seed¸¦ ¹Ù²ã¾ß ´Ù¸¥ ³­¼öµéÀÌ ³ª¿È, debug ¶§´Â ¾¾µå °íÁ¤ÀÌ ÆíÇÔ
-	std::srand(static_cast<unsigned int>(std::time(0))); //cpu clock ¿¡¼­ ½Ã°£À» °¡Á®¿È
+	//std::srand(5323); // seed ê³ ì • ì„¤ì • ,seedë¥¼ ë°”ê¿”ì•¼ ë‹¤ë¥¸ ë‚œìˆ˜ë“¤ì´ ë‚˜ì˜´, debug ë•ŒëŠ” ì”¨ë“œ ê³ ì •ì´ í¸í•¨
+	std::srand(static_cast<unsigned int>(std::time(0))); //cpu clock ì—ì„œ ì‹œê°„ì„ ê°€ì ¸ì˜´
 
 
 	for (int count = 1; count <= 50; ++count)
@@ -52,7 +52,7 @@ int main()
 	}
 
 	
-	//¹üÀ§¿¡ ´ëÇØ¼­ ³­¼ö »ı¼º
+	//ë²”ìœ„ì— ëŒ€í•´ì„œ ë‚œìˆ˜ ìƒì„±
 
 	for (int count = 1; count <= 10; ++count)
 	{
@@ -64,7 +64,7 @@ int main()
 	for (int count = 1; count <= 10; ++count)
 	{
 		cout << rand() %4 + 5 << "\t"; // rand between 5, 8
-		// ÀÛÀº °æ¿ì »ó°ü ¾øÀ¸³ª Å« ¹üÀ§ÀÇ ³­¼öÀÎ °æ¿ì ³­¼öµéÀÌ Æ¯Á¤ ¿µ¿ªÀ¸·Î ¸ô¸± ¼ö ÀÖÀ½
+		// ì‘ì€ ê²½ìš° ìƒê´€ ì—†ìœ¼ë‚˜ í° ë²”ìœ„ì˜ ë‚œìˆ˜ì¸ ê²½ìš° ë‚œìˆ˜ë“¤ì´ íŠ¹ì • ì˜ì—­ìœ¼ë¡œ ëª°ë¦´ ìˆ˜ ìˆìŒ
 
 		if (count % 5 == 0)cout << endl;
 	}
@@ -72,11 +72,11 @@ int main()
 
 	//random library
 
-	std::random_device rd; // time ¿¬µ¿°ú À¯»çÇÑ ±â´É
+	std::random_device rd; // time ì—°ë™ê³¼ ìœ ì‚¬í•œ ê¸°ëŠ¥
 	std::mt19937_64 mersenne(rd());// create a mersenne twister,
-	std::uniform_int_distribution<>dice(1, 6); // 1ÀÌ»ó 6ÀÌÇÏ ³­¼öµéÀÌ µ¿ÀÏÇÑ È®·ü·Î ³ª¿È
+	std::uniform_int_distribution<>dice(1, 6); // 1ì´ìƒ 6ì´í•˜ ë‚œìˆ˜ë“¤ì´ ë™ì¼í•œ í™•ë¥ ë¡œ ë‚˜ì˜´
 
-	//mt19937 Àº 32bit ³­¼ö¸¦ , mt19937_64´Â 64bit ³­¼ö¸¦ »ı¼º
+	//mt19937 ì€ 32bit ë‚œìˆ˜ë¥¼ , mt19937_64ëŠ” 64bit ë‚œìˆ˜ë¥¼ ìƒì„±
 
 	for (int count = 1; count <= 20; ++count)
 	{
