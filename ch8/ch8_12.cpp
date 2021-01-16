@@ -1,25 +1,25 @@
-// Ä£±¸(friend) ÇÔ¼ö¿Í Å¬·¡½º
+// ì¹œêµ¬(friend) í•¨ìˆ˜ì™€ í´ëž˜ìŠ¤
 
-//¿©·¯°¡Áö class º¹ÀâÇÏ°Ô »óÈ£ÀÛ¿ëÇÏ´Â °æ¿ì ±ò²ûÇÏ°Ô Á¤¸®ÇÏ´Â°Ô ¾î·Á¿ï ¼ö ÀÖÀ½
-//°´Ã¼ÁöÇâÀÇ ±âº»¿øÄ¢ÀÎ Ä¸½¶È­¸¦ À§ÇØ ¿©·¯°¡Áö ¹æ¹ý »ç¿ë
+//ì—¬ëŸ¬ê°€ì§€ class ë³µìž¡í•˜ê²Œ ìƒí˜¸ìž‘ìš©í•˜ëŠ” ê²½ìš° ê¹”ë”í•˜ê²Œ ì •ë¦¬í•˜ëŠ”ê²Œ ì–´ë ¤ìš¸ ìˆ˜ ìžˆìŒ
+//ê°ì²´ì§€í–¥ì˜ ê¸°ë³¸ì›ì¹™ì¸ ìº¡ìŠí™”ë¥¼ ìœ„í•´ ì—¬ëŸ¬ê°€ì§€ ë°©ë²• ì‚¬ìš©
 
-//¿¬»êÀÚ ¿À¹ö·Îµù¿¡¼­ friend ¸¦ °¡Àå ¸¹ÀÌ ¾¸
+//ì—°ì‚°ìž ì˜¤ë²„ë¡œë”©ì—ì„œ friend ë¥¼ ê°€ìž¥ ë§Žì´ ì”€
 
 #include<iostream>
 using namespace std;
 
-class B; //forward declaration  µð¹ö±×ÇÒ¶§ Á¤ÀÇ°¡ ¾îµðÀÖ´ÂÁö Ã£¾Æ¾ß ÇÏ´Â ¹ø°Å·Î¿òÀÌ ÀÖÁö¸¸ ¾îÂ¿ ¼ö ¾øÀ½
+class B; //forward declaration  ë””ë²„ê·¸í• ë•Œ ì •ì˜ê°€ ì–´ë””ìžˆëŠ”ì§€ ì°¾ì•„ì•¼ í•˜ëŠ” ë²ˆê±°ë¡œì›€ì´ ìžˆì§€ë§Œ ì–´ì©” ìˆ˜ ì—†ìŒ
 
 class A
 {
 private:
 	int m_value = 1;
 
-	//doSomething() ¸¦ class A ÀÇ Ä£±¸·Î ¸¸µé±â,BÀÇ Ä£±¸·Îµµ ¸¸µé±â, class B °¡ A º¸´Ù ¹Ø¿¡ ÀÖÀ½(Àü¹æ¼±¾ð ÇÊ¿ä)
+	//doSomething() ë¥¼ class A ì˜ ì¹œêµ¬ë¡œ ë§Œë“¤ê¸°,Bì˜ ì¹œêµ¬ë¡œë„ ë§Œë“¤ê¸°, class B ê°€ A ë³´ë‹¤ ë°‘ì— ìžˆìŒ(ì „ë°©ì„ ì–¸ í•„ìš”)
 	friend void doSomething(A& a, B& b); 
 };
 
-//class °¡ µÎ°³ÀÏ¶§ ÇÔ¼ö°¡ µÎ°³ ¸ðµÎ Á¢±ÙÇÏ´Â ¹æ¹ý
+//class ê°€ ë‘ê°œì¼ë•Œ í•¨ìˆ˜ê°€ ë‘ê°œ ëª¨ë‘ ì ‘ê·¼í•˜ëŠ” ë°©ë²•
 class B
 {
 private:
@@ -30,18 +30,18 @@ public:
 };
 
 
-void doSomething(A& a, B& b)  //doSomething() ¸¦ class A ÀÇ Ä£±¸·Î ¸¸µé±â, class B ÀÇ Ä£±¸·Îµµ ¸¸µé±â
+void doSomething(A& a, B& b)  //doSomething() ë¥¼ class A ì˜ ì¹œêµ¬ë¡œ ë§Œë“¤ê¸°, class B ì˜ ì¹œêµ¬ë¡œë„ ë§Œë“¤ê¸°
 {
 	cout << a.m_value << endl;
-	//m_value ¸¦ public ·Î ÇÒ¼öÀÖÁö¸¸ Ä¸½¶È­ÀÇ ¿øÄ¢À» Çª´Â°Í
-	//class AÀÇ friend °¡ µÇ¸é private member ¿¡µµ Á¢±ÙÇÒ ¼ö ÀÖÀ½
+	//m_value ë¥¼ public ë¡œ í• ìˆ˜ìžˆì§€ë§Œ ìº¡ìŠí™”ì˜ ì›ì¹™ì„ í‘¸ëŠ”ê²ƒ
+	//class Aì˜ friend ê°€ ë˜ë©´ private member ì—ë„ ì ‘ê·¼í•  ìˆ˜ ìžˆìŒ
 }
 
 
 
 
-//´Ù¸¥ class ¸¦ private member ¿¡ Á¢±ÙÇÏ°Ô ÇØÁÖ±â
-class C;  //C ¾È¿¡ doSomething()ÀÌ ÀÖ´Ù´Â°É class C °¡ ¾Ë ¹æ¹ýÀÌ ¾øÀ½, Àü¹æ¼±¾ð¸¸À¸·Î ºÎÁ·
+//ë‹¤ë¥¸ class ë¥¼ private member ì— ì ‘ê·¼í•˜ê²Œ í•´ì£¼ê¸°
+class C;  //C ì•ˆì— doSomething()ì´ ìžˆë‹¤ëŠ”ê±¸ class C ê°€ ì•Œ ë°©ë²•ì´ ì—†ìŒ, ì „ë°©ì„ ì–¸ë§Œìœ¼ë¡œ ë¶€ì¡±
 
 
 class D
@@ -50,7 +50,7 @@ private:
 	int m_value = 4;
 
 public:
-	void doSomething(C& c); // prototype ¸¸ ³²±â±â
+	void doSomething(C& c); // prototype ë§Œ ë‚¨ê¸°ê¸°
 
 };
 
@@ -59,8 +59,8 @@ class C
 private:
 	int m_value = 3;
 
-	//friend class D; //class D ¸¦ Ä£±¸·Î ¸¸µé±â
-	friend void D::doSomething(C& c); //D ¾È¿¡ µé¾îÀÖ´Â doSomething ¿¡°Ô¸¸ ¿­¾îÁÖ°Ú´Ù
+	//friend class D; //class D ë¥¼ ì¹œêµ¬ë¡œ ë§Œë“¤ê¸°
+	friend void D::doSomething(C& c); //D ì•ˆì— ë“¤ì–´ìžˆëŠ” doSomething ì—ê²Œë§Œ ì—´ì–´ì£¼ê² ë‹¤
 };
 
 
@@ -72,27 +72,27 @@ void D::doSomething(C& c)
 
 int main()
 {
-	//ÇÔ¼ö¸¦ Ä£±¸·Î ¸¸µé±â
+	//í•¨ìˆ˜ë¥¼ ì¹œêµ¬ë¡œ ë§Œë“¤ê¸°
 	A a;
 	B b;
 	doSomething(a,b);
 
 
-	//class ¸¦ Ä£±¸·Î ¸¸µé±â
+	//class ë¥¼ ì¹œêµ¬ë¡œ ë§Œë“¤ê¸°
 	C c;
 	D d;
 	d.doSomething(c);
 
-	//class A °¡ class B ³ª class BÀÇ ¸â¹öÇÔ¼ö¸¦ friend ÇÏ·Á´Â °æ¿ì(¸â¹öÇÔ¼öÀÇ Á¤ÀÇ´Â class B ¿¡ ÀÖÀ½)
+	//class A ê°€ class B ë‚˜ class Bì˜ ë©¤ë²„í•¨ìˆ˜ë¥¼ friend í•˜ë ¤ëŠ” ê²½ìš°(ë©¤ë²„í•¨ìˆ˜ì˜ ì •ì˜ëŠ” class B ì— ìžˆìŒ)
 
-	//class B¸¦ friend ÇÏ´Â °æ¿ì
-	//A °¡ ¾Õ¿¡ ÀÖ°í B °¡ µÚ¿¡ ÀÖ´Â °æ¿ì		: B¸¦ Àü¹æ¼±¾ð
-	//B °¡ ¾Õ¿¡ ÀÖ°í A °¡ µÚ¿¡ ÀÖ´Â °æ¿ì		: A¸¦ Àü¹æ¼±¾ð, ¸â¹öÇÔ¼ö prototype ¸¸ ³²±â°í body ´Â A µÚ·Î º¸³»±â
+	//class Bë¥¼ friend í•˜ëŠ” ê²½ìš°
+	//A ê°€ ì•žì— ìžˆê³  B ê°€ ë’¤ì— ìžˆëŠ” ê²½ìš°		: Bë¥¼ ì „ë°©ì„ ì–¸(ì—†ì–´ë„ ìž‘ë™?)
+	//B ê°€ ì•žì— ìžˆê³  A ê°€ ë’¤ì— ìžˆëŠ” ê²½ìš°		: Aë¥¼ ì „ë°©ì„ ì–¸, ë©¤ë²„í•¨ìˆ˜ prototype ë§Œ ë‚¨ê¸°ê³  body ëŠ” A ë’¤ë¡œ ë³´ë‚´ê¸°
 
 
-	//class B ÀÇ ¸â¹öÇÔ¼ö¸¦ friend ÇÏ·Á´Â °æ¿ì
-	//A °¡ ¾Õ¿¡ ÀÖ°í B °¡ µÚ¿¡ ÀÖ´Â °æ¿ì		: ºÒ°¡´É
-	//B °¡ ¾Õ¿¡ ÀÖ°í A °¡ µÚ¿¡ ÀÖ´Â °æ¿ì		: A¸¦ Àü¹æ¼±¾ð, ¸â¹öÇÔ¼ö prototype ¸¸ ³²±â°í body ´Â A µÚ·Î º¸³»±â
+	//class B ì˜ ë©¤ë²„í•¨ìˆ˜ë¥¼ friend í•˜ë ¤ëŠ” ê²½ìš°
+	//A ê°€ ì•žì— ìžˆê³  B ê°€ ë’¤ì— ìžˆëŠ” ê²½ìš°		: ë¶ˆê°€ëŠ¥
+	//B ê°€ ì•žì— ìžˆê³  A ê°€ ë’¤ì— ìžˆëŠ” ê²½ìš°		: Aë¥¼ ì „ë°©ì„ ì–¸, ë©¤ë²„í•¨ìˆ˜ prototype ë§Œ ë‚¨ê¸°ê³  body ëŠ” A ë’¤ë¡œ ë³´ë‚´ê¸°
 
 
 
