@@ -70,8 +70,13 @@ int main()
 	}
 
 
+	
 	//random library
 
+	
+	//시드설정은 시드값이 아닌 하드웨어의 리소스 ( 마우스의 움직임 등 ) 를 사용한다는 특징을 가지고 있음
+
+	
 	std::random_device rd; // time 연동과 유사한 기능
 	std::mt19937_64 mersenne(rd());// create a mersenne twister,
 	std::uniform_int_distribution<>dice(1, 6); // 1이상 6이하 난수들이 동일한 확률로 나옴
