@@ -1,4 +1,6 @@
-//ÀÔÃâ·Â ¿¬»êÀÚ( << , >> ) ¿À¹ö·ÎµùÇÏ±â
+//ì…ì¶œë ¥ ì—°ì‚°ì( << , >> ) ì˜¤ë²„ë¡œë”©í•˜ê¸°
+
+//ë©¤ë²„ í•¨ìˆ˜ë¡œ êµ¬í˜„ ëª»í•¨, ì²«ë²ˆì§¸ parameter ê°€ Point class ê°€ ì•„ë‹ˆë¼ ostream ì´ê¸° ë•Œë¬¸)
 
 #include <iostream>
 #include <fstream>  //to use file output
@@ -27,21 +29,21 @@ public:
 
 
 	//output stream overloading
-	//file Ãâ·Â¿¡ ±×´ë·Î ¾µ ¼ö ÀÖÀ½
+	//file ì¶œë ¥ì— ê·¸ëŒ€ë¡œ ì“¸ ìˆ˜ ìˆìŒ
 
-	//¸â¹ö ÇÔ¼ö·Î ±¸Çö ¸øÇÔ, Ã¹¹øÂ° parameter °¡ Point class °¡ ¾Æ´Ï¶ó ostream ÀÌ±â ¶§¹®)
+	//ë©¤ë²„ í•¨ìˆ˜ë¡œ êµ¬í˜„ ëª»í•¨, ì²«ë²ˆì§¸ parameter ê°€ Point class ê°€ ì•„ë‹ˆë¼ ostream ì´ê¸° ë•Œë¬¸)
 	friend std::ostream& operator << (std::ostream &out, const Point &point)
 	{
-		//cout ´ë½Å out ¸¦ ¾²´Â°ÍÃ³·³ ±¸Çö
-		//¸â¹öÇÔ¼ö°¡ ¾Æ´Ï±â ¶§¹®¿¡ point. ÇØÁà¾ßµÊ
+		//cout ëŒ€ì‹  out ë¥¼ ì“°ëŠ”ê²ƒì²˜ëŸ¼ êµ¬í˜„
+		//ë©¤ë²„í•¨ìˆ˜ê°€ ì•„ë‹ˆê¸° ë•Œë¬¸ì— point. í•´ì¤˜ì•¼ë¨
 		out << "(" << point.m_x << "  , " << point.m_y << "  , " << point.m_z << ")";
 
-		return out;  // chaining ÇÏ±â À§ÇØ
+		return out;  // chaining í•˜ê¸° ìœ„í•´
 	}
 
 
 	//in stream
-	friend std::istream& operator >> (std::istream& in, Point& point)  //ÀÔ·Â¹ŞÀ¸·Á´Â Point& point¸¦ const ·Î ÇÏ¸é ¿¡·¯¹ß»ı
+	friend std::istream& operator >> (std::istream& in, Point& point)  //ì…ë ¥ë°›ìœ¼ë ¤ëŠ” Point& pointë¥¼ const ë¡œ í•˜ë©´ ì—ëŸ¬ë°œìƒ
 	{
 		in >> point.m_x >> point.m_y >> point.m_z;
 
@@ -60,13 +62,13 @@ int main()
 	cout << " ";
 	p2.print();
 	cout << endl;*/  
-	//¹ø°Å·Î¿ò
+	//ë²ˆê±°ë¡œì›€
 
-	//¿À¹ö·ÎµùÀÌ µÇ¾îÀÖÀ¸¸é
+	//ì˜¤ë²„ë¡œë”©ì´ ë˜ì–´ìˆìœ¼ë©´
 	cout << p1 << " " << p2 << endl;
 
 
-	//file ·Î Ãâ·Â
+	//file ë¡œ ì¶œë ¥
 	ofstream of("out.text");
 
 	of << p1 << " " << p2 << endl;
@@ -79,7 +81,7 @@ int main()
 	cin >> p1 >> p2;
 	cout << p1 << " " << p2 << endl;
 
-	//file ·Î ÀÔ·Â
+	//file ë¡œ ì…ë ¥
 	ifstream inf ("input.text");
 
 	inf >> p1 >> p2;
