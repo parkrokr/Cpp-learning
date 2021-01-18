@@ -23,7 +23,7 @@ public:
 		return *this;
 	}*/
 	
-	int getnumber()
+	int getAccumulator()
 	{
 		return m_counter;
 	}
