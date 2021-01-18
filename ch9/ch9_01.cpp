@@ -1,24 +1,27 @@
-//»ê¼ú ¿¬»êÀÚ ¿À¹ö·Îµù Overloading ÇÏ±â
+//ì‚°ìˆ  ì—°ì‚°ì ì˜¤ë²„ë¡œë”© Overloading í•˜ê¸°
 
 
-// +, -, *, / °°Àº°Å ´Ù ¿¬»êÀÚ ¿À¹ö·Îµù ÇÒ ¼ö ÀÖÀ½
-	// ¿ì¼±¼øÀ§´Â ±×´ë·ÎÀÓ(Á÷°üÀûÀÎ°Íµé¸¸ ¿À¹ö·Îµù ÇÏ´Â°ÍÀÌ ÁÁÀ½)
-	// ^ ´Â ¿ì¼±¼øÀ§°¡ ¸Å¿ì ³·±â ¶§¹®¿¡ ()·Î ½Î¼­ ½á¾ßÇÏ°í ±×³É ¿À¹ö·Îµù ¾ÈÇÏ´Â°Ô ÆíÇÔ
+// +, -, *, / ê°™ì€ê±° ë‹¤ ì—°ì‚°ì ì˜¤ë²„ë¡œë”© í•  ìˆ˜ ìˆìŒ
+	// ìš°ì„ ìˆœìœ„ëŠ” ê·¸ëŒ€ë¡œì„(ì§ê´€ì ì¸ê²ƒë“¤ë§Œ ì˜¤ë²„ë¡œë”© í•˜ëŠ”ê²ƒì´ ì¢‹ìŒ)
+	// ^ ëŠ” ìš°ì„ ìˆœìœ„ê°€ ë§¤ìš° ë‚®ê¸° ë•Œë¬¸ì— ()ë¡œ ì‹¸ì„œ ì¨ì•¼í•˜ê³  ê·¸ëƒ¥ ì˜¤ë²„ë¡œë”© ì•ˆí•˜ëŠ”ê²Œ í¸í•¨
 
-	//ºÒ°¡´ÉÇÑ ¿¬»êÀÚµé
-	// ?:		»ïÇ×¿¬»êÀÚ
-	// ::		scope ¿¬»êÀÚ
-	// sizeof	¿¬»êÀÚ
-	// .		member selection ¿¬»êÀÚ
-	// .*		member pointer ¿¬»êÀÚ
-	// #		¹®ÀÚ¿­ ÀüÃ³¸®±â º¯È¯
-	// ##		ÀüÃ³¸®±â ¿¬°á
+	//ë¶ˆê°€ëŠ¥í•œ ì—°ì‚°ìë“¤
+	// ?:		ì‚¼í•­ì—°ì‚°ì
+	// ::		scope ì—°ì‚°ì
+	// sizeof	ì—°ì‚°ì
+	// .		member selection ì—°ì‚°ì
+	// .*		member pointer ì—°ì‚°ì
+	// #		ë¬¸ìì—´ ì „ì²˜ë¦¬ê¸° ë³€í™˜
+	// ##		ì „ì²˜ë¦¬ê¸° ì—°ê²°
 
-	//member function À¸·Î¸¸ ÇØ¾ß °¡´ÉÇÑ ¿¬»êÀÚµé
+	//member function ìœ¼ë¡œë§Œ ê°€ëŠ¥í•œ ì—°ì‚°ìë“¤
 	// = , [] , () ,->
 
+	//friend function ìœ¼ë¡œë§Œ ê°€ëŠ¥í•œê²ƒ
+	// << 
 
-//¿¬»êÀÚ ¿À¹ö·ÎµùÀ» ¸â¹ö ÇÔ¼ö·Î ÇÏ´Â °æ¿ì Ã¹¹øÂ° parameter ´Â this ¸¦ ÀÌ¿ëÇØ¾ßÇÔ
+
+//ì—°ì‚°ì ì˜¤ë²„ë¡œë”©ì„ ë©¤ë²„ í•¨ìˆ˜ë¡œ í•˜ëŠ” ê²½ìš° ì²«ë²ˆì§¸ parameter ëŠ” this ë¥¼ ì´ìš©í•´ì•¼í•¨
 
 
 #include<iostream>
@@ -30,12 +33,12 @@ private:
 	int m_cents;
 
 public:
-	Cents(int cents = 0) { m_cents = cents; } //sum ¶§¹®¿¡ ±âº»°ª ³Ö¾îÁÖ±â
+	Cents(int cents = 0) { m_cents = cents; } //sum ë•Œë¬¸ì— ê¸°ë³¸ê°’ ë„£ì–´ì£¼ê¸°
 	int getCents() const { return m_cents; }
-	int& getCents() { return m_cents; }  //ÂüÁ¶·Î ¹İÈ¯ÇØ¾ß l value °¡ µÇ¾î c_out.getCents() ¿¡¼­ ¼öÁ¤ÀÌ °¡´ÉÇØÁü
+	int& getCents() { return m_cents; }  //ì°¸ì¡°ë¡œ ë°˜í™˜í•´ì•¼ l value ê°€ ë˜ì–´ c_out.getCents() ì—ì„œ ìˆ˜ì •ì´ ê°€ëŠ¥í•´ì§
 
 
-	//.getCents() ¸¦ ¾È¾²±â À§ÇØ friend ÇÏ±â
+	//.getCents() ë¥¼ ì•ˆì“°ê¸° ìœ„í•´ friend í•˜ê¸°
 	//friend Cents operator + (const Cents& c1, const Cents& c2) 
 	//{
 	//	return Cents(c1.m_cents + c2.m_cents);
@@ -43,10 +46,10 @@ public:
 
 
 
-	//freind ÇÏÁö ¾Ê°í ¸â¹ö ÇÔ¼ö·Î ¸¸µé¾î¹ö¸®±â
-	//too many parameters : + ÇÔ¼ö¶ó parameter µÎ°³¸¸ ÀÖÀ¸¸é µÊ
+	//freind í•˜ì§€ ì•Šê³  ë©¤ë²„ í•¨ìˆ˜ë¡œ ë§Œë“¤ì–´ë²„ë¦¬ê¸°
+	//too many parameters : + í•¨ìˆ˜ë¼ parameter ë‘ê°œë§Œ ìˆìœ¼ë©´ ë¨
 
-	Cents operator + (const Cents& c2) //¿ŞÂÊ parameter ´Â this ·Î ¹Ù²ã¾ßÇÔ
+	Cents operator + (const Cents& c2) //ì™¼ìª½ parameter ëŠ” this ë¡œ ë°”ê¿”ì•¼í•¨
 	{
 		return Cents(this->m_cents + c2.m_cents);
 	};
@@ -54,7 +57,7 @@ public:
 
 
 
-//c_out À» ÂüÁ¶ parameter ·Î ¹Ş¾Æ¼­ output À¸·Î ¾²±â
+//c_out ì„ ì°¸ì¡° parameter ë¡œ ë°›ì•„ì„œ output ìœ¼ë¡œ ì“°ê¸°
 //void add(const Cents& c1, const Cents& c2, Cents& c_out)
 //{
 //	c_out.getCents() = c1.getCents() + c2.getCents();
@@ -62,7 +65,7 @@ public:
 
 
 
-//ouput À» return type À¸·Î ¹Ş±â(ÃÖ±Ù °æÇâ)
+//ouput ì„ return type ìœ¼ë¡œ ë°›ê¸°(ìµœê·¼ ê²½í–¥)
 Cents add(const Cents& c1, const Cents& c2)
 {
 	return Cents(c1.getCents() + c2.getCents());
@@ -70,7 +73,7 @@ Cents add(const Cents& c1, const Cents& c2)
 
 
 
-//add() ¸¦ ¾²±â ½ÈÀ»¶§(¿¬»êÀÚ ¿À¹ö·Îµù)
+//add() ë¥¼ ì“°ê¸° ì‹«ì„ë•Œ(ì—°ì‚°ì ì˜¤ë²„ë¡œë”©)
 //Cents operator +(const Cents& c1, const Cents& c2)
 //{
 //	return Cents(c1.getCents() + c2.getCents());
@@ -78,8 +81,8 @@ Cents add(const Cents& c1, const Cents& c2)
 
 
 
-//c1.getCents() ¿¡¼­ getCents() ¸¦ ¾²±â ½ÈÀ»¶§, ÇÔ¼ö¸¦ friend ÇÏ±â
-//class ¾ÈÀ¸·Î ³Ö¾î¹ö¸®±â
+//c1.getCents() ì—ì„œ getCents() ë¥¼ ì“°ê¸° ì‹«ì„ë•Œ, í•¨ìˆ˜ë¥¼ friend í•˜ê¸°
+//class ì•ˆìœ¼ë¡œ ë„£ì–´ë²„ë¦¬ê¸°
 //Cents operator +(const Cents& c1, const Cents& c2)
 //{
 //	return Cents(c1.m_cents + c2.m_cents);
@@ -90,8 +93,8 @@ int main()
 	Cents cents1(6);
 	Cents cents2(8);
 
-	//´õÇÏ°í ½ÍÀ»¶§
-	//add() ¸¸µé±â
+	//ë”í•˜ê³  ì‹¶ì„ë•Œ
+	//add() ë§Œë“¤ê¸°
 	/*Cents sum;
 	add(cents1, cents2, sum);*/
 
@@ -99,36 +102,36 @@ int main()
 	//cout << sum << endl; //ch9_02
 
 
-	//Á¤¼ö·Î ÀÛ¾÷ÇÒ¶§
-	int i = 6, j = 8; cout << i + j << endl;	//ÆíÇÏ°í ±ò²ûÇÔ
+	//ì •ìˆ˜ë¡œ ì‘ì—…í• ë•Œ
+	int i = 6, j = 8; cout << i + j << endl;	//í¸í•˜ê³  ê¹”ë”í•¨
 
 
-	//output À» return type À¸·Î ¹Ş±â
-	cout << add(cents1, cents2).getCents() << endl;  //.getCents() ¸¦ ¹İµå½Ã ºÙ¿©Áà¾ßÇÔ
+	//output ì„ return type ìœ¼ë¡œ ë°›ê¸°
+	cout << add(cents1, cents2).getCents() << endl;  //.getCents() ë¥¼ ë°˜ë“œì‹œ ë¶™ì—¬ì¤˜ì•¼í•¨
 
 
-	//¿¬»êÀÚ ¿À¹ö·Îµù
+	//ì—°ì‚°ì ì˜¤ë²„ë¡œë”©
 	cout << (cents1 + cents2).getCents() << endl;
-	cout << (cents1 + cents2 + Cents(6)).getCents() << endl;  //ÀÍ¸í °´Ã¼¸¦ »ç¿ëÇÏ¿© Cents(6) ±îÁö ´õÇÏ±â
+	cout << (cents1 + cents2 + Cents(6)).getCents() << endl;  //ìµëª… ê°ì²´ë¥¼ ì‚¬ìš©í•˜ì—¬ Cents(6) ê¹Œì§€ ë”í•˜ê¸°
 
 
-	//getCents() ¸¦ ¾È¾²°í ½ÍÀ½
-	//ÇÔ¼ö¸¦ friend ÇØ¼­ c1.getCents() ÇÏÁö ¾Ê°í ¹Ù·Î m_value ¿¡ Á¢±ÙÇÒ¼ö ÀÖ°Ô friend ÇÏ±â
-	cout << (cents1 + cents2).getCents() << endl;  //Ãâ·ÂÇÒ¶© ½á¾ßÇÔ
+	//getCents() ë¥¼ ì•ˆì“°ê³  ì‹¶ìŒ
+	//í•¨ìˆ˜ë¥¼ friend í•´ì„œ c1.getCents() í•˜ì§€ ì•Šê³  ë°”ë¡œ m_value ì— ì ‘ê·¼í• ìˆ˜ ìˆê²Œ friend í•˜ê¸°
+	cout << (cents1 + cents2).getCents() << endl;  //ì¶œë ¥í• ë• ì¨ì•¼í•¨
 
 
-	// +, -, *, / °°Àº°Å ´Ù ¿¬»êÀÚ ¿À¹ö·Îµù ÇÒ ¼ö ÀÖÀ½
-	// ¿ì¼±¼øÀ§´Â ±×´ë·ÎÀÓ(Á÷°üÀûÀÎ°Íµé¸¸ ¿À¹ö·Îµù ÇÏ´Â°ÍÀÌ ÁÁÀ½)
-	// ^ ´Â ¿ì¼±¼øÀ§°¡ ¸Å¿ì ³·±â ¶§¹®¿¡ ()·Î ½Î¼­ ½á¾ßÇÏ°í ±×³É ¿À¹ö·Îµù ¾ÈÇÏ´Â°Ô ÆíÇÔ
+	// +, -, *, / ê°™ì€ê±° ë‹¤ ì—°ì‚°ì ì˜¤ë²„ë¡œë”© í•  ìˆ˜ ìˆìŒ
+	// ìš°ì„ ìˆœìœ„ëŠ” ê·¸ëŒ€ë¡œì„(ì§ê´€ì ì¸ê²ƒë“¤ë§Œ ì˜¤ë²„ë¡œë”© í•˜ëŠ”ê²ƒì´ ì¢‹ìŒ)
+	// ^ ëŠ” ìš°ì„ ìˆœìœ„ê°€ ë§¤ìš° ë‚®ê¸° ë•Œë¬¸ì— ()ë¡œ ì‹¸ì„œ ì¨ì•¼í•˜ê³  ê·¸ëƒ¥ ì˜¤ë²„ë¡œë”© ì•ˆí•˜ëŠ”ê²Œ í¸í•¨
 
-	//ºÒ°¡´ÉÇÑ ¿¬»êÀÚµé
-	// ?:		»ïÇ×¿¬»êÀÚ
-	// ::		scope ¿¬»êÀÚ
-	// sizeof	¿¬»êÀÚ
-	// .		member selection ¿¬»êÀÚ
-	// .*		member pointer ¿¬»êÀÚ
+	//ë¶ˆê°€ëŠ¥í•œ ì—°ì‚°ìë“¤
+	// ?:		ì‚¼í•­ì—°ì‚°ì
+	// ::		scope ì—°ì‚°ì
+	// sizeof	ì—°ì‚°ì
+	// .		member selection ì—°ì‚°ì
+	// .*		member pointer ì—°ì‚°ì
 
-	//member function À¸·Î¸¸ ÇØ¾ß °¡´ÉÇÑ ¿¬»êÀÚµé
+	//member function ìœ¼ë¡œë§Œ í•´ì•¼ ê°€ëŠ¥í•œ ì—°ì‚°ìë“¤
 	// = , [] , () ,->
 
 	return 0;
