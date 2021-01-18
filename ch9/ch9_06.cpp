@@ -1,11 +1,14 @@
-//Ã·ÀÚ ¿¬»êÀÚ ( [] subscript operator ) ¿À¹ö·ÎµùÇÏ±â
+//ì²¨ì ì—°ì‚°ì ( [] subscript operator ) ì˜¤ë²„ë¡œë”©í•˜ê¸°
 
-//assert ¸¦ ½á¾ß runtime error ¸¦ ¸·À» ¼ö ÀÖÀ½
-//[]´Â º¸Åë ¸¹ÀÌ ¾²·Á°í ¸¸µå´Â °Å±â ¶§¹®¿¡ if ¹® º¸´Ù´Â assert ¸¦ ½á¼­ performace ¸¦ ³ôÀÓ
+//member function ìœ¼ë¡œë§Œ ê°€ëŠ¥í•œ ì—°ì‚°ìë“¤
+// = , [] , () ,->
 
-//Æ÷ÀÎÅÍ¸¦ ¾µ¶§ de-referecing ÇØ¼­ ¾²±â
+//assert ë¥¼ ì¨ì•¼ runtime error ë¥¼ ë§‰ì„ ìˆ˜ ìˆìŒ
+//[]ëŠ” ë³´í†µ ë§ì´ ì“°ë ¤ê³  ë§Œë“œëŠ” ê±°ê¸° ë•Œë¬¸ì— if ë¬¸ ë³´ë‹¤ëŠ” assert ë¥¼ ì¨ì„œ performace ë¥¼ ë†’ì„
 
-// std::vector ´Â ¿¬»êÀÚ ¿À¹ö·ÎµùÀÌ Àß µÇ¾îÀÖÀ½
+//í¬ì¸í„°ë¥¼ ì“¸ë•Œ de-referecing í•´ì„œ ì“°ê¸°
+
+// std::vector ëŠ” ì—°ì‚°ì ì˜¤ë²„ë¡œë”©ì´ ì˜ ë˜ì–´ìˆìŒ
 
 #include<iostream>
 #include<cassert>  //to use assert
@@ -15,7 +18,7 @@ using namespace std;
 class IntList
 {
 private:
-	//std::array ³ª std::vector ¸¦ ¾µ¼öµµ ÀÖÁö¸¸ µ¿ÀûÇÒ´çÀ» ÇÒ¶§ ¸Ş¸ğ¸®°¡ Á¦´ë·Î ÀâÇô ÀÖ¾î¾ßÇÔ
+	//std::array ë‚˜ std::vector ë¥¼ ì“¸ìˆ˜ë„ ìˆì§€ë§Œ ë™ì í• ë‹¹ì„ í• ë•Œ ë©”ëª¨ë¦¬ê°€ ì œëŒ€ë¡œ ì¡í˜€ ìˆì–´ì•¼í•¨
 	int m_list[10] = { 1,2,3,4,5,6,7,8,9,10 };
 
 public:
@@ -34,21 +37,21 @@ public:
 		return m_list;
 	}*/
 
-	//Ã·ÀÚ ¿¬»êÀÚ ¿À¹ö·Îµù
-	//°ªÀ» ÀĞ°í ¹Ù²Ù±â À§ÇØ ÂüÁ¶·Î ¹İÈ¯,  l value ¿©¾ß ÇÏ´Ï±î (ÁÖ¼Ò¸¦ °¡Áö°í ÀÖ¾î¾ßÇÏ´Ï±î) ÂüÁ¶·Î ¹İÈ¯
-	int& operator [] (const int index)  //int ¸»°í ´Ù¸¥ data type µµ µé¾î¿Ã ¼ö ÀÖÀ½
+	//ì²¨ì ì—°ì‚°ì ì˜¤ë²„ë¡œë”©
+	//ê°’ì„ ì½ê³  ë°”ê¾¸ê¸° ìœ„í•´ ì°¸ì¡°ë¡œ ë°˜í™˜,  l value ì—¬ì•¼ í•˜ë‹ˆê¹Œ (ì£¼ì†Œë¥¼ ê°€ì§€ê³  ìˆì–´ì•¼í•˜ë‹ˆê¹Œ) ì°¸ì¡°ë¡œ ë°˜í™˜
+	int& operator [] (const int index)  //int ë§ê³  ë‹¤ë¥¸ data type ë„ ë“¤ì–´ì˜¬ ìˆ˜ ìˆìŒ
 	{
-		//assert ¸¦ ¾²´Â°Ô ÁÁÀ½
+		//assert ë¥¼ ì“°ëŠ”ê²Œ ì¢‹ìŒ
 		assert(index >= 0);
 		assert(index < 10);
 
 		return m_list[index];
 	}
 
-	//const ¹öÀüÀÇ ¿À¹ö·Îµù
+	//const ë²„ì „ì˜ ì˜¤ë²„ë¡œë”©
 	const int& operator[] (const int index) const
 	{
-		//assert ¸¦ ¾²´Â°Ô ÁÁÀ½
+		//assert ë¥¼ ì“°ëŠ”ê²Œ ì¢‹ìŒ
 		assert(index >= 0);
 		assert(index < 10);
 
@@ -65,31 +68,31 @@ int main()
 	//cout << my_list.getItem(3) << endl;
 
 	//my_list.getList()[3] = 10;
-	//cout << my_list.getList()[3] << endl;  //() °¡ ÀÖÀ¸´Ï ¹ø°Å·Î¿ò
+	//cout << my_list.getList()[3] << endl;  //() ê°€ ìˆìœ¼ë‹ˆ ë²ˆê±°ë¡œì›€
 
 	IntList my_list;
 	my_list[3] = 10;
 	cout << my_list[3] << endl;
 
 
-	//const ¹öÀü¿¡¼­ È£ÃâÇØ¾ßÇÒ¼öµµ ÀÖÀ½
+	//const ë²„ì „ì—ì„œ í˜¸ì¶œí•´ì•¼í• ìˆ˜ë„ ìˆìŒ
 	const IntList my_new_list;
-	//my_new_list[3] = 10;  //°ªÀ» ¹Ù²Ù·Á°í ÇÏ±â ¶§¹®¿¡ ºÒ°¡´É
+	//my_new_list[3] = 10;  //ê°’ì„ ë°”ê¾¸ë ¤ê³  í•˜ê¸° ë•Œë¬¸ì— ë¶ˆê°€ëŠ¥
 	cout << my_new_list[3] << endl;
 
 
 
-	//ÁÖÀÇ»çÇ× : Æ÷ÀÎÅÍ¸¦ ¾µ¶§
+	//ì£¼ì˜ì‚¬í•­ : í¬ì¸í„°ë¥¼ ì“¸ë•Œ
 	IntList* list = new IntList;
 	
 	//list->operator[](3) = 10;
 	
-	//½Ç¼ö·Î list[3] À» ÇÒ °æ¿ì ¿¡·¯ ¹ß»ı(ÀÇµµ°¡ ´Ù¸§)
+	//ì‹¤ìˆ˜ë¡œ list[3] ì„ í•  ê²½ìš° ì—ëŸ¬ ë°œìƒ(ì˜ë„ê°€ ë‹¤ë¦„)
 	//list[3] = 10; not ok
-	//list[3] = IntList  //list ÀÇ array ÀÌ±â ¶§¹®¿¡ ´Ù¸¥ ¹®Á¦°¡ µÊ
+	//list[3] = IntList  //list ì˜ array ì´ê¸° ë•Œë¬¸ì— ë‹¤ë¥¸ ë¬¸ì œê°€ ë¨
 
 
-	//Á¤»óÀûÀÎ ¹æ¹ı
+	//ì •ìƒì ì¸ ë°©ë²•
 	(*list)[3] = 10;
 
 
