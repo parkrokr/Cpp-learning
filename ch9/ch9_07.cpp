@@ -15,6 +15,18 @@ private:
 public:
 	int operator() (int i) { return (m_counter += i); }
 	
+
+	//chaining 구현
+	/*Accumulator& operator() (int i)
+	{
+		m_counter += i;
+		return *this;
+	}*/
+	
+	int getnumber()
+	{
+		return m_counter;
+	}
 };
 
 
@@ -28,6 +40,9 @@ int main()
 	//chaining 구현 가능
 
 	cout << acc(acc(10)) << endl;
+
+	//cout << acc(10).getnumber() << endl;
+	//cout << acc(10)(10).getnumber() << endl;
 
 	return 0;
 }
