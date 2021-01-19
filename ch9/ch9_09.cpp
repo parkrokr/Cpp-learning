@@ -1,6 +1,8 @@
-//º¹»ç »ı¼ºÀÚ, º¹»ç ÃÊ±âÈ­, RVO (Return Value Optimization)
+//ë³µì‚¬ ìƒì„±ì, ë³µì‚¬ ì´ˆê¸°í™”, RVO (Return Value Optimization)
 
-//º¹»ç »ı¼ºÀÚ°¡ private: ¿¡ ÀÖ´Â°æ¿ì ¹Û¿¡¼­ »ç¿ëÀ» ¸øÇÔ(º¹»ç¸¦ ¸øÇÔ)
+//ë³µì‚¬ ìƒì„±ìëŠ” ë³µì‚¬ ì´ˆê¸°í™”ì— ê°™ì´ ì‚¬ìš©ë¨
+//ë³µì‚¬ ìƒì„±ìëŠ” ê²½ìš°ì— ë”°ë¼ í˜¸ì¶œì´ ë ìˆ˜ë„ ìˆê³ , ì»´íŒŒì¼ëŸ¬ê°€ ìµœì í™”ë¥¼ ìœ„í•´ ìƒëµì„ í•  ìˆ˜ë„ ìˆìŒ
+//ë³µì‚¬ ìƒì„±ìê°€ private: ì— ìˆëŠ”ê²½ìš° ë°–ì—ì„œ ì‚¬ìš©ì„ ëª»í•¨(ë³µì‚¬ë¥¼ ëª»í•¨)
 
 
 #include <iostream>
@@ -15,7 +17,7 @@ private:
 	int m_deniminator;
 
 
-	//º¹»ç »ı¼ºÀÚ°¡ private: ¿¡ ÀÖ´Â°æ¿ì ¹Û¿¡¼­ »ç¿ëÀ» ¸øÇÔ(º¹»ç¸¦ ¸øÇÔ)
+	//ë³µì‚¬ ìƒì„±ìê°€ private: ì— ìˆëŠ”ê²½ìš° ë°–ì—ì„œ ì‚¬ìš©ì„ ëª»í•¨(ë³µì‚¬ë¥¼ ëª»í•¨)
 	/*Fraction(const Fraction& fraction)
 		:m_numerator(fraction.m_numerator), m_deniminator(fraction.m_deniminator)
 	{
@@ -28,11 +30,11 @@ public:
 	Fraction(int num = 0, int den = 1)
 		: m_numerator(num), m_deniminator(den)
 	{
-		assert(den != 0);  //ºĞ¸ğ°¡ 0 ÀÌ¸é ¾ÈµÈ´Ù´Â Á¶°Ç
+		assert(den != 0);  //ë¶„ëª¨ê°€ 0 ì´ë©´ ì•ˆëœë‹¤ëŠ” ì¡°ê±´
 	}
 
 
-	//copy constructor  ÀÚ±â¶û ¶È°°Àº°Ô µé¾î¿À´Â°Í
+	//copy constructor  ìê¸°ë‘ ë˜‘ê°™ì€ê²Œ ë“¤ì–´ì˜¤ëŠ”ê²ƒ
 	Fraction(const Fraction& fraction)
 		:m_numerator(fraction.m_numerator), m_deniminator(fraction.m_deniminator)
 	{
@@ -63,10 +65,10 @@ int main()
 	//copy
 	Fraction fr_copy(frac);
 	
-	//Fraction fr_copy = frac;  //copy initialization ÀÇ °æ¿ìµµ copy constructor ÀÌ È£ÃâµÊ
+	//Fraction fr_copy = frac;  //copy initialization ì˜ ê²½ìš°ë„ copy constructor ì´ í˜¸ì¶œë¨
 	
 	//Fraction fr_copy(Fraction(3, 10));
-	//ÀÌ °æ¿ì º¹»ç»ıÀÚ°¡ È£ÃâµÇÁö ¾ÊÀ½, ÄÄÆÄÀÏ·¯°¡ Fraction fr_copy(3,10); À¸·Î ¹Ù²Ş
+	//ì´ ê²½ìš° ë³µì‚¬ìƒìê°€ í˜¸ì¶œë˜ì§€ ì•ŠìŒ, ì»´íŒŒì¼ëŸ¬ê°€ Fraction fr_copy(3,10); ìœ¼ë¡œ ë°”ê¿ˆ
 
 
 	cout << frac << " " << fr_copy << endl;
@@ -77,13 +79,13 @@ int main()
 	cout << &result << endl;
 	cout << result << endl;
 
-	//debug ¸ğµå¿¡¼± result ¿¡ copy initialization À» ÇÒ¶§ copy constructor ÀÌ È£ÃâµÊ
-	//temp¿Í result ÀÇ ÁÖ¼Ò¸¦ Âï¾îº¸¸é ÁÖ¼Ò°¡ ´Ù¸§, ´Ù¸£±â ¶§¹®¿¡ º¹»ç¸¦ Çß¾î¾ß ÇÔ
+	//debug ëª¨ë“œì—ì„  result ì— copy initialization ì„ í• ë•Œ copy constructor ì´ í˜¸ì¶œë¨
+	//tempì™€ result ì˜ ì£¼ì†Œë¥¼ ì°ì–´ë³´ë©´ ì£¼ì†Œê°€ ë‹¤ë¦„, ë‹¤ë¥´ê¸° ë•Œë¬¸ì— ë³µì‚¬ë¥¼ í–ˆì–´ì•¼ í•¨
 
-	//release ¸ğµå¿¡¼± copy constructor ÀÌ »ı¼ºµÇÁö ¾ÊÀ½
-	//return value °¡ ÇÔ¼ö¸¦ ¹ş¾î³ª¸é À¯ÁöµÉ ÀÌÀ¯°¡ ¾ø±â ¶§¹®¿¡ result ·Î ¿Å°Ü¹ö¸²
-	//temp ¿Í result ÀÇ ÁÖ¼Ò¸¦ Âï¾îº¸¸é ÁÖ¼Ò°¡ °°À½, °°±â ¶§¹®¿¡ º¹»ç¸¦ ÇÒ ÇÊ¿ä°¡ ¾øÀ½
-	//ÄÄÆÄÀÏ·¯°¡ ÃÖÀûÈ­¸¦ ÇØÁÖ´Â°ÍÀÓ(release ¸ğµå¿¡¼­¸¸)
+	//release ëª¨ë“œì—ì„  copy constructor ì´ ìƒì„±ë˜ì§€ ì•ŠìŒ
+	//return value ê°€ í•¨ìˆ˜ë¥¼ ë²—ì–´ë‚˜ë©´ ìœ ì§€ë  ì´ìœ ê°€ ì—†ê¸° ë•Œë¬¸ì— result ë¡œ ì˜®ê²¨ë²„ë¦¼
+	//temp ì™€ result ì˜ ì£¼ì†Œë¥¼ ì°ì–´ë³´ë©´ ì£¼ì†Œê°€ ê°™ìŒ, ê°™ê¸° ë•Œë¬¸ì— ë³µì‚¬ë¥¼ í•  í•„ìš”ê°€ ì—†ìŒ
+	//ì»´íŒŒì¼ëŸ¬ê°€ ìµœì í™”ë¥¼ í•´ì£¼ëŠ”ê²ƒì„(release ëª¨ë“œì—ì„œë§Œ)
 
 	return 0;
 }
