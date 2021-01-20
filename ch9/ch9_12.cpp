@@ -1,7 +1,7 @@
-//ÀÌ´Ï¼È¶óÀÌÀú ¸®½ºÆ® std::initializer_list
+//ì´ë‹ˆì…œë¼ì´ì € ë¦¬ìŠ¤íŠ¸ std::initializer_list
 
-//initializer list ´Â std::array ³ª std::vector ¿Í ´Ş¸® [] ¿¬»êÀÚ¸¦ Á¦°øÇÏÁö ¾ÊÀ½
-
+//initializer list ëŠ” std::array ë‚˜ std::vector ì™€ ë‹¬ë¦¬ [] ì—°ì‚°ìë¥¼ ì œê³µí•˜ì§€ ì•ŠìŒ
+//
 
 #include <iostream>
 #include <cassert>
@@ -12,44 +12,44 @@ using namespace std;
 class IntArray
 {
 private:
-	//µ¿ÀûÇÒ´ç ¹Ş´Â ±¸Á¶
+	//ë™ì í• ë‹¹ ë°›ëŠ” êµ¬ì¡°
 	unsigned m_length = 0;
 	int* m_data = nullptr;
 
 public:
-	IntArray(unsigned length)//±æÀÌ¸¸ ÀÔ·Â¹ŞÀ¸¸é ¸Ş¸ğ¸®¸¦ Àâ¾ÆÁÖ´Â »ı¼ºÀÚ
+	IntArray(unsigned length)//ê¸¸ì´ë§Œ ì…ë ¥ë°›ìœ¼ë©´ ë©”ëª¨ë¦¬ë¥¼ ì¡ì•„ì£¼ëŠ” ìƒì„±ì
 		: m_length(length)
 	{
 		cout << "construcetor called " << endl;
 		m_data = new int[length];
 	}
 
-	//Initializer list ¸¦ prameter ·Î ¹Ş°í ÀÖ´Â »ı¼ºÀÚ
+	//Initializer list ë¥¼ prameter ë¡œ ë°›ê³  ìˆëŠ” ìƒì„±ì
 	IntArray(const std::initializer_list<int>& list)
-		:IntArray(list.size()) //´Ù¸¥ »ı¼ºÀÚ¸¦ È£ÃâÇØ¼­ ¸Ş¸ğ¸®¸¦ ¹Ş¾Æ¿È, Áßº¹µÇ´Â ±â´ÉÀº ÂÉ°³¼­ ÇÑ°÷¿¡¼­¸¸ ±¸ÇöµÇ°Ô
+		:IntArray(list.size()) //ë‹¤ë¥¸ ìƒì„±ìë¥¼ í˜¸ì¶œí•´ì„œ ë©”ëª¨ë¦¬ë¥¼ ë°›ì•„ì˜´, ì¤‘ë³µë˜ëŠ” ê¸°ëŠ¥ì€ ìª¼ê°œì„œ í•œê³³ì—ì„œë§Œ êµ¬í˜„ë˜ê²Œ
 	{
 		cout << "call by initializer list constructor called " << endl;
 		int count = 0;
 		for (auto& element : list)
 		{
-			m_data[count] = element;  //m_data[count++] ÇÏ´Â C style µµ ÀÖÁö¸¸ ºĞ¸®ÇÏ¸é ½Ç¼ö ÁÙÀÏ ¼ö ÀÖÀ½
+			m_data[count] = element;  //m_data[count++] í•˜ëŠ” C style ë„ ìˆì§€ë§Œ ë¶„ë¦¬í•˜ë©´ ì‹¤ìˆ˜ ì¤„ì¼ ìˆ˜ ìˆìŒ
 			++count;
 		}
 
-		//for-each ¹®Àº ³»ºÎÀûÀ¸·Î initilizer_list ¾È¿¡ µé¾îÀÖ´Â iterator ¸¦ »ç¿ëÇÏ´Â ±¸Á¶
+		//for-each ë¬¸ì€ ë‚´ë¶€ì ìœ¼ë¡œ initilizer_list ì•ˆì— ë“¤ì–´ìˆëŠ” iterator ë¥¼ ì‚¬ìš©í•˜ëŠ” êµ¬ì¡°
 
-		//error, initializer list ´Â std::array ³ª std::vector ¿Í ´Ş¸® [] ¿¬»êÀÚ¸¦ Á¦°øÇÏÁö ¾ÊÀ½
+		//error, initializer list ëŠ” std::array ë‚˜ std::vector ì™€ ë‹¬ë¦¬ [] ì—°ì‚°ìë¥¼ ì œê³µí•˜ì§€ ì•ŠìŒ
 		/*for (unsigned count = 0; count < list.size(); ++count)
 			m_data[count] = list[count];*/
 	}
 
-	//´ëÀÔ¿¬»êÀÚ ¿À¹ö·Îµù
+	//ëŒ€ì…ì—°ì‚°ì ì˜¤ë²„ë¡œë”©
 	IntArray& operator =(const initializer_list<int>& list)
 	{
 		cout << "assignment operator overloading called " << endl;
 		delete[] m_data;
 
-		m_length = list.size();		//m_length ¿¡ ³Ö¾îÁÖÁö ¾ÊÀ¸¸é Ãâ·Â ¿¬»êÀÚ¿¡¼­ ±âÁ¸ m_length ±îÁö Ãâ·ÂÇÔ
+		m_length = list.size();		//m_length ì— ë„£ì–´ì£¼ì§€ ì•Šìœ¼ë©´ ì¶œë ¥ ì—°ì‚°ìì—ì„œ ê¸°ì¡´ m_length ê¹Œì§€ ì¶œë ¥í•¨
 		m_data = new int[m_length];
 		//m_data = new int[list.size()];
 	   
@@ -76,7 +76,7 @@ public:
 		delete[] this->m_data;
 	}
 
-	//Ãâ·Â ¿¬»êÀÚ ¿À¹ö·Îµù
+	//ì¶œë ¥ ì—°ì‚°ì ì˜¤ë²„ë¡œë”©
 	friend ostream& operator << (ostream& out, IntArray& arr)
 	{
 		for(unsigned i = 0;i<arr.m_length;++i)
@@ -89,12 +89,12 @@ public:
 
 int main()
 {
-	// initializer list { 1,2,3,4,5 }¸¦ ÅëÇØ¼­ ÆíÇÏ°Ô ÃÊ±âÈ­ °¡´É
-	int my_arr[5] = { 1,2,3,4,5 }; //Á¤ÀûÇÒ´ç
-	int* my_arr2 = new int[5]{ 1,2,3,4,5 };  //µ¿ÀûÇÒ´ç
+	// initializer list { 1,2,3,4,5 }ë¥¼ í†µí•´ì„œ í¸í•˜ê²Œ ì´ˆê¸°í™” ê°€ëŠ¥
+	int my_arr[5] = { 1,2,3,4,5 }; //ì •ì í• ë‹¹
+	int* my_arr2 = new int[5]{ 1,2,3,4,5 };  //ë™ì í• ë‹¹
 
 	
-	auto il = { 10,20,30 };  //auto °¡ initilizer_list ·Î ÀâÀ½,include ¾øÀ¸¸é ¿¡·¯
+	auto il = { 10,20,30 };  //auto ê°€ initilizer_list ë¡œ ì¡ìŒ,include ì—†ìœ¼ë©´ ì—ëŸ¬
 
 	IntArray int_array{ 1,2,3,4,5 };
 	//IntArray int_array = { 1,2,3,4,5 };
