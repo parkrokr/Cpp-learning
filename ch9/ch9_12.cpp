@@ -1,7 +1,7 @@
 //이니셜라이저 리스트 std::initializer_list
 
 //initializer list 는 std::array 나 std::vector 와 달리 [] 연산자를 제공하지 않음
-//
+
 
 #include <iostream>
 #include <cassert>
