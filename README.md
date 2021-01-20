@@ -1,4 +1,8 @@
-# C/C++-learning-by-Imitating
+# C++-learning-by-Imitating
+
+출처: 홍정모의 따라하며 배우는 C++
+https://www.inflearn.com/course/following-c-plus#
+
 섹션 1. C++의 기초적인 사용법
 
 1.1 프로그램의 구조
