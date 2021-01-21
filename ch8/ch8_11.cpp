@@ -1,9 +1,9 @@
-//Á¤Àû(static) ¸â¹ö ÇÔ¼ö
+//ì •ì (static) ë©¤ë²„ í•¨ìˆ˜
 
-//static ¸â¹ö ÇÔ¼ö´Â Æ¯Á¤ instace ¿Í »ó°ü¾øÀÌ »ç¿ëµÉ¼ö ÀÖÀ½(Æ÷ÀÎÅÍ Æ÷ÇÔ), this ¸¦ »ç¿ë ¸øÇÔ
-//non-static ¸â¹ö ÇÔ¼ö´Â Æ¯Á¤ instace ¿¡ Á¾¼ÓµÇ¾î¼­ »ç¿ëµÊ
-//static ¸â¹ö º¯¼ö´Â »ı¼ºÀÚ¿¡¼­ ÃÊ±âÈ­¸¦ ¸øÇÔ(c++ ¿¡¼± »ı¼ºÀÚ¸¦ static À¸·Î ¸øÇÔ)
-//inner class ¸¦ »ç¿ëÇÏ¸é static ¸â¹ö º¯¼ö ÃÊ±âÈ­ °¡´É
+//static ë©¤ë²„ í•¨ìˆ˜ëŠ” íŠ¹ì • instace ì™€ ìƒê´€ì—†ì´ ì‚¬ìš©ë ìˆ˜ ìˆìŒ(í¬ì¸í„° í¬í•¨), this ë¥¼ ì‚¬ìš© ëª»í•¨
+//non-static ë©¤ë²„ í•¨ìˆ˜ëŠ” íŠ¹ì • instace ì— ì¢…ì†ë˜ì–´ì„œ ì‚¬ìš©ë¨
+//static ë©¤ë²„ ë³€ìˆ˜ëŠ” ìƒì„±ìì—ì„œ ì´ˆê¸°í™”ë¥¼ ëª»í•¨(c++ ì—ì„  ìƒì„±ìë¥¼ static ìœ¼ë¡œ ëª»í•¨)
+//inner class ë¥¼ ì‚¬ìš©í•˜ë©´ static ë©¤ë²„ ë³€ìˆ˜ ì´ˆê¸°í™” ê°€ëŠ¥
 
 #include <iostream>
 
@@ -11,9 +11,9 @@ using namespace std;
 
 class Something
 {
-	//inner class ¸¦ »ç¿ëÇÏ¸é static ¸â¹ö º¯¼ö ÃÊ±âÈ­ °¡´É
+	
 public:
-	class _init
+	class _init  //inner class ë¥¼ ì‚¬ìš©í•˜ë©´ static ë©¤ë²„ ë³€ìˆ˜ ì´ˆê¸°í™” ê°€ëŠ¥
 	{
 	public:
 		_init()
@@ -23,19 +23,19 @@ public:
 	};
 
 private:
-	static int s_value;  //°°Àº class ÀÇ ¸ğµç instance ¿¡¼­ Á¢±ÙÀÌ °¡´É(°øÀ¯)
+	static int s_value;  //ê°™ì€ class ì˜ ëª¨ë“  instance ì—ì„œ ì ‘ê·¼ì´ ê°€ëŠ¥(ê³µìœ )
 	int m_value;
 
-	//inner class ¸¦ »ç¿ëÇÏ¸é static ¸â¹ö º¯¼ö ÃÊ±âÈ­ °¡´É
+	//inner class ë¥¼ ì‚¬ìš©í•˜ë©´ static ë©¤ë²„ ë³€ìˆ˜ ì´ˆê¸°í™” ê°€ëŠ¥
 	static _init s_initializer;
 
 public:
 	Something()
-		:m_value(123)  //s_value(1024) //static ¸â¹ö º¯¼ö´Â »ı¼ºÀÚ¿¡¼­ ÃÊ±âÈ­¸¦ ¸øÇÔ
+		:m_value(123)  //s_value(1024) //static ë©¤ë²„ ë³€ìˆ˜ëŠ” ìƒì„±ìì—ì„œ ì´ˆê¸°í™”ë¥¼ ëª»í•¨
 	{}
 
-	//static ¸â¹ö º¯¼ö°¡ »ı¼ºÀÚ¿¡¼­ ÃÊ±âÈ­ µÇ·Á¸é »ı¼ºÀÚ°¡ static ÀÌ¸é µÇÁö¸¸ c++¿¡¼± ºÒ°¡´ÉÇÔ
-	//inner class ¸¦ »ç¿ëÇÏ¸é °¡´É
+	//static ë©¤ë²„ ë³€ìˆ˜ê°€ ìƒì„±ìì—ì„œ ì´ˆê¸°í™” ë˜ë ¤ë©´ ìƒì„±ìê°€ static ì´ë©´ ë˜ì§€ë§Œ c++ì—ì„  ë¶ˆê°€ëŠ¥í•¨
+	//inner class ë¥¼ ì‚¬ìš©í•˜ë©´ ê°€ëŠ¥
 	
 
 
@@ -43,72 +43,72 @@ public:
 	{
 		return s_value; 
 
-		//ÁÖÀÇÇÒÁ¡
-		//return this->s_value;		//this ¸¦ ¸ø¾¸
-		//return m_value;			//this ¸¦ ¸ø¾´´Ù´Â°ÍÀº this·Î Á¢±ÙÇØ¾ßµÇ´Â ¸ğµç°É ¸ø¾¸( m_value)
+		//ì£¼ì˜í• ì 
+		//return this->s_value;		//this ë¥¼ ëª»ì”€
+		//return m_value;			//this ë¥¼ ëª»ì“´ë‹¤ëŠ”ê²ƒì€ thisë¡œ ì ‘ê·¼í•´ì•¼ë˜ëŠ” ëª¨ë“ ê±¸ ëª»ì”€( m_value)
 	}
 
 	
-	//ÀÏ¹İÀûÀÎ ¸â¹ö ÇÔ¼ö
+	//ì¼ë°˜ì ì¸ ë©¤ë²„ í•¨ìˆ˜
 	int temp()
 	{
-		return this->s_value; //this ¸¦ »ç¿ëÇÑ´Ù´Â °ÍÀº Æ¯Á¤ instace ÀÇ ÁÖ¼Ò¸¦ ¹Ş¾Æ¼­ »ç¿ë
+		return this->s_value; //this ë¥¼ ì‚¬ìš©í•œë‹¤ëŠ” ê²ƒì€ íŠ¹ì • instace ì˜ ì£¼ì†Œë¥¼ ë°›ì•„ì„œ ì‚¬ìš©
 	}
 };
 
-int Something::s_value = 1024;  //ÃÊ±âÈ­, private: ´Â static ¸â¹öº¯¼ö¿¡ ´ëÇÑ Á¢±ÙÀº ¾È¸·À½
-Something::_init Something::s_initializer;  //1234 ·Î ´Ù½Ã ÃÊ±âÈ­
+int Something::s_value = 1024;  //ì´ˆê¸°í™”, private: ëŠ” static ë©¤ë²„ë³€ìˆ˜ì— ëŒ€í•œ ì ‘ê·¼ì€ ì•ˆë§‰ìŒ
+Something::_init Something::s_initializer;  //1234 ë¡œ ë‹¤ì‹œ ì´ˆê¸°í™”
 
 int main()
 {
-	//cout << Somthing::s_value << endl; // private : ¶ó Á¢±Ù ¸øÇÔ
+	//cout << Somthing::s_value << endl; // private : ë¼ ì ‘ê·¼ ëª»í•¨
 
 	Something s1;
 	cout << s1.getValue() << endl;
-	//cout << s1.s_value << endl; // private : ¶ó Á¢±Ù ¸øÇÔ
+	//cout << s1.s_value << endl; // private : ë¼ ì ‘ê·¼ ëª»í•¨
 	
-	//Somthing ÀÇ instace °¡ ¸¸µé¾îÁö±â Àü¿¡µµ Á¢±ÙÀÌ °¡´ÉÇÏ°í ¼±¾ğÈÄ ¸¸µé¾îÁø instace ÀÇ
-	//s_value ¿Í °°Àº ÁÖ¼Ò°ªÀÌ ³ª¿È
+	//Somthing ì˜ instace ê°€ ë§Œë“¤ì–´ì§€ê¸° ì „ì—ë„ ì ‘ê·¼ì´ ê°€ëŠ¥í•˜ê³  ì„ ì–¸í›„ ë§Œë“¤ì–´ì§„ instace ì˜
+	//s_value ì™€ ê°™ì€ ì£¼ì†Œê°’ì´ ë‚˜ì˜´
 
 
-	//Æ¯Á¤ instance ¿Í »ó°ü¾øÀÌ ¸â¹ö¿¡ Á¢±ÙÇÏ´Â ±â´ÉÀ» ¸¸µé°í ½ÍÀ»¶§
-	//getValue() ¸¦ static À¸·Î ¼±¾ğÇÏ¸é °¡´É
+	//íŠ¹ì • instance ì™€ ìƒê´€ì—†ì´ ë©¤ë²„ì— ì ‘ê·¼í•˜ëŠ” ê¸°ëŠ¥ì„ ë§Œë“¤ê³  ì‹¶ì„ë•Œ
+	//getValue() ë¥¼ static ìœ¼ë¡œ ì„ ì–¸í•˜ë©´ ê°€ëŠ¥
 	cout << Something::getValue() << endl;
 
 
-	//¸â¹öÇÔ¼öÀÇ ÁÖ¼Ò¸¦ °¡Á®¿Ã ¼ö ÀÖÀ½
+	//ë©¤ë²„í•¨ìˆ˜ì˜ ì£¼ì†Œë¥¼ ê°€ì ¸ì˜¬ ìˆ˜ ìˆìŒ
 	//Member Funcion Pointer
 	Something s2;
 
 
-	//non-static member function		//Æ¯Á¤ instace¿Í ¿¬°áµÇ¾î¾ß ½ÇÇà½ÃÅ³ ¼ö ÀÖ´Â Æ÷ÀÎÅÍ ÇüÅÂ
+	//non-static member function		//íŠ¹ì • instaceì™€ ì—°ê²°ë˜ì–´ì•¼ ì‹¤í–‰ì‹œí‚¬ ìˆ˜ ìˆëŠ” í¬ì¸í„° í˜•íƒœ
 
-	//int (Somthing:: * fptr1)() = s1.temp;  ¾ÈµÊ
-	//&s1.temp; &(s1.temp);, (s1.temp) µµ ¾ÈµÊ							
+	//int (Somthing:: * fptr1)() = s1.temp;  ì•ˆë¨
+	//&s1.temp; &(s1.temp);, (s1.temp) ë„ ì•ˆë¨							
 
 
-	//m_value ´Â s1 °ú s2 °¡ ¼­·Î ÁÖ¼Ò°¡ ´Ù¸£Áö¸¸ ÇÔ¼ö´Â °°À½
+	//m_value ëŠ” s1 ê³¼ s2 ê°€ ì„œë¡œ ì£¼ì†Œê°€ ë‹¤ë¥´ì§€ë§Œ í•¨ìˆ˜ëŠ” ê°™ìŒ
 
 	//Member Funcion Pointer		
 	int (Something:: * fptr1)() = &Something::temp;  
 
-	//¸â¹ö ÇÔ¼öÀÇ Æ÷ÀÎÅÍ´Â Çüº¯È¯À» ÇØÁÖÁö ¾ÊÀ½, µû¶ó¼­ ÇÔ¼ö Æ÷ÀÎÅÍ ´ëÀÔ°ú ´Ù¸£°Ô &¸¦ ¹İµå½Ã ºÙ¿©Áà¾ßÇÔ
+	//ë©¤ë²„ í•¨ìˆ˜ì˜ í¬ì¸í„°ëŠ” í˜•ë³€í™˜ì„ í•´ì£¼ì§€ ì•ŠìŒ, ë”°ë¼ì„œ í•¨ìˆ˜ í¬ì¸í„° ëŒ€ì…ê³¼ ë‹¤ë¥´ê²Œ &ë¥¼ ë°˜ë“œì‹œ ë¶™ì—¬ì¤˜ì•¼í•¨
 
-	//»ç¿ë
+	//ì‚¬ìš©
 	cout <<(s2.*fptr1)() << endl;
-	//¸â¹öÇÔ¼öÀÇ Æ÷ÀÎÅÍ´Â ½ÇÇà½ÃÅ³¶§ ½ÇÇà½ÃÅ³¶§ s2¶ó´Â instanceÀÇ Æ÷ÀÎÅÍ¸¦ ÇÔ²² ³Ö¾îÁà¾ß ½ÇÇà °¡´É
+	//ë©¤ë²„í•¨ìˆ˜ì˜ í¬ì¸í„°ëŠ” ì‹¤í–‰ì‹œí‚¬ë•Œ ì‹¤í–‰ì‹œí‚¬ë•Œ s2ë¼ëŠ” instanceì˜ í¬ì¸í„°ë¥¼ í•¨ê»˜ ë„£ì–´ì¤˜ì•¼ ì‹¤í–‰ ê°€ëŠ¥
 
-	//non-static ¸â¹ö ÇÔ¼ö´Â instance ¿¡ Á¾¼ÓµÇ¾î ÀÖ±â ¶§¹®¿¡ intace ÀÇ this Æ÷ÀÎÅÍ°¡ ÀÖ¾î¾ß ÀÛµ¿°¡´É
-	//cout<<(*fptr1)()<<endl; ºÒ°¡´É
+	//non-static ë©¤ë²„ í•¨ìˆ˜ëŠ” instance ì— ì¢…ì†ë˜ì–´ ìˆê¸° ë•Œë¬¸ì— intace ì˜ this í¬ì¸í„°ê°€ ìˆì–´ì•¼ ì‘ë™ê°€ëŠ¥
+	//cout<<(*fptr1)()<<endl; ë¶ˆê°€ëŠ¥
 
 
 
-	//static member function		//Æ¯Á¤ instace ¿Í »ó°ü¾øÀÌ ½ÇÇà½ÃÅ³ ¼ö ÀÖ´Â Æ÷ÀÎÅÍ ÇüÅÂ
+	//static member function		//íŠ¹ì • instace ì™€ ìƒê´€ì—†ì´ ì‹¤í–‰ì‹œí‚¬ ìˆ˜ ìˆëŠ” í¬ì¸í„° í˜•íƒœ
 
-	//int (Somthing:: * fptr2)() = &Somthing::getValue;   //¾ÈµÊ
-	int (*fptr2)() = &Something::getValue; //Æ¯Á¤ instace ¿Í »ó°ü¾øÀÌ ½ÇÇà½ÃÅ³ ¼ö ÀÖ´Â Æ÷ÀÎÅÍ ÇüÅÂ
+	//int (Somthing:: * fptr2)() = &Somthing::getValue;   //ì•ˆë¨
+	int (*fptr2)() = &Something::getValue; //íŠ¹ì • instace ì™€ ìƒê´€ì—†ì´ ì‹¤í–‰ì‹œí‚¬ ìˆ˜ ìˆëŠ” í¬ì¸í„° í˜•íƒœ
 
-	cout << fptr2() << endl;  //Æ¯Á¤ instace ¿Í ¿¬°á¾ÈÇØµµ ½ÇÇàÀÌ µÊ
+	cout << fptr2() << endl;  //íŠ¹ì • instace ì™€ ì—°ê²°ì•ˆí•´ë„ ì‹¤í–‰ì´ ë¨
 
 
 
