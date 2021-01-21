@@ -32,6 +32,7 @@ public:
 	//file 출력에 그대로 쓸 수 있음
 
 	//멤버 함수로 구현 못함, 첫번째 parameter 가 Point class 가 아니라 ostream 이기 때문)
+	//return type 은 ostream& 이어야 함, ostream 은 복사되는걸 허락하지 않음
 	friend std::ostream& operator << (std::ostream &out, const Point &point)
 	{
 		//cout 대신 out 를 쓰는것처럼 구현
