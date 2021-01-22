@@ -16,7 +16,7 @@
 //char *(const ptr)
 //ptr을 못바꿈(주소를 못바꿈)
 
-
+//const int *const ptr     역참조된 값이랑 저장된 주소값 둘다 못바꿈
 
 #include <iostream>
 
