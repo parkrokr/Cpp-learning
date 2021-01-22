@@ -1,6 +1,6 @@
 //참조(Reference) 와 const
 
-//const X & 와 X const & 는 의미상 차이 없음
+//const int & ref 와 int const & ref 는 의미상 차이 없음
 
 #include <iostream>
 
