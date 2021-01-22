@@ -10,15 +10,15 @@ class Lecture
 private:
 	std::string m_name;
 
-	//Teacher teacher;  //Lecture class ÀÎ½ºÅÏ½º°¡ »ç¶óÁú¶§ °°ÀÌ »ç¶óÁü(±¸¼º °ü°èÀÇ Áß¿ä Æ¯Â¡)
-	//std::vector<Student> students;  //Lecture class ÀÎ½ºÅÏ½º°¡ »ç¶óÁú¶§ °°ÀÌ »ç¶óÁü
+	//Teacher teacher;  //Lecture class ì¸ìŠ¤í„´ìŠ¤ê°€ ì‚¬ë¼ì§ˆë•Œ ê°™ì´ ì‚¬ë¼ì§(êµ¬ì„± ê´€ê³„ì˜ ì¤‘ìš” íŠ¹ì§•)
+	//std::vector<Student> students;  //Lecture class ì¸ìŠ¤í„´ìŠ¤ê°€ ì‚¬ë¼ì§ˆë•Œ ê°™ì´ ì‚¬ë¼ì§
 
 
-	// teacher ¿Í students ÀÇ ÁÖ¼Ò¸¦ °¡Á®¿À¸é ÇØ°á
+	// teacher ì™€ students ì˜ ì£¼ì†Œë¥¼ ê°€ì ¸ì˜¤ë©´ í•´ê²°
 	Teacher *teacher;
 	std::vector<Student*> students; 
-	//students ´Â vector class ÀÇ ÀÎ½ºÅÏ½º¶ó Lecture class °¡ »ç¶óÁö¸é °°ÀÌ »ç¶óÁü
-	//ÇÏÁö¸¸ Student* °¡ °¡¸®Å°°í ÀÖ´Â ÁÖ¼Ò´Â À¯ÁöµÊ
+	//students ëŠ” vector class ì˜ ì¸ìŠ¤í„´ìŠ¤ë¼ Lecture class ê°€ ì‚¬ë¼ì§€ë©´ ê°™ì´ ì‚¬ë¼ì§
+	//í•˜ì§€ë§Œ Student* ê°€ ê°€ë¦¬í‚¤ê³  ìˆëŠ” ì£¼ì†Œì— ìˆëŠ” ê²ƒë“¤ì€ ìœ ì§€ë¨(lec1 ì´ ì‚¬ë¼ì ¸ë„ std1 ì€ ì‚¬ë¼ì§€ì§€ ì•ŠìŒ)
 
 public:
 	Lecture(const std::string & name_in = "No Name")
@@ -36,7 +36,7 @@ public:
 		teacher = teacher_input;
 	}*/
 
-	//teacher °¡ Æ÷ÀÎÅÍ¶ó Æ÷ÀÎÅÍ¸¦ ³Ñ°ÜÁà¾ß ÇÏ°í ÁÖ¼Ò¸¦ ¹Ù²ãÁÙ²¨¶ó ¾Õ¿¡ const Áö¿ì±â
+	//teacher ê°€ í¬ì¸í„°ë¼ í¬ì¸í„°ë¥¼ ë„˜ê²¨ì¤˜ì•¼ í•˜ê³  ì£¼ì†Œë¥¼ ë°”ê¿”ì¤„êº¼ë¼ ì•ì— const ì§€ìš°ê¸°
 	void assignTeacher(Teacher* const teacher_input)  
 	{
 		teacher = teacher_input;
@@ -47,7 +47,7 @@ public:
 	{
 		students.push_back(student_input);  
 
-		// &student_input != &student[0] , º¹»çÇØ¼­ ³Ö¾ú±â ¶§¹®¿¡
+		// &student_input != &student[0] , ë³µì‚¬í•´ì„œ ë„£ì—ˆê¸° ë•Œë¬¸ì—
 	}*/
 
 	void registerStudent(Student* const student_input)
@@ -61,15 +61,15 @@ public:
 		std::cout << m_name << " Study " << std::endl << std::endl;
 
 		//Note: without &, 'auto element' doesn't work, 
-		//for (auto& element : students) // value ·Î ¹Ş¾Æ¿À¸é °ªÀÌ ¾÷µ¥ÀÌÆ® µÇÁö ¾ÊÀ½
+		//for (auto& element : students) // value ë¡œ ë°›ì•„ì˜¤ë©´ ê°’ì´ ì—…ë°ì´íŠ¸ ë˜ì§€ ì•ŠìŒ
 			//element.setIntel(element.getIntel() + 1);
 
 
 
 		//for(auto & element : students)
-		for (auto element : students)  //ÀÌ·¸°Ô value ·Î °®°í ¿Íµµ µÇ°í & ·Î °®°í ¿Íµµ µÊ
-			(*element).setIntel((*element).getIntel() + 1);  //de-referencing »ç¿ëÇÏ±â
-		//	element->setIntel(element->getIntel()+1);		//-> »ç¿ëÇÏ±â
+		for (auto element : students)  //ì´ë ‡ê²Œ value ë¡œ ê°–ê³  ì™€ë„ ë˜ê³  & ë¡œ ê°–ê³  ì™€ë„ ë¨
+			(*element).setIntel((*element).getIntel() + 1);  //de-referencing ì‚¬ìš©í•˜ê¸°
+		//	element->setIntel(element->getIntel()+1);		//-> ì‚¬ìš©í•˜ê¸°
 	}
 
 	friend std::ostream& operator << (std::ostream& out, const Lecture& lecture)
@@ -82,7 +82,7 @@ public:
 
 		out << *lecture.teacher << std::endl;
 		for (auto element : lecture.students)
-			out << *element << std::endl;  //element ¸¸ Ãâ·ÂÇÏ¸é Æ÷ÀÎÅÍ°¡ Ãâ·ÂµÇ´Ï de-referencing
+			out << *element << std::endl;  //element ë§Œ ì¶œë ¥í•˜ë©´ í¬ì¸í„°ê°€ ì¶œë ¥ë˜ë‹ˆ de-referencing
 
 		return out;
 	}
