@@ -2,6 +2,9 @@
 
 //const int & ref 와 int const & ref 는 의미상 차이 없음
 
+//int & const ref 는 불필요함(C2247 warning) ,참조는 초기화 이후 이미 constant 임, 초기화 이후로 바꿀 수 없음, 
+//그래서 ref 가 참조형 int 인데 const 붙는건 의미 없음(이미 const 이기 때문에)
+
 #include <iostream>
 
 using namespace std;
