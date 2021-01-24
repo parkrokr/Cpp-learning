@@ -5,6 +5,14 @@
 //new 와 delete 를 사용하지 않아도 leak 이 되지 않음, 프로그래머의 부담이 적어짐
 
 
+//vector<bool> 은 좀 다름, bool의 크기는 1 byte(8 bit) 이지만 vectro<bool> 은 1 bit 만 사용함( true false 를 저장하는데 1 bit 면 충분하다고 생각해서 최적화 되어있음)
+
+//vector<bool> vector_b(true);		//을 만들었을때
+//bool boo =vector_b[0];		//이건 가능하지만 
+//bool *ptr_boo = &vector_b[0]		//불가능, bool type 과 vector<bool>의 크기가 다르기 때문에 &vetor<bool>의 주소값은 bool* 과 다른 형식임
+
+
+
 //vector<int> v = { 1, 2, 3};          // int형 백터 생성 후 1, 2, 3 으로 초기화
 //vector<int> v[10];                   // int타입 벡터 배열(크기 : 10) 생성
 //vector<int> v[] = {{ 1, 2}, {3, 4}}; // int형 백터 배열 생성(행은 가변이지만 열은 고정)
