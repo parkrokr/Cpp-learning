@@ -1,18 +1,18 @@
-//´ëÀÔ ¿¬»êÀÚ ¿À¹ö·Îµù, ±íÀº º¹»ç( Deep copy ) vs ¾èÀº º¹»ç ( Shallow copy )
+//ëŒ€ìž… ì—°ì‚°ìž ì˜¤ë²„ë¡œë”©, ê¹Šì€ ë³µì‚¬( Deep copy ) vs ì–•ì€ ë³µì‚¬ ( Shallow copy )
 
-//¾èÀº º¹»ç
-//±âº» º¹»ç »ý¼ºÀÚ°¡ ÇØÁØ°Í : m_data¿¡ ÀÖ´ø ¸Þ¸ð¸® ÁÖ¼Ò°ª º¹»ç
-//µ¿Àû ÇÒ´çµÈ ¸Þ¸ð¸®°¡ ¿¬°üµÇ¾îÀÖÀ» °æ¿ì Å« ¹®Á¦ ¹ß»ý
+//ì–•ì€ ë³µì‚¬
+//ê¸°ë³¸ ë³µì‚¬ ìƒì„±ìžê°€ í•´ì¤€ê²ƒ : m_dataì— ìžˆë˜ ë©”ëª¨ë¦¬ ì£¼ì†Œê°’ ë³µì‚¬
+//ë™ì  í• ë‹¹ëœ ë©”ëª¨ë¦¬ê°€ ì—°ê´€ë˜ì–´ìžˆì„ ê²½ìš° í° ë¬¸ì œ ë°œìƒ
 
-//±íÀº º¹»ç
-//º¹»õ »ý¼ºÀÚ°¡ Æ÷ÀÎÅÍ ÁÖ¼Ú°ªÀ» º¹»çÇÏÁö ¾Ê°í ¸Þ¸ð¸®¸¦ ´Ù½Ã ÇÒ´ç¹Þ°í ÀÖÀ½
-//°ªµéÀ» ´Ù½Ã º¹»çÇØÁÖ°í ÀÖÀ½
+//ê¹Šì€ ë³µì‚¬
+//ë³µìƒˆ ìƒì„±ìžê°€ í¬ì¸í„° ì£¼ì†Ÿê°’ì„ ë³µì‚¬í•˜ì§€ ì•Šê³  ë©”ëª¨ë¦¬ë¥¼ ë‹¤ì‹œ í• ë‹¹ë°›ê³  ìžˆìŒ
+//ê°’ë“¤ì„ ë‹¤ì‹œ ë³µì‚¬í•´ì£¼ê³  ìžˆìŒ
 
 
-//std::string ±×³É »ç¿ë ¶Ç´Â »ó¼ÓÀ» ¹Þ¾Æ Ãß°¡ ±¸Çö
-//member variable ¿¡ std::string data ÇÏ³ª ¸¸µé¾î ¾²±â(ÆÛÆ÷¸Õ½º´Â ¾à°£ ¶³¾îÁú ¼ö ÀÖÁö¸¸ ÄÚµå ÀßÂ¥¸é Å«Â÷ÀÌ ¾È³²)
+//std::string ê·¸ëƒ¥ ì‚¬ìš© ë˜ëŠ” ìƒì†ì„ ë°›ì•„ ì¶”ê°€ êµ¬í˜„
+//member variable ì— std::string data í•˜ë‚˜ ë§Œë“¤ì–´ ì“°ê¸°(í¼í¬ë¨¼ìŠ¤ëŠ” ì•½ê°„ ë–¨ì–´ì§ˆ ìˆ˜ ìžˆì§€ë§Œ ì½”ë“œ ìž˜ì§œë©´ í°ì°¨ì´ ì•ˆë‚¨)
 
-//ÃÖ±Ù¿£ std::string À» class ¾È¿¡ ³Ö´Â ¹æ¹ýÀ» ÁÖ·Î »ç¿ëÇÏÁö¸¸ ÀÌ·± ¹®Á¦µéÀÌ ¹ß»ýÇÒ ¼öµµ ÀÖ´Ù´Â°É ¾Ë¾Æ¾ßµÊ
+//ìµœê·¼ì—” std::string ì„ class ì•ˆì— ë„£ëŠ” ë°©ë²•ì„ ì£¼ë¡œ ì‚¬ìš©í•˜ì§€ë§Œ ì´ëŸ° ë¬¸ì œë“¤ì´ ë°œìƒí•  ìˆ˜ë„ ìžˆë‹¤ëŠ”ê±¸ ì•Œì•„ì•¼ë¨
 
 
 #include <iostream>
@@ -22,68 +22,68 @@ using namespace std;
 
 class MyString
 {
-//private:  //ÀÏ¹ÝÀûÀ¸·Î private, ÁÖ¼Ò¸¦ Âï±â À§ÇØ public À¸·Î ±¸Çö
+//private:  //ì¼ë°˜ì ìœ¼ë¡œ private, ì£¼ì†Œë¥¼ ì°ê¸° ìœ„í•´ public ìœ¼ë¡œ êµ¬í˜„
 public:
-	char* m_data = nullptr;  //¹®ÀÚ¿­ÀÇ ÁÖ¼Ò¸¦ ÀúÀåÇÏ±â À§ÇÑ Æ÷ÀÎÅÍ
+	char* m_data = nullptr;  //ë¬¸ìžì—´ì˜ ì£¼ì†Œë¥¼ ì €ìž¥í•˜ê¸° ìœ„í•œ í¬ì¸í„°
 	int m_length = 0;
 
-	std::string data; //std::stdring À» »ç¿ëÇÏ¸é ÀÌ·± ¹®Á¦µéÀ» ÇÇÇØ¼­ ±¸ÇöÇÒ ¼ö ÀÖÀ½
+	std::string data; //std::stdring ì„ ì‚¬ìš©í•˜ë©´ ì´ëŸ° ë¬¸ì œë“¤ì„ í”¼í•´ì„œ êµ¬í˜„í•  ìˆ˜ ìžˆìŒ
 public:
 	MyString(const char* source = "")
 	{
-		assert(source); //¹®ÀÚ¿­ÀÌ ºñÁø ¾Ê¾Ò´ÂÁö
+		assert(source); //ë¬¸ìžì—´ì´ ë¹„ì§„ ì•Šì•˜ëŠ”ì§€
 
-		m_length = std::strlen(source) + 1;  //¹®ÀÚ¿­ÀÌ ¸î±ÛÀÚ ÀÎÁö ¾Ë¾Æ³»°í '\0'À» Ãß°¡ÇÏ±â À§ÇØ +1
+		m_length = std::strlen(source) + 1;  //ë¬¸ìžì—´ì´ ëª‡ê¸€ìž ì¸ì§€ ì•Œì•„ë‚´ê³  '\0'ì„ ì¶”ê°€í•˜ê¸° ìœ„í•´ +1
 		m_data = new char[m_length];
 
-		for (int i = 0; i < m_length; ++i)  //°ªÀ» ÇÏ³ªÇÏ³ª º¹»ç
+		for (int i = 0; i < m_length; ++i)  //ê°’ì„ í•˜ë‚˜í•˜ë‚˜ ë³µì‚¬
 			m_data[i] = source[i];
 
-		m_data[m_length - 1] = '\0';  //¸¶Áö¸·¿¡ \0 À» ³Ö¾î ¹®ÀÚ¿­ ¸¶Áö¸·ÀÌ¶ó´Â°ÍÀ» Ç¥½Ã
+		m_data[m_length - 1] = '\0';  //ë§ˆì§€ë§‰ì— \0 ì„ ë„£ì–´ ë¬¸ìžì—´ ë§ˆì§€ë§‰ì´ë¼ëŠ”ê²ƒì„ í‘œì‹œ
 	}
 
-	//º¹»ç»ý¼ºÀÚ
-	//source °¡ º¹»çÇØÁÖ°í ¹Ýµå½Ã »ç¶óÁø´Ù´Â º¸ÀåÀÌ ÀÖÀ¸¸é ¸Þ¸ð¸®¸¦ ¾ÈÁö¿ì°í source ÀÇ ¸Þ¸ð¸®¸¦ ½áµµ µÊ
-	//±×·± °æ¿ì°¡ ÀÖÀ½
-	//º¹»ç»ý¼ºÀÚ¸¦ ±¸ÇöÇÏÁö ¸øÇßÁö¸¸ ¾èÀº º¹»ç´Â ¸·¾Æ¾ß ÇÒ °æ¿ì
-	//MyString(const MyString& source) = delete; ÇØ¼­ ¸·±â(Â÷¼±Ã¥)
+	//ë³µì‚¬ìƒì„±ìž
+	//source ê°€ ë³µì‚¬í•´ì£¼ê³  ë°˜ë“œì‹œ ì‚¬ë¼ì§„ë‹¤ëŠ” ë³´ìž¥ì´ ìžˆìœ¼ë©´ ë©”ëª¨ë¦¬ë¥¼ ì•ˆì§€ìš°ê³  source ì˜ ë©”ëª¨ë¦¬ë¥¼ ì¨ë„ ë¨
+	//ê·¸ëŸ° ê²½ìš°ê°€ ìžˆìŒ
+	//ë³µì‚¬ìƒì„±ìžë¥¼ êµ¬í˜„í•˜ì§€ ëª»í–ˆì§€ë§Œ ì–•ì€ ë³µì‚¬ëŠ” ë§‰ì•„ì•¼ í•  ê²½ìš°
+	//MyString(const MyString& source) = delete; í•´ì„œ ë§‰ê¸°(ì°¨ì„ ì±…)
 	MyString(const MyString& source)
 	{
 		cout << "Copy constructor" << endl;
 
 		m_length = source.m_length;
 
-		if (source.m_data != nullptr) //source.m_data °¡ ¸Þ¸ð¸®¸¦ °®°íÀÖÀ»°æ¿ì
+		if (source.m_data != nullptr) //source.m_data ê°€ ë©”ëª¨ë¦¬ë¥¼ ê°–ê³ ìžˆì„ê²½ìš°
 		{
-			m_data = new char[m_length]; //»õ·Î ¸Þ¸ð¸® ÇÒ´ç¹Þ±â
+			m_data = new char[m_length]; //ìƒˆë¡œ ë©”ëª¨ë¦¬ í• ë‹¹ë°›ê¸°
 
-			for (int i = 0; i < m_length; ++i) //»õ ¸Þ¸ð¸®¿¡ source.m_data º¹»çÇÏ±â
-				m_data[i] = source.m_data[i];  //source ÀÇ ¸Þ¸ð¸®°¡ °¡Áö°í ÀÖ´ø ³»¿ëµéÀ» º¹»ç
+			for (int i = 0; i < m_length; ++i) //ìƒˆ ë©”ëª¨ë¦¬ì— source.m_data ë³µì‚¬í•˜ê¸°
+				m_data[i] = source.m_data[i];  //source ì˜ ë©”ëª¨ë¦¬ê°€ ê°€ì§€ê³  ìžˆë˜ ë‚´ìš©ë“¤ì„ ë³µì‚¬
 		}
 		else
-			m_data = nullptr;  //nullptr ´ë½Å 0 ³Ö´Â °æ¿ìµµ ÀÖÁö¸¸ ÃÖ½ÅÀº nullptr
+			m_data = nullptr;  //nullptr ëŒ€ì‹  0 ë„£ëŠ” ê²½ìš°ë„ ìžˆì§€ë§Œ ìµœì‹ ì€ nullptr
 
 	}
 
 
-	//´ëÀÔ ¿¬»êÀÚ
+	//ëŒ€ìž… ì—°ì‚°ìž
 	MyString& operator = (const MyString& source)
 	{
 		//shallow copy   
-		//º¹»ç¸¸ ÇØÁÖ°í ³¡³²(±âº» º¹»ç »ý¼ºÀÚ°¡ »ý±ä ÇüÅÂ)
+		//ë³µì‚¬ë§Œ í•´ì£¼ê³  ëë‚¨(ê¸°ë³¸ ë³µì‚¬ ìƒì„±ìžê°€ ìƒê¸´ í˜•íƒœ)
 		/*this->m_data = source.m_data;
 		this->m_length = source.m_length;*/
 
 
 		cout << "Assignment operator " << endl;
 
-		//prevent self-assignment º¹»ç»ý¼ºÀÚ¿Í ´Þ¸® ´ëÀÔ¿¬»êÀÚ´Â °¡´ÉÇÑ ¹®Á¦(hello = hello)
-		//¾Æ¹«°Íµµ ¸øÇÏ°Ô ¸·±â
+		//prevent self-assignment ë³µì‚¬ìƒì„±ìžì™€ ë‹¬ë¦¬ ëŒ€ìž…ì—°ì‚°ìžëŠ” ê°€ëŠ¥í•œ ë¬¸ì œ(hello = hello)
+		//ì•„ë¬´ê²ƒë„ ëª»í•˜ê²Œ ë§‰ê¸°
 		if (this == &source) 
 			return *this;
 
-		//»ý¼ºÀÚ´Â ÀÚ±â°¡ Ã³À½ »ý¼ºµÇ´Â°ÍÀÌ±â ¶§¹®¿¡ ÀÌÀü¿¡ µ¿ÀûÇÒ´çµÈ ¸Þ¸ð¸®¸¦ °®°íÀÖÁö ¾ÊÀ½
-		//´ëÀÔ ¿¬»êÀÚ¶ó¸é ÀÌ¹Ì ¸Þ¸ð¸®¸¦ °¡Áö°í ÀÖÀ» ¼ö ÀÖÀ½  -> Áö¿ö¹ö¸²
+		//ìƒì„±ìžëŠ” ìžê¸°ê°€ ì²˜ìŒ ìƒì„±ë˜ëŠ”ê²ƒì´ê¸° ë•Œë¬¸ì— ì´ì „ì— ë™ì í• ë‹¹ëœ ë©”ëª¨ë¦¬ë¥¼ ê°–ê³ ìžˆì§€ ì•ŠìŒ
+		//ëŒ€ìž… ì—°ì‚°ìžë¼ë©´ ì´ë¯¸ ë©”ëª¨ë¦¬ë¥¼ ê°€ì§€ê³  ìžˆì„ ìˆ˜ ìžˆìŒ  -> ì§€ì›Œë²„ë¦¼
 		delete[] m_data;
 
 		m_length = source.m_length;
@@ -105,14 +105,14 @@ public:
 	int getLength() { return m_length; }
 
 
-	//¼Ò¸êÀÚ
+	//ì†Œë©¸ìž
 	~MyString()
 	{
-		delete[] m_data;  //»ç¶óÁú¶§ memory leak À» ¸·±â À§ÇØ delete ( ¹Ýµå½Ã ÇÊ¿äÇÑ Á¶Ä¡ )
+		delete[] m_data;  //ì‚¬ë¼ì§ˆë•Œ memory leak ì„ ë§‰ê¸° ìœ„í•´ delete ( ë°˜ë“œì‹œ í•„ìš”í•œ ì¡°ì¹˜ )
 	}
 };
 
-//ÀÌºÎºÐÀÌ º¹»ç»ý¼ºÀÚ¿Í ´ëÀÔ¿¬»êÀÚ¿¡¼­ º¹»çµÇ°í ÀÖÀ¸´Ï ÇÔ¼ö·Î ¸¸µé¾î¼­ »©±âµµ ÇÔ
+//ì´ë¶€ë¶„ì´ ë³µì‚¬ìƒì„±ìžì™€ ëŒ€ìž…ì—°ì‚°ìžì—ì„œ ë³µì‚¬ë˜ê³  ìžˆìœ¼ë‹ˆ í•¨ìˆ˜ë¡œ ë§Œë“¤ì–´ì„œ ë¹¼ê¸°ë„ í•¨
 //m_length = source.m_length;
 //
 //if (source.m_data != nullptr)
@@ -128,53 +128,53 @@ public:
 
 int main()
 {
-	//µ¿Àû ¸Þ¸ð¸® ÇÒ´çÀ» »ç¿ëÇÏ´Â °æ¿ì º¹»ç »ý¼ºÀÚ¸¦ ¸¸µé°Å³ª ´ëÀÔ¿¬»êÀÚ¸¦ ¿À¹ö·ÎµùÇÒ¶§ ÁÖÀÇÇØ¾ßÇÔ
-	//ÃÖ±Ù¿£ ±×¸® ¾î·ÆÁö ¾Ê°í container ¸¦ »ç¿ëÇÔ
+	//ë™ì  ë©”ëª¨ë¦¬ í• ë‹¹ì„ ì‚¬ìš©í•˜ëŠ” ê²½ìš° ë³µì‚¬ ìƒì„±ìžë¥¼ ë§Œë“¤ê±°ë‚˜ ëŒ€ìž…ì—°ì‚°ìžë¥¼ ì˜¤ë²„ë¡œë”©í• ë•Œ ì£¼ì˜í•´ì•¼í•¨
+	//ìµœê·¼ì—” ê·¸ë¦¬ ì–´ë µì§€ ì•Šê³  container ë¥¼ ì‚¬ìš©í•¨
 
 
 	MyString hello("hello");
 
-	cout << (int*)hello.m_data << endl;  //cout ¿¡ ¹®ÀÚ¿­ ÁÖ¼Ò°¡ µé¾î¿À¸é ¹®ÀÚ¿­À» Ãâ·ÂÇÏ±â ¶§¹®¿¡ (int*)·Î cast
+	cout << (int*)hello.m_data << endl;  //cout ì— ë¬¸ìžì—´ ì£¼ì†Œê°€ ë“¤ì–´ì˜¤ë©´ ë¬¸ìžì—´ì„ ì¶œë ¥í•˜ê¸° ë•Œë¬¸ì— (int*)ë¡œ cast
 	cout << hello.getString() << endl;
 
 
 
-	//scope ¸¦ Á¤ÀÇÇÏ°í ¾È¿¡¼­ local variable À» ¶Ç ¸¸µë
+	//scope ë¥¼ ì •ì˜í•˜ê³  ì•ˆì—ì„œ local variable ì„ ë˜ ë§Œë“¬
 	{
-		//copy °¡ »ý¼ºµÇ°í ÀÖ±â ¶§¹®¿¡ ´ëÀÔ¿¬»êÀÚ°¡ ¾Æ´Ñ º¹»ç»ý¼ºÀÚ°¡ È£ÃâµÊ(±¸Çö ¾ÈÇßÀ¸¸é ±âº» º¹»ç »ý¼ºÀÚ)
+		//copy ê°€ ìƒì„±ë˜ê³  ìžˆê¸° ë•Œë¬¸ì— ëŒ€ìž…ì—°ì‚°ìžê°€ ì•„ë‹Œ ë³µì‚¬ìƒì„±ìžê°€ í˜¸ì¶œë¨(êµ¬í˜„ ì•ˆí–ˆìœ¼ë©´ ê¸°ë³¸ ë³µì‚¬ ìƒì„±ìž)
 		MyString copy = hello;  
-		cout << (int*)copy.m_data << endl;  //copy.m_data ¿Í hello.m_data ÀÇ ÁÖ¼Ò°¡ °°À½
+		cout << (int*)copy.m_data << endl;  //copy.m_data ì™€ hello.m_data ì˜ ì£¼ì†Œê°€ ê°™ìŒ
 		cout << copy.getString() << endl;
 	}
-	//copy ¿¡¼­ ÁÖ¼Ò°ª¸¸ º¹»çÇØ¼­ °¡Áö°í ÀÖÀ½(±âº» º¹»ç»ý¼ºÀÚ¸¦ ÄÄÆÄÀÏ·¯°¡ ¸¸µé¾îÁá°í new ¸¦ È£ÃâÇÏÁö ¾Ê¾ÒÀ½)
-	//heap ¿¡´Â hello ¿¡¼­ new ·Î ÇÒ´ç¹ÞÀº ¸Þ¸ð¸® ÇÏ³ª¹Û¿¡ ¾øÀ½
-	//copy °¡ scope ¿¡¼­ ¹þ¾î³ª¸é¼­ delete ·Î Áö¿ö¹ö¸²
-	//copy ´Â »ç¶óÁ³Áö¸¸ hello ÀÇ ÁÖ¼Òµµ °°ÀÌ Áö¿öÁ®¹ö·È±â ¶§¹®¿¡
+	//copy ì—ì„œ ì£¼ì†Œê°’ë§Œ ë³µì‚¬í•´ì„œ ê°€ì§€ê³  ìžˆìŒ(ê¸°ë³¸ ë³µì‚¬ìƒì„±ìžë¥¼ ì»´íŒŒì¼ëŸ¬ê°€ ë§Œë“¤ì–´ì¤¬ê³  new ë¥¼ í˜¸ì¶œí•˜ì§€ ì•Šì•˜ìŒ)
+	//heap ì—ëŠ” hello ì—ì„œ new ë¡œ í• ë‹¹ë°›ì€ ë©”ëª¨ë¦¬ í•˜ë‚˜ë°–ì— ì—†ìŒ
+	//copy ê°€ scope ì—ì„œ ë²—ì–´ë‚˜ë©´ì„œ delete ë¡œ ì§€ì›Œë²„ë¦¼
+	//copy ëŠ” ì‚¬ë¼ì¡Œì§€ë§Œ hello ì˜ ì£¼ì†Œë„ ê°™ì´ ì§€ì›Œì ¸ë²„ë ¸ê¸° ë•Œë¬¸ì—
 
 
 	cout << hello.getString() << endl;
-	//ÀÌ»óÇÑ °ªÀÌ Ãâ·ÂµÊ
+	//ì´ìƒí•œ ê°’ì´ ì¶œë ¥ë¨
 
 
 
 
-	//¾èÀº º¹»ç
-	//±âº» º¹»ç »ý¼ºÀÚ°¡ ÇØÁØ°Í : m_data¿¡ ÀÖ´ø ¸Þ¸ð¸® ÁÖ¼Ò°ª º¹»ç
-	//µ¿Àû ÇÒ´çµÈ ¸Þ¸ð¸®°¡ ¿¬°üµÇ¾îÀÖÀ» °æ¿ì Å« ¹®Á¦ ¹ß»ý
+	//ì–•ì€ ë³µì‚¬
+	//ê¸°ë³¸ ë³µì‚¬ ìƒì„±ìžê°€ í•´ì¤€ê²ƒ : m_dataì— ìžˆë˜ ë©”ëª¨ë¦¬ ì£¼ì†Œê°’ ë³µì‚¬
+	//ë™ì  í• ë‹¹ëœ ë©”ëª¨ë¦¬ê°€ ì—°ê´€ë˜ì–´ìžˆì„ ê²½ìš° í° ë¬¸ì œ ë°œìƒ
 
 
-	//±íÀº º¹»ç
-	//º¹»õ »ý¼ºÀÚ°¡ Æ÷ÀÎÅÍ ÁÖ¼Ú°ªÀ» º¹»çÇÏÁö ¾Ê°í ¸Þ¸ð¸®¸¦ ´Ù½Ã ÇÒ´ç¹Þ°í ÀÖÀ½
-	//°ªµéÀ» ´Ù½Ã º¹»çÇØÁÖ°í ÀÖÀ½
+	//ê¹Šì€ ë³µì‚¬
+	//ë³µìƒˆ ìƒì„±ìžê°€ í¬ì¸í„° ì£¼ì†Ÿê°’ì„ ë³µì‚¬í•˜ì§€ ì•Šê³  ë©”ëª¨ë¦¬ë¥¼ ë‹¤ì‹œ í• ë‹¹ë°›ê³  ìžˆìŒ
+	//ê°’ë“¤ì„ ë‹¤ì‹œ ë³µì‚¬í•´ì£¼ê³  ìžˆìŒ
 
 
 
-	//º¹»ç»ý¼ºÀÚ°¡ È£ÃâµÇ´Â °æ¿ì¿Í ´ëÀÔ ¿¬»êÀÛ È£ÃâµÇ´Â °æ¿ì
-	//º¹»ç »ý¼ºÀÚ È£Ãâ
+	//ë³µì‚¬ìƒì„±ìžê°€ í˜¸ì¶œë˜ëŠ” ê²½ìš°ì™€ ëŒ€ìž… ì—°ì‚° í˜¸ì¶œë˜ëŠ” ê²½ìš°
+	//ë³µì‚¬ ìƒì„±ìž í˜¸ì¶œ
 	MyString str1 = hello; 
-	//MyString str1(hello); ±â´É»ó °°Áö¸¸ ÀÌ·¸°Ô ÇÏ¸é ´ú Çò°¥¸²
+	//MyString str1(hello); ê¸°ëŠ¥ìƒ ê°™ì§€ë§Œ ì´ë ‡ê²Œ í•˜ë©´ ëœ í—·ê°ˆë¦¼
 
-	//´ëÀÔ ¿¬»êÀÚ È£Ãâ
+	//ëŒ€ìž… ì—°ì‚°ìž í˜¸ì¶œ
 	MyString str2;
 	str2 = hello;
 	return 0;
