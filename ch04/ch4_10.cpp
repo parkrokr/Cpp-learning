@@ -120,6 +120,9 @@ int main()
 	cout << sizeof(Employee) << endl; // 16, 14가 아님
 	//short 가 2bytes 가 아니라 4bytes가 할당되어있을수도 있음
 	//data structure alignment 검색
+	
+	//패딩 비트
+	//구조체의 크기는 구조체 내에서 크기가 가장 큰 자료형의 단위로 묶음
 
 	return 0;
 }
