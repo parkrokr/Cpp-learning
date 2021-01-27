@@ -1,6 +1,13 @@
 //상속받은 함수 ( Inherited Functions ) 를 감추기
 
+//부모 클래스에서 protected 인것을 밖에서 접근하게 해주기
+//자식 클래스에서 public 영역에서 using 해주기
+
 //상속받은걸 사용하지 않도록 막기
+//함수를 delete 하기
+//private 에서 using 해주기
+
+//using 을 할때 함수는 () 를 붙이지 않음
 
 #include <iostream>
 using namespace std;
