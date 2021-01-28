@@ -1,8 +1,8 @@
-//°¡»ó ÇÔ¼ö (Virtual Functions) ¿Í ´ÙÇü¼º ( Polymorphism )
+//ê°€ìƒ í•¨ìˆ˜ (Virtual Functions) ì™€ ë‹¤í˜•ì„± ( Polymorphism )
 
-//virtual À» ¾²´Â °æ¿ì virtual À» Á÷Á¢ È£ÃâÇÏ´Â°Ô ¾Æ´Ï¶ó Å×ÀÌºí¿¡¼­ »ó¼Ó¹ÞÀº 
-//ÀÎ½ºÅÏ½º¸¦ Ã£¾Æ°¡´Â °úÁ¤À» °ÅÄ¡±â ¶§¹®¿¡ ´À¸²
-//È£ÃâÀÌ ¾ÆÁÖ ÀÚÁÖ µÇ´Â ÇÔ¼ö¿¡ ¾²¸é ¾ÈÁÁÀ½
+//virtual ì„ ì“°ëŠ” ê²½ìš° virtual ì„ ì§ì ‘ í˜¸ì¶œí•˜ëŠ”ê²Œ ì•„ë‹ˆë¼ í…Œì´ë¸”ì—ì„œ ìƒì†ë°›ì€ 
+//ì¸ìŠ¤í„´ìŠ¤ë¥¼ ì°¾ì•„ê°€ëŠ” ê³¼ì •ì„ ê±°ì¹˜ê¸° ë•Œë¬¸ì— ëŠë¦¼
+//í˜¸ì¶œì´ ì•„ì£¼ ìžì£¼ ë˜ëŠ” í•¨ìˆ˜ì— ì“°ë©´ ì•ˆì¢‹ìŒ
 
 #include <iostream>
 using namespace std;
@@ -30,11 +30,11 @@ class D :public C
 public:
 	/*virtual*/void print() { cout << "D" << endl; }
 
-	//¿À¹ö¶óÀÌµùÀ» ÇÒ¶§ return type ÀÌ ´Ù¸¥ °æ¿ì
+	//ì˜¤ë²„ë¼ì´ë”©ì„ í• ë•Œ return type ì´ ë‹¤ë¥¸ ê²½ìš°
 	//virtual int print() { cout << "D" << endl; return 0; }  
-	//ÄÄÆÄÀÏÀÌ ¾ÈµÊ, A::print() ¿Í return type ÀÌ ´Ù¸£´Ù°í ¿¡·¯°¡ ¹ß»ý, 
-	//C ¸¦ »ó¼Ó¹Þ¾Æµµ °¡Àå »óÀ§ Å¬·¡½ºÀÎ A ÀÇ °¡»óÇÔ¼ö¿Í ºñ±³ÇÔ
-	//¿À¹ö·ÎµùÀ» ÇÒ¶§ return type ¸¸À¸·Ð ±¸º°À» ¸øÇÔ
+	//ì»´íŒŒì¼ì´ ì•ˆë¨, A::print() ì™€ return type ì´ ë‹¤ë¥´ë‹¤ê³  ì—ëŸ¬ê°€ ë°œìƒ, 
+	//C ë¥¼ ìƒì†ë°›ì•„ë„ ê°€ìž¥ ìƒìœ„ í´ëž˜ìŠ¤ì¸ A ì˜ ê°€ìƒí•¨ìˆ˜ì™€ ë¹„êµí•¨
+	//ì˜¤ë²„ë¡œë”©ì„ í• ë•Œ return type ë§Œìœ¼ë¡  êµ¬ë³„ì„ ëª»í•¨
 };
 
 int main()
@@ -52,23 +52,23 @@ int main()
 	d.print();
 
 
-	//AÅ¸ÀÔÀÇ ÂüÁ¶¿¡ b ³Ö¾îÁÖ±â, c,d °¡ µé¾î°¡µµ ¶È°°À½
+	//Aíƒ€ìž…ì˜ ì°¸ì¡°ì— b ë„£ì–´ì£¼ê¸°, c,d ê°€ ë“¤ì–´ê°€ë„ ë˜‘ê°™ìŒ
 	A& ref = b;
 	ref.print();
-	//AÀÇ print() ¿¡ virtual ÀÌ ºÙÀ¸¸é ÀÚ½Ä Å¬·¡½º¿¡¼­ ¿À¹ö¶óÀÌµù µÈ ÇÔ¼ö¸¦ ±×´ë·Î »ç¿ëÇÔ
+	//Aì˜ print() ì— virtual ì´ ë¶™ìœ¼ë©´ ìžì‹ í´ëž˜ìŠ¤ì—ì„œ ì˜¤ë²„ë¼ì´ë”© ëœ í•¨ìˆ˜ë¥¼ ê·¸ëŒ€ë¡œ ì‚¬ìš©í•¨
 
-	//B class ·Î ¸¸µé¾îÁø ÀÎ½ºÅÏ½º¸¦ A ÀÇ ÂüÁ¶¿¡ ³Ö´Âµ¥ A ¾È¿¡ ÀÖ´Â print() °¡ virtual ÀÏ °æ¿ì
-	//¹Ø¿¡ »ó¼Ó¹ÞÀº class ¿¡¼­ ¿À¹ö¶óÀÌµù µÈ ÇÔ¼ö°¡ ÀÖÀ» °æ¿ì virtual ÀÌ ¾Æ´Ï¶ó ±× ÇÔ¼ö¸¦ »ç¿ëÇÔ
+	//B class ë¡œ ë§Œë“¤ì–´ì§„ ì¸ìŠ¤í„´ìŠ¤ë¥¼ A ì˜ ì°¸ì¡°ì— ë„£ëŠ”ë° A ì•ˆì— ìžˆëŠ” print() ê°€ virtual ì¼ ê²½ìš°
+	//ë°‘ì— ìƒì†ë°›ì€ class ì—ì„œ ì˜¤ë²„ë¼ì´ë”© ëœ í•¨ìˆ˜ê°€ ìžˆì„ ê²½ìš° virtual ì´ ì•„ë‹ˆë¼ ê·¸ í•¨ìˆ˜ë¥¼ ì‚¬ìš©í•¨
 
-	//AÀÇ print() ¸¸ virtual ÀÌ°í BÀÇ print() ´Â virtual ÀÌ ¾Æ´ÏÁö¸¸ A type ÂüÁ¶¿¡ C type À» ³ÖÀ»°æ¿ì
-	//C°¡ A¸¦ Á÷Á¢ »ó¼Ó¹Þ´Â°Ô ¾Æ´Ï¶ó Áß°£¿¡ B¸¦ °ÅÃÄ°¨¿¡µµ ºÒ±¸ÇÏ°í B¸¦ »ç¿ëÇÏ´Â°Ô ¾Æ´Ñ C ¸¦ »ç¿ëÇÔ
+	//Aì˜ print() ë§Œ virtual ì´ê³  Bì˜ print() ëŠ” virtual ì´ ì•„ë‹ˆì§€ë§Œ A type ì°¸ì¡°ì— C type ì„ ë„£ì„ê²½ìš°
+	//Cê°€ Aë¥¼ ì§ì ‘ ìƒì†ë°›ëŠ”ê²Œ ì•„ë‹ˆë¼ ì¤‘ê°„ì— Bë¥¼ ê±°ì³ê°ì—ë„ ë¶ˆêµ¬í•˜ê³  Bë¥¼ ì‚¬ìš©í•˜ëŠ”ê²Œ ì•„ë‹Œ C ë¥¼ ì‚¬ìš©í•¨
 	A& ref1 = c;
 	ref1.print(); //C
 
 
-	//°¡Àå »óÀ§ class ¿¡ ÀÖ´Â°Ô virtual ÀÌ µÇ¾î¹ö¸®¸é ¹Ø¿¡ ÀÖ´Â °Íµéµµ virtual Ã³·³ Çàµ¿ÇÔ
-	//±×·¡¼­ »ó½ÀÀûÀ¸·Î ¹Ø¿¡ ÀÖ´Â ÇÔ¼öµéµµ virtual À» ºÙÀÌ´Â ½ºÅ¸ÀÏÀÌ ÀÖÀ½
-	//ºÙ¿©µÎ¸é µð¹ö±ë ÇÒ¶§ ´ÙÇü¼º¿¡ ÀÇÇØ °¡»óÇÔ¼ö¸¦ ¿Àº¸¶óÀÌµù ÇÑ°ÍÀÎÁö ¾Æ´ÑÁö ½±°Ô ÆÄ¾ÇÇÒ ¼ö ÀÖÀ½
+	//ê°€ìž¥ ìƒìœ„ class ì— ìžˆëŠ”ê²Œ virtual ì´ ë˜ì–´ë²„ë¦¬ë©´ ë°‘ì— ìžˆëŠ” ê²ƒë“¤ë„ virtual ì²˜ëŸ¼ í–‰ë™í•¨
+	//ê·¸ëž˜ì„œ ìƒìŠµì ìœ¼ë¡œ ë°‘ì— ìžˆëŠ” í•¨ìˆ˜ë“¤ë„ virtual ì„ ë¶™ì´ëŠ” ìŠ¤íƒ€ì¼ì´ ìžˆìŒ
+	//ë¶™ì—¬ë‘ë©´ ë””ë²„ê¹… í• ë•Œ ë‹¤í˜•ì„±ì— ì˜í•´ ê°€ìƒí•¨ìˆ˜ë¥¼ ì˜¤ë²„ë¼ì´ë”© í•œê²ƒì¸ì§€ ì•„ë‹Œì§€ ì‰½ê²Œ íŒŒì•…í•  ìˆ˜ ìžˆìŒ
 	B& ref2 = c;
 	ref2.print(); //C
 
