@@ -1,13 +1,13 @@
-//»ó¼Ó¹ŞÀº ÇÔ¼ö ( Inherited Functions ) ¸¦ °¨Ãß±â
+//ìƒì†ë°›ì€ í•¨ìˆ˜ ( Inherited Functions ) ë¥¼ ê°ì¶”ê¸°
 
-//ºÎ¸ğ Å¬·¡½º¿¡¼­ protected ÀÎ°ÍÀ» ¹Û¿¡¼­ Á¢±ÙÇÏ°Ô ÇØÁÖ±â
-//ÀÚ½Ä Å¬·¡½º¿¡¼­ public ¿µ¿ª¿¡¼­ using ÇØÁÖ±â
+//ë¶€ëª¨ í´ë˜ìŠ¤ì—ì„œ protected ì¸ê²ƒì„ ë°–ì—ì„œ ì ‘ê·¼í•˜ê²Œ í•´ì£¼ê¸°
+	//ìì‹ í´ë˜ìŠ¤ì—ì„œ public ì˜ì—­ì—ì„œ using í•´ì£¼ê¸°
 
-//»ó¼Ó¹ŞÀº°É »ç¿ëÇÏÁö ¾Êµµ·Ï ¸·±â
-//ÇÔ¼ö¸¦ delete ÇÏ±â
-//private ¿¡¼­ using ÇØÁÖ±â
+//ìƒì†ë°›ì€ê±¸ ì‚¬ìš©í•˜ì§€ ì•Šë„ë¡ ë§‰ê¸°
+	//í•¨ìˆ˜ë¥¼ delete í•˜ê¸°
+	//private ì—ì„œ using í•´ì£¼ê¸°
 
-//using À» ÇÒ¶§ ÇÔ¼ö´Â () ¸¦ ºÙÀÌÁö ¾ÊÀ½
+//using ì„ í• ë•Œ í•¨ìˆ˜ëŠ” () ë¥¼ ë¶™ì´ì§€ ì•ŠìŒ
 
 #include <iostream>
 using namespace std;
@@ -43,17 +43,17 @@ public:
 		:Base(value)
 	{}
 
-	//Base ¿¡¼± protected ÀÎ m_i °¡ ÀÌ·¸°Ô ÇÏ¸é Derived ¿¡¼± public °¡ µÇ¾î¹ö¸²
+	//Base ì—ì„  protected ì¸ m_i ê°€ ì´ë ‡ê²Œ í•˜ë©´ Derived ì—ì„  public ê°€ ë˜ì–´ë²„ë¦¼
 	using Base::m_i;
 
 
-	//Base ÀÇ print() ¸¦ ¹Û¿¡¼­ ¸ø¾²°Ô ¸·¾Æ¹ö¸®±â
-	//delete ÇÏ±â
+	//Base ì˜ print() ë¥¼ ë°–ì—ì„œ ëª»ì“°ê²Œ ë§‰ì•„ë²„ë¦¬ê¸°
+	//delete í•˜ê¸°
 	void print() = delete;
 
-	//private: ¿¡¼­ using ÇÏ±â
+	//private: ì—ì„œ using í•˜ê¸°
 private:
-	//using Base::print;  //ÀÌ¶§´Â ÀÌ¸§¸¸ ÀÖÀ¸¸é µÇ±â ¶§¹®¿¡ ()¸¦ Ä¡¸é ¾ÈµÊ
+	//using Base::print;  //ì´ë•ŒëŠ” ì´ë¦„ë§Œ ìˆìœ¼ë©´ ë˜ê¸° ë•Œë¬¸ì— ()ë¥¼ ì¹˜ë©´ ì•ˆë¨
 };
 
 int main()
@@ -61,13 +61,13 @@ int main()
 	Base base(5);
 	Derived derived(7);
 	
-	//m_i ´Â Base ¿¡ protected ·Î ¼±¾ğµÇ¾ú±â ¶§¹®¿¡ ¹Û¿¡¼­ Á¢±Ù ¸øÇÔ
-	//Derived class ¿¡¼­ using Base::m_i; ¸¦ ÇÏ¸é °¡´É
+	//m_i ëŠ” Base ì— protected ë¡œ ì„ ì–¸ë˜ì—ˆê¸° ë•Œë¬¸ì— ë°–ì—ì„œ ì ‘ê·¼ ëª»í•¨
+	//Derived class ì—ì„œ using Base::m_i; ë¥¼ í•˜ë©´ ê°€ëŠ¥
 	derived.m_i = 1024;
 
-	//Derived °¡ Base ·ÎºÎÅÍ »ó¼Ó¹ŞÀº print() ¸¦ ¹Û¿¡¼­ ¸ø¾²°Ô ¸·¾Æ¹ö¸± ¼ö ÀÖÀ½
-	//derived.print();  //¸·Çô¹ö¸²
-	base.print();		//ÀÌ°Ç °¡´É(ÀÚ½Ä¿¡¼­¸¸ ¸·¾Ò±â ¶§¹®¿¡ ºÎ¸ğ¿¡¼­´Â Á¢±Ù °¡´É)
+	//Derived ê°€ Base ë¡œë¶€í„° ìƒì†ë°›ì€ print() ë¥¼ ë°–ì—ì„œ ëª»ì“°ê²Œ ë§‰ì•„ë²„ë¦´ ìˆ˜ ìˆìŒ
+	//derived.print();  //ë§‰í˜€ë²„ë¦¼
+	base.print();		//ì´ê±´ ê°€ëŠ¥(ìì‹ì—ì„œë§Œ ë§‰ì•˜ê¸° ë•Œë¬¸ì— ë¶€ëª¨ì—ì„œëŠ” ì ‘ê·¼ ê°€ëŠ¥)
 
 	return 0;
 }
