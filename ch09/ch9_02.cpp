@@ -41,7 +41,9 @@ public:
 
 		return out;  // chaining 하기 위해
 	}
-
+	
+	// 참고 왜 Point &point 가 const 여야 하는가 http://www.cplusplus.com/forum/beginner/220126/
+	
 
 	//in stream
 	friend std::istream& operator >> (std::istream& in, Point& point)  //입력받으려는 Point& point를 const 로 하면 에러발생
