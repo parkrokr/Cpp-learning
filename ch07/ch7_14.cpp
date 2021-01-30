@@ -1,12 +1,12 @@
-//´Ü¾ğÇÏ±â assert
+//ë‹¨ì–¸í•˜ê¸° assert
 
-//debug ¸ğµå¿¡¼­¸¸ ÀÛµ¿, release ¸ğµå¿¡¼± ÀÛµ¿¾ÈÇÔ
-//assert °¡ ¹ß»ıÇÏ¸é ¾îµğ¼­ ¹®Á¦°¡ ¹ß»ıÇÑÁö ¾Ë·ÁÁÜ
-//assert ´Â runtime ¿¡ Ã¼Å©ÇØÁÜ
-//static_assert ´Â compiletime ¿¡ Ã¼Å©ÇØÁÖ°í ¹®±¸¸¦ ³²±æ ¼ö ÀÖÀ½
+//debug ëª¨ë“œì—ì„œë§Œ ì‘ë™, release ëª¨ë“œì—ì„  ì‘ë™ì•ˆí•¨
+//assert ê°€ ë°œìƒí•˜ë©´ ì–´ë””ì„œ ë¬¸ì œê°€ ë°œìƒí•œì§€ ì•Œë ¤ì¤Œ
+//assert ëŠ” runtime ì— ì²´í¬í•´ì¤Œ
+//static_assert ëŠ” compiletime ì— ì²´í¬í•´ì£¼ê³  ë¬¸êµ¬ë¥¼ ë‚¨ê¸¸ ìˆ˜ ìˆìŒ
 
 #include <iostream>
-#include <cassert> // asser.h
+#include <cassert> // assert.h
 #include <array>
 
 using namespace std;
@@ -14,7 +14,7 @@ using namespace std;
 void printvalue(array<int, 5>& my_array, const int& ix)
 {
 	assert(ix >= 0);
-	assert(ix <= my_array.size() - 1); // ||·Î ÇÕÄ¥¼öµµ ÀÖÁö¸¸ Á¤È®ÇÏ°Ô ¹¹°¡ ¹®Á¦ÀÎÁö ¾Ë°ÔÇÏ±â À§ÇØ ÂÉ°·
+	assert(ix <= my_array.size() - 1); // ||ë¡œ í•©ì¹ ìˆ˜ë„ ìˆì§€ë§Œ ì •í™•í•˜ê²Œ ë­ê°€ ë¬¸ì œì¸ì§€ ì•Œê²Œí•˜ê¸° ìœ„í•´ ìª¼ê°¬
 
 	cout << my_array[ix] << endl;
 }
@@ -23,38 +23,38 @@ void printvalue(array<int, 5>& my_array, const int& ix)
 
 int main()
 {
-	//assert(false); //debug ¸ğµå¿¡¼­¸¸ ÀÛµ¿, release ¸ğµå¿¡¼± ÀÛµ¿¾ÈÇÔ
+	//assert(false); //debug ëª¨ë“œì—ì„œë§Œ ì‘ë™, release ëª¨ë“œì—ì„  ì‘ë™ì•ˆí•¨
 
-	//cpp ÆÄÀÏÀÇ property pageÀÇ C/C++\Preprosessor ¿¡¼­ Preprocessor Definitions °¡ NDEBUG ·Î µÇ¾îÀÖÀ¸¸é ÀÛµ¿¾ÈÇÔ
+	//cpp íŒŒì¼ì˜ property pageì˜ C/C++\Preprosessor ì—ì„œ Preprocessor Definitions ê°€ NDEBUG ë¡œ ë˜ì–´ìˆìœ¼ë©´ ì‘ë™ì•ˆí•¨
 
 	int number = 5;
 
-	//number should be 5 //¶ó°í ÁÖ¼®¸¸ Àû¾îµĞ´Ù¸é ½Ç¿ë¼ºÀÌ ¾øÀ½
-	assert(number == 5); //number °¡ ¹İµå½Ã 5 ÀÌµµ·Ï assert ¸¦ °É¾î¹ö¸®±â
+	//number should be 5 //ë¼ê³  ì£¼ì„ë§Œ ì ì–´ë‘”ë‹¤ë©´ ì‹¤ìš©ì„±ì´ ì—†ìŒ
+	assert(number == 5); //number ê°€ ë°˜ë“œì‹œ 5 ì´ë„ë¡ assert ë¥¼ ê±¸ì–´ë²„ë¦¬ê¸°
 
 
 
 
 	array<int, 5> my_array{ 1,2,3,4,5 };
 
-	//cout << my_array[5] << endl; //my_array[5]¿¡ Á¢±ÙÇÏ¸é runtime error 
+	//cout << my_array[5] << endl; //my_array[5]ì— ì ‘ê·¼í•˜ë©´ runtime error 
 	printvalue(my_array, 4);
 
 
 	//static_assert
-	//assert()´Â runtime ¿¡ Ã¼Å©ÇÏÁö¸¸ static_assert() ´Â compiletime ¿¡ Ã¼Å©
+	//assert()ëŠ” runtime ì— ì²´í¬í•˜ì§€ë§Œ static_assert() ëŠ” compiletime ì— ì²´í¬
 
 	int x = 5;
 
-	assert(x == 5); // x ´Â º¯¼ö´Ï±î rutime ¿¡ °áÁ¤µÇµµ  assert() °¡´É
+	assert(x == 5); // x ëŠ” ë³€ìˆ˜ë‹ˆê¹Œ rutime ì— ê²°ì •ë˜ë„  assert() ê°€ëŠ¥
 
-	//static_assert(x == 5);// x°¡ Áß°£¿¡ ´Ş¶óÁú ¼ö ÀÖÀ¸´Ï »ç¿ë¸øÇÔ
+	//static_assert(x == 5);// xê°€ ì¤‘ê°„ì— ë‹¬ë¼ì§ˆ ìˆ˜ ìˆìœ¼ë‹ˆ ì‚¬ìš©ëª»í•¨
 
 	const int y = 5;
 
 	assert(y == 5);
 
-	static_assert(y == 5, " y should be 5"); //assert() ¿Í ´Ù¸£°Ô ¹®±¸¸¦ ³²±æ ¼ö ÀÖÀ½, ¹®±¸´Â error ¸Ş¼¼Áö¿¡¼­ Ãâ·Â
+	static_assert(y == 5, " y should be 5"); //assert() ì™€ ë‹¤ë¥´ê²Œ ë¬¸êµ¬ë¥¼ ë‚¨ê¸¸ ìˆ˜ ìˆìŒ, ë¬¸êµ¬ëŠ” error ë©”ì„¸ì§€ì—ì„œ ì¶œë ¥
 
 
 
