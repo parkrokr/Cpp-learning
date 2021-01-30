@@ -1,11 +1,11 @@
-//ÄÁÅ×ÀÌ³Ê Å¬·¡½º Container Class
+//ì»¨í…Œì´ë„ˆ í´ë˜ìŠ¤ Container Class
 
-//´Ù¸¥ class ¸¦ ´ã´Â class 
+//ë‹¤ë¥¸ class ë¥¼ ë‹´ëŠ” class 
 
-//´Ù¾çÇÑ ÄÁÅ×ÀÌ³Ê°¡ Á¸ÀçÇÔ
+//ë‹¤ì–‘í•œ ì»¨í…Œì´ë„ˆê°€ ì¡´ì¬í•¨
 //STL ( Standard Container Library )
 
-//ÄÁÅ×ÀÌ³ÊµéÀº ~°¡ ~ÀÇ ¸â¹ö´Ù, member-of °ü°è¸¦ °¡Áü
+//ì»¨í…Œì´ë„ˆë“¤ì€ ~ê°€ ~ì˜ ë©¤ë²„ë‹¤, member-of ê´€ê³„ë¥¼ ê°€ì§
 
 
 #include <iostream>
@@ -14,6 +14,8 @@
 #include <initializer_list>
 
 using namespace std;
+
+//ch13_02 ì˜ MyArray.h ì°¸ê³ 
 
 class IntArray
 {
@@ -189,11 +191,11 @@ public:
 int main()
 {
 
-	//std::vector<int> int_vec;		//int °¡ vector ¿¡ ´ã°ÜÀÖÀ½
-	//std::array<int, 10> int_arr;	//int °¡ array ¿¡ ´ã°ÜÀÖÀ½
+	//std::vector<int> int_vec;		//int ê°€ vector ì— ë‹´ê²¨ìˆìŒ
+	//std::array<int, 10> int_arr;	//int ê°€ array ì— ë‹´ê²¨ìˆìŒ
 
 
-	//IntArray ±¸Çö
+	//IntArray êµ¬í˜„
 	IntArray my_arr{ 1, 3, 5, 7, 9 };
 	cout << my_arr << endl;
 
