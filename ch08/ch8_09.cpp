@@ -4,6 +4,8 @@
 //instance 를 함수의 인자로 받는 함수를 만들때 parameter 를 const reference 로 해야 
 //복사생성자가 호출되지 않고, 복사가 일어나지 않음
 
+//참고 : http://egloos.zum.com/chideout/v/4158795
+
 #include <iostream>
 #include <string>
 
