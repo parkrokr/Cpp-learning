@@ -1,15 +1,24 @@
-//ÇÔ¼ö ÅÛÇÃ¸´ Æ¯¼öÈ­ Specialization
+//í•¨ìˆ˜ í…œí”Œë¦¿ íŠ¹ìˆ˜í™” Specialization
 
-//getMax() ¶ó´Â ÅÛÇÃ¸´È­ µÈ ÇÔ¼ö°¡ ÀÖ´Âµ¥ Æ¯º°ÇÑ °æ¿ì(Æ¯Á¤ data type ¿¡ ´ëÇØ¼­) instantiation 
-//ÀÌ µÇ´Â°æ¿ì Æ¯¼öÈ­¸¦ ÇÒ ¼ö ÀÖÀ½
+//getMax() ë¼ëŠ” í…œí”Œë¦¿í™” ëœ í•¨ìˆ˜ê°€ ìˆëŠ”ë° íŠ¹ë³„í•œ ê²½ìš°(íŠ¹ì • data type ì— ëŒ€í•´ì„œ) instantiation 
+//ì´ ë˜ëŠ”ê²½ìš° íŠ¹ìˆ˜í™”ë¥¼ í•  ìˆ˜ ìˆìŒ
+
+
+
+//template ì™€ auto(type deduction) ì˜ ë¹„êµ ch19_08
+//ì°¸ê³ :
+//	https://en.cppreference.com/w/cpp/language/auto
+//	https://docs.oracle.com/cd/E19205-01/819-5267/bkafi/index.html
+//	https://en.cppreference.com/w/cpp/language/class_template_argument_deduction
+//	https://en.cppreference.com/w/cpp/language/function_template
 
 
 #include <iostream>
 #include "ch13_04_Storage.h"
 
-#include "ch13_04_Storage.cpp"		//Æ¯¼öÈ­µÈ ¸â¹öÇÔ¼ö¸¦ cpp ÆÄÀÏ·Î ¿Å°åÀ»¶§ ÇØ°á¹æ¹ı2
-//cpp ÆÄÀÏÀ» include ÇÏ¸é ÇÔ¼öÀÇ body °¡ main.cpp ¿¡ ÀÖ´Â²ÃÀÌ°í °á±¹Àº Çì´õ¿¡ ÀÖ´Â°Å¶û °°Àº²ÃÀÓ
-//´Ù¸¸ ÆÄÀÏÀÌ Á» ºĞ¸®µÇ¾î ÀÖÀ» »ÓÀÓ
+#include "ch13_04_Storage.cpp"		//íŠ¹ìˆ˜í™”ëœ ë©¤ë²„í•¨ìˆ˜ë¥¼ cpp íŒŒì¼ë¡œ ì˜®ê²¼ì„ë•Œ í•´ê²°ë°©ë²•2
+//cpp íŒŒì¼ì„ include í•˜ë©´ í•¨ìˆ˜ì˜ body ê°€ main.cpp ì— ìˆëŠ”ê¼´ì´ê³  ê²°êµ­ì€ í—¤ë”ì— ìˆëŠ”ê±°ë‘ ê°™ì€ê¼´ì„
+//ë‹¤ë§Œ íŒŒì¼ì´ ì¢€ ë¶„ë¦¬ë˜ì–´ ìˆì„ ë¿ì„
 
 using namespace std;
 
@@ -34,30 +43,30 @@ char getMax(char x, char y)
 int main()
 {
 	cout << getMax(1, 2) << endl;
-	//getMax() ¿¡ µé¾î°¡´Â°Ô int ÀÌ±â ¶§¹®¿¡ ÀÚµ¿À¸·Î Á¤¼ö type ¿¡ ´ëÇØ¼­ ºôµå¸¦ ÇÏ°í ÀÖÀ½
-	//getMax<int>(1, 2)µµ °¡´É, <int> ´Â parameter °¡ int ÀÌ±â ¶§¹®¿¡ ÀÚµ¿À¸·Î Ã£¾ÆÁÖ°í ÀÖÀ½
+	//getMax() ì— ë“¤ì–´ê°€ëŠ”ê²Œ int ì´ê¸° ë•Œë¬¸ì— ìë™ìœ¼ë¡œ ì •ìˆ˜ type ì— ëŒ€í•´ì„œ ë¹Œë“œë¥¼ í•˜ê³  ìˆìŒ
+	//getMax<int>(1, 2)ë„ ê°€ëŠ¥, <int> ëŠ” parameter ê°€ int ì´ê¸° ë•Œë¬¸ì— ìë™ìœ¼ë¡œ ì°¾ì•„ì£¼ê³  ìˆìŒ
 
-	//double ·Î instantiation ÇÏ°í ½ÍÀ»¶§
+	//double ë¡œ instantiation í•˜ê³  ì‹¶ì„ë•Œ
 	cout << getMax(1.0, 2.0) << endl;
-	cout << getMax<double>(1, 2) << endl;  //°­Á¦·Î double type À¸·Î instantiation ÇÏ°í ÀÖÀ½
+	cout << getMax<double>(1, 2) << endl;  //ê°•ì œë¡œ double type ìœ¼ë¡œ instantiation í•˜ê³  ìˆìŒ
 
 
-	//¹®ÀÚ³¢¸® ºñ±³ÇÒ¶§ ¹®ÀÚ³¢¸® ºñ±³ÇÑ´Ù´Â°É »ç¿ëÀÚ¿¡°Ô °æ°íÇÏ°í ½ÍÀ½
+	//ë¬¸ìë¼ë¦¬ ë¹„êµí• ë•Œ ë¬¸ìë¼ë¦¬ ë¹„êµí•œë‹¤ëŠ”ê±¸ ì‚¬ìš©ìì—ê²Œ ê²½ê³ í•˜ê³  ì‹¶ìŒ
 	cout << getMax('a', 'b') << endl;
-	//if¹®Àº ¸ø¾¸(compile time ¿¡ ÇØ¾ßµÇ±â ¶§¹®¿¡) ´ë½Å ºñ½ÁÇÑ°Ç ¾µ ¼ö ÀÖÁö¸¸ µÚ¿¡¼­ ³ª¿È
+	//ifë¬¸ì€ ëª»ì”€(compile time ì— í•´ì•¼ë˜ê¸° ë•Œë¬¸ì—) ëŒ€ì‹  ë¹„ìŠ·í•œê±´ ì“¸ ìˆ˜ ìˆì§€ë§Œ ë’¤ì—ì„œ ë‚˜ì˜´
 
 	//specialization 
-	//Æ¯¼öÇÑ type ¿¡ ´ëÇØ¼­ Æ¯¼öÈ­
+	//íŠ¹ìˆ˜í•œ type ì— ëŒ€í•´ì„œ íŠ¹ìˆ˜í™”
 
 
-	//member function ¿¡ ´ëÇÑ Æ¯¼öÈ­
+	//member function ì— ëŒ€í•œ íŠ¹ìˆ˜í™”
 
 
 	Storage<int> nValue(5);
 	Storage<double> dvalue(6.7);
 
 
-	//double type ¿¡ ´ëÇØ¼± scinetific notation(°úÇĞÀû Ç¥±â¹ı) À» ÇßÀ¸¸é ÁÁ°ÚÀ½
+	//double type ì— ëŒ€í•´ì„  scinetific notation(ê³¼í•™ì  í‘œê¸°ë²•) ì„ í–ˆìœ¼ë©´ ì¢‹ê² ìŒ
 	nValue.print();
 	dvalue.print();
 
