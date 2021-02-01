@@ -1,11 +1,20 @@
 //함수 템플릿 특수화 Specialization
 
+
 //getMax() 라는 템플릿화 된 함수가 있는데 특별한 경우(특정 data type 에 대해서) instantiation 
 //이 되는경우 특수화를 할 수 있음
 
-
+//특수화를 클래스 내부에서 선언,정의는 불가능
 
 //template 와 auto(type deduction) 의 비교 ch19_08
+//template 는 compile time 에 어떤 type 이 사용되는지 확인하여 해당 type 의 함수를 만듬
+// 그래서 compiler 가 만들어준 함수를 실행시키는 것이니 문제가 생기지 않음
+
+//auto 는 type 을 추측하는 것은 같으나 바로 변수로 선언, 그래서 '단서'가 있어야 함
+//auto getMax(auto x, auto y) 에서 auto 가 어떤 type 이 될지 단서가 없기 때문에 함수를 만들어낼 수 없음
+//auto getMax(auto x=7, auto y=8) 이것도 불가능, auto 가 함수의 paramter 가 되는것을 아예 막아둠
+//C++14 부턴 함수의 return type 으로 auto 를 사용할 수 있음 auto getMax(auto x=7, auto y=8)
+
 //참고:
 //	https://en.cppreference.com/w/cpp/language/auto
 //	https://docs.oracle.com/cd/E19205-01/819-5267/bkafi/index.html
