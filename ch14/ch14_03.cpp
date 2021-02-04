@@ -1,19 +1,19 @@
-//¿¹¿Ü Å¬·¡½º¿Í »ó¼Ó
+//ì˜ˆì™¸ í´ëž˜ìŠ¤ì™€ ìƒì†
 
-//¿¹¿Ü¸¦ ´øÁú¶§ ±âº»ÀÚ·áÇüÀÌ ¾Æ´Ñ »ç¿ëÀÚÁ¤ÀÇ ÀÚ·áÇü, Áï ¿¹¿Ü Å¬·¡½º¸¦ »ç¿ëÇÏ´Â ¹æ¹ý
-//¿¹¿ÜÅ¬·¡½º¿¡¼­ »ó¼ÓÀ» ÇÒ¶§ ÁÖÀÇÇÒ Á¡
+//ì˜ˆì™¸ë¥¼ ë˜ì§ˆë•Œ ê¸°ë³¸ìžë£Œí˜•ì´ ì•„ë‹Œ ì‚¬ìš©ìžì •ì˜ ìžë£Œí˜•, ì¦‰ ì˜ˆì™¸ í´ëž˜ìŠ¤ë¥¼ ì‚¬ìš©í•˜ëŠ” ë°©ë²•
+//ì˜ˆì™¸í´ëž˜ìŠ¤ì—ì„œ ìƒì†ì„ í• ë•Œ ì£¼ì˜í•  ì 
 
 
-//¿¹¿Ü¸¦ ´øÁøÈÄ¿¡ catch ÇØ¼­ ÇÏ´Â ÀÛ¾÷µéÀ» ÇÔ¼ö³ª Å¬·¡½º·Î µû·Î Á¤ÀÇ¸¦ ÇÏ°í ½ÍÀ»¶§ ¿¹¿ÜÅ¬·¡½º »ç¿ë
+//ì˜ˆì™¸ë¥¼ ë˜ì§„í›„ì— catch í•´ì„œ í•˜ëŠ” ìž‘ì—…ë“¤ì„ í•¨ìˆ˜ë‚˜ í´ëž˜ìŠ¤ë¡œ ë”°ë¡œ ì •ì˜ë¥¼ í•˜ê³  ì‹¶ì„ë•Œ ì˜ˆì™¸í´ëž˜ìŠ¤ ì‚¬ìš©
 
-//»ó¼ÓÀ» »ç¿ëÇÒ¶§ catch ÀÇ ¼ø¼­¿¡ µû¶ó ÀÚ½Ä Å¬·¡½º¸¦ ´øÁ®¼­ ÀÚ½Ä Å¬·¡½º catch °¡ Àâ¾Æ¾ß ÇÏ´Âµ¥
-//ºÎ¸ðÅ¬·¡½º°¡ ¸ÕÀú ÀÖÀ»°æ¿ì ºÎ¸ðÅ¬·¡½º¿¡¼­ Àâ¾Æ¹ö¸², ÇØ°áÃ¥Àº ÀÚ½Ä Å¬·¡½º catch ¸¦ ¸ÕÀú ½áÁÖ±â
+//ìƒì†ì„ ì‚¬ìš©í• ë•Œ catch ì˜ ìˆœì„œì— ë”°ë¼ ìžì‹ í´ëž˜ìŠ¤ë¥¼ ë˜ì ¸ì„œ ìžì‹ í´ëž˜ìŠ¤ catch ê°€ ìž¡ì•„ì•¼ í•˜ëŠ”ë°
+//ë¶€ëª¨í´ëž˜ìŠ¤ê°€ ë¨¼ì € ìžˆì„ê²½ìš° ë¶€ëª¨í´ëž˜ìŠ¤ì—ì„œ ìž¡ì•„ë²„ë¦¼, í•´ê²°ì±…ì€ ìžì‹ í´ëž˜ìŠ¤ catch ë¥¼ ë¨¼ì € ì¨ì£¼ê¸°
 
-//¿¹¿Ü¸¦ ´Ù Àâ¾ÒÁö¸¸ ¹Û¿¡¼­(¿¹Á¦ÀÇ °æ¿ì main()) ¿¡¼­ ´Ù½Ã Ã³¸®¸¦ ÇØ¾ßÇÏ°Å³ª ÇÏ°í½ÍÀº °æ¿ì
-//´Ù½Ã ¿¹¿Ü¸¦ ´øÁö¸é µÊ (Re-throw)
+//ì˜ˆì™¸ë¥¼ ë‹¤ ìž¡ì•˜ì§€ë§Œ ë°–ì—ì„œ(ì˜ˆì œì˜ ê²½ìš° main()) ì—ì„œ ë‹¤ì‹œ ì²˜ë¦¬ë¥¼ í•´ì•¼í•˜ê±°ë‚˜ í•˜ê³ ì‹¶ì€ ê²½ìš°
+//ë‹¤ì‹œ ì˜ˆì™¸ë¥¼ ë˜ì§€ë©´ ë¨ (Re-throw)
 
-//throw; ´Â ¹ÞÀÚ¸¶ÀÚ ±×´ë·Î ´Ù½Ã ´øÁö°í 
-//throw e; ´Â ¹Þ¾Æ¼­ ´øÁö¸é °´Ã¼Àß¸² Çö»óÀÌ ÀÏ¾î³²
+//throw; ëŠ” ë°›ìžë§ˆìž ê·¸ëŒ€ë¡œ ë‹¤ì‹œ ë˜ì§€ê³  
+//throw e; ëŠ” ë°›ì•„ì„œ ë˜ì§€ë©´ ê°ì²´ìž˜ë¦¼ í˜„ìƒì´ ì¼ì–´ë‚¨
 
 #include <iostream>
 
@@ -32,7 +32,7 @@ public:
 class ArrayException :public Exception
 {
 public:
-	void report()  //report() ¸¦ ¿À¹ö¶óÀÌµù ÇÏ°í ÀÖÀ½
+	void report()  //report() ë¥¼ ì˜¤ë²„ë¼ì´ë”© í•˜ê³  ìžˆìŒ
 	{
 		cerr << "Arrary exception" << endl;
 	}
@@ -48,19 +48,19 @@ private:
 public:
 	int& operator [] (const int& index)
 	{
-		//¸â¹ö ÇÔ¼ö ¾È¿¡¼­ throw ¸¦ ÇÒ ¼ö ÀÖÀ½
+		//ë©¤ë²„ í•¨ìˆ˜ ì•ˆì—ì„œ throw ë¥¼ í•  ìˆ˜ ìžˆìŒ
 		//if (index < 0 || index >= 5)throw - 1;  
 		
-		//ÀÌ·¸°Ô ±âº»ÇüÀ¸·Î¸¸ ¿¹¿Ü¸¦ ´øÁø´Ù¸é Ç¥ÇöÇÏÁö ¸øÇÏ´Â°Ô ¸¹À½
-		//¿¹¿Ü¸¦ ´øÁøÈÄ¿¡ catch ÇØ¼­ ÇÏ´Â ÀÛ¾÷µéÀ» ÇÔ¼ö³ª Å¬·¡½º·Î µû·Î Á¤ÀÇ¸¦ ÇÏ°í ½ÍÀ»¶§ ¿¹¿ÜÅ¬·¡½º »ç¿ë
+		//ì´ë ‡ê²Œ ê¸°ë³¸í˜•ìœ¼ë¡œë§Œ ì˜ˆì™¸ë¥¼ ë˜ì§„ë‹¤ë©´ í‘œí˜„í•˜ì§€ ëª»í•˜ëŠ”ê²Œ ë§ŽìŒ
+		//ì˜ˆì™¸ë¥¼ ë˜ì§„í›„ì— catch í•´ì„œ í•˜ëŠ” ìž‘ì—…ë“¤ì„ í•¨ìˆ˜ë‚˜ í´ëž˜ìŠ¤ë¡œ ë”°ë¡œ ì •ì˜ë¥¼ í•˜ê³  ì‹¶ì„ë•Œ ì˜ˆì™¸í´ëž˜ìŠ¤ ì‚¬ìš©
 
 
-		//Exception class ¸¦ ÇÏ³ª ¸¸µé¾î¼­ ´øÁü
+		//Exception class ë¥¼ í•˜ë‚˜ ë§Œë“¤ì–´ì„œ ë˜ì§
 		//if (index < 0 || index >= 5)throw Exception();
 		
 
-		//»ó¼ÓÀ» »ç¿ëÇÒ¶© ÁÖÀÇ°¡ ÇÊ¿äÇÔ
-		//ArrayException À» throw
+		//ìƒì†ì„ ì‚¬ìš©í• ë• ì£¼ì˜ê°€ í•„ìš”í•¨
+		//ArrayException ì„ throw
 		if (index < 0 || index >= 5)throw ArrayException();
 
 		return m_data[index];
@@ -73,33 +73,33 @@ void doSomething()
 
 	try
 	{
-		my_array[100];  //0,1,2,3,4 ¸¸ µé¾î°¡¾ß ÇÏ´Â ÀÚ¸®¿¡ 100ÀÌ¶ó´Â Å«°ªÀ» ³ÖÀ½,¿¹¿Ü°¡ throw µÉ°ÍÀÓ
+		my_array[100];  //0,1,2,3,4 ë§Œ ë“¤ì–´ê°€ì•¼ í•˜ëŠ” ìžë¦¬ì— 100ì´ë¼ëŠ” í°ê°’ì„ ë„£ìŒ,ì˜ˆì™¸ê°€ throw ë ê²ƒìž„
 	}
 	catch (const int& x)
 	{
 		cerr << "Exception " << x << endl;
 	}
-	//ArrayException À» ¹Þ´Â catch ¸¦ Ãß°¡ÇØÁÜ
-	//ºÎ¸ðÅ¬·¡½º°¡ ÀÚ½ÄÅ¬·¡½ºº¸´Ù ¸ÕÀú Àâ´Â °æ¿ì¸¦ ÇÇÇÏ±â À§ÇØ ¸ÕÀú ½áÁÜ
+	//ArrayException ì„ ë°›ëŠ” catch ë¥¼ ì¶”ê°€í•´ì¤Œ
+	//ë¶€ëª¨í´ëž˜ìŠ¤ê°€ ìžì‹í´ëž˜ìŠ¤ë³´ë‹¤ ë¨¼ì € ìž¡ëŠ” ê²½ìš°ë¥¼ í”¼í•˜ê¸° ìœ„í•´ ë¨¼ì € ì¨ì¤Œ
 	catch (ArrayException& e)
 	{
 		cout << "doSomething()" << endl;
 		e.report();
 
-		//±×·¯³ª ¾î¶² °æ¿ì ¹Û¿¡¼­ ¶Ç Ã³¸®¸¦ ÇÏ°í ½ÍÀº °æ¿ì°¡ ÀÖÀ½
-	    //catch ¸¦ ÇÑ°ÍÀ» ´Ù½Ã ´øÁú ¼ö ÀÖÀ½(Re-throw)
+		//ê·¸ëŸ¬ë‚˜ ì–´ë–¤ ê²½ìš° ë°–ì—ì„œ ë˜ ì²˜ë¦¬ë¥¼ í•˜ê³  ì‹¶ì€ ê²½ìš°ê°€ ìžˆìŒ
+	    //catch ë¥¼ í•œê²ƒì„ ë‹¤ì‹œ ë˜ì§ˆ ìˆ˜ ìžˆìŒ(Re-throw)
 		throw e;
-		//¿©±â¼­ ´Ù½Ã ´øÁø´Ù°í ÇØ¼­ doSomething() ¿¡¼­ catch ÇÏÁö ¾ÊÀ½
+		//ì—¬ê¸°ì„œ ë‹¤ì‹œ ë˜ì§„ë‹¤ê³  í•´ì„œ doSomething() ì—ì„œ catch í•˜ì§€ ì•ŠìŒ
 	}
-	//Exception class ¸¦ ¹Þ¾ÆÁÖ´Â catch °¡ ÇÏ³ª ÀÖ¾î¾ßµÊ
+	//Exception class ë¥¼ ë°›ì•„ì£¼ëŠ” catch ê°€ í•˜ë‚˜ ìžˆì–´ì•¼ë¨
 	catch (Exception& e)
 	{
 		cout << "doSomething()" << endl;
 		e.report();
 	}
 	/*
-	//ArrayException À» ¹Þ´Â catch ¸¦ Ãß°¡ÇØÁÜ
-	//ºÎ¸ðÅ¬·¡½º°¡ ÀÚ½ÄÅ¬·¡½ºº¸´Ù ¸ÕÀú Àâ´Â °æ¿ì¸¦ ÇÇÇÏ±â À§ÇØ ¸ÕÀú ½áÁÜ
+	//ArrayException ì„ ë°›ëŠ” catch ë¥¼ ì¶”ê°€í•´ì¤Œ
+	//ë¶€ëª¨í´ëž˜ìŠ¤ê°€ ìžì‹í´ëž˜ìŠ¤ë³´ë‹¤ ë¨¼ì € ìž¡ëŠ” ê²½ìš°ë¥¼ í”¼í•˜ê¸° ìœ„í•´ ë¨¼ì € ì¨ì¤Œ
 	catch (ArrayException& e)
 	{
 		e.report();
@@ -125,11 +125,11 @@ void doSomething_new()
 		cout << "doSomething_new()" << endl;
 		e.report();
 
-		//ºÎ¸ð Å¬·¡½º¿¡ ´ëÇØ¼­¸¸ ¿¹¿ÜÃ³¸®¸¦ ÇÏ°í ±¸Ã¼ÀûÀÎ ³»¿ëÀº re-throw ¸¦ ÇÏ°í 
-		//¹Û¿¡¼­ ¹Þ¾Æ¼­ Ã³¸®¸¦ ÇÏ°í ½ÍÀº °æ¿ì
+		//ë¶€ëª¨ í´ëž˜ìŠ¤ì— ëŒ€í•´ì„œë§Œ ì˜ˆì™¸ì²˜ë¦¬ë¥¼ í•˜ê³  êµ¬ì²´ì ì¸ ë‚´ìš©ì€ re-throw ë¥¼ í•˜ê³  
+		//ë°–ì—ì„œ ë°›ì•„ì„œ ì²˜ë¦¬ë¥¼ í•˜ê³  ì‹¶ì€ ê²½ìš°
 
-		//throw e;		//e ¸¦ ´øÁö¸é ¹Û(main() ¿¡¼­ ºÎ¸ðÅ¬·¡½º°¡ Àâ¾Æ¹ö¸²)
-		throw;			//¶È°°Àº re-throw ÀÌ±ä ÇÏÁö¸¸ ±×³É ¹Þ¾Æ¼­ ¹Ù·Î ´øÁ®¹ö¸²
+		//throw e;		//e ë¥¼ ë˜ì§€ë©´ ë°–(main() ì—ì„œ ë¶€ëª¨í´ëž˜ìŠ¤ê°€ ìž¡ì•„ë²„ë¦¼)
+		throw;			//ë˜‘ê°™ì€ re-throw ì´ê¸´ í•˜ì§€ë§Œ ê·¸ëƒ¥ ë°›ì•„ì„œ ë°”ë¡œ ë˜ì ¸ë²„ë¦¼
 	}
 	
 }
@@ -137,30 +137,35 @@ void doSomething_new()
 int main()
 {
 	//doSomething();
+	
+	//try ì™€ catch ëŠ” í•œ ìŒìœ¼ë¡œ ìƒê°í•˜ê¸°, try ì™€ catch ì‚¬ì´ì— êµ¬ë¬¸ í•˜ë‚˜ë§Œ ìžˆì–´ë„ ì»´íŒŒì¼ ì—ëŸ¬ê°€ ë°œìƒí•¨
+	//doSomething() ì•ˆì—ì„œ ì˜ˆì™¸ë¥¼ ë˜ì§€ê³  ë‹¤ì‹œ re-throw í•˜ê³  ìžˆì§€ë§Œ ë°›ëŠ” catch ê°€ ì—†ìŒ
+	//ì˜ˆì™¸ë¥¼ ë°›ê¸° ìœ„í•œ catch ê°€ ìžˆê¸´ ìœ„í•´ì„œ try ë„ ìžˆì–´ì•¼ í•˜ëŠ”ë° ë‘˜ë‹¤ ì—†ìœ¼ë‹ˆ ê·¸ëƒ¥ ì˜ˆì™¸ ë°œìƒìœ¼ë¡œ ì—ëŸ¬ ë°œìƒ
+	
 
 
-	//Exception class ¸¦ »ó¼ÓÇÑ ArrayException class ¸¦ throw ÇÒ¶§ ½ÇÇà½ÃÅ°¸é
-	//ArrayExceptionÀ» ¹Þ¾ÆÁÖ´Â catch °¡ ¾ø±â¶§¹®¿¡ Exception À» ¹Þ´Â catch°¡ Àâ¾ÆÁÖ°í(»ó¼Ó ±¸Á¶¶ó Àâ´Â°Ô °¡´É)
-	//Exception ÀÇ report °¡ ³ª¿È (°´Ã¼ Àß¸² Çö»ó ¶§¹®)
+	//Exception class ë¥¼ ìƒì†í•œ ArrayException class ë¥¼ throw í• ë•Œ ì‹¤í–‰ì‹œí‚¤ë©´
+	//ArrayExceptionì„ ë°›ì•„ì£¼ëŠ” catch ê°€ ì—†ê¸°ë•Œë¬¸ì— Exception ì„ ë°›ëŠ” catchê°€ ìž¡ì•„ì£¼ê³ (ìƒì† êµ¬ì¡°ë¼ ìž¡ëŠ”ê²Œ ê°€ëŠ¥)
+	//Exception ì˜ report ê°€ ë‚˜ì˜´ (ê°ì²´ ìž˜ë¦¼ í˜„ìƒ ë•Œë¬¸)
 
-	//ArrayException À» ¹Þ´Â catch ¸¦ Ãß°¡ÇØÁÖ¸é ¿©ÀüÈ÷ Exception report °¡ ³ª¿È
+	//ArrayException ì„ ë°›ëŠ” catch ë¥¼ ì¶”ê°€í•´ì£¼ë©´ ì—¬ì „ížˆ Exception report ê°€ ë‚˜ì˜´
 	//warning C4286: 'ArrayException &': is caught by base class ('Exception &')
-	//Exception ÀÌ ¸ÕÀú catch ÇØ¹ö·Á¼­ ÀÚ½ÄÅ¬·¡½º°¡ catch °¡ ¾ÈµÊ
-	//ÇØ°áÃ¥ : ÀÚ½ÄÅ¬·¡½º catch °¡ ¸ÕÀú Àâ¾Æ¹ö¸®°Ô ¸ÕÀú ½áÁÜ
+	//Exception ì´ ë¨¼ì € catch í•´ë²„ë ¤ì„œ ìžì‹í´ëž˜ìŠ¤ê°€ catch ê°€ ì•ˆë¨
+	//í•´ê²°ì±… : ìžì‹í´ëž˜ìŠ¤ catch ê°€ ë¨¼ì € ìž¡ì•„ë²„ë¦¬ê²Œ ë¨¼ì € ì¨ì¤Œ
 
 
 
-	//doSomthing() ÀÌ main() ¿¡ ÀÇÇØ È£ÃâµÇ¾î °ãÀ¸·Î µé¾î°¡´Â ±¸Á¶
-	//main() ¿¡¼­ try catch ¸¸µé±â
-	//doSomething() ¿¡¼­ ´Ù Àâ¾Æ¹ö¸² (¾Õ °­ÀÇ¿Í ¹Ý´ë)
+	//doSomthing() ì´ main() ì— ì˜í•´ í˜¸ì¶œë˜ì–´ ê²¹ìœ¼ë¡œ ë“¤ì–´ê°€ëŠ” êµ¬ì¡°
+	//main() ì—ì„œ try catch ë§Œë“¤ê¸°
+	//doSomething() ì—ì„œ ë‹¤ ìž¡ì•„ë²„ë¦¼ (ì•ž ê°•ì˜ì™€ ë°˜ëŒ€)
 	try
 	{
 		doSomething();
 	}
-	//doSomething() ¿¡¼­ ¿¹¿Ü¸¦ ´Ù Àâ¾Æ¹ö·È±â ¶§¹®¿¡ ÀÌ catch ´Â ¹«½ÃµÇ°í ÀÖÀ½
-	//±×·¯³ª ¾î¶² °æ¿ì ¹Û¿¡¼­ ¶Ç Ã³¸®¸¦ ÇÏ°í ½ÍÀº °æ¿ì°¡ ÀÖÀ½
-	//catch ¸¦ ÇÑ°ÍÀ» ´Ù½Ã ´øÁú ¼ö ÀÖÀ½(Re-throw)
-	//re-throw ¸¦ ÇÏ°Ô µÇ¸é ¹Ù±ùÂÊ(Áö±ÝÀº main()) ¿¡ ÀÖ´Â catch ¿¡¼­ ÇÑ¹ø ´õ ¹Þ¾ÆÁÜ
+	//doSomething() ì—ì„œ ì˜ˆì™¸ë¥¼ ë‹¤ ìž¡ì•„ë²„ë ¸ê¸° ë•Œë¬¸ì— ì´ catch ëŠ” ë¬´ì‹œë˜ê³  ìžˆìŒ
+	//ê·¸ëŸ¬ë‚˜ ì–´ë–¤ ê²½ìš° ë°–ì—ì„œ ë˜ ì²˜ë¦¬ë¥¼ í•˜ê³  ì‹¶ì€ ê²½ìš°ê°€ ìžˆìŒ
+	//catch ë¥¼ í•œê²ƒì„ ë‹¤ì‹œ ë˜ì§ˆ ìˆ˜ ìžˆìŒ(Re-throw)
+	//re-throw ë¥¼ í•˜ê²Œ ë˜ë©´ ë°”ê¹¥ìª½(ì§€ê¸ˆì€ main()) ì— ìžˆëŠ” catch ì—ì„œ í•œë²ˆ ë” ë°›ì•„ì¤Œ
 	catch (ArrayException & e)  
 	{
 		cout << "main()" << endl;
@@ -169,12 +174,12 @@ int main()
 
 
 
-	//ºÎ¸ð Å¬·¡½º¿¡ ´ëÇØ¼­¸¸ ¿¹¿ÜÃ³¸®¸¦ ÇÏ°í ±¸Ã¼ÀûÀÎ ³»¿ëÀº re-throw ¸¦ ÇÏ°í 
-	//¹Û¿¡¼­ ¹Þ¾Æ¼­ Ã³¸®¸¦ ÇÏ°í ½ÍÀº °æ¿ì
-	//doSomething() ¿¡¼­ Exception À¸·Î ¹Þ¾Æ¼­ ´øÁö±ä ÇÏÁö¸¸ Ã³À½ ¿¹¿Ü¸¦ ´øÁú¶§
-	//ArrayException (ÀÚ½Ä Å¬·¡½º)À¸·Î ´øÁö±â ¶§¹®¿¡ main() ¿¡¼­ ¹ÞÀ»¶§µµ ÀÚ½ÄÅ¬·¡½º·Î ¹Þ±â¸¦ ±â´ëÇÔ
-	//throw; °¡ ¾Æ´Ï¶ó throw e; ¸¦ ÇÏ¸é °´Ã¼Àß¸²ÀÌ ÀÏ¾î³ª ÀÚ½ÄÅ¬·¡½º°¡ ¸ø¹Þ°í ºÎ¸ðÅ¬·¡½º°¡ ¹Þ¾Æ¹ö¸²
-	//throw; ·Î ´øÁö¸é °´Ã¼Àß¸²ÀÌ ¹ß»ýÇÏÁö ¾Ê°í ÀÚ½ÄÅ¬·¡½º·Î Àâ¾Æ¹ö¸²
+	//ë¶€ëª¨ í´ëž˜ìŠ¤ì— ëŒ€í•´ì„œë§Œ ì˜ˆì™¸ì²˜ë¦¬ë¥¼ í•˜ê³  êµ¬ì²´ì ì¸ ë‚´ìš©ì€ re-throw ë¥¼ í•˜ê³  
+	//ë°–ì—ì„œ ë°›ì•„ì„œ ì²˜ë¦¬ë¥¼ í•˜ê³  ì‹¶ì€ ê²½ìš°
+	//doSomething() ì—ì„œ Exception ìœ¼ë¡œ ë°›ì•„ì„œ ë˜ì§€ê¸´ í•˜ì§€ë§Œ ì²˜ìŒ ì˜ˆì™¸ë¥¼ ë˜ì§ˆë•Œ
+	//ArrayException (ìžì‹ í´ëž˜ìŠ¤)ìœ¼ë¡œ ë˜ì§€ê¸° ë•Œë¬¸ì— main() ì—ì„œ ë°›ì„ë•Œë„ ìžì‹í´ëž˜ìŠ¤ë¡œ ë°›ê¸°ë¥¼ ê¸°ëŒ€í•¨
+	//throw; ê°€ ì•„ë‹ˆë¼ throw e; ë¥¼ í•˜ë©´ ê°ì²´ìž˜ë¦¼ì´ ì¼ì–´ë‚˜ ìžì‹í´ëž˜ìŠ¤ê°€ ëª»ë°›ê³  ë¶€ëª¨í´ëž˜ìŠ¤ê°€ ë°›ì•„ë²„ë¦¼
+	//throw; ë¡œ ë˜ì§€ë©´ ê°ì²´ìž˜ë¦¼ì´ ë°œìƒí•˜ì§€ ì•Šê³  ìžì‹í´ëž˜ìŠ¤ë¡œ ìž¡ì•„ë²„ë¦¼
 	try
 	{
 		doSomething_new();
