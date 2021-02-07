@@ -1,4 +1,7 @@
-// ÀÌµ¿ »ı¼ºÀÚ( Move Construcotrs ) ¿Í ÀÌµ¿ ´ëÀÔ ( Move assignment )
+// ì´ë™ ìƒì„±ì( Move Construcotrs ) ì™€ ì´ë™ ëŒ€ì… ( Move assignment )
+
+
+//move ë¥¼ í•´ì¤„ìˆ˜ ìˆëŠ” ìƒí™©ì´ë©´ move ë¥¼ í•´ì¤Œ, ë³µì‚¬ëŠ” ìµœí›„ì˜ ìˆ˜ë‹¨ìœ¼ë¡œ ì‘ë™
 
 
 #include "ch15_03_Timer.h"
@@ -21,7 +24,7 @@ int main()
 	
 	streambuf* orig_buf = cout.rdbuf();
 
-	//Time ·Î ½Ã°£À» ÃøÁ¤ÇÒ¶§ cout log(¶Ç´Â ÆÄÀÏ Ãâ·Â) °¡ ÀÖÀ¸¸é ·Î±× Ãâ·Â¶§¹®¿¡ ½Ã°£ÀÌ ¸¹ÀÌ °É¸²
+	//Time ë¡œ ì‹œê°„ì„ ì¸¡ì •í• ë•Œ cout log(ë˜ëŠ” íŒŒì¼ ì¶œë ¥) ê°€ ìˆìœ¼ë©´ ë¡œê·¸ ì¶œë ¥ë•Œë¬¸ì— ì‹œê°„ì´ ë§ì´ ê±¸ë¦¼
 	//cout.rdbuf(NULL);	//disconnect cout from buffer
 
 	Timer timer;
@@ -29,7 +32,7 @@ int main()
 	{
 		AutoPtr<Resource> main_res;
 		cout << 1 << endl;
-		main_res = generateResource();		//ÇÔ¼ö°¡ return ÇØ¼­ µé¾î¿À´Â °ªÀº r-value,Áï ´Ù½Ã »ç¿ëÇÒ ÀÏÀÌ ¾øÀ½
+		main_res = generateResource();		//í•¨ìˆ˜ê°€ return í•´ì„œ ë“¤ì–´ì˜¤ëŠ” ê°’ì€ r-value,ì¦‰ ë‹¤ì‹œ ì‚¬ìš©í•  ì¼ì´ ì—†ìŒ
 		cout << 3 << endl;
 	}
 	
@@ -38,7 +41,7 @@ int main()
 	timer.elapsed();
 
 	
-	/* Release ¸ğµåÀÏ¶§ °á°ú: return ÇÒ¶§ º¹»ç, RVO Âü°í
+	/* Release ëª¨ë“œì¼ë•Œ ê²°ê³¼: return í• ë•Œ ë³µì‚¬, RVO ì°¸ê³ 
 	* 
 	AutoPtr default construcotr
 	1
@@ -57,18 +60,18 @@ int main()
 	
 
 
-	//move construtor, assignment ÀÏ¶§ ´õ ½Ã°£ÀÌ Àû°Ô °É¸²
-	//deep copy °¡ µÇ°í ¾ÈµÇ°í ÀÇ Â÷ÀÌÀÓ
-	//resource ÀÇ copy assignment³ª constructor °¡ È£ÃâµÇ´Â ºÎºĞÀÌ ¾øÀ½
+	//move construtor, assignment ì¼ë•Œ ë” ì‹œê°„ì´ ì ê²Œ ê±¸ë¦¼
+	//deep copy ê°€ ë˜ê³  ì•ˆë˜ê³  ì˜ ì°¨ì´ì„
+	//resource ì˜ copy assignmentë‚˜ constructor ê°€ í˜¸ì¶œë˜ëŠ” ë¶€ë¶„ì´ ì—†ìŒ
 
 
-	/*REalese ¸ğµå¿¡¼­  a.m_ptr = nullptr; ÇØÁáÀ»¶§
+	/*REalese ëª¨ë“œì—ì„œ  a.m_ptr = nullptr; í•´ì¤¬ì„ë•Œ
 	AutoPtr default construcotr
 	1
 	Resource length construcetd
 	AutoPtr default construcotr
 	2
-	AutoPtr move assignment			//deep copy ÇÏ´Â ºÎºĞÀÌ ¾øÀ½ 
+	AutoPtr move assignment			//deep copy í•˜ëŠ” ë¶€ë¶„ì´ ì—†ìŒ 
 	AutoPtr destructor
 	3
 	AutoPtr destructor
@@ -76,12 +79,12 @@ int main()
 	*/
 
 
-	//debug ¸ğµå¿¡¼± return ÇÒ¶§ »ı¼ºÀÚ°¡ È£ÃâµÊ, release ¸ğµå¿¡¼± È£ÃâµÇÁö ¾ÊÀ½, ÄÄÆÄÀÏ·¯°¡ ÃÖÀûÈ­(RVO) 
-	//¿¹Á¦´Â resource ¸¦ ÇÑ¹ø¸¸ »ı¼ºÇØ¼­ »ç¿ëÇÏ°í ÀÖ´Âµ¥ a.m_ptr = nullptr °¡ ¾øÀ¸¸é 
-	//µÎ¹ø Áö¿ì·Á°í ÇÔ, release ¸ğµå¿¡¼± ±×³É ÁøÇàÇÏÁö¸¸ debug ¸ğµå¿¡¼± ·±Å¸ÀÓ ¿¡·¯
+	//debug ëª¨ë“œì—ì„  return í• ë•Œ ìƒì„±ìê°€ í˜¸ì¶œë¨, release ëª¨ë“œì—ì„  í˜¸ì¶œë˜ì§€ ì•ŠìŒ, ì»´íŒŒì¼ëŸ¬ê°€ ìµœì í™”(RVO) 
+	//ì˜ˆì œëŠ” resource ë¥¼ í•œë²ˆë§Œ ìƒì„±í•´ì„œ ì‚¬ìš©í•˜ê³  ìˆëŠ”ë° a.m_ptr = nullptr ê°€ ì—†ìœ¼ë©´ 
+	//ë‘ë²ˆ ì§€ìš°ë ¤ê³  í•¨, release ëª¨ë“œì—ì„  ê·¸ëƒ¥ ì§„í–‰í•˜ì§€ë§Œ debug ëª¨ë“œì—ì„  ëŸ°íƒ€ì„ ì—ëŸ¬
 
-	//º¹»ç »ı¼ºÀÚ¿Í ´ëÀÔ¿¬»êÀÚ¸¦ ÁÖ¼®Ã³¸® ¾ÊÇØµµ & ¿Í && °¡ ¿À¹ö·ÎµùÀÌ °¡´ÉÇÏ±â ¶§¹®¿¡ 
-	//¿ì¸®°¡ ¿øÇÏ´Â move »ı¼ºÀÚ¿Í ´ëÀÔ¿¬»êÀÚ·Î Àß ÀÛµ¿ÇÔ
+	//ë³µì‚¬ ìƒì„±ìì™€ ëŒ€ì…ì—°ì‚°ìë¥¼ ì£¼ì„ì²˜ë¦¬ ì•Ší•´ë„ & ì™€ && ê°€ ì˜¤ë²„ë¡œë”©ì´ ê°€ëŠ¥í•˜ê¸° ë•Œë¬¸ì— 
+	//ìš°ë¦¬ê°€ ì›í•˜ëŠ” move ìƒì„±ìì™€ ëŒ€ì…ì—°ì‚°ìë¡œ ì˜ ì‘ë™í•¨
 
 
 	return 0;
