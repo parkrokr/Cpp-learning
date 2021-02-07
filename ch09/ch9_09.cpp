@@ -68,7 +68,7 @@ int main()
 	//Fraction fr_copy = frac;  //copy initialization 의 경우도 copy constructor 이 호출됨
 	
 	//Fraction fr_copy(Fraction(3, 10));
-	//이 경우 복사생자가 호출되지 않음, 컴파일러가 Fraction fr_copy(3,10); 으로 바꿈
+	//이 경우 복사생성자가 호출되지 않음, 컴파일러가 Fraction fr_copy(3,10); 으로 바꿈
 
 
 	cout << frac << " " << fr_copy << endl;
