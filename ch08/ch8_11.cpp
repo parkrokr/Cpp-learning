@@ -98,7 +98,7 @@ int main()
 	cout <<(s2.*fptr1)() << endl;
 	//멤버함수의 포인터는 실행시킬때 실행시킬때 s2라는 instance의 포인터를 함께 넣어줘야 실행 가능
 
-	//non-static 멤버 함수는 instance 에 종속되어 있기 때문에 intace 의 this 포인터가 있어야 작동가능
+	//non-static 멤버 함수는 instance 에 종속되어 있기 때문에 intance 의 this 포인터가 있어야 작동가능
 	//cout<<(*fptr1)()<<endl; 불가능
 
 
@@ -106,7 +106,7 @@ int main()
 	//static member function		//특정 instace 와 상관없이 실행시킬 수 있는 포인터 형태
 
 	//int (Somthing:: * fptr2)() = &Somthing::getValue;   //안됨
-	int (*fptr2)() = &Something::getValue; //특정 instace 와 상관없이 실행시킬 수 있는 포인터 형태
+	int (*fptr2)() = &Something::getValue; //특정 instace 와 상관없이 실행시킬 수 있는 포인터 형태, 일반 함수포인터처럼 사용가능
 
 	cout << fptr2() << endl;  //특정 instace 와 연결안해도 실행이 됨
 
