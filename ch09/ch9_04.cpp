@@ -1,6 +1,8 @@
-// ºñ±³ ¿¬»êÀÚ ( ==, != , > , >= ) ¿À¹ö·ÎµùÇÏ±â
+// ë¹„êµ ì—°ì‚°ìž ( ==, != , > , >= ) ì˜¤ë²„ë¡œë”©í•˜ê¸°
 
-//std::shuffle ¸¦ ±¸ÇöÇÏ±â À§ÇØ¼± < (less than) À» ±¸ÇöÇØ¾ßµÊ
+//std::shuffle ë¥¼ êµ¬í˜„í•˜ê¸° ìœ„í•´ì„  < (less than) ì„ êµ¬í˜„í•´ì•¼ë¨
+
+//priority queue ì— ì‚¬ìš©ìž ì •ì˜ ìžë£Œí˜•ì„ ë„£ì„ë•Œ ë¹„êµì—°ì‚°ìžë¥¼ ì˜¤ë²„ë¡œë”© í•´ì¤˜ì•¼ë¨
 
 
 #include <iostream>
@@ -27,7 +29,7 @@ public:
 		return out;
 	}
 
-	// == ¿¬»êÀÚ ¿À¹ö·Îµù 
+	// == ì—°ì‚°ìž ì˜¤ë²„ë¡œë”© 
 	friend bool operator == (const Cents & c1, const Cents & c2)
 	{
 		return c1.m_cents == c2.m_cents;
@@ -38,11 +40,11 @@ public:
 		return c1.m_cents != c2.m_cents;
 	}
 
-	//Å©±âºñ±³ ¿¬»êÀÚ ¿À¹ö·Îµù
-	//std::sort ¸¦ ±¸ÇöÇÏ±â À§ÇØ¼± > °¡ ¾Æ´Ñ < ¸¦ ±¸ÇöÇØ¾ßÇÔ
+	//í¬ê¸°ë¹„êµ ì—°ì‚°ìž ì˜¤ë²„ë¡œë”©
+	//std::sort ë¥¼ êµ¬í˜„í•˜ê¸° ìœ„í•´ì„  > ê°€ ì•„ë‹Œ < ë¥¼ êµ¬í˜„í•´ì•¼í•¨
 	friend bool operator < (const Cents& c1, const Cents& c2)
 	{
-		return c1.m_cents < c2.m_cents;  // > ·Î ¹Ù²Ù¸é ¿ª¼øÀ¸·Î Á¤·ÄµÊ,½ÇÀü¿¡¼± ¹ö±×³¯¼ö ÀÖÀ¸´Ï »ç¿ëX
+		return c1.m_cents < c2.m_cents;  // > ë¡œ ë°”ê¾¸ë©´ ì—­ìˆœìœ¼ë¡œ ì •ë ¬ë¨,ì‹¤ì „ì—ì„  ë²„ê·¸ë‚ ìˆ˜ ìžˆìœ¼ë‹ˆ ì‚¬ìš©X
 	}
 
 };
@@ -73,15 +75,15 @@ int main()
 		cout << e << " ";
 	cout << endl;
 
-	//C++ 17 ¿¡¼­ std::random_shuffle ÀÌ Æó±â(deprecated) µÇ¾ú½¿
-	//C++ 17 ÀÌ»ó ÄÄÆÄÀÏ·¯¿¡¼­´Â ¾Æ·¡¿Í °°ÀÌ std::shuffle ¸¦ »ç¿ëÇÒ ¼ö ÀÖÀ½
+	//C++ 17 ì—ì„œ std::random_shuffle ì´ íê¸°(deprecated) ë˜ì—ˆìŠ´
+	//C++ 17 ì´ìƒ ì»´íŒŒì¼ëŸ¬ì—ì„œëŠ” ì•„ëž˜ì™€ ê°™ì´ std::shuffle ë¥¼ ì‚¬ìš©í•  ìˆ˜ ìžˆìŒ
 	
 	// . . .  . . .
 	//std::random_device rd;
 	//std::mt199937 g(rd());
 	//std::shuffle(arr.begin(), arr.end(), g);
 
-	//¶Ç´Â
+	//ë˜ëŠ”
 	//unsigned seed =
 	//std::chrono::system_clock::now().time_science_epoch().count();
 	//std::shuffle(begin(arr),end(arr), 
@@ -89,7 +91,7 @@ int main()
 
 
 	//sort
-	std::sort(begin(arr), end(arr));  //sort ¸¦ ÇÏ±â À§ÇØ¼­ Å©±âºñ±³ÇÏ´Â ¿¬»êÀÚ¸¦ ¿À¹ö·Îµù ÇØÁà¾ßÇÔ(¾ÈÇÏ¸é ¿¡·¯)
+	std::sort(begin(arr), end(arr));  //sort ë¥¼ í•˜ê¸° ìœ„í•´ì„œ í¬ê¸°ë¹„êµí•˜ëŠ” ì—°ì‚°ìžë¥¼ ì˜¤ë²„ë¡œë”© í•´ì¤˜ì•¼í•¨(ì•ˆí•˜ë©´ ì—ëŸ¬)
 
 	for (auto& e : arr)
 		cout << e << " ";
