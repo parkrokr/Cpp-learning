@@ -1,6 +1,6 @@
 namespace Constants
 {
-	// ´Ù¸¥ cppÆÄÀÏ¿¡¼­µµ »ç¿ëÇØ¾ß ÇÏ±â ‹š¹®¿¡ extern
+	// ë‹¤ë¥¸ cpp íŒŒì¼ì—ì„œë„ ì‚¬ìš©í•´ì•¼ í•˜ê¸° ë•Œë¬¸ì— extern
 	extern const double pi(3.141592);
 	extern const double gravity(9.8);
 	// . . .
