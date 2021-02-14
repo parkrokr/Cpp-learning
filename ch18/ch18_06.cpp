@@ -103,7 +103,7 @@ int main()
 		}
 
 		//아스키 읽기
-		while (ifs)		//끝까지 다 읽으면 ifs 가 false 를 반환함, 정확히는 eofbit를 반환하고 while 이 이를 읽어 종료
+		while (ifs)		//끝까지 다 읽으면 ifs 가 false 를 반환함, 정확히는 flag eofbit 가 파일의 끝에서 false 를 반환
 		{
 			std::string str;
 			getline(ifs, str);		//한줄씩 읽어옴
