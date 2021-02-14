@@ -1,10 +1,10 @@
-// ±âº»ÀûÀÎ ÆÄÀÏ ÀÔÃâ·Â
+// ê¸°ë³¸ì ì¸ íŒŒì¼ ìž…ì¶œë ¥
 
-//ÆÄÀÏ ÀÔÃâ·ÂÀº ¿¹¿ÜÃ³¸®³ª ¿¹»óµÇ´Â ¿À·ù¿¡ ´ëÇØ¼­ ½ÅÁßÇÏ°Ô Ã³¸®ÇÒ ÇÊ¿ä°¡ ÀÖÀ½
+//íŒŒì¼ ìž…ì¶œë ¥ì€ ì˜ˆì™¸ì²˜ë¦¬ë‚˜ ì˜ˆìƒë˜ëŠ” ì˜¤ë¥˜ì— ëŒ€í•´ì„œ ì‹ ì¤‘í•˜ê²Œ ì²˜ë¦¬í•  í•„ìš”ê°€ ìžˆìŒ
 
-//¾Æ½ºÅ° Æ÷¸äÀ¸·Î µ¥ÀÌÅÍ¸¦ ´Ù ÀúÀåÇÏ¸é ¾öÃ» ´À·ÁÁö°Ô µÊ
-//binary ÆÄÀÏÀ» ¸Þ¸ðÀå°°Àº ¹®¼­ ÇÁ·Î±×·¥À¸·Î´Â È®ÀÎÀ» ¸øÇÔ
-//±×·¡¼­ ÀÌ·± binary ÀÔÃâ·Â ÆÄÀÏÀ» ´Ù·ê¶§´Â µð¹ö±ë¿¡ ½Å°æÀ» ½á¾ßÇÔ
+//ì•„ìŠ¤í‚¤ í¬ë©§ìœ¼ë¡œ ë°ì´í„°ë¥¼ ë‹¤ ì €ìž¥í•˜ë©´ ì—„ì²­ ëŠë ¤ì§€ê²Œ ë¨
+//binary íŒŒì¼ì„ ë©”ëª¨ìž¥ê°™ì€ ë¬¸ì„œ í”„ë¡œê·¸ëž¨ìœ¼ë¡œëŠ” í™•ì¸ì„ ëª»í•¨
+//ê·¸ëž˜ì„œ ì´ëŸ° binary ìž…ì¶œë ¥ íŒŒì¼ì„ ë‹¤ë£°ë•ŒëŠ” ë””ë²„ê¹…ì— ì‹ ê²½ì„ ì¨ì•¼í•¨
 
 #include <iostream>
 #include <fstream>
@@ -16,127 +16,127 @@ using namespace std;
 
 int main()
 {
-	//¾Æ½ºÅ° Æ÷¸ä ÆÄÀÏ ÀúÀå, ÀÐ±â
-	//"ch18_06_my_first_file.dat" Áö±ÝÀº ÆÄÀÏÀÇ È®ÀåÀÚ¸íÀÌ .dat Áö¸¸ º¸Åë ¾Æ½ºÅ° Æ÷¸ä¿¡¼­´Â .txt ¸¦ ¸¹ÀÌ »ç¿ëÇÔ
+	//ì•„ìŠ¤í‚¤ í¬ë©§ íŒŒì¼ ì €ìž¥, ì½ê¸°
+	//"ch18_06_my_first_file.dat" ì§€ê¸ˆì€ íŒŒì¼ì˜ í™•ìž¥ìžëª…ì´ .dat ì§€ë§Œ ë³´í†µ ì•„ìŠ¤í‚¤ í¬ë©§ì—ì„œëŠ” .txt ë¥¼ ë§Žì´ ì‚¬ìš©í•¨
 
 	//writing
 	if (true)
 	{
 		//output file stream
 
-		//»ý¼ºÀÚÀÇ paramter ·Î ÆÄÀÏ¸íÀ» ³Ö±â
+		//ìƒì„±ìžì˜ paramter ë¡œ íŒŒì¼ëª…ì„ ë„£ê¸°
 		ofstream ofs("ch18_06_my_first_file.dat");		
-			//my_first_file.dat¶õ ÆÄÀÏÀÌ ¾øÀ¸¸é ¸¸µé¾îÁÜ
-			//Á¸ÀçÇÑ´Ù¸é ±× ÆÄÀÏÀ» ¿­¼öµµ ÀÖ°í Áö¿ö¹ö¸®°í »õ·Î ¸¸µé¼öµµ ÀÖÀ½
-			//ios::app (append), ios::binary °°Àº ÇÃ·¡±×¸¦ »ç¿ëÇØ Ãâ·ÂÀ» Á¶Á¤ÇÒ ¼ö ÀÖÀ½
+			//my_first_file.datëž€ íŒŒì¼ì´ ì—†ìœ¼ë©´ ë§Œë“¤ì–´ì¤Œ
+			//ì¡´ìž¬í•œë‹¤ë©´ ê·¸ íŒŒì¼ì„ ì—´ìˆ˜ë„ ìžˆê³  ì§€ì›Œë²„ë¦¬ê³  ìƒˆë¡œ ë§Œë“¤ìˆ˜ë„ ìžˆìŒ
+			//ios::app (append), ios::binary ê°™ì€ í”Œëž˜ê·¸ë¥¼ ì‚¬ìš©í•´ ì¶œë ¥ì„ ì¡°ì •í•  ìˆ˜ ìžˆìŒ
 
-		//ofstream ofs("ch18_06_my_first_file.dat", ios::app); //append ¸ðµå
-			//ÆÄÀÏÀÌ ÀÌ¹Ì Á¸ÀçÇÒ°æ¿ì ±× µÚ¿¡ ÀÌ¾î¼­ ÀÛ¾÷ÇÔ, Line 1\n Line 2 °¡ °è¼Ó µ¡ºÙ¿©Áü
+		//ofstream ofs("ch18_06_my_first_file.dat", ios::app); //append ëª¨ë“œ
+			//íŒŒì¼ì´ ì´ë¯¸ ì¡´ìž¬í• ê²½ìš° ê·¸ ë’¤ì— ì´ì–´ì„œ ìž‘ì—…í•¨, Line 1\n Line 2 ê°€ ê³„ì† ë§ë¶™ì—¬ì§
 
 		
-		//ofs.open("my_first_file.dat");		//ÀÌ·¸°Ô º°µµ·Î open() À¸·Î ¿­ ¼ö ÀÖÀ½
+		//ofs.open("my_first_file.dat");		//ì´ë ‡ê²Œ ë³„ë„ë¡œ open() ìœ¼ë¡œ ì—´ ìˆ˜ ìžˆìŒ
 												
 
-		if (!ofs)		//ÆÄÀÏÀ» ¿­Áö ¸øÇÏ¸é °æ°í¸¦ ¶ç¿ò
+		if (!ofs)		//íŒŒì¼ì„ ì—´ì§€ ëª»í•˜ë©´ ê²½ê³ ë¥¼ ë„ì›€
 		{
 			cerr << "Couldn't open file" << endl;
 			exit(1);
 		}
-		//ÆÄÀÏ ÀÔÃâ·ÂÀº ¿¹¿ÜÃ³¸®³ª ÀÌ·¸°Ô ¿¹»óµÇ´Â ¿À·ù¿¡ ´ëÇØ¼­ ½ÅÁßÇÏ°Ô Ã³¸®ÇÒ ÇÊ¿ä°¡ ÀÖÀ½
+		//íŒŒì¼ ìž…ì¶œë ¥ì€ ì˜ˆì™¸ì²˜ë¦¬ë‚˜ ì´ë ‡ê²Œ ì˜ˆìƒë˜ëŠ” ì˜¤ë¥˜ì— ëŒ€í•´ì„œ ì‹ ì¤‘í•˜ê²Œ ì²˜ë¦¬í•  í•„ìš”ê°€ ìžˆìŒ
 
 		
-		//Áö±Ý±îÁö »ç¿ëÇØ¿Â stream ÀÇ »ç¿ë¹æ½Ä ±×´ë·Î ÆÄÀÏ Ãâ·ÂÀ» ÇÒ ¼ö ÀÖÀ½
-		//¾Æ½ºÅ° ÀúÀå
+		//ì§€ê¸ˆê¹Œì§€ ì‚¬ìš©í•´ì˜¨ stream ì˜ ì‚¬ìš©ë°©ì‹ ê·¸ëŒ€ë¡œ íŒŒì¼ ì¶œë ¥ì„ í•  ìˆ˜ ìžˆìŒ
+		//ì•„ìŠ¤í‚¤ ì €ìž¥
 		ofs << "Line 1" << endl;
 		ofs << "Line 2" << endl;
-		//ÀÌ·¸°Ô output operator ¸¦ »ç¿ëÇÏ°Ô µÇ¸é ¾Æ½ºÅ° Æ÷¸ä¿¡ ¸ÂÃç¼­ text ¸ðµå·Î ÀúÀåÀÌ µÊ
-		//¸Þ¸ðÀåÀ¸·Î ¿­¾îº¼¼öÀÖÀ½, ¿­¾îº¸¸é Line 1 \n Line 2 ·Î Ãâ·ÂÀÌ µÇ¾îÀÖ´Â°É º¼ ¼ö ÀÖÀ½
+		//ì´ë ‡ê²Œ output operator ë¥¼ ì‚¬ìš©í•˜ê²Œ ë˜ë©´ ì•„ìŠ¤í‚¤ í¬ë©§ì— ë§žì¶°ì„œ text ëª¨ë“œë¡œ ì €ìž¥ì´ ë¨
+		//ë©”ëª¨ìž¥ìœ¼ë¡œ ì—´ì–´ë³¼ìˆ˜ìžˆìŒ, ì—´ì–´ë³´ë©´ Line 1 \n Line 2 ë¡œ ì¶œë ¥ì´ ë˜ì–´ìžˆëŠ”ê±¸ ë³¼ ìˆ˜ ìžˆìŒ
 
 
-		//binary ÀúÀå
+		//binary ì €ìž¥
 
-		//binary ·Î ÀúÀåÇÒ¶§´Â µ¥ÀÌÅÍ°¡ ¾îµð±îÁöÀÎÁö ¾Ë ¼ö ¾øÀ½
-		//¾î¶² µ¥ÀÌÅÍ°¡ ¸î°³¸¸Å­ ÀúÀåÀÌ µÉÁö ¹Ì¸® ¾à¼ÓÀ» ÇØ¼­ ¾Ë°í ÀÖ¾î¾ßµÊ
+		//binary ë¡œ ì €ìž¥í• ë•ŒëŠ” ë°ì´í„°ê°€ ì–´ë””ê¹Œì§€ì¸ì§€ ì•Œ ìˆ˜ ì—†ìŒ
+		//ì–´ë–¤ ë°ì´í„°ê°€ ëª‡ê°œë§Œí¼ ì €ìž¥ì´ ë ì§€ ë¯¸ë¦¬ ì•½ì†ì„ í•´ì„œ ì•Œê³  ìžˆì–´ì•¼ë¨
 
-		//µ¥ÀÌÅÍ°¡ ¸î°³ÀÎÁö ÀúÀåÀ» ÇØ¼­ ¾à¼ÓÇÏ°í ÀÖÀ½
+		//ë°ì´í„°ê°€ ëª‡ê°œì¸ì§€ ì €ìž¥ì„ í•´ì„œ ì•½ì†í•˜ê³  ìžˆìŒ
 		/*const unsigned num_data = 10;
-		ofs.write((char*)&num_data, sizeof(num_data));	// num_data¸¦ char* ·Î Ä³½ºÆÃÇØ¼­ write() ¿¡ ³Ö°í ÀÖÀ½
+		ofs.write((char*)&num_data, sizeof(num_data));	// num_dataë¥¼ char* ë¡œ ìºìŠ¤íŒ…í•´ì„œ write() ì— ë„£ê³  ìžˆìŒ
 
 		for (int i = 0; i < num_data; ++i)
-			ofs.write((char*)&i, sizeof(i));	//10°³ÀÇ data ¸¦ ÀúÀåÇÏ°í ÀÖÀ½ (0ºÎÅÍ 9±îÁö ¼ýÀÚ¸¦ ÀúÀå)
+			ofs.write((char*)&i, sizeof(i));	//10ê°œì˜ data ë¥¼ ì €ìž¥í•˜ê³  ìžˆìŒ (0ë¶€í„° 9ê¹Œì§€ ìˆ«ìžë¥¼ ì €ìž¥)
 		*/
 
 
 
-		//Ãâ·ÂÇÒ data ¸¦ ¹®ÀÚ¿­ ÇÏ³ª¿¡ ´ã¾ÆµÎ°í ÀúÀåÇÏ´Â °æ¿ìµµ ÀÖÀ½
+		//ì¶œë ¥í•  data ë¥¼ ë¬¸ìžì—´ í•˜ë‚˜ì— ë‹´ì•„ë‘ê³  ì €ìž¥í•˜ëŠ” ê²½ìš°ë„ ìžˆìŒ
 		/*stringstream ss;
 		ss << "line 1" << endl;
 		ss << "line 2" << endl;
 		string str = ss.str();
 
 		unsigned str_length = str.size();
-		ofs.write((char*)&str_length, sizeof(str_length));	//string ÀÇ size ³Ö±â
+		ofs.write((char*)&str_length, sizeof(str_length));	//string ì˜ size ë„£ê¸°
 		ofs.write(str.c_str(), str_length);*/
 
 
 
-		//ofs.close();		//not necessary, ´ëºÎºÐÀÇ °æ¿ì ¿µ¿ª ¾È¿¡¼­ ÄÚµùÇÏ±â ¶§¹®¿¡ ¿µ¿ª ¹ÛÀ» ¹þ¾î³ª¸é
-							//ÀÚµ¿À¸·Î ¼Ò¸êÀÚ°¡ ÆÄÀÏÀ» ´Ý¾ÆÁÜ
+		//ofs.close();		//not necessary, ëŒ€ë¶€ë¶„ì˜ ê²½ìš° ì˜ì—­ ì•ˆì—ì„œ ì½”ë”©í•˜ê¸° ë•Œë¬¸ì— ì˜ì—­ ë°–ì„ ë²—ì–´ë‚˜ë©´
+							//ìžë™ìœ¼ë¡œ ì†Œë©¸ìžê°€ íŒŒì¼ì„ ë‹«ì•„ì¤Œ
 	}
 
 
 
 	//reading
-	if (true)		//if ¹® ¾´°Ç ¿¹Á¦ Á¤¸®¸¦ À§ÇØ¼­ »ç¿ëÇÑ °Í
+	if (true)		//if ë¬¸ ì“´ê±´ ì˜ˆì œ ì •ë¦¬ë¥¼ ìœ„í•´ì„œ ì‚¬ìš©í•œ ê²ƒ
 	{
 		//input file stream
 
-		ifstream ifs("ch18_06_my_first_file.dat");		//file ÀÌ¸§À» Á¤È®ÇÏ°Ô ³Ö¾îÁà¾ßÇÔ
-		//Á¤È®ÇÑ ÀÌ¸§ÀÌ ¾Æ´Ï¸é ¹Ø¿¡ if ¹®À» µé¾î°¡ ¹®±¸ Ãâ·ÂÈÄ °­Á¦·Î ³ª°¨
-		//ÀÌ¸§ÀÌ »ç¼ÒÇÏ°Ô Æ²¸®´Â °Í ¶§¹®¿¡ ½Ã°£À» ¸¹ÀÌ Àâ¾Æ¸Ô±âµµ ÇÔ, ²Ä²ÄÇÏ°Ô È®ÀÎÇÏ´Â ½À°ü µéÀÌ±â
+		ifstream ifs("ch18_06_my_first_file.dat");		//file ì´ë¦„ì„ ì •í™•í•˜ê²Œ ë„£ì–´ì¤˜ì•¼í•¨
+		//ì •í™•í•œ ì´ë¦„ì´ ì•„ë‹ˆë©´ ë°‘ì— if ë¬¸ì„ ë“¤ì–´ê°€ ë¬¸êµ¬ ì¶œë ¥í›„ ê°•ì œë¡œ ë‚˜ê°
+		//ì´ë¦„ì´ ì‚¬ì†Œí•˜ê²Œ í‹€ë¦¬ëŠ” ê²ƒ ë•Œë¬¸ì— ì‹œê°„ì„ ë§Žì´ ìž¡ì•„ë¨¹ê¸°ë„ í•¨, ê¼¼ê¼¼í•˜ê²Œ í™•ì¸í•˜ëŠ” ìŠµê´€ ë“¤ì´ê¸°
 
 		if (!ifs)
 		{
-			//¿­Áö ¸øÇÏ¸é ¿À·ù ¹ß»ý
+			//ì—´ì§€ ëª»í•˜ë©´ ì˜¤ë¥˜ ë°œìƒ
 			cerr << "Cannot open file" << endl;
 			exit(1);
 		}
 
-		//¾Æ½ºÅ° ÀÐ±â
-		while (ifs)		//³¡±îÁö ´Ù ÀÐÀ¸¸é ifs °¡ false ¸¦ ¹ÝÈ¯ÇÔ
+		//ì•„ìŠ¤í‚¤ ì½ê¸°
+		while (ifs)		//ëê¹Œì§€ ë‹¤ ì½ìœ¼ë©´ ifs ê°€ false ë¥¼ ë°˜í™˜í•¨, ì •í™•ížˆëŠ” eofbitë¥¼ ë°˜í™˜í•˜ê³  while ì´ ì´ë¥¼ ì½ì–´ ì¢…ë£Œ
 		{
 			std::string str;
-			getline(ifs, str);		//ÇÑÁÙ¾¿ ÀÐ¾î¿È
+			getline(ifs, str);		//í•œì¤„ì”© ì½ì–´ì˜´
 
 			std::cout << str << endl;
 		}
 
-		//¸Þ¸ðÀåÀ¸·Î "ch18_06_my_first_file.dat"À» Á÷Á¢ ¿­¾î¼­ Á÷Á¢ Hello World ¸¦ Ãß°¡ÇØµµ
-		//ÆÄÀÏÀÌ Àß ÀÐ¾îÁü
+		//ë©”ëª¨ìž¥ìœ¼ë¡œ "ch18_06_my_first_file.dat"ì„ ì§ì ‘ ì—´ì–´ì„œ ì§ì ‘ Hello World ë¥¼ ì¶”ê°€í•´ë„
+		//íŒŒì¼ì´ ìž˜ ì½ì–´ì§
 
 
 
 
-		//binary ÀÐ±â
+		//binary ì½ê¸°
 		/*
-		//¸ÕÀú num_data ¸¦ ÀÐ¾î¼­ data °¡ ¸î°³ ÀÖ´ÂÁö È®ÀÎÀ» ÇÔ
+		//ë¨¼ì € num_data ë¥¼ ì½ì–´ì„œ data ê°€ ëª‡ê°œ ìžˆëŠ”ì§€ í™•ì¸ì„ í•¨
 		unsigned num_data = 0;
 		ifs.read((char*)&num_data, sizeof(num_data));
 
-		//ÀÐ¾îµéÀÌ±â
+		//ì½ì–´ë“¤ì´ê¸°
 		for (unsigned int i = 0; i < num_data; ++i)
 		{
 			int num;
-			ifs.read((char*)&num, sizeof(num));		//read() ·Î ÀÐ°í ÀÖÀ½
+			ifs.read((char*)&num, sizeof(num));		//read() ë¡œ ì½ê³  ìžˆìŒ
 
-			std::cout << num << endl;				//Á¦´ë·Î ÀÐ¾ú´ÂÁö Ãâ·Â
+			std::cout << num << endl;				//ì œëŒ€ë¡œ ì½ì—ˆëŠ”ì§€ ì¶œë ¥
 		}
 		*/
 
 
 
-		//¾î¶² °æ¿ì¿£ ¹®ÀÚ¿­ ÇÏ³ª¿¡ ´ã¾ÆµÎ°í ÀúÀåÇÏ°í ÀÐ±âµµ ÇÔ
-		//string ÀÇ size ¸¦ ¹Ì¸® ÀÐ¾îµéÀÌ°í data ¸¦ ÀÐ±â
+		//ì–´ë–¤ ê²½ìš°ì—” ë¬¸ìžì—´ í•˜ë‚˜ì— ë‹´ì•„ë‘ê³  ì €ìž¥í•˜ê³  ì½ê¸°ë„ í•¨
+		//string ì˜ size ë¥¼ ë¯¸ë¦¬ ì½ì–´ë“¤ì´ê³  data ë¥¼ ì½ê¸°
 		/*unsigned str_len = 0;
 		ifs.read((char*)&str_len, sizeof(str_len));
 
