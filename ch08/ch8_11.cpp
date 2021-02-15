@@ -4,6 +4,7 @@
 //non-static 멤버 함수는 특정 instace 에 종속되어서 사용됨
 //static 멤버 변수는 생성자에서 초기화를 못함(c++ 에선 생성자를 static 으로 못함)
 //inner class 를 사용하면 static 멤버 변수 초기화 가능
+//멤버 함수의 포인터는 형변환을 해주지 않음, 따라서 함수 포인터 대입과 다르게 &를 반드시 붙여줘야함
 
 #include <iostream>
 
