@@ -1,27 +1,27 @@
-// ÅÛÇÃ¸´À» ºÎºÐÀú±à·Î Æ¯¼öÈ­ÇÏ±â Partial Specialization
+// í…œí”Œë¦¿ì„ ë¶€ë¶„ë¡œ íŠ¹ìˆ˜í™”í•˜ê¸° Partial Specialization
 
-//template parameter °¡ ¿©·¯°³ÀÎ °æ¿ì ¸ðµÎ ´Ù°¡ ¾Æ´Ñ ºÎºÐÀûÀ¸·Î Æ¯¼öÈ­
+//template parameter ê°€ ì—¬ëŸ¬ê°œì¸ ê²½ìš° ëª¨ë‘ ë‹¤ê°€ ì•„ë‹Œ ë¶€ë¶„ì ìœ¼ë¡œ íŠ¹ìˆ˜í™”
 
-//¸â¹öÇÔ¼ö´Â Á÷Á¢ Æ¯¼öÈ­ ÇÏ±â°¡ Á¶±Ý ¹ø°Å·Î¿ò
-//ÆíÇÏ°Ô ÇÏ´Â ¹æ¹ý : Å¬·¡½º »ó¼Ó ¹Þ±â
-//±âÁ¸ Å¬·¡½º¸¦ _BASE ·Î ¸¸µé°í ±âÁ¸ ÀÌ¸§°ú °°Àº Å¬·¡½º°¡ »ó¼Ó¹Þ°Ô ¸¸µçÈÄ
-//±× Å¬·¡½º¸¦ Æ¯¼öÈ­ ½ÃÅ°°í ÇÊ¿äÇÑ ÇÔ¼ö¸¦ ¿À¹ö¶óÀÌµù
-//»ó¼ÓÀ» ¹Þ´Â ¹æ¹ýÀ¸·Î ±¸ÇöÇÏ´Â°Ô ÀüÃ¼¸¦ Æ¯¼öÈ­ ÇÏ´Â°Íº¸´Ù ÆíÇÔ
-//ÀüÃ¼¸¦ Æ¯¼öÈ­ ÇÏ·Á¸é ´Ù¸¥ ÇÔ¼öµéµµ ¹Ýº¹ÀûÀ¸·Î ±¸ÇöÇØ¾ßµÊ(Àü °­ÀÇÀÇ Å¬·¡½º Æ¯¼öÈ­Ã³·³ ±×³É »õ·Î¿î Å¬·¡½º¸¦ ¸¸µå´Â²Ã)
-//»ó¼ÓÀ» »ç¿ëÇÏ¸é Å¬·¡½º ³»ºÎ¿¡ print() ¸¸ ÀÖ¾îµµ »ó¼ÓÀ» ¹Þ¾Ò±â ¶§¹®¿¡ ´Ù¸¥ ÇÔ¼öµéµµ »ç¿ë ÇÒ ¼ö ÀÖÀ½
+//ë©¤ë²„í•¨ìˆ˜ëŠ” ì§ì ‘ íŠ¹ìˆ˜í™” í•˜ê¸°ê°€ ì¡°ê¸ˆ ë²ˆê±°ë¡œì›€
+//íŽ¸í•˜ê²Œ í•˜ëŠ” ë°©ë²• : í´ëž˜ìŠ¤ ìƒì† ë°›ê¸°
+//ê¸°ì¡´ í´ëž˜ìŠ¤ë¥¼ _BASE ë¡œ ë§Œë“¤ê³  ê¸°ì¡´ ì´ë¦„ê³¼ ê°™ì€ í´ëž˜ìŠ¤ê°€ ìƒì†ë°›ê²Œ ë§Œë“ í›„
+//ê·¸ í´ëž˜ìŠ¤ë¥¼ íŠ¹ìˆ˜í™” ì‹œí‚¤ê³  í•„ìš”í•œ í•¨ìˆ˜ë¥¼ ì˜¤ë²„ë¼ì´ë”©
+//ìƒì†ì„ ë°›ëŠ” ë°©ë²•ìœ¼ë¡œ êµ¬í˜„í•˜ëŠ”ê²Œ ì „ì²´ë¥¼ íŠ¹ìˆ˜í™” í•˜ëŠ”ê²ƒë³´ë‹¤ íŽ¸í•¨
+//ì „ì²´ë¥¼ íŠ¹ìˆ˜í™” í•˜ë ¤ë©´ ë‹¤ë¥¸ í•¨ìˆ˜ë“¤ë„ ë°˜ë³µì ìœ¼ë¡œ êµ¬í˜„í•´ì•¼ë¨(ì „ ê°•ì˜ì˜ í´ëž˜ìŠ¤ íŠ¹ìˆ˜í™”ì²˜ëŸ¼ ê·¸ëƒ¥ ìƒˆë¡œìš´ í´ëž˜ìŠ¤ë¥¼ ë§Œë“œëŠ”ê¼´)
+//ìƒì†ì„ ì‚¬ìš©í•˜ë©´ í´ëž˜ìŠ¤ ë‚´ë¶€ì— print() ë§Œ ìžˆì–´ë„ ìƒì†ì„ ë°›ì•˜ê¸° ë•Œë¬¸ì— ë‹¤ë¥¸ í•¨ìˆ˜ë“¤ë„ ì‚¬ìš© í•  ìˆ˜ ìžˆìŒ
 
 
-//template parameter¸¦ ¸ðµÎ Æ¯¼öÈ­ ÇÏ¿© '¿ÏÀü Æ¯¼öÈ­'¸¦ ÇÒ¶§¸¸ ¸â¹ö ÇÔ¼ö¸¦ Å¬·¡½º ¹Ù±ù¿¡¼­ Æ¯¼öÈ­ °¡´É
-//¿¹Á¦¸¦ ¿ÏÀü Æ¯¼öÈ­ ÇÏ·Á¸é char, 3 °°ÀÌ ±¸Ã¼È­ ÇØ¾ßÇÏÁö¸¸ size ´Â ±¸Ã¼È­ ÇÏ¸é ¾ÈµÇ±â ¶§¹®¿¡
-//class ¸¸ Æ¯¼öÈ­ ÇÏ´Â ºÎºÐÆ¯¼öÈ­ ¸¦ ÇÏ·Á°í ÇÏ´Â°Í, ±×¸®°í ¸â¹öÇÔ¼ö¸¦ Å¬·¡½º ¹Û¿¡¼­ Æ¯¼öÈ­ ÇÒ¶§
-//ºÎºÐÆ¯¼öÈ­´Â Çã¿ëµÇÁö ¾ÊÀ½(ÇÔ¼öÀÇ ¿À¹ö·ÎµùÀ» º¹ÀâÇÏ°Ô ÇØ¼­ÀÎ°ÍÀ¸·Î ÃßÃø?)
+//template parameterë¥¼ ëª¨ë‘ íŠ¹ìˆ˜í™” í•˜ì—¬ 'ì™„ì „ íŠ¹ìˆ˜í™”'ë¥¼ í• ë•Œë§Œ ë©¤ë²„ í•¨ìˆ˜ë¥¼ í´ëž˜ìŠ¤ ë°”ê¹¥ì—ì„œ íŠ¹ìˆ˜í™” ê°€ëŠ¥
+//ì˜ˆì œë¥¼ ì™„ì „ íŠ¹ìˆ˜í™” í•˜ë ¤ë©´ char, 3 ê°™ì´ êµ¬ì²´í™” í•´ì•¼í•˜ì§€ë§Œ size ëŠ” êµ¬ì²´í™” í•˜ë©´ ì•ˆë˜ê¸° ë•Œë¬¸ì—
+//class ë§Œ íŠ¹ìˆ˜í™” í•˜ëŠ” ë¶€ë¶„íŠ¹ìˆ˜í™” ë¥¼ í•˜ë ¤ê³  í•˜ëŠ”ê²ƒ, ê·¸ë¦¬ê³  ë©¤ë²„í•¨ìˆ˜ë¥¼ í´ëž˜ìŠ¤ ë°–ì—ì„œ íŠ¹ìˆ˜í™” í• ë•Œ
+//ë¶€ë¶„íŠ¹ìˆ˜í™”ëŠ” í—ˆìš©ë˜ì§€ ì•ŠìŒ(í•¨ìˆ˜ì˜ ì˜¤ë²„ë¡œë”©ì„ ë³µìž¡í•˜ê²Œ í•´ì„œì¸ê²ƒìœ¼ë¡œ ì¶”ì¸¡?)
 
 
 
 #include <iostream>
 using namespace std;
 
-// class T ¿¡ ´ëÇØ ÅÛÇÃ¸´È­°¡ µÇ¾îÀÖ°í int size(Non-type parameter) ¿¡ ´ëÇØ¼­ ÅÛÇÃ¸´È­°¡ µÇ¾îÀÖÀ½
+// class T ì— ëŒ€í•´ í…œí”Œë¦¿í™”ê°€ ë˜ì–´ìžˆê³  int size(Non-type parameter) ì— ëŒ€í•´ì„œ í…œí”Œë¦¿í™”ê°€ ë˜ì–´ìžˆìŒ
 template <class T, int size>
 class StaticArray_BASE
 {
@@ -37,10 +37,10 @@ public:
 	}
 
 
-	//¹Û¿¡ ÀÖ´ø print() ¸¦ ¸â¹öÇÔ¼ö·Î ¸¸µé±â
+	//ë°–ì— ìžˆë˜ print() ë¥¼ ë©¤ë²„í•¨ìˆ˜ë¡œ ë§Œë“¤ê¸°
 
-	//template <typename T, int size>		//À§¿¡ ÀÖÀ¸´Ï ÀÖÀ»ÇÊ¿ä ¾øÀ½
-	void print()							//StaticArray<T, size>& array µµ ¹ÞÀ» ÇÊ¿ä ¾øÀ½
+	//template <typename T, int size>		//ìœ„ì— ìžˆìœ¼ë‹ˆ ìžˆì„í•„ìš” ì—†ìŒ
+	void print()							//StaticArray<T, size>& array ë„ ë°›ì„ í•„ìš” ì—†ìŒ
 	{
 		for (int count = 0; count < size; ++count)
 		{
@@ -52,9 +52,9 @@ public:
 };
 
 
-//print() ÇÔ¼ö¸¦ ¸â¹öÇÔ¼ö·Î ³Ö°í ½ÍÀ½
+//print() í•¨ìˆ˜ë¥¼ ë©¤ë²„í•¨ìˆ˜ë¡œ ë„£ê³  ì‹¶ìŒ
 /*
-//ÇÔ¼öµµ ÅÛÇÃ¸´È­°¡ µÇ¾îÀÖÀ½
+//í•¨ìˆ˜ë„ í…œí”Œë¦¿í™”ê°€ ë˜ì–´ìžˆìŒ
 template <typename T, int size>
 void print(StaticArray<T, size>& array)
 {
@@ -63,41 +63,41 @@ void print(StaticArray<T, size>& array)
 	std::cout << endl;
 }
 
-//typename T ¶û int size Áß¿¡¼­ typename T ¸¸ Æ¯¼öÈ­
+//typename T ëž‘ int size ì¤‘ì—ì„œ typename T ë§Œ íŠ¹ìˆ˜í™”
 template <int size>
 void print(StaticArray<char, size>& array)
 {
 	for (int count = 0; count < size; ++count)
-		std::cout << array[count]; //char type ¿¡ ´ëÇØ¼­ ºóÄ­À» Ãâ·ÂÇÏÁö ¾Ê±â
+		std::cout << array[count]; //char type ì— ëŒ€í•´ì„œ ë¹ˆì¹¸ì„ ì¶œë ¥í•˜ì§€ ì•Šê¸°
 	std::cout << endl;
 }
 */
 
 
-//¸â¹öÇÔ¼ö¸¦ Æ¯¼öÈ­ ÇÒ¶§ ±âÁ¸ Å¬·¡½º¸¦ _BASE ·Î ¸¸µé°í ±× Å¬·¡½º¸¦ »ó¼Ó¹Þ´Â Å¬·¡½º¸¦ ¸¸µë(±âÁ¸ÀÇ ÀÌ¸§ÀÌ¶û µ¿ÀÏÇÑ)
-//»ó¼ÓÀ» ¾²´Â ÀÌÀ¯´Â template À» ÅëÂ°·Î Æ¯¼öÈ­ ÇÏ´Â°Íº¸´Ü ÆíÇÏ±â ¶§¹®
+//ë©¤ë²„í•¨ìˆ˜ë¥¼ íŠ¹ìˆ˜í™” í• ë•Œ ê¸°ì¡´ í´ëž˜ìŠ¤ë¥¼ _BASE ë¡œ ë§Œë“¤ê³  ê·¸ í´ëž˜ìŠ¤ë¥¼ ìƒì†ë°›ëŠ” í´ëž˜ìŠ¤ë¥¼ ë§Œë“¬(ê¸°ì¡´ì˜ ì´ë¦„ì´ëž‘ ë™ì¼í•œ)
+//ìƒì†ì„ ì“°ëŠ” ì´ìœ ëŠ” template ì„ í†µì§¸ë¡œ íŠ¹ìˆ˜í™” í•˜ëŠ”ê²ƒë³´ë‹¨ íŽ¸í•˜ê¸° ë•Œë¬¸
 
 template <class T, int size>
 class StaticArray :public StaticArray_BASE<T, size>
 {
 };
 
-//class °¡ char type ÀÎ °æ¿ì¿¡ ´ëÇØ¼­¸¸ º°µµ·Î »ó¼ÓÀ» ÇÑ¹ø ´õ ¹ÞÀ½
+//class ê°€ char type ì¸ ê²½ìš°ì— ëŒ€í•´ì„œë§Œ ë³„ë„ë¡œ ìƒì†ì„ í•œë²ˆ ë” ë°›ìŒ
 template <int size>
 class StaticArray<char,size> :public StaticArray_BASE<char, size>
 {
 public:
-	//print() ¸¦ ¿À¹ö¶óÀÌµù
+	//print() ë¥¼ ì˜¤ë²„ë¼ì´ë”©
 	void print()							
 	{
 		for (int count = 0; count < size; ++count)
 		{
-			std::cout << (*this)[count];	// << ' ' Á¦°Å
+			std::cout << (*this)[count];	// << ' ' ì œê±°
 		}
 		std::cout << endl;
 	}
 };
-//»ó¼ÓÀ» ¹Þ¾Ò±â ¶§¹®¿¡ print() ¸»°í ´Ù¸¥ ÇÔ¼öµéÀ» ´Ù½Ã ±¸ÇöÇØÁÙ ÇÊ¿ä°¡ ¾øÀ½
+//ìƒì†ì„ ë°›ì•˜ê¸° ë•Œë¬¸ì— print() ë§ê³  ë‹¤ë¥¸ í•¨ìˆ˜ë“¤ì„ ë‹¤ì‹œ êµ¬í˜„í•´ì¤„ í•„ìš”ê°€ ì—†ìŒ
 
 
 
@@ -109,9 +109,9 @@ int main()
 	int4[2] = 3;
 	int4[3] = 4;
 
-	//print(int4);  //print() ¸¦ ¸â¹öÇÔ¼ö·Î ¸¸µé±â Àü
+	//print(int4);  //print() ë¥¼ ë©¤ë²„í•¨ìˆ˜ë¡œ ë§Œë“¤ê¸° ì „
 	int4.print();
-	//1 2 3 4   //ºóÄ­ ÇÏ³ª¾¿ Àß Ãâ·ÂµÇ°í ÀÖÀ½
+	//1 2 3 4   //ë¹ˆì¹¸ í•˜ë‚˜ì”© ìž˜ ì¶œë ¥ë˜ê³  ìžˆìŒ
 
 
 	StaticArray<char, 14> char14;
@@ -121,21 +121,21 @@ int main()
 
 	strcpy_s(char14.getArray(), 14, "Hello, World");
 
-	//print(char14);  ////print() ¸¦ ¸â¹öÇÔ¼ö·Î ¸¸µé±â Àü
+	//print(char14);  ////print() ë¥¼ ë©¤ë²„í•¨ìˆ˜ë¡œ ë§Œë“¤ê¸° ì „
 	char14.print();
-	//Æ¯¼öÈ­ Àü : H e l l o ,   W o r l d  ?  
-	//¹®ÀÚ¿­À» Ãâ·ÂÇÏ´Âµ¥ ºñ¾îÀÖ´Â°÷ÀÌ ¹®Á¦°¡ µÊ
-	//print() ÀÇ << ' '; ºÎºÐÀÌ ¹®Á¦µÇ´Â°÷ÀÓ
-	//char type ¿¡ ´ëÇØ¼± print() ¸¦ ÇÒ¶§ ºóÄ­ÀÌ ¾ø¾úÀ¸¸é ÁÁ°ÚÀ½ -> Æ¯¼öÈ­
+	//íŠ¹ìˆ˜í™” ì „ : H e l l o ,   W o r l d  ?  
+	//ë¬¸ìžì—´ì„ ì¶œë ¥í•˜ëŠ”ë° ë¹„ì–´ìžˆëŠ”ê³³ì´ ë¬¸ì œê°€ ë¨
+	//print() ì˜ << ' '; ë¶€ë¶„ì´ ë¬¸ì œë˜ëŠ”ê³³ìž„
+	//char type ì— ëŒ€í•´ì„  print() ë¥¼ í• ë•Œ ë¹ˆì¹¸ì´ ì—†ì—ˆìœ¼ë©´ ì¢‹ê² ìŒ -> íŠ¹ìˆ˜í™”
 	
-	//typename T ¶û int size Áß¿¡¼­ typename T ¸¸ Æ¯¼öÈ­¸¦ ÇØÁà¾ßµÊ(size ¿¡ µé¾î°¥¼ö ÀÖ´Â°Ô ³Ê¹« ¸¹À½)
+	//typename T ëž‘ int size ì¤‘ì—ì„œ typename T ë§Œ íŠ¹ìˆ˜í™”ë¥¼ í•´ì¤˜ì•¼ë¨(size ì— ë“¤ì–´ê°ˆìˆ˜ ìžˆëŠ”ê²Œ ë„ˆë¬´ ë§ŽìŒ)
 
 
-	//print() ¸¦ ¸â¹öÇÔ¼ö·Î ³ÖÀºÈÄ ´Ù½Ã ºóÄ­ÀÌ »ì¾Æ³²
-	//¸â¹öÇÔ¼ö´Â Æ¯¼öÈ­ ÇÏ±â°¡ Á¶±Ý ¹ø°Å·Î¿ò
-	//ÆíÇÏ°Ô ÇÏ´Â ¹æ¹ý : Å¬·¡½º »ó¼Ó ¹Þ±â
-	//¸ÕÀú StaticArray ¸¦ StaticArray_BASE ·Î ¸¸µé°í(¿©±â±îÁö¸¸ ÇÏ¸é ±âÁ¸¿¡ ¼±¾ðµÈ ÀÎ½ºÅÏ½º¸¦ »ç¿ë¸øÇÔ)
-	//StaticArray_BASE¸¦ »ó¼Ó¹Þ´Â StaticArray ¸¦ ¸¸µë
+	//print() ë¥¼ ë©¤ë²„í•¨ìˆ˜ë¡œ ë„£ì€í›„ ë‹¤ì‹œ ë¹ˆì¹¸ì´ ì‚´ì•„ë‚¨
+	//ë©¤ë²„í•¨ìˆ˜ëŠ” íŠ¹ìˆ˜í™” í•˜ê¸°ê°€ ì¡°ê¸ˆ ë²ˆê±°ë¡œì›€
+	//íŽ¸í•˜ê²Œ í•˜ëŠ” ë°©ë²• : í´ëž˜ìŠ¤ ìƒì† ë°›ê¸°
+	//ë¨¼ì € StaticArray ë¥¼ StaticArray_BASE ë¡œ ë§Œë“¤ê³ (ì—¬ê¸°ê¹Œì§€ë§Œ í•˜ë©´ ê¸°ì¡´ì— ì„ ì–¸ëœ ì¸ìŠ¤í„´ìŠ¤ë¥¼ ì‚¬ìš©ëª»í•¨)
+	//StaticArray_BASEë¥¼ ìƒì†ë°›ëŠ” StaticArray ë¥¼ ë§Œë“¬
 
 
 	return 0;
