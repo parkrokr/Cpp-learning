@@ -8,7 +8,7 @@ int add(int x, int y)
 }
 
 // 함수 return type도 auto를 쓸 수 있음
-auto add(double x, int y) -> double //trailing 자취를 남길 수 있음
+auto add(double x, int y) -> double //trailing 자취를 남길 수 있음		//람다함수 표현식에서 사용
 {
 	return x + (double)y;
 }
