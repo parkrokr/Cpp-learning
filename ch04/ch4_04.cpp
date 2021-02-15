@@ -14,11 +14,11 @@ auto add(double x, int y) -> double //trailing 자취를 남길 수 있음		//�
 }
 
 /*
-int		 add(int x, int y);			  이거보단
+int	 add(int x, int y);		이거보단
 double	 add(int x, int y);		
 
-auto add(int x, int y) -> int;
-auto add(int x, int y) -> double;     이게 보기 편함
+auto add(int x, int y) -> int;		이게 보기 편함
+auto add(int x, int y) -> double;   
 
 */
 
