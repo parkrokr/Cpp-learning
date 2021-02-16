@@ -1,6 +1,6 @@
-// ÆÄÀÏÀÇ ÀÓÀÇ À§Ä¡ Á¢±ÙÇÏ±â
+// íŒŒì¼ì˜ ì„ì˜ ìœ„ì¹˜ ì ‘ê·¼í•˜ê¸°
 
-//´õ ´Ù¾çÇÑ ±â´ÉµéÀº reference manual Âü°í
+//ë” ë‹¤ì–‘í•œ ê¸°ëŠ¥ë“¤ì€ reference manual ì°¸ê³ 
 
 #include <iostream>
 #include <fstream>
@@ -27,40 +27,40 @@ int main()
 	{
 		ifstream ifs(filename);
 
-		ifs.seekg(5); //ifs.seekg(5, ios::beg);			//5 byte ÀÌµ¿ÇÑ ´ÙÀ½¿¡ ÀĞ¾îµé¿©¶ó
+		ifs.seekg(5); //ifs.seekg(5, ios::beg);		//5 byte ì´ë™í•œ ë‹¤ìŒì— ì½ì–´ë“¤ì—¬ë¼
 		cout<<(char)ifs.get()<<endl;					//f
 
-		ifs.seekg(5, ios::cur);				//ÇöÁ¦ Ä¿¼­À§Ä¡(ÀĞ¾îµéÀÌ´ÂÀ§Ä¡) ¿¡¼­ 5 byte ÀÌµ¿ÇØ¼­ ÀĞ¾î¶ó
-		cout<< (char)ifs.get() << endl;					//f¸¦ ÀĞÀº ´ÙÀ½ 5 Ä­ÀÌ¶ó l ÀÌ ÀĞ¾îÁü
+		ifs.seekg(5, ios::cur);				//í˜„ì œ ì»¤ì„œìœ„ì¹˜(ì½ì–´ë“¤ì´ëŠ”ìœ„ì¹˜) ì—ì„œ 5 byte ì´ë™í•´ì„œ ì½ì–´ë¼
+		cout<< (char)ifs.get() << endl;					//fë¥¼ ì½ì€ ë‹¤ìŒ 5 ì¹¸ì´ë¼ l ì´ ì½ì–´ì§
 
 
-		//ifs.seekg(-5, ios::end);			//¸¶Áö¸·À¸·ÎºÎÅÍ °Å²Ù·Î 5 byte
+		//ifs.seekg(-5, ios::end);			//ë§ˆì§€ë§‰ìœ¼ë¡œë¶€í„° ê±°ê¾¸ë¡œ 5 byte
 
-		//ifs.seekg(0, ios::end);			//end ·ÎºÎÅÍ 0 byte, Áï ¸¶Áö¸·
-		//cout << ifs.tellg() << endl;		//tellg()´Â ÇöÀçÀ§Ä¡¸¦ ¾Ë·ÁÁÜ,¾ËÆÄºª26 ¿¡¼­ endl ±îÁö 27 ¶ó¼­ 28ÀÌ Ãâ·ÂµÊ
+		//ifs.seekg(0, ios::end);			//end ë¡œë¶€í„° 0 byte, ì¦‰ ë§ˆì§€ë§‰
+		//cout << ifs.tellg() << endl;			//tellg()ëŠ” í˜„ì¬ìœ„ì¹˜ë¥¼ ì•Œë ¤ì¤Œ,ì•ŒíŒŒë²³26 ì—ì„œ endl ê¹Œì§€ 27 ë¼ì„œ 28ì´ ì¶œë ¥ë¨
 
 
 		string str;
-		getline(ifs, str);					//Ä¿¼­À§Ä¡·ÎºÎÅÍ ¸¶Áö¸·±îÁö ÀĞ¾î¿È
+		getline(ifs, str);				//ì»¤ì„œìœ„ì¹˜ë¡œë¶€í„° ë§ˆì§€ë§‰ê¹Œì§€ ì½ì–´ì˜´
 
 		cout << str << endl;				//mnopqrstuvwxyz
 	}
 
 
-	//ÆÄÀÏÀ» ¿­¾î¼­ ÀĞ±âµµ ÇÏ°í ¾²±âµµ ÇÏ±â
+	//íŒŒì¼ì„ ì—´ì–´ì„œ ì½ê¸°ë„ í•˜ê³  ì“°ê¸°ë„ í•˜ê¸°
 	{
-		//±×³É fstream À¸·Î ÃÊ±âÈ­ ÇÏ¸é µÊ
+		//ê·¸ëƒ¥ fstream ìœ¼ë¡œ ì´ˆê¸°í™” í•˜ë©´ ë¨
 		fstream iofs(filename);
 		
 		//fstream iofs(filename, ios::in | ios::out);
-		//ÀÌ·¸°Ô ÇÃ·¡±×¸¦ ¼³Á¤ÇØµµ µÇÁö¸¸ ´ëºÎºĞÀÇ °æ¿ì ¾ø¾îµµ in,out ÀÛµ¿µÊ
+		//ì´ë ‡ê²Œ í”Œë˜ê·¸ë¥¼ ì„¤ì •í•´ë„ ë˜ì§€ë§Œ ëŒ€ë¶€ë¶„ì˜ ê²½ìš° ì—†ì–´ë„ in,out ì‘ë™ë¨
 		
 
-		iofs.seekg(5);						//5 byte ÀÌµ¿
-		cout << (char)iofs.get() << endl;	//read			//f°¡ Ãâ·ÂµÊ
+		iofs.seekg(5);						//5 byte ì´ë™
+		cout << (char)iofs.get() << endl;	//read		//fê°€ ì¶œë ¥ë¨
 
-		iofs.seekg(5);						//5 byte ÀÌµ¿
-		iofs.put('A');						//write			//ÆÄÀÏÀ» º¸¸é f°¡ ÀÖ¾î¾ß µÉ ÀÚ¸®¿¡ A °¡ µ¤¾î½áÁ®ÀÖÀ½
+		iofs.seekg(5);						//5 byte ì´ë™
+		iofs.put('A');						//write			//íŒŒì¼ì„ ë³´ë©´ fê°€ ìˆì–´ì•¼ ë  ìë¦¬ì— A ê°€ ë®ì–´ì¨ì ¸ìˆìŒ
 	}
 
 
