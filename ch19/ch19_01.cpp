@@ -1,4 +1,4 @@
-// ¶÷´Ù (lambda ) ÇÔ¼ö¿Í std::function
+// ëŒë‹¤ (lambda ) í•¨ìˆ˜ì™€ std::function
 
 #include <iostream>
 #include <string>
@@ -24,109 +24,111 @@ public:
 
 int main()
 {
-	//¶÷´Ù ÇÔ¼ö´Â ÀÍ¸íÇÔ¼ö, anonymous function ¶ó°íµµ ÇÔ, ¾î¿øÀº lambda calculous ¿¡¼­ ³ª¿Ô´Ù°í ÇÔ
-	//c++ »Ó¸¸ ¾Æ´Ï¶ó ÃÖ±Ù ´Ù¸¥ ¾ğ¾îµé¿¡¼­µµ °øÅëÀûÀÎ »ç¿ë¹ıÀÌ ³ªÅ¸³ª°í ÀÖÀ½
-	//ÀÍ¸í ÇÔ¼ö´Ï ÀÌ¸§ÀÌ ¾ø¾îµµ µÊ
+	//ëŒë‹¤ í•¨ìˆ˜ëŠ” ìµëª…í•¨ìˆ˜, anonymous function ë¼ê³ ë„ í•¨, ì–´ì›ì€ lambda calculous ì—ì„œ ë‚˜ì™”ë‹¤ê³  í•¨
+	//c++ ë¿ë§Œ ì•„ë‹ˆë¼ ìµœê·¼ ë‹¤ë¥¸ ì–¸ì–´ë“¤ì—ì„œë„ ê³µí†µì ì¸ ì‚¬ìš©ë²•ì´ ë‚˜íƒ€ë‚˜ê³  ìˆìŒ
+	//ìµëª… í•¨ìˆ˜ë‹ˆ ì´ë¦„ì´ ì—†ì–´ë„ ë¨
 
 	auto func = [](const int& i)->void {cout << "Hello, World!" << endl; };
 	
-	// []										lambda-introducer 
+	// []						lambda-introducer 
 	
-	// (const int& i)							lambda-parameter-declaration	
-													//ÀÏ¹İ ÇÔ¼öÃ³·³ paramter ¼±¾ğ
+	// (const int& i)				lambda-parameter-declaration	
+									//ì¼ë°˜ í•¨ìˆ˜ì²˜ëŸ¼ paramter ì„ ì–¸
 	
-	// ->void									lambda-return-type-clause		
-													//return type À» ¾ÕÀÌ ¾Æ´Ï¶ó µÚ¿¡ ºÙÀÏ¼öµµ ÀÖÀ½
-													//ch4_04 auto return type Âü°í, trailing
+	// ->void					lambda-return-type-clause		
+									//return type ì„ ì•ì´ ì•„ë‹ˆë¼ ë’¤ì— ë¶™ì¼ìˆ˜ë„ ìˆìŒ
+									//ch4_04 auto return type ì°¸ê³ , trailing
 
 	// {cout << "Hello, World!" << endl; };		compound-statement
-													//functin ÀÇ body °¡ µÊ
+									//functin ì˜ body ê°€ ë¨
+	
+	
+	//[], () ,return typeì„ ìƒëµí•  ìˆ˜ ìˆìŒ
 
-
-	func(123);	//ÀÌ°Ç func ¸¦ function pointer Ã³·³ »ç¿ëÇÏ°í ÀÖ´Â°Í
+	func(123);	//ì´ê±´ func ë¥¼ function pointer ì²˜ëŸ¼ ì‚¬ìš©í•˜ê³  ìˆëŠ”ê²ƒ
 
 	
-	//ÁøÁ¤ÇÑ ¶÷´ÙÀÇ °¡Ä¡´Â ÀÍ¸íÀÏ¶§ ³ªÅ¸³²
+	//ì§„ì •í•œ ëŒë‹¤ì˜ ê°€ì¹˜ëŠ” ìµëª…ì¼ë•Œ ë‚˜íƒ€ë‚¨
 	[](const int& i)->void {cout << "Hello, World!" << endl; }(123);
-	//body µÚ¿¡ () ¸¦ ¹Ù·Î ºÙÀÌ¸é ½ÇÇàµÊ
+	//body ë’¤ì— () ë¥¼ ë°”ë¡œ ë¶™ì´ë©´ ì‹¤í–‰ë¨
 
 
-	//±âÁ¸Ã³·³ ÇÔ¼ö¸¦ Á¤ÀÇÇÏ°í body ¸¦ ¸¸µé°í È£ÃâÇØ¼­ ¾²´Â °úÁ¤ÀÌ Àâ´ÙÇÏ°Ô ¸¹ÀÌ ±¸ÇöÇØ¾ßÇÒ°æ¿ì ¹ø°Å·Î¿öÁü
-	//±×·¯³ª ÀÌ·¸°Ô ¶÷´Ù(¹«¸í) ÇÔ¼ö¸¦ »ç¿ëÇÏ¸é ÈÎ¾À À¯¿¬ÇÏ°Ô ÇÁ·Î±×·¡¹Ö ÇÒ ¼öÀÖÀ½
-	//Gui °ü·ÃµÈ ÇÁ·Î±×·¡¹ÖÀ» ¸¹ÀÌ ÇÏ´Ùº¸¸é ¸¹ÀÌ »ç¿ëÇÏ°Ô µÊ
+	//ê¸°ì¡´ì²˜ëŸ¼ í•¨ìˆ˜ë¥¼ ì •ì˜í•˜ê³  body ë¥¼ ë§Œë“¤ê³  í˜¸ì¶œí•´ì„œ ì“°ëŠ” ê³¼ì •ì´ ì¡ë‹¤í•˜ê²Œ ë§ì´ êµ¬í˜„í•´ì•¼í• ê²½ìš° ë²ˆê±°ë¡œì›Œì§
+	//ê·¸ëŸ¬ë‚˜ ì´ë ‡ê²Œ ëŒë‹¤(ë¬´ëª…) í•¨ìˆ˜ë¥¼ ì‚¬ìš©í•˜ë©´ í›¨ì”¬ ìœ ì—°í•˜ê²Œ í”„ë¡œê·¸ë˜ë° í•  ìˆ˜ìˆìŒ
+	//Gui ê´€ë ¨ëœ í”„ë¡œê·¸ë˜ë°ì„ ë§ì´ í•˜ë‹¤ë³´ë©´ ë§ì´ ì‚¬ìš©í•˜ê²Œ ë¨
 
 
 
 	// lambda-introducer
-		//[] ¾È¿¡ & ¸¦ ³Ö¾îµÎ¸é ¿µ¿ª ¾È¿¡¼­ ÇÔ¼ö ¹Û¿¡ ÀÖ´Â°É reference ·Î °¡Á®¿È
-		//[] ¾È¿¡ = ¸¦ ³ÖÀ¸¸é copy ¸¦ ÇØ¼­ °¡Á®¿È
-		//paramter °¡ ¾Æ´Ï¶ó scope ¾È¿¡ ÀÖ´Â º¯¼öµéÀ» °¡Á®¿À´Â ¹æ½Ä
+		//[] ì•ˆì— & ë¥¼ ë„£ì–´ë‘ë©´ ì˜ì—­ ì•ˆì—ì„œ í•¨ìˆ˜ ë°–ì— ìˆëŠ”ê±¸ reference ë¡œ ê°€ì ¸ì˜´
+		//[] ì•ˆì— = ë¥¼ ë„£ìœ¼ë©´ copy ë¥¼ í•´ì„œ ê°€ì ¸ì˜´
+		//paramter ê°€ ì•„ë‹ˆë¼ scope ì•ˆì— ìˆëŠ” ë³€ìˆ˜ë“¤ì„ ê°€ì ¸ì˜¤ëŠ” ë°©ì‹
 	{
 		string name = "JackJack";
 		[&]() {std::cout << name << endl; }();
-		[&name]() {std::cout << name << endl; }();	//ÀÌ·¸°Ô »ç¿ëÇÒ ¼öµµ ÀÖÀ½
+		[&name]() {std::cout << name << endl; }();	//ì´ë ‡ê²Œ ì‚¬ìš©í•  ìˆ˜ë„ ìˆìŒ
 
-		[=]() {std::cout << name << endl; }();		//name À» copy ¸¦ ÇØ¼­ °¡Á®¿À°í ÀÖÀ½
+		[=]() {std::cout << name << endl; }();		//name ì„ copy ë¥¼ í•´ì„œ ê°€ì ¸ì˜¤ê³  ìˆìŒ
 
-		//[this]() {std::cout << name << endl; }();	//class ÀÇ member ·Î Á¤ÀÇÇÒ¶§ ÀÌ·¸°Ô ¾µ ¼ö ÀÖÀ½
+		//[this]() {std::cout << name << endl; }();	//class ì˜ member ë¡œ ì •ì˜í• ë•Œ ì´ë ‡ê²Œ ì“¸ ìˆ˜ ìˆìŒ
 	}
 
 
-	//ÀÌ·¸°Ô »ç¿ë °¡´É
+	//ì´ë ‡ê²Œ ì‚¬ìš© ê°€ëŠ¥
 	cout << []()->int {return 1; }() << endl;
 
 
 
-	//STL ÀÌ¶û °°ÀÌ »ç¿ëµÉ ¼öµµ ÀÖÀ½
+	//STL ì´ë‘ ê°™ì´ ì‚¬ìš©ë  ìˆ˜ë„ ìˆìŒ
 	vector<int> v;
 	v.push_back(1);
 	v.push_back(2);
 
-	//for_each ¸¦ ÀÌ¿ëÇØ¼­ vector ¿¡ ÀÖ´Â ¿ø¼ÒµéÀ» ÀÌ¿ëÇØ¼­ °¢°¢ ÇÔ¼ö°¡ ½ÇÇàµÇ´Â°É ±¸Çö
-	//ÇÔ¼ö¸¦ Á¤ÀÇÇÏ°í ÇÔ¼öÆ÷ÀÎÅÍ·Î Áı¾î³Ö°í ÇÏ¸é ¹ø°Å·Î¿öÁü,ÀÌ¶§ ¶÷´Ù ÇÔ¼ö¸¦ »ç¿ëÇÒ ¼ö ÀÖÀ½
+	//for_each ë¥¼ ì´ìš©í•´ì„œ vector ì— ìˆëŠ” ì›ì†Œë“¤ì„ ì´ìš©í•´ì„œ ê°ê° í•¨ìˆ˜ê°€ ì‹¤í–‰ë˜ëŠ”ê±¸ êµ¬í˜„
+	//í•¨ìˆ˜ë¥¼ ì •ì˜í•˜ê³  í•¨ìˆ˜í¬ì¸í„°ë¡œ ì§‘ì–´ë„£ê³  í•˜ë©´ ë²ˆê±°ë¡œì›Œì§,ì´ë•Œ ëŒë‹¤ í•¨ìˆ˜ë¥¼ ì‚¬ìš©í•  ìˆ˜ ìˆìŒ
 	auto func2 = [](int val) {cout << val << endl; };
 	for_each(v.begin(), v.end(), func2);
 
-	//¶÷´Ù ÇÔ¼ö´Â »ç½Ç À§¿¡ ¹æ½Äº¸´Ü ÀÌ·¸°Ô ¹Ù·Î ³ÖÀ¸·Á°í »ç¿ëÇÔ, ÃÖ±Ù¿¡´Â ÀÌ¹æ½ÄÀ» »ç¿ëÇÔ
+	//ëŒë‹¤ í•¨ìˆ˜ëŠ” ì‚¬ì‹¤ ìœ„ì— ë°©ì‹ë³´ë‹¨ ì´ë ‡ê²Œ ë°”ë¡œ ë„£ìœ¼ë ¤ê³  ì‚¬ìš©í•¨, ìµœê·¼ì—ëŠ” ì´ë°©ì‹ì„ ì‚¬ìš©í•¨
 	for_each(v.begin(), v.end(), [](int val) {cout << val << endl; });
 
-	//auto func2 = [](int val)->void {cout << val << endl; };	//ÀÌ·¸°Ô void ¸¦ Àû¾îµµ µÇÁö¸¸
-	//¶÷´ÙÇÔ¼ö´Â return type ÀÌ void ÀÎ °æ¿ì »ı·«ÇÔ
+	//auto func2 = [](int val)->void {cout << val << endl; };	//ì´ë ‡ê²Œ void ë¥¼ ì ì–´ë„ ë˜ì§€ë§Œ
+	//ëŒë‹¤í•¨ìˆ˜ëŠ” return type ì´ void ì¸ ê²½ìš° ìƒëµí•¨
 
 
 
 
 
 	//std::fucntion
-		//function pointer ¸¦ Ã¼°èÈ­ ½ÃÅ²°Í
-	std::function<void(int)> func3 = func2;		//void °¡ return type, int °¡ parameter type
-	func3(123);									//functor(ÇÔ¼ö°´Ã¼) Ã³·³ ½ÇÇà½ÃÅ³ ¼ö ÀÖÀ½
+		//function pointer ë¥¼ ì²´ê³„í™” ì‹œí‚¨ê²ƒ
+	std::function<void(int)> func3 = func2;		//void ê°€ return type, int ê°€ parameter type
+	func3(123);									//functor(í•¨ìˆ˜ê°ì²´) ì²˜ëŸ¼ ì‹¤í–‰ì‹œí‚¬ ìˆ˜ ìˆìŒ
 
 
 	//std::bind		
-		//	parameter ¸¦ ¸ğµÎ °íÁ¤, return type Àº std:function, Áï ÇÔ¼ö Æ÷ÀÎÅÍ
-		//	Ã¹¹øÂ° parameter ¿¡´Â ÇÔ¼ö°´Ã¼,ÇÔ¼öÆ÷ÀÎÅÍ,ÇÔ¼ö ref, ¸â¹öÇÔ¼öÆ÷ÀÎÅÍ °°Àº ÀÎÀÚ¿Í ¹­ÀÏ¼ö ÀÖ´Â
-		//Collable object °¡ ¿Â´Ù
-		//	µÎ¹øÂ° parameter ºÎÅÏ ÀÎÀÚµéÀÌ µé¾î¿È, °íÁ¤ÇÏÁö ¾Ê°í ¿©·¯°³ÀÇ ÀÎÀÚµéÀ» ¹Ş°í ½ÍÀ¸¸é std::placeholders
+		//	parameter ë¥¼ ëª¨ë‘ ê³ ì •, return type ì€ std:function, ì¦‰ í•¨ìˆ˜ í¬ì¸í„°
+		//	ì²«ë²ˆì§¸ parameter ì—ëŠ” í•¨ìˆ˜ê°ì²´,í•¨ìˆ˜í¬ì¸í„°,í•¨ìˆ˜ ref, ë©¤ë²„í•¨ìˆ˜í¬ì¸í„° ê°™ì€ ì¸ìì™€ ë¬¶ì¼ìˆ˜ ìˆëŠ”
+		//Collable object ê°€ ì˜¨ë‹¤
+		//	ë‘ë²ˆì§¸ parameter ë¶€í„´ ì¸ìë“¤ì´ ë“¤ì–´ì˜´, ê³ ì •í•˜ì§€ ì•Šê³  ì—¬ëŸ¬ê°œì˜ ì¸ìë“¤ì„ ë°›ê³  ì‹¶ìœ¼ë©´ std::placeholders
 
-	//Æ¯Á¤ parameter¿¡ ´ëÇØ¼­¸¸ ½ÇÇà½ÃÅ°¸é µÇ´Âµ¥ void(int) ÀÌ·¸°Ô paramter ¸¦ ³Ö´Â°Ô ±ÍÂúÀ» ¼ö ÀÖÀ½
-	//std::bind() ¸¦ ½á¼­ (int ¸¦ ¹Ş´Â)func3 ¿Í int¸¦ bind ÇØÁÜ
-	//func4 ´Â func3 °¡ Àü´ŞµÇ´Âµ¥ parameter °¡ ¾øÀ½, void(void) ÀÓ
+	//íŠ¹ì • parameterì— ëŒ€í•´ì„œë§Œ ì‹¤í–‰ì‹œí‚¤ë©´ ë˜ëŠ”ë° void(int) ì´ë ‡ê²Œ paramter ë¥¼ ë„£ëŠ”ê²Œ ê·€ì°®ì„ ìˆ˜ ìˆìŒ
+	//std::bind() ë¥¼ ì¨ì„œ (int ë¥¼ ë°›ëŠ”)func3 ì™€ intë¥¼ bind í•´ì¤Œ
+	//func4 ëŠ” func3 ê°€ ì „ë‹¬ë˜ëŠ”ë° parameter ê°€ ì—†ìŒ, void(void) ì„
 	std::function<void()> func4 = std::bind(func3, 456);
 	func4();
 
 
 
 	//std::placeholder
-		//	std::function °ú std::bind ¸¦ ÇÔ²² »ç¿ëÇÒ¶§ parameter ¸¦ ¸ğµÎ °íÁ¤ÇÏÁö ¾Ê°í Æ¯Á¤ parameter ¸¸ 
-		//°íÁ¤ÇØ¼­ »ç¿ëÇÏ°í ½ÍÀº °æ¿ì »ç¿ë
-		//	std::placeholders::_1 ¿¡¼­ _1 Àº 1¹øÂ° parameter ¸¦ ÀÇ¹Ì,
+		//	std::function ê³¼ std::bind ë¥¼ í•¨ê»˜ ì‚¬ìš©í• ë•Œ parameter ë¥¼ ëª¨ë‘ ê³ ì •í•˜ì§€ ì•Šê³  íŠ¹ì • parameter ë§Œ 
+		//ê³ ì •í•´ì„œ ì‚¬ìš©í•˜ê³  ì‹¶ì€ ê²½ìš° ì‚¬ìš©
+		//	std::placeholders::_1 ì—ì„œ _1 ì€ 1ë²ˆì§¸ parameter ë¥¼ ì˜ë¯¸,
 	
 	{
 		//function binding
 		auto f = std::bind(&goodbye, std::placeholders::_1);	
-		//goodbye() ÀÇ parameter °¡ 1°³¶ó¼­ placeholders::_1
-		//auto ´ë½Å¿¡ std::function ¿¡ ³Ö¾îµµ µÊ
+		//goodbye() ì˜ parameter ê°€ 1ê°œë¼ì„œ placeholders::_1
+		//auto ëŒ€ì‹ ì— std::function ì— ë„£ì–´ë„ ë¨
 
 		f("World");
 
@@ -135,15 +137,15 @@ int main()
 		//member function binding
 		Object instance;
 		auto f2 = std::bind(&Object::hello, &instance, std::placeholders::_1); 
-		//class Object ¿¡ ¼ÓÇØÀÖ´Â ¸â¹öÇÔ¼ö hello() ¸¦ ½ÇÇà½Ã±â À§ÇØ¼­´Â Object class ÀÇ 
-		//this Æ÷ÀÎÅÍ¸¦ °¡Áö°í ÀÖ´Â instance °¡ ÇÊ¿äÇÔ
+		//class Object ì— ì†í•´ìˆëŠ” ë©¤ë²„í•¨ìˆ˜ hello() ë¥¼ ì‹¤í–‰ì‹œê¸° ìœ„í•´ì„œëŠ” Object class ì˜ 
+		//this í¬ì¸í„°ë¥¼ ê°€ì§€ê³  ìˆëŠ” instance ê°€ í•„ìš”í•¨
 		
-		//hello()ÀÇ Æ÷ÀÎÅÍ, instance ÀÇ Æ÷ÀÎÅÍ¸¦ ³Ö¾îÁÖ°í hello ÀÇ parameter °¡ ÇÏ³ª¶ó¼­
-		//std::placeholders::_1 ¸¦ ÅëÇØ Ã¹¹øÂ° parameter ¸¦ ¹ŞÀ½
-		//¸â¹öÇÔ¼öÆ÷ÀÎÅÍ´Â Çüº¯È¯À» ÇØÁÖÁö ¾Ê±â ¶§¹®¿¡ &¸¦ ¹İµå½Ã ºÙ¿©Áà¾ßÇÔ
+		//hello()ì˜ í¬ì¸í„°, instance ì˜ í¬ì¸í„°ë¥¼ ë„£ì–´ì£¼ê³  hello ì˜ parameter ê°€ í•˜ë‚˜ë¼ì„œ
+		//std::placeholders::_1 ë¥¼ í†µí•´ ì²«ë²ˆì§¸ parameter ë¥¼ ë°›ìŒ
+		//ë©¤ë²„í•¨ìˆ˜í¬ì¸í„°ëŠ” í˜•ë³€í™˜ì„ í•´ì£¼ì§€ ì•Šê¸° ë•Œë¬¸ì— &ë¥¼ ë°˜ë“œì‹œ ë¶™ì—¬ì¤˜ì•¼í•¨
 
-		f2(string("World"));		//string ÀÌ¶õ°É °­Á¶ÇÏ±â À§ÇØ¼­ string À» ¾¸
-		f2("World");				//ÀÌ·¸°Ô¸¸ ÇØµµ µÊ
+		f2(string("World"));		//string ì´ë€ê±¸ ê°•ì¡°í•˜ê¸° ìœ„í•´ì„œ string ì„ ì”€
+		f2("World");				//ì´ë ‡ê²Œë§Œ í•´ë„ ë¨
 	}
 
 
