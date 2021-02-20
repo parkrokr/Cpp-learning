@@ -87,6 +87,52 @@ auto dotProductFuture(const vector<int>& v0, const vector<int>& v1,
 
 
 
+void dotProductLockthread(const vector<int>& v0, const vector<int>& v1,
+	const unsigned i_start, const unsigned i_end, unsigned long long & sum)
+{
+	//std::scoped_lock lock(mtx);
+	unsigned long long local_sum = 0;
+
+	for (unsigned i = i_start; i < i_end; ++i)
+	{
+		//std::scoped_lock lock(mtx);
+
+		local_sum += v0[i] * v1[i];
+	}
+
+	{
+		std::scoped_lock lock(mtx);
+		sum += local_sum;
+	}
+}
+
+
+void dotProductpromise(std::promise<int>&& prom, const vector<int>& v0, const vector<int>& v1,
+	const unsigned i_start, const unsigned i_end)
+{
+	int sum = 0;	//local sum
+
+	for (unsigned i = i_start; i < i_end; ++i)
+	{
+		sum += v0[i] * v1[i];
+	}
+
+	prom.set_value(sum);
+}
+
+
+void dotProductLockatomic(const vector<int>& v0, const vector<int>& v1,
+	const unsigned i_start, const unsigned i_end, atomic<unsigned long long>& sum)
+{
+	int local_sum = 0;
+
+	for (unsigned i = i_start; i < i_end; ++i)
+	{
+		local_sum += v0[i] * v1[i];
+	}
+	sum += local_sum;
+}
+
 
 int main()
 {
@@ -99,7 +145,7 @@ int main()
 
 
 	const long long n_data = 100'000'000;
-	const unsigned n_threads =5;			//thread 개수에 따라 멀티쓰레딩 효율이 달라짐, 단 비례하진 않음
+	const unsigned n_threads =4;			//thread 개수에 따라 멀티쓰레딩 효율이 달라짐, 단 비례하진 않음
 
 	//initialize vector
 	//vector v0 와 v1 을 1~10의 정수로 1억개의 난수로 만듦
@@ -346,9 +392,182 @@ int main()
 
 
 	//future 를 쓰는것이 무조건 좋다고 느낄 순 있으나 꼭 그렇지도 않음
+	//diveide and conquer 방법을 이용하여 std::thread 를 이용하여 구현, atomic 을 이용하여 구현, promise 를 사용하여 구현
+	/*
+	std::inner_product
+	0.0469466
+	3025131035
+
+	Naive
+	0.606177
+	947775124
+
+	LockGuard
+	0.114757
+	3025131035
+
+	atomic
+	1.88939
+	3025131035
+	
+	future
+	0.0272816
+	3025131035
+
+	divide and conquer using std::thread
+	0.0280988
+	3025131035
+
+	divide and conquer usingpromise
+	0.02556
+	3025131035
+
+	divide and conquer using atomic
+	0.0252057
+	3025131035
+
+	std::transform_reduce
+	0.027207
+	3025131035
+	*/
+
+	
 	//TODO: use diveide and conquer(3번 방법) strategy for std::thread
+	cout << "divide and conquer using std::thread" << endl;
+	{
+		const auto sta = chrono::steady_clock::now();
+
+		//unsigned long long sum = 0;
+
+		vector<thread> threads;
+		unsigned long long sum = 0;
+		//unsigned long long result(0);
+
+		threads.resize(n_threads);
+		//sum.resize(n_threads);
+
+		const unsigned n_per_thread = n_data / n_threads;
+
+		for (unsigned t = 0; t < n_threads; ++t)
+			threads[t] = std::thread(dotProductLockthread, std::ref(v0), std::ref(v1),
+				t * n_per_thread, (t + 1) * n_per_thread,std::ref(sum));
+
+
+		for (unsigned t = 0; t < n_threads; ++t)
+		{
+			threads[t].join();
+		}
+
+		const chrono::duration<double> dur = chrono::steady_clock::now() - sta;
+
+		cout << dur.count() << endl;
+		cout << sum << endl;
+		cout << endl;
+	}
+	/* 
+	std::inner_product
+	0.0431377
+	3025054551
+
+	divide and conquer using std::thread
+	0.0259145
+	3025054551
+	*/
+	
+
 	//TODO: use promise 
+	cout << "divide and conquer usingpromise" << endl;
+	{
+		const auto sta = chrono::steady_clock::now();
+
+
+		unsigned long long sum = 0;
+
+		vector<std::promise<int>> prom;
+		prom.resize(n_threads);
+
+		vector<std::future<int>> futures;		
+		futures.resize(n_threads);
+
+		vector<thread> threads;
+		threads.resize(n_threads);
+
+		for (unsigned t = 0; t < n_threads; ++t)
+		{
+			futures[t] = prom[t].get_future();
+		}
+
+		const unsigned n_per_thread = n_data / n_threads;
+
+		for (unsigned t = 0; t < n_threads; ++t)
+			threads[t] = std::thread(dotProductpromise,std::move(prom[t]), std::ref(v0), std::ref(v1),
+				t * n_per_thread, (t + 1) * n_per_thread);
+
+
+		for (unsigned t = 0; t < n_threads; ++t)
+		{
+			threads[t].join();
+			sum += futures[t].get();
+		}
+
+		const chrono::duration<double> dur = chrono::steady_clock::now() - sta;
+
+		cout << dur.count() << endl;
+		cout << sum << endl;
+		cout << endl;
+		
+	}
+	/*std::inner_product
+	0.04523
+	3025121175
+
+	divide and conquer using promise
+	0.030376
+	3025121175*/
+	//std::inner_product 보다 빠르고 std::transform_reduce 보단 느림
+
+
 	//TODO: use atomic
+	cout << "divide and conquer using atomic" << endl;
+	{
+		const auto sta = chrono::steady_clock::now();
+
+		vector<thread> threads;
+		atomic<unsigned long long>sum = 0;
+
+		threads.resize(n_threads);
+
+		const unsigned n_per_thread = n_data / n_threads;
+
+		for (unsigned t = 0; t < n_threads; ++t)
+			threads[t] = std::thread(dotProductLockatomic, std::ref(v0), std::ref(v1),
+				t * n_per_thread, (t + 1) * n_per_thread, std::ref(sum));
+
+
+		for (unsigned t = 0; t < n_threads; ++t)
+		{
+			threads[t].join();
+		}
+
+		const chrono::duration<double> dur = chrono::steady_clock::now() - sta;
+
+		cout << dur.count() << endl;
+		cout << sum << endl;
+		cout << endl;
+	}
+	/*
+	std::inner_product
+	0.0500797
+	3024817682
+
+	divide and conquer using atomic
+	0.0256886
+	3024817682
+	*/
+
+
+
+
 
 
 
