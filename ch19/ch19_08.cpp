@@ -52,6 +52,61 @@ public:
 	}
 
 
+	template<class T>
+	void func_ex3(T arg)
+	{}
+
+	/*template<class T>
+	void func_ex3(const T& arg)
+	{}*/
+
+	void ex3()
+	{
+		const int& crx = 123;
+		 
+		func_ex3(crx);	//const 와 & 를 떼고 int 만 남음
+
+		//const int reference 로 넣고 싶으면  void func_ex3(const T& arg) 사용
+	}
+
+	
+	void ex4()
+	{
+		const int c = 0;
+		auto& rc = c;		//rc 가 const int reference
+
+		//rc = 123; 을 시도하면 compile error 가 발생
+
+		//reference 로 받아오는데 c 가 const 이기 때문에 받는 rc 도 const 여야함, auto 가 잘 추론을 해줌
+	}
+
+
+	void ex5() //amendament(개정, 수정)
+	{
+		int i = 42;
+		auto&& ri_1 = i;	// l value (amendament(개정, 수정))
+		auto&& ri_2 = 42;	// r value
+
+		//auto&&는 r vlaue reference 로 선언하고 싶다는 의도, l value 가 들어오면 & 로 바뀜
+		//r value 가 들어오면 &&(r value reference) 로 잡힘
+	}
+
+
+	void ex6()
+	{
+		int x = 42;
+		const int* p1 = &x;
+		auto p2 = p1;		//p2 는 const int * 로 잘 잡힘
+
+		//auto 가 포인터도 가져오고 const 도 가져옴, auto 가 반드시 필요한 경우 (옛날엔 힘들었다 함)
+		//*p2 = 43; const 라 error
+	}
+
+
+
+
+
+
 };
 
 int main()
