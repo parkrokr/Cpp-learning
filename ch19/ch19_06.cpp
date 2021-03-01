@@ -1,8 +1,8 @@
-//¸ÖÆ¼¾²·¹µù ¿¹Á¦ (º¤ÅÍ ³»Àû °è»ê)
+//ë©€í‹°ì“°ë ˆë”© ì˜ˆì œ (ë²¡í„° ë‚´ì  ê³„ì‚°)
 
 
-//¸ÖÆ¼¾²·¹µùÀ» ÇÒ¶§´Â °¢ thread µéÀÌ ¼­·Î ¿µÇâÀ» ÁÖ°í ¹ŞÁö ¾Ê°í °¢ÀÚ ÀÛ¾÷À» ÇÏ°í 
-//³¡³½ °á°ú¸¸ °¡Á®¿Í¼­ ÃëÇÕÇÏ´Â°ÍÀÌ °¡Àå ÁÁÀ½
+//ë©€í‹°ì“°ë ˆë”©ì„ í• ë•ŒëŠ” ê° thread ë“¤ì´ ì„œë¡œ ì˜í–¥ì„ ì£¼ê³  ë°›ì§€ ì•Šê³  ê°ì ì‘ì—…ì„ í•˜ê³  
+//ëë‚¸ ê²°ê³¼ë§Œ ê°€ì ¸ì™€ì„œ ì·¨í•©í•˜ëŠ”ê²ƒì´ ê°€ì¥ ì¢‹ìŒ
 
 #include <chrono>
 #include <iostream>
@@ -18,9 +18,9 @@
 
 using namespace std;
 
-mutex mtx;	//mutex °¡ ²À Àü¿ªº¯¼öÀÏ ÇÊ¿ä´Â ¾øÀ½, thread µéÀÌ °øÅëÀûÀ¸·Î Á¢±ÙÇÒ ¼ö ÀÖ´Â scope ¿¡¸¸ ÀÖÀ¸¸é µÊ
-			//Ç×»ó mutex °¡ »ì¾ÆÀÖÀ» ÇÊ¿äµµ ¾øÀ½, lock guard °¡ ÀÛµ¿ÇÏ°í ½ÍÀ» ¶§¸¸ »ì¾ÆÀÖÀ¸¸é µÊ
-			//class ÀÇ ¸â¹ö·Î ³Ö°Å³ª scope ¿¡ ÀÖÀ¸¸é µÊ
+mutex mtx;	//mutex ê°€ ê¼­ ì „ì—­ë³€ìˆ˜ì¼ í•„ìš”ëŠ” ì—†ìŒ, thread ë“¤ì´ ê³µí†µì ìœ¼ë¡œ ì ‘ê·¼í•  ìˆ˜ ìˆëŠ” scope ì—ë§Œ ìˆìœ¼ë©´ ë¨
+			//í•­ìƒ mutex ê°€ ì‚´ì•„ìˆì„ í•„ìš”ë„ ì—†ìŒ, lock guard ê°€ ì‘ë™í•˜ê³  ì‹¶ì„ ë•Œë§Œ ì‚´ì•„ìˆìœ¼ë©´ ë¨
+			//class ì˜ ë©¤ë²„ë¡œ ë„£ê±°ë‚˜ scope ì— ìˆìœ¼ë©´ ë¨
 
 
 void dotProductNaive(const vector<int>& v0, const vector<int>& v1,
@@ -29,26 +29,26 @@ void dotProductNaive(const vector<int>& v0, const vector<int>& v1,
 	for (unsigned i = i_start; i < i_end; ++i)
 		sum += v0[i] * v1[i];
 
-	//ÀüÃ¼ 1¾ï°³ Áß¿¡¼­ ¾î´À ºÎÀ§¸¦ °è»êÇÒÁö Á¤ÇÏ±â À§ÇØ i_start, i_end »ç¿ë
+	//ì „ì²´ 1ì–µê°œ ì¤‘ì—ì„œ ì–´ëŠ ë¶€ìœ„ë¥¼ ê³„ì‚°í• ì§€ ì •í•˜ê¸° ìœ„í•´ i_start, i_end ì‚¬ìš©
 }
 
 
 void dotProductLock(const vector<int>& v0, const vector<int>& v1,
 	const unsigned i_start, const unsigned i_end, unsigned long long& sum)
 {
-	//lock À» ¾îµğ¿¡ °Å´ÂÁöµµ Áß¿äÇÔ
-	//lock À» °Å´Â ºÎºĞÀÌ ÀûÀ»¼ö·Ï ÆÛÆ÷¸Õ½º°¡ ¿Ã¶ó°¨
+	//lock ì„ ì–´ë””ì— ê±°ëŠ”ì§€ë„ ì¤‘ìš”í•¨
+	//lock ì„ ê±°ëŠ” ë¶€ë¶„ì´ ì ì„ìˆ˜ë¡ í¼í¬ë¨¼ìŠ¤ê°€ ì˜¬ë¼ê°
 
 	std::scoped_lock lock(mtx);
 
 	//cout<< "Thread start " << endl;
 	for (unsigned i = i_start; i < i_end; ++i)
 	{
-		//std::scoped_lock lock(mtx);	//c++17, ÀÌÀü¹öÀü¿¡¼± lock_guard »ç¿ë
+		//std::scoped_lock lock(mtx);	//c++17, ì´ì „ë²„ì „ì—ì„  lock_guard ì‚¬ìš©
 		
-		//mutex °¡ ²À Àü¿ªº¯¼öÀÏ ÇÊ¿ä´Â ¾øÀ½, thread µéÀÌ °øÅëÀûÀ¸·Î Á¢±ÙÇÒ ¼ö ÀÖ´Â scope ¿¡¸¸ ÀÖÀ¸¸é µÊ
-		//Ç×»ó mutex °¡ »ì¾ÆÀÖÀ» ÇÊ¿äµµ ¾øÀ½, lock guard °¡ ÀÛµ¿ÇÏ°í ½ÍÀ» ¶§¸¸ »ì¾ÆÀÖÀ¸¸é µÊ
-		//class ÀÇ ¸â¹ö·Î ³Ö°Å³ª scope ¿¡ ÀÖÀ¸¸é µÊ
+		//mutex ê°€ ê¼­ ì „ì—­ë³€ìˆ˜ì¼ í•„ìš”ëŠ” ì—†ìŒ, thread ë“¤ì´ ê³µí†µì ìœ¼ë¡œ ì ‘ê·¼í•  ìˆ˜ ìˆëŠ” scope ì—ë§Œ ìˆìœ¼ë©´ ë¨
+		//í•­ìƒ mutex ê°€ ì‚´ì•„ìˆì„ í•„ìš”ë„ ì—†ìŒ, lock guard ê°€ ì‘ë™í•˜ê³  ì‹¶ì„ ë•Œë§Œ ì‚´ì•„ìˆìœ¼ë©´ ë¨
+		//class ì˜ ë©¤ë²„ë¡œ ë„£ê±°ë‚˜ scope ì— ìˆìœ¼ë©´ ë¨
 
 		sum += v0[i] * v1[i];
 	}
@@ -64,7 +64,7 @@ void dotProductAtomic(const vector<int>& v0, const vector<int>& v1,
 		sum += v0[i] * v1[i];
 	}
 }
-//sum À» ¹Ş¾Æ¿Ã¶§ atomic<unsigned long long> ÀÓ
+//sum ì„ ë°›ì•„ì˜¬ë•Œ atomic<unsigned long long> ì„
 
 
 
@@ -73,8 +73,8 @@ auto dotProductFuture(const vector<int>& v0, const vector<int>& v1,
 {
 	int sum = 0;	//local sum
 
-	//¸ÖÆ¼¾²·¹µùÀ» ÇÒ¶§´Â °¢ thread µéÀÌ ¼­·Î ¿µÇâÀ» ÁÖ°í ¹ŞÁö ¾Ê°í °¢ÀÚ ÀÛ¾÷À» ÇÏ°í 
-	//³¡³½ °á°ú¸¸ °¡Á®¿Í¼­ ÃëÇÕÇÏ´Â°ÍÀÌ °¡Àå ÁÁÀ½
+	//ë©€í‹°ì“°ë ˆë”©ì„ í• ë•ŒëŠ” ê° thread ë“¤ì´ ì„œë¡œ ì˜í–¥ì„ ì£¼ê³  ë°›ì§€ ì•Šê³  ê°ì ì‘ì—…ì„ í•˜ê³  
+	//ëë‚¸ ê²°ê³¼ë§Œ ê°€ì ¸ì™€ì„œ ì·¨í•©í•˜ëŠ”ê²ƒì´ ê°€ì¥ ì¢‹ìŒ
 
 	for (unsigned i = i_start; i < i_end; ++i)
 	{
@@ -136,7 +136,7 @@ void dotProductLockatomic(const vector<int>& v0, const vector<int>& v1,
 
 int main()
 {
-	//³»Àû inner product
+	//ë‚´ì  inner product
 	/*
 	v0 = {1,2,3}
 	v1 = {4,5,6}
@@ -145,18 +145,18 @@ int main()
 
 
 	const long long n_data = 100'000'000;
-	const unsigned n_threads =4;			//thread °³¼ö¿¡ µû¶ó ¸ÖÆ¼¾²·¹µù È¿À²ÀÌ ´Ş¶óÁü, ´Ü ºñ·ÊÇÏÁø ¾ÊÀ½
+	const unsigned n_threads =4;			//thread ê°œìˆ˜ì— ë”°ë¼ ë©€í‹°ì“°ë ˆë”© íš¨ìœ¨ì´ ë‹¬ë¼ì§, ë‹¨ ë¹„ë¡€í•˜ì§„ ì•ŠìŒ
 
 	//initialize vector
-	//vector v0 ¿Í v1 À» 1~10ÀÇ Á¤¼ö·Î 1¾ï°³ÀÇ ³­¼ö·Î ¸¸µê
+	//vector v0 ì™€ v1 ì„ 1~10ì˜ ì •ìˆ˜ë¡œ 1ì–µê°œì˜ ë‚œìˆ˜ë¡œ ë§Œë“¦
 	std::vector<int> v0, v1;
-	v0.reserve(n_data);		//pushback() ÀÇ È¿À²À» ³ôÈ÷±â À§ÇØ
+	v0.reserve(n_data);		//pushback() ì˜ íš¨ìœ¨ì„ ë†’íˆê¸° ìœ„í•´
 	v1.reserve(n_data);
 
 	random_device seed;
 	mt19937 engine(seed());
 
-	uniform_int_distribution<> uniformDist(1, 10);		//1~10 ÀÇ Á¤±Ôº»Æ÷·Î Á¦¾àÀ» °É±â, ¼ıÀÚ°¡ ³Ê¹« Ä¿Áö¸é °á°ú°ªÀÌ ³Ê¹« Ä¿Áü
+	uniform_int_distribution<> uniformDist(1, 10);		//1~10 ì˜ ì •ê·œë³¸í¬ë¡œ ì œì•½ì„ ê±¸ê¸°, ìˆ«ìê°€ ë„ˆë¬´ ì»¤ì§€ë©´ ê²°ê³¼ê°’ì´ ë„ˆë¬´ ì»¤ì§
 
 	for (long long i = 0; i < n_data; ++i)
 	{
@@ -166,16 +166,16 @@ int main()
 
 
 
-	//³»Àû
-	//std::inner_product ¸¦ »ç¿ëÇØ Á¤´ä ±¸ÇÏ±â
+	//ë‚´ì 
+	//std::inner_product ë¥¼ ì‚¬ìš©í•´ ì •ë‹µ êµ¬í•˜ê¸°
 	cout << "std::inner_product" << endl;
 	{
 		const auto sta = chrono::steady_clock::now();
 
 		const auto sum = std::inner_product(v0.begin(), v0.end(), v1.begin(), 0ull);
-		//µÎ¹øÂ° vector ´Â begin() ¸¸ ÀÖÀ¸¸é µÊ, °³¼ö°¡ °°´Ù°í °¡Á¤ÇÏ±â ¶§¹®
-		//sum ÀÌ unsigned long long À¸·Î ÀâÈ÷´Â ÀÌÀ¯´Â 0À» 0ull(unsingned long long) À¸·Î ³Ö¾îÁà¼­
-		//0À¸·Î ³ÖÀ¸¸é int ·Î ÀâÇô¼­ ¿À¹öÇÃ·Î¿ì°¡ ¹ß»ıÇÒ ¼öµµ ÀÖÀ½
+		//ë‘ë²ˆì§¸ vector ëŠ” begin() ë§Œ ìˆìœ¼ë©´ ë¨, ê°œìˆ˜ê°€ ê°™ë‹¤ê³  ê°€ì •í•˜ê¸° ë•Œë¬¸
+		//sum ì´ unsigned long long ìœ¼ë¡œ ì¡íˆëŠ” ì´ìœ ëŠ” 0ì„ 0ull(unsingned long long) ìœ¼ë¡œ ë„£ì–´ì¤˜ì„œ
+		//0ìœ¼ë¡œ ë„£ìœ¼ë©´ int ë¡œ ì¡í˜€ì„œ ì˜¤ë²„í”Œë¡œìš°ê°€ ë°œìƒí•  ìˆ˜ë„ ìˆìŒ
 
 		const chrono::duration<double> dur = chrono::steady_clock::now() - sta;
 
@@ -183,14 +183,14 @@ int main()
 		cout << sum << endl;			
 		cout << endl;
 
-		//sum Àº vector °¡ random À» ¸¸µé¾ú±â ¶§¹®¿¡ ±×¶§±×¶§ ´Ù¸§
-		//¸ÖÆ¼¾²·¹µùÀº »ç¼ÒÇÑ ½Ç¼ö·Î °á°ú°ªÀÌ Á¤´ä°ú ´Ù¸£°Ô ³ª¿Ã ¼ö ÀÖÀ½
-		//º´·ÄÃ³¸®¸¦ ÇÒ¶§´Â Á¤´äÀ» °è»êÇÏ°í, Á¤´ä°ú °è»ê°á°ú¸¦ ºñ±³ÇÏ°í ÆÛÆ÷¸Õ½º¸¦ ºñ±³ÇØ¾ßµÊ
+		//sum ì€ vector ê°€ random ì„ ë§Œë“¤ì—ˆê¸° ë•Œë¬¸ì— ê·¸ë•Œê·¸ë•Œ ë‹¤ë¦„
+		//ë©€í‹°ì“°ë ˆë”©ì€ ì‚¬ì†Œí•œ ì‹¤ìˆ˜ë¡œ ê²°ê³¼ê°’ì´ ì •ë‹µê³¼ ë‹¤ë¥´ê²Œ ë‚˜ì˜¬ ìˆ˜ ìˆìŒ
+		//ë³‘ë ¬ì²˜ë¦¬ë¥¼ í• ë•ŒëŠ” ì •ë‹µì„ ê³„ì‚°í•˜ê³ , ì •ë‹µê³¼ ê³„ì‚°ê²°ê³¼ë¥¼ ë¹„êµí•˜ê³  í¼í¬ë¨¼ìŠ¤ë¥¼ ë¹„êµí•´ì•¼ë¨
 	}
 
 
-	//º´·ÄÃ³¸®
-	//thread ¸¦ n_threads ÀÇ ¼ıÀÚ¸¸Å­ ¸¸µå¸¯ À§ÇØ vector ·Î ¸¸µê
+	//ë³‘ë ¬ì²˜ë¦¬
+	//thread ë¥¼ n_threads ì˜ ìˆ«ìë§Œí¼ ë§Œë“œë¦­ ìœ„í•´ vector ë¡œ ë§Œë“¦
 	cout << "Naive" << endl;
 	{
 		const auto sta = chrono::steady_clock::now();
@@ -200,15 +200,15 @@ int main()
 		vector<thread> threads;
 		threads.resize(n_threads);
 
-		const unsigned n_per_thread = n_data / n_threads;	//°¢°¢ÀÇ thread ¿¡ ÀÏÀ» ³ª´²ÁÜ, 
-		//°£´ÜÇÑ ¿¹Á¦¸¦ À§ÇØ assumes remainder = 0, ½ÇÀü¿¡¼± ³²Àº ÀÏÀ» ¸î¸îÀÇ thread ¿¡ Ãß°¡·Î ½ÃÅ°¸é µÊ
+		const unsigned n_per_thread = n_data / n_threads;	//ê°ê°ì˜ thread ì— ì¼ì„ ë‚˜ëˆ ì¤Œ, 
+		//ê°„ë‹¨í•œ ì˜ˆì œë¥¼ ìœ„í•´ assumes remainder = 0, ì‹¤ì „ì—ì„  ë‚¨ì€ ì¼ì„ ëª‡ëª‡ì˜ thread ì— ì¶”ê°€ë¡œ ì‹œí‚¤ë©´ ë¨
 
 		for(unsigned t = 0;t<n_threads;++t)
 			threads[t] = std::thread(dotProductNaive, std::ref(v0),std::ref(v1),
 			t* n_per_thread, (t + 1)* n_per_thread, std::ref(sum));
 
-		//v0, v1 ÀÌ reference ·Î ³Ñ¾î°¡´Ï std::ref() ·Î ¸í½Ã
-		//t* n_per_thread, (t + 1)* n_per_thread ´Â °¢°¢ thread °¡ Ã³¸®ÇÏ´Â ¹üÀ§
+		//v0, v1 ì´ reference ë¡œ ë„˜ì–´ê°€ë‹ˆ std::ref() ë¡œ ëª…ì‹œ
+		//t* n_per_thread, (t + 1)* n_per_thread ëŠ” ê°ê° thread ê°€ ì²˜ë¦¬í•˜ëŠ” ë²”ìœ„
 
 
 		for (unsigned t = 0; t < n_threads; ++t)
@@ -227,11 +227,11 @@ int main()
 	Naive
 	0.590383
 	897324127*/
-	//ÀÏ´Ü ½ÇÇà½ÃÅ°¸é ½Ã°£µµ ´õ ´ú¸®°í ˆ©µµ Æ²¸²
-	//sum À» thread µéÀÌ µ¿½Ã¿¡ °Çµå·Á¼­ ¿¡·¯ ¹ß»ı(·¹ÀÌ½º ÄÁµğ¼Ç)
+	//ì¼ë‹¨ ì‹¤í–‰ì‹œí‚¤ë©´ ì‹œê°„ë„ ë” ëœë¦¬ê³  Âˆãˆ„ í‹€ë¦¼
+	//sum ì„ thread ë“¤ì´ ë™ì‹œì— ê±´ë“œë ¤ì„œ ì—ëŸ¬ ë°œìƒ(ë ˆì´ìŠ¤ ì»¨ë””ì…˜)
 	
-	//ÇØ°á ¹æ¹ı 2°¡Áö
-	//1: lockguard »ç¿ë
+	//í•´ê²° ë°©ë²• 2ê°€ì§€
+	//1: lockguard ì‚¬ìš©
 	cout << "LockGuard" << endl;
 	{
 		const auto sta = chrono::steady_clock::now();
@@ -247,7 +247,7 @@ int main()
 			threads[t] = std::thread(dotProductLock, std::ref(v0), std::ref(v1),
 				t * n_per_thread, (t + 1) * n_per_thread, std::ref(sum));
 
-		//dotProductNaive ´ë½Å¿¡ dotProductLock »ç¿ë
+		//dotProductNaive ëŒ€ì‹ ì— dotProductLock ì‚¬ìš©
 
 		for (unsigned t = 0; t < n_threads; ++t)
 			threads[t].join();
@@ -258,7 +258,7 @@ int main()
 		cout << sum << endl;
 		cout << endl;
 	}
-	//lock guard °¡ for ¹® ¾È¿¡ ÀÖÀ»¶§
+	//lock guard ê°€ for ë¬¸ ì•ˆì— ìˆì„ë•Œ
 	/*std::inner_product
 	0.0426168
 	3025104183
@@ -266,9 +266,9 @@ int main()
 	LockGuard
 	2.38702
 	3025104183*/
-	//°á°ú´Â ¸Â¾ÒÁö¸¸ ¼Óµµ°¡ ´õ ´À·ÁÁü, º´·ÄÃ³¸®¸¦ ÇÏ´Â ÀÇ¹Ì°¡ ¾øÀ½
+	//ê²°ê³¼ëŠ” ë§ì•˜ì§€ë§Œ ì†ë„ê°€ ë” ëŠë ¤ì§, ë³‘ë ¬ì²˜ë¦¬ë¥¼ í•˜ëŠ” ì˜ë¯¸ê°€ ì—†ìŒ
 
-	// lock guard °¡ for ¹® ¹Û¿¡ ÀÖÀ»¶§
+	// lock guard ê°€ for ë¬¸ ë°–ì— ìˆì„ë•Œ
 	/*std::inner_product
 	0.0416433
 	3025046725
@@ -280,23 +280,23 @@ int main()
 	LockGuard
 	0.111453
 	3025046725*/
-	//ˆ©µµ Àß ³ª¿À°í ½Ã°£µµ ÁÙÀ½
-	//lock ÀÌ for ¹® ¹Û¿¡ ÀÖ¾î¼­ scope °¡ dotProductLock() ÀüÃ¼¶ó¼­ ÀüÃ¼°¡ lock ÀÌ °É·Á ½ÇÁ¦·Î´Â
-	//º´·Ä(µ¿½ÃÀû) ÀÌ ¾Æ´Ï¶ó ¼øÂ÷ÀûÀ¸·Î ½ÇÇàµÈ°ÍÀÓ, thread µéÀÌ ¼øÂ÷ÀûÀ¸·Î ½ÇÇàµÇ°í ¿ÀÈ÷·Á thread¸¦ »ı¼ºÇÏ´Â ¿À¹öÇìµå¸¸ Ä¿Áü
-	//ÀÌ·± ¹æ½ÄÀ¸·Î lock À» °É¾îÁÖ´Â°ÍÀº ÀÇ¹Ì°¡ ¾øÀ½
+	//ë‹¶ë„ ì˜ ë‚˜ì˜¤ê³  ì‹œê°„ë„ ì¤„ìŒ
+	//lock ì´ for ë¬¸ ë°–ì— ìˆì–´ì„œ scope ê°€ dotProductLock() ì „ì²´ë¼ì„œ ì „ì²´ê°€ lock ì´ ê±¸ë ¤ ì‹¤ì œë¡œëŠ”
+	//ë³‘ë ¬(ë™ì‹œì ) ì´ ì•„ë‹ˆë¼ ìˆœì°¨ì ìœ¼ë¡œ ì‹¤í–‰ëœê²ƒì„, thread ë“¤ì´ ìˆœì°¨ì ìœ¼ë¡œ ì‹¤í–‰ë˜ê³  ì˜¤íˆë ¤ threadë¥¼ ìƒì„±í•˜ëŠ” ì˜¤ë²„í—¤ë“œë§Œ ì»¤ì§
+	//ì´ëŸ° ë°©ì‹ìœ¼ë¡œ lock ì„ ê±¸ì–´ì£¼ëŠ”ê²ƒì€ ì˜ë¯¸ê°€ ì—†ìŒ
 
-	//scope lock Àº ÀÛÀº ¿µ¿ª¿¡ µé¾î°¡´Â°ÍÀÌ ÁÁÁö¸¸ ³Ê¹« ºó¹øÇÏ°Ô ÀÚÁÖ ½ÇÇàÀÌ µÇ¾î¹ö·Á¼­ ¿ÀÈ÷·Á ´À·ÁÁø°Í
-	//¾ÈÇÏ´À´Ï¸¸ ¸øÇÑ °á°ú°¡ ³ª¿È
+	//scope lock ì€ ì‘ì€ ì˜ì—­ì— ë“¤ì–´ê°€ëŠ”ê²ƒì´ ì¢‹ì§€ë§Œ ë„ˆë¬´ ë¹ˆë²ˆí•˜ê²Œ ìì£¼ ì‹¤í–‰ì´ ë˜ì–´ë²„ë ¤ì„œ ì˜¤íˆë ¤ ëŠë ¤ì§„ê²ƒ
+	//ì•ˆí•˜ëŠë‹ˆë§Œ ëª»í•œ ê²°ê³¼ê°€ ë‚˜ì˜´
 
-	//lock À» °É¾îÁÖ¸é °á°ú´Â Àß³ª¿ÔÁö¸¸ ÆÛÆ÷¸Õ½º°¡ ¿ÀÈ÷·Á ¶³¾îÁú ¼öµµ ÀÖÀ½
-
-
-	//¸ÖÆ¼¾²·¹µùÀ» Ã³À½ ½ÃµµÇÏ´Â °æ¿ì ¿ÀÈ÷·Á ÆÛÆ÷¸Õ½º°¡ ¶³¾îÁö°Å³ª °á°ú°¡ ´Ù¸£°Ô ³ª¿Ã ¼ö°¡ ÀÖÀ½
-	//°æ¿ì¿¡ µû¶ó Çö»óÀº ´Ş¶óÁü
+	//lock ì„ ê±¸ì–´ì£¼ë©´ ê²°ê³¼ëŠ” ì˜ë‚˜ì™”ì§€ë§Œ í¼í¬ë¨¼ìŠ¤ê°€ ì˜¤íˆë ¤ ë–¨ì–´ì§ˆ ìˆ˜ë„ ìˆìŒ
 
 
-	//ÇØ°á ¹æ¹ı 2:
-	//atomic »ç¿ë
+	//ë©€í‹°ì“°ë ˆë”©ì„ ì²˜ìŒ ì‹œë„í•˜ëŠ” ê²½ìš° ì˜¤íˆë ¤ í¼í¬ë¨¼ìŠ¤ê°€ ë–¨ì–´ì§€ê±°ë‚˜ ê²°ê³¼ê°€ ë‹¤ë¥´ê²Œ ë‚˜ì˜¬ ìˆ˜ê°€ ìˆìŒ
+	//ê²½ìš°ì— ë”°ë¼ í˜„ìƒì€ ë‹¬ë¼ì§
+
+
+	//í•´ê²° ë°©ë²• 2:
+	//atomic ì‚¬ìš©
 	cout << "atomic" << endl;
 	{
 		const auto sta = chrono::steady_clock::now();
@@ -323,7 +323,7 @@ int main()
 		cout << sum << endl;
 		cout << endl;
 	}
-	//lock guard °É¾îÁÖ´Â°Í¿¡ ºñÇØ ±¸ÇöÀÌ °£´ÜÇÔ
+	//lock guard ê±¸ì–´ì£¼ëŠ”ê²ƒì— ë¹„í•´ êµ¬í˜„ì´ ê°„ë‹¨í•¨
 	/*std::inner_product
 	0.0450711
 	3024866372
@@ -331,18 +331,18 @@ int main()
 	atomic
 	1.74685
 	3024866372*/
-	//°á°ú´Â Àß ³ª¿ÔÁö¸¸ ´À¸²
-	//atomic µµ Áö±İ ¿¹Á¦¿¡¼­ ´õÇØÁö´Â ¿¬»êÀÚ ¿À¹ö·ÎµùÀÌ ºó¹øÇÏ°Ô ÀÏ¾î³ª°í ÀÖ°í, atomic ÀÇ ´õÇÏ±â ¿¬»êÀÌ
-	//ÀÏ¹İ int ÀÇ int ¿¬»êº¸´Ü ´À¸®±â ¶§¹®¿¡ ÆÛÆ÷¸Õ½º°¡ ¶³¾îÁü
+	//ê²°ê³¼ëŠ” ì˜ ë‚˜ì™”ì§€ë§Œ ëŠë¦¼
+	//atomic ë„ ì§€ê¸ˆ ì˜ˆì œì—ì„œ ë”í•´ì§€ëŠ” ì—°ì‚°ì ì˜¤ë²„ë¡œë”©ì´ ë¹ˆë²ˆí•˜ê²Œ ì¼ì–´ë‚˜ê³  ìˆê³ , atomic ì˜ ë”í•˜ê¸° ì—°ì‚°ì´
+	//ì¼ë°˜ int ì˜ int ì—°ì‚°ë³´ë‹¨ ëŠë¦¬ê¸° ë•Œë¬¸ì— í¼í¬ë¨¼ìŠ¤ê°€ ë–¨ì–´ì§
 
-	//ÀÌ·¸°Ô ºó¹øÇÏ°Ô È£ÃâµÇ´Â°÷¿¡ atomic À» ¾²¸é ´À·ÁÁü
+	//ì´ë ‡ê²Œ ë¹ˆë²ˆí•˜ê²Œ í˜¸ì¶œë˜ëŠ”ê³³ì— atomic ì„ ì“°ë©´ ëŠë ¤ì§
 
-	//°á°ú´Â Á¤È®ÇÏÁö¸¸ ´À¸²
+	//ê²°ê³¼ëŠ” ì •í™•í•˜ì§€ë§Œ ëŠë¦¼
 
 	
 
-	//ÇØ°á ¹æ¹ı 3:
-	//task based  parallelism	future »ç¿ë
+	//í•´ê²° ë°©ë²• 3:
+	//task based  parallelism	future ì‚¬ìš©
 	
 	cout << "future" << endl;
 	{
@@ -350,7 +350,7 @@ int main()
 
 		unsigned long long sum = 0;
 
-		vector<std::future<int>> futures;		//ull ÀÌ ¾Æ´Ñ ÀÌÀ¯: ºÎºĞÀÇ ÇÕÀº int ¹üÀ§ ¾È¿¡ µé¾î¿È
+		vector<std::future<int>> futures;		//ull ì´ ì•„ë‹Œ ì´ìœ : ë¶€ë¶„ì˜ í•©ì€ int ë²”ìœ„ ì•ˆì— ë“¤ì–´ì˜´
 		futures.resize(n_threads);
 
 		const unsigned n_per_thread = n_data / n_threads;
@@ -362,9 +362,9 @@ int main()
 
 		for (unsigned t = 0; t < n_threads; ++t)
 			sum += futures[t].get();
-		//¸ÖÆ¼¾²·¹µùÀ» ÇÒ¶§´Â °¢ thread µéÀÌ ¼­·Î ¿µÇâÀ» ÁÖ°í ¹ŞÁö ¾Ê°í °¢ÀÚ ÀÛ¾÷À» ÇÏ°í 
-		//³¡³½ °á°ú¸¸ °¡Á®¿Í¼­ ÃëÇÕÇÏ´Â°ÍÀÌ °¡Àå ÁÁÀ½
-		//°á°ú ÃßÇÕÀº ´ÜÀÏ ¾²·¹µå¿¡¼­ ÇØµµ ÆÛÆ÷¸Õ½º ÀúÇÏ°¡ ¾øÀ½
+		//ë©€í‹°ì“°ë ˆë”©ì„ í• ë•ŒëŠ” ê° thread ë“¤ì´ ì„œë¡œ ì˜í–¥ì„ ì£¼ê³  ë°›ì§€ ì•Šê³  ê°ì ì‘ì—…ì„ í•˜ê³  
+		//ëë‚¸ ê²°ê³¼ë§Œ ê°€ì ¸ì™€ì„œ ì·¨í•©í•˜ëŠ”ê²ƒì´ ê°€ì¥ ì¢‹ìŒ
+		//ê²°ê³¼ ì¶”í•©ì€ ë‹¨ì¼ ì“°ë ˆë“œì—ì„œ í•´ë„ í¼í¬ë¨¼ìŠ¤ ì €í•˜ê°€ ì—†ìŒ
 
 		const chrono::duration<double> dur = chrono::steady_clock::now() - sta;
 
@@ -372,11 +372,11 @@ int main()
 		cout << sum << endl;
 		cout << endl;
 	}
-	//Àü·« ÀÚÃ¼°¡ ´Ş¶óÁü, ±âÁ¸ ¿¹Á¦´Â sum ÀÌ¶ó´Â global º¯¼ö¸¦ µÎ°í ¿©·¯ thread °¡ ´Ş·Áµé¾î¼­ °ªÀ» ´õÇÏ´Â ¹æ½ÄÀÌ¾ú°í
-	//¿©±â¼­´Â °¢ thread °¡ local sum À» ±¸ÇÏ°í °á°ú¸¸ °¡Á®¿Í¼­ ÃßÇÕÇÔ
+	//ì „ëµ ìì²´ê°€ ë‹¬ë¼ì§, ê¸°ì¡´ ì˜ˆì œëŠ” sum ì´ë¼ëŠ” global ë³€ìˆ˜ë¥¼ ë‘ê³  ì—¬ëŸ¬ thread ê°€ ë‹¬ë ¤ë“¤ì–´ì„œ ê°’ì„ ë”í•˜ëŠ” ë°©ì‹ì´ì—ˆê³ 
+	//ì—¬ê¸°ì„œëŠ” ê° thread ê°€ local sum ì„ êµ¬í•˜ê³  ê²°ê³¼ë§Œ ê°€ì ¸ì™€ì„œ ì¶”í•©í•¨
 
-	//thread ¿¡¼­ ÀÌ·¸°Ô ¸øÇÏ´Â ÀÌÀ¯: thread ¿¡ µé¾î°¡´Â dotProductLock, dotProductAtomic °°Àº ÇÔ¼öµéÀº
-	//°ªÀ» return À» ¸øÇÔ
+	//thread ì—ì„œ ì´ë ‡ê²Œ ëª»í•˜ëŠ” ì´ìœ : thread ì— ë“¤ì–´ê°€ëŠ” dotProductLock, dotProductAtomic ê°™ì€ í•¨ìˆ˜ë“¤ì€
+	//ê°’ì„ return ì„ ëª»í•¨
 
 	/*std::inner_product
 	0.0434677
@@ -385,14 +385,14 @@ int main()
 	future
 	0.0253126
 	3024655284*/
-	//°á°úµµ Á¤È®ÇÏ°í ¼Óµµµµ »¡¶óÁü
+	//ê²°ê³¼ë„ ì •í™•í•˜ê³  ì†ë„ë„ ë¹¨ë¼ì§
 
-	//thread °¡ 4 °³ »ç¿ëÇÏ´Âµ¥ 1/4 º¸´Ü Á¶±İ ´õ °É¸²
+	//thread ê°€ 4 ê°œ ì‚¬ìš©í•˜ëŠ”ë° 1/4 ë³´ë‹¨ ì¡°ê¸ˆ ë” ê±¸ë¦¼
 	
 
 
-	//future ¸¦ ¾²´Â°ÍÀÌ ¹«Á¶°Ç ÁÁ´Ù°í ´À³¥ ¼ø ÀÖÀ¸³ª ²À ±×·¸Áöµµ ¾ÊÀ½
-	//diveide and conquer ¹æ¹ıÀ» ÀÌ¿ëÇÏ¿© std::thread ¸¦ ÀÌ¿ëÇÏ¿© ±¸Çö, atomic À» ÀÌ¿ëÇÏ¿© ±¸Çö, promise ¸¦ »ç¿ëÇÏ¿© ±¸Çö
+	//future ë¥¼ ì“°ëŠ”ê²ƒì´ ë¬´ì¡°ê±´ ì¢‹ë‹¤ê³  ëŠë‚„ ìˆœ ìˆìœ¼ë‚˜ ê¼­ ê·¸ë ‡ì§€ë„ ì•ŠìŒ
+	//diveide and conquer ë°©ë²•ì„ ì´ìš©í•˜ì—¬ std::thread ë¥¼ ì´ìš©í•˜ì—¬ êµ¬í˜„, atomic ì„ ì´ìš©í•˜ì—¬ êµ¬í˜„, promise ë¥¼ ì‚¬ìš©í•˜ì—¬ êµ¬í˜„
 	/*
 	std::inner_product
 	0.0469466
@@ -432,7 +432,7 @@ int main()
 	*/
 
 	
-	//TODO: use diveide and conquer(3¹ø ¹æ¹ı) strategy for std::thread
+	//TODO: use diveide and conquer(3ë²ˆ ë°©ë²•) strategy for std::thread
 	cout << "divide and conquer using std::thread" << endl;
 	{
 		const auto sta = chrono::steady_clock::now();
@@ -524,7 +524,7 @@ int main()
 	divide and conquer using promise
 	0.030376
 	3025121175*/
-	//std::inner_product º¸´Ù ºü¸£°í std::transform_reduce º¸´Ü ´À¸²
+	//std::inner_product ë³´ë‹¤ ë¹ ë¥´ê³  std::transform_reduce ë³´ë‹¨ ëŠë¦¼
 
 
 	//TODO: use atomic
@@ -571,11 +571,11 @@ int main()
 
 
 
-	//³»ÀûÇÏ´Â ¿¹Á¦°¡ º´·ÄÃ³¸® ÇÏ±â ½¬¿î ¿¹Á¦ÀÓ
-	//³»ÀûÇÏ´Â ¶óÀÌºê·¯¸® std::transform_reduce °¡ C++17 ¿¡ ÀÖÀ½
-	//std::sort µµ º´·Ä Ã³¸®¸¦ Áö¿øÇØÁÜ, °£´ÜÇÑ ¿¬»êÀº °¡Á®´Ù ¾µ ¼ö ÀÖÀ½
-	//´ë½Å std °¡ ¸ğµç ¹®Á¦¸¦ º´·Ä Ã³¸®ÇØÁÖÁø ¾ÊÀ½
-	//º´·ÄÃ³¸® ÇßÀ»¶§ ¹®Á¦°¡ ¹ß»ıÇÒ ¿©Áö´Â ºĞ¸íÈ÷ ÀÖÀ½
+	//ë‚´ì í•˜ëŠ” ì˜ˆì œê°€ ë³‘ë ¬ì²˜ë¦¬ í•˜ê¸° ì‰¬ìš´ ì˜ˆì œì„
+	//ë‚´ì í•˜ëŠ” ë¼ì´ë¸ŒëŸ¬ë¦¬ std::transform_reduce ê°€ C++17 ì— ìˆìŒ
+	//std::sort ë„ ë³‘ë ¬ ì²˜ë¦¬ë¥¼ ì§€ì›í•´ì¤Œ, ê°„ë‹¨í•œ ì—°ì‚°ì€ ê°€ì ¸ë‹¤ ì“¸ ìˆ˜ ìˆìŒ
+	//ëŒ€ì‹  std ê°€ ëª¨ë“  ë¬¸ì œë¥¼ ë³‘ë ¬ ì²˜ë¦¬í•´ì£¼ì§„ ì•ŠìŒ
+	//ë³‘ë ¬ì²˜ë¦¬ í–ˆì„ë•Œ ë¬¸ì œê°€ ë°œìƒí•  ì—¬ì§€ëŠ” ë¶„ëª…íˆ ìˆìŒ
 	cout << "std::transform_reduce" << endl;
 	{
 		const auto sta = chrono::steady_clock::now();
@@ -589,10 +589,10 @@ int main()
 		cout << sum << endl;
 		cout << endl;
 	}
-	//std::inner_product ÀÇ »ç¿ë¹ı°ú °ÅÀÇ À¯»çÇÏÁö¸¸ std::execution::parÀÌ¶ó´Â ÀÏÁ¾ÀÇ flag °¡ ÇÏ³ª µé¾î°¨
-	//parall ÀÇ par ÀÓ, ºñµ¿±âÀûÀ¸·Î µ¹·Á´Ş¶ó ¶õ ÀÇ¹Ì
-	//std::execution::seq ·Î ³ÖÀ¸¸é ¼øÂ÷ÀûÀ¸·Î ½ÇÇàÇÔ, std::inner_product ¶û ÆÛÆ÷¸Õ½º°¡ °ÅÀÇ ºñ½ÁÇØÁü
-	//future º¸´Ü »ìÂ¦ »¡¶óÁü
+	//std::inner_product ì˜ ì‚¬ìš©ë²•ê³¼ ê±°ì˜ ìœ ì‚¬í•˜ì§€ë§Œ std::execution::parì´ë¼ëŠ” ì¼ì¢…ì˜ flag ê°€ í•˜ë‚˜ ë“¤ì–´ê°
+	//parall ì˜ par ì„, ë¹„ë™ê¸°ì ìœ¼ë¡œ ëŒë ¤ë‹¬ë¼ ë€ ì˜ë¯¸
+	//std::execution::seq ë¡œ ë„£ìœ¼ë©´ ìˆœì°¨ì ìœ¼ë¡œ ì‹¤í–‰í•¨, std::inner_product ë‘ í¼í¬ë¨¼ìŠ¤ê°€ ê±°ì˜ ë¹„ìŠ·í•´ì§
+	//future ë³´ë‹¨ ì‚´ì§ ë¹¨ë¼ì§
 
 	return 0;
 }
